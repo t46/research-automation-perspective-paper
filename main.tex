@@ -6,6 +6,14 @@
 % Replace `letterpaper' with `a4paper' for UK/EU standard size
 \usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
 \usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=red]{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=pink,
+}
 
 \title{Research Automation White Paper}
 \author{Shiro Takagi}
@@ -123,14 +131,41 @@ While academic papers are already structured into sections such as introduction,
 There are various techniques for writing academic papers, but they are all designed with the assumption that humans will be reading the paper. Papers are considered to be ``reports'' and are expected to provide information to readers at a low cost. Additionally, papers are usually peer-reviewed and published in academic journals, so it is necessary to write attractive and engaging papers that will be accepted by the best journals. In this sense, papers are also ``works of art.'' However, I believe that the essential nature of papers lies in their role as the foundation of knowledge production, making papers an asset in terms of their ``knowledge'' aspect.
 
 \subsubsection{Peer Review}
-In current research, a small group of experts review papers and the results that pass through their review are publicly published. The review evaluates papers from multiple different perspectives. For example, at NeurIPS 2022, papers are evaluated based on the criterias of originality, quality, clarity, and significance.
+In current research, a small group of experts review papers and the results that pass through their review are published. The review evaluates papers from multiple different perspectives. For example, at NeurIPS 2022, papers are evaluated based on the criterias of originality, quality, clarity, and significance.
 
 
 \section{Research Automation}
+From the aforementioned perspective of automation in research, it can be broadly classified into two categories. The first is the automation of tasks such as reading and writing papers and reviews. This corresponds to the outer part of the box in the Fig. 
 
-Automation of abstract processes
+The second category is the automation of the inner part of the box, which involves transforming unknowns into knowns. The instantiation of this category varies greatly depending on the domain, therefore, finer classification of the automation of the latter will be discussed later again.
 
-Automation of individual concrete processes
+\subsection{Outside of the Box}
+
+\subsubsection{Reading}
+The majority of research on automation in research pertains to automating operations related to papers. Specifically, research on information extraction from papers constitutes the majority. Here, "reading" refers to extracting information from papers.
+
+Several methods specialized in extracting specific information have been proposed. For instance, there are studies for extracting mathematical expressions \cite{greiner2020math,madisetty2021neural}, measure \cite{harper2021semeval,kohler2021s}, tabale and figure \cite{shen2022vila,hashmi2021current,zhuang2022resel,yamamoto2021visual}, dataset \cite{hou2019identification,kumar2021dataquest,prasad2019dataset}, and results \cite{kardas2020axcell}.
+
+There are also studies that focus not on information extraction, but on determining the meaning of sentences written in papers. One representative example is research on citation classification, which involves understanding the intent behind the cited text \cite{pride2019act,kunnath2021meta,kunnath2022dynamic,kunnath2022act2}. Another example is topic/theme classification, which detect the main topic of the paper \cite{sadat2022hierarchical,mendoza2022benchmark,salatino2022cso}.
+
+One of the most heavily researched areas of information extraction from scientific papers is summarization. Some studies propose methods to generate the contribution of a paper \cite{hayashi2020s}, scientific claims \cite{wright2022generating}, and lay summarization \cite{goldsack2022making}. Other studies have attempted to create better paper summaries using citation graph \cite{chen2022scientific,an2021enhancing}, or propose the summarization system \cite{erera2019summarization}.
+
+Many of the earlier summarization studies only used limited information such as abstracts. In recent years, there have been proposed studies that generate summaries by reading the entire paper \cite{subramanian2019extractive,qi2022sapgraph,dong2020discourse,tretyak2020combination}.
+
+Also, the number of papers has increased dramatically, and the time available for obtaining information from a single paper has become increasingly limited. Thus, some studies propose the methods to generate extremely short summaries, such as TLDR \cite{cachola2020tldr} and key phrases \cite{boudin2021keyphrase,garg2021keyphrase}.
+
+To advance these summarization studies, some studies propose datasets \cite{yasunaga2019scisummnet,bastan2022sume} and annotation platforms \cite{el2022platform} for paper summarization. 
+
+The early research on paper summarization, which was conducted relatively early, is well summarized in \cite{altmami2022automatic}. If you are interested, please also refer to this paper.
+
+\subsubsection{Writing}
+
+\subsubsection{Peer Review}
+
+\subsection{Outsize of the Box}
+% The Process of Creating New Knowledge
+
+
 
 \section{Proposal}
 
@@ -141,5 +176,11 @@ Automation of tasks and fundamentally autonomous (end-to-end) research
 Proposal for the progress towards the realization of intelligence that can autonomously conduct research.
 
 \section{Conclusion}
+
+% \bibliographystyle{apalike}
+% \bibliography{ref}
+
+\bibliographystyle{unsrt}
+\bibliography{ref}
 
 \end{document}
