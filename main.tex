@@ -8,7 +8,7 @@
 \usepackage{graphicx}
 \usepackage{xcolor}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=red]{hyperref}
-\setlength{\parindent}{0pt}
+% \setlength{\parindent}{0pt}
 
 \hypersetup{
     colorlinks=true,
@@ -145,9 +145,8 @@ There are various techniques for writing academic papers, but they are all desig
 
 
 \section{Research Automation}
-From the aforementioned perspective of automation in research, it can be broadly classified into two categories. The first is the automation of tasks such as reading and writing papers and reviews. This corresponds to the outer part of the box in the Fig. 
 
-The second category is the automation of the inner part of the box, which involves transforming unknowns into knowns. The instantiation of this category varies greatly depending on the domain, therefore, finer classification of the automation of the latter will be discussed later again.
+\subsection{Pipeline}
 
 \subsection{Literacy}
 
@@ -209,31 +208,40 @@ Because of its nature as an answer to the objective, what constitutes a hypothes
 
 Therefore, I acknowledge that there are still few proposed methods for automatically generating hypotheses that are applicable to all research areas. However, there are already several attempts at automating the elements that are considered important in hypothesis generation.
 
-\textbf{Analogy} One of the elements considered important in this regard is the automation of \textit{analogical reasoning}. While the specifics of the research objectives may differ, they all share a common aim of proposing solutions that transform the unknown into the known or unresolved into the resolved. However, it is impossible to make meaningful inferences about completely unrelated subjects that have no connection to the known. The objectives and potential proposals are expected to be similar to some extent to those that existed in the past. Therefore, discovering similarities in the structure of past objectives and the current objective, and applying the means that were effective in solving past problems to the new objective, can increase the likelihood of achieving the objective. In this sense, analogical reasoning, which involves inferences based on the structural similarities between two objects, is considered to be crucial for hypothesis generation \cite{hesse1965models,thagard_1984,gentner1993shift,holyoak1996mental,dunbar1997scientists,gentner2002analogy}. In recent years, several researchers have presented studies on automating scientific analogical reasoning for identifying the relationship between problems and their corresponding solutions using data from scientific papers \cite{kang2022augmenting,chan2018solvent}. 
+\textbf{Analogy} 
+% TODO: Reframe this based on the cognitive aspect borrowing from "A Computational Inflection for Scientific Discovery"
 
-\textbf{Symbolic Regression} Modern science is composed of a cycle of observation, hypothesis generation, and hypothesis testing. In many fields, including physics, chemistry, and biology, mathematical models are often constructed as hypotheses from observational data. That is to say, formulating a mathematical representation that elucidates the phenomenon behind the data is an extremely critical step in science. One attempt to automate this endeavor is symbolic regression \cite{makke2022interpretable}. While classical approaches to symbolic regression have traditionally employed methods such as evolutionary computation, recent years have seen the emergence of strategies utilizing deep neural networks \cite{petersen2019deep,udrescu2020ai,udrescu2020ai2,cranmer2020discovering,kamienny2022end,d2022deep}. Some researchers have proposed the frameworks \cite{landajuela2022unified,keren2023computational} and benchmarks \cite{matsubara2022rethinking} for symbolic regression.
+One of the elements considered important in this regard is the automation of \textit{analogical reasoning}. While the specifics of the research objectives may differ, they all share a common aim of proposing solutions that transform the unknown into the known or unresolved into the resolved. However, it is impossible to make meaningful inferences about completely unrelated subjects that have no connection to the known. The objectives and potential proposals are expected to be similar to some extent to those that existed in the past. Therefore, discovering similarities in the structure of past objectives and the current objective, and applying the means that were effective in solving past problems to the new objective, can increase the likelihood of achieving the objective. In this sense, analogical reasoning, which involves inferences based on the structural similarities between two objects, is considered to be crucial for hypothesis generation \cite{hesse1965models,thagard_1984,gentner1993shift,holyoak1996mental,dunbar1997scientists,gentner2002analogy}. 
 
-\textbf{Others} Indeed, some methods have been proposed that don't generate hypotheses directly, but rather assist humans in generating hypotheses from experimental data 
+In recent years, several researchers have presented studies on automating scientific analogical reasoning for identifying the relationship between problems and their corresponding solutions using data from scientific papers \cite{kang2022augmenting,chan2018solvent}. 
+Systems have been proposed that recommend researchers who are pursuing analogous objectives via divergent approaches \cite{portenoy2022bursting}. Similar to the case of analogical reasoning, this concentrates on abstract relationships, aiding in the generation of beneficial hypotheses by applying previously successful methods to novel techniques.
+
+\textbf{Symbolic Regression} 
+
+Modern science is composed of a cycle of observation, hypothesis generation, and hypothesis testing. In many fields, including physics, chemistry, and biology, mathematical models are often constructed as hypotheses from observational data. That is to say, formulating a mathematical representation that elucidates the phenomenon behind the data is an extremely critical step in science. One attempt to automate this endeavor is symbolic regression \cite{makke2022interpretable}. While classical approaches to symbolic regression have traditionally employed methods such as evolutionary computation, recent years have seen the emergence of strategies utilizing deep neural networks \cite{petersen2019deep,udrescu2020ai,udrescu2020ai2,cranmer2020discovering,kamienny2022end,d2022deep}. Some researchers have proposed the frameworks \cite{landajuela2022unified,keren2023computational} and benchmarks \cite{matsubara2022rethinking} for symbolic regression.
+
+\textbf{Others} 
+
+Indeed, some methods have been proposed that don't generate hypotheses directly, but rather assist humans in generating hypotheses from experimental data 
  \cite{friederich2021scientific}.
 
-\subsubsection{Verification Design}
+\subsubsection{Verification}
+\textbf{Verification Design}
+
 Once a hypothesis is formulated, a plan is developed to test its validity. The design of this verification plan is far more flexible than that of hypothesis generation, making it more difficult to handle uniformly. To be more precise, while many sciences have standardized methods such as statistical tests for verification, there is a wide variety of methods for generating the data used for the verification. One study may require a huge machine to collide elementary particles, while another may use rats for behavioral experiments. Some studies may require the use of chemicals, while others can be simulated on a computer. Furthermore, even with standardized statistical tests, as mentioned earlier, automating their creation from scratch proves exceedingly challenging. It is readily apparent that devising standardized methodologies like statistical tests is difficult when one must not merely employ them as tools but also contemplate the very nature of what it means to verify, as well as the rationale behind adopting specific assumptions. Therefore, it may not be an overstatement to say that this aspect represents the biggest obstacle towards achieving complete automation of research in a unified manner.
 
 Some researchers have tried to automate experimental design for quantum physics \cite{ruiz2022digital} or proposed to design workflow of scientific research as a software \cite{goble2020fair}. Additionally, research exists that proposes machine learning algorithms for formulating and executing experimental designs in a more abstract and simple manner \cite{herrmann2022learning}. The field of \textit{experimental design} has a long-standing history. Its primary objective is the automation of appropriate configuration and exploration for various conditions after you designed a base structure of an experiment. Specifically, research involving techniques such as Bayesian optimization for condition search has been conducted for some time \cite{chaloner1995bayesian,shahriari2015taking}.
 
-\subsubsection{Verification}
+\textbf{Verification Execution}
+
 Once a verification plan has been devised, the process proceeds in accordance with it. As previously mentioned, the approach may vary considerably. However, in many scientific methodologies, statistical techniques are employed. In these instances, the verification process can be broadly divided into two stages: 1. data generation and 2. analysis of the generated data for validation.
 
-\textbf{Data Generation}
 As previously mentioned, data generation methods span a wide range. Among these, attempts have been made to automate the work of researchers within laboratories, an endeavor known as Laboratory Automation. For instance, 
 some studies focus on automating cell culture tasks using humanoid robots \cite{ochiai2021variable},
 % TODO: add more
 
-\textbf{Analysis}
 % TODO: may differentiate the analysis for hypothesis generation from that for verification
-We interpret data processed according to a certain criterion, assessing the validity of our inferences. 
-
-Here, I make an explicit distinction between analysis for verification and analysis for hypothesis generation. Modern science is composed of a cycle of observation, hypothesis generation, and hypothesis testing. It's common to generate the next hypothesis to be tested from data produced for verification. However, this merely signifies that we conduct both hypothesis generation and testing through a somewhat inductive reasoning based on data. Therefore, in this context, we will focus on data analysis for hypothesis testing, while data analysis for hypothesis generation will be included in the hypothesis generation section introduced earlier.
+We interpret data processed according to a certain criterion, assessing the validity of our inferences. Here, I make an explicit distinction between analysis for verification and analysis for hypothesis generation. Modern science is composed of a cycle of observation, hypothesis generation, and hypothesis testing. It's common to generate the next hypothesis to be tested from data produced for verification. However, this merely signifies that we conduct both hypothesis generation and testing through a somewhat inductive reasoning based on data. Therefore, in this context, we will focus on data analysis for hypothesis testing, while data analysis for hypothesis generation will be included in the hypothesis generation section introduced earlier.
 
 To validate the plausibility of assertions, we currently employ statistical methods. There is research that automate the hypothesis testing \cite{gil2016automated}. 
 
@@ -251,6 +259,12 @@ While not centered on automation, certain studies engage in the scientific analy
 \subsection{Knowledge Sharing}
 
 Upon the completion of a study, the drafting of a manuscript, and its successful navigation of the peer-review process, the resulting findings are deemed to possess a degree of credibility as knowledge. Naturally, it would be hasty to assert that this alone births "correct" knowledge, as research demands iterative verification to confirm its validity. We convey such knowledge to others through various means, one of which is the presentation of research findings. To effectively communicate these outcomes, we create slides that elucidate our work. Studies also exist that strive to automate this aspect of the dissemination process \cite{sefid2019automatic}.
+
+\subsection{Perspectives}
+
+Hope et al. have written a captivating perspective paper on the automation of research, presenting a fresh and exciting viewpoint \cite{hope2022computational}. They introduce a human-centric idea aimed at efficiently extracting relevant information from the ever-expanding body of research data, tailored specifically to the tasks researchers are engaged in - a framework they term \textit{task-guided scientific knowledge retrieval}. They start by conceptualizing the act of research as an interaction between a researcher's \textit{inner cognitive world} and the \textit{outer world}, or \textit{scientific ecosystem}. Building on this, they underscore the vital role of representing and retrieving information that aligns with the inner cognitive world of researchers, deftly transforming the cognitive functions used in human research into algorithmic processes.
+
+Extensive discourse transpires concerning scientific discoveries. Yet, discussions pertaining to scientific comprehension remain relatively unexplored. Hope et al. delve into the conundrum of what it entails for a machine learning agent to not only unearth scientific knowledge but also to comprehend it \cite{krenn2022scientific}. They adopt a human-centric stance, positing that an agent's ability to offer explanations comprehensible to human scientists signifies the existence of its scientific understanding.
 
 \section{Proposal}
 
