@@ -1,2 +1,2 @@
-# White Paper for Research Automation
-This is a white paper for research automation.
+# Perspective Paper for Research Automation
+This is a perspective paper for research automation.
