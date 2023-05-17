@@ -10,16 +10,22 @@
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=red]{hyperref}
 % \setlength{\parindent}{0pt}
 
+% \usepackage{natbib}
+
+
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
     citecolor=[RGB]{255,34,255},
 }
 
-\title{Research Automation White Paper}
+\title{Research Automation Perspective Paper}
 \author{Shiro Takagi}
 
 \begin{document}
+% modification to natbib citations
+% \setcitestyle{authoryear,round,citesep={,},aysep={,},yysep={;}}
+\sloppy
 \maketitle
 
 \section{What is Research?}
@@ -147,6 +153,11 @@ There are various techniques for writing academic papers, but they are all desig
 \section{Research Automation}
 
 \subsection{Pipeline}
+While not necessarily using machine learning, there are several attempts to automate not a particular task but the entire research process. A seminal early works are Adam \cite{king2004functional}, and Eve \cite{williams2015cheaper}, closed-loop systems for scientific discovery. 
+
+Additionally, the concept of a \textit{scientific workflow}, which represents data and computational processing pipelines in research as software, emerged in the early 2000s. The developments and advances in research related to scientific workflows are consolidated in this literature \cite{barker2008scientific,atkinson2017scientific}. Additionally, these papers \cite{deelman2019role,nouri2021exploring} discusses how machine learning contributes to streamline the each step in the scientific workflow.
+
+These are not about creating machine learning agents that can do research. However, these are extremely important initiatives in terms of softwareizing the research process \cite{deelman2015pegasus,gil2011semantic}.
 
 \subsection{Literacy}
 
@@ -218,7 +229,7 @@ Systems have been proposed that recommend researchers who are pursuing analogous
 
 \textbf{Symbolic Regression} 
 
-Modern science is composed of a cycle of observation, hypothesis generation, and hypothesis testing. In many fields, including physics, chemistry, and biology, mathematical models are often constructed as hypotheses from observational data. That is to say, formulating a mathematical representation that elucidates the phenomenon behind the data is an extremely critical step in science. One attempt to automate this endeavor is symbolic regression \cite{makke2022interpretable}. While classical approaches to symbolic regression have traditionally employed methods such as evolutionary computation, recent years have seen the emergence of strategies utilizing deep neural networks \cite{petersen2019deep,udrescu2020ai,udrescu2020ai2,cranmer2020discovering,kamienny2022end,d2022deep}. Some researchers have proposed the frameworks \cite{landajuela2022unified,keren2023computational} and benchmarks \cite{matsubara2022rethinking} for symbolic regression.
+Modern science is composed of a cycle of observation, hypothesis generation, and hypothesis testing. In many fields, including physics, chemistry, and biology, mathematical models are often constructed as hypotheses from observational data. That is to say, formulating a mathematical representation that elucidates the phenomenon behind the data is an extremely critical step in science. One attempt to automate this endeavor is symbolic regression \cite{makke2022interpretable}, or equation discovery. While classical approaches to symbolic regression have traditionally employed methods such as evolutionary computation, recent years have seen the emergence of strategies utilizing deep neural networks \cite{petersen2019deep,udrescu2020ai,udrescu2020ai2,cranmer2020discovering,kamienny2022end,d2022deep}. Some researchers have proposed the frameworks \cite{landajuela2022unified,keren2023computational} and benchmarks \cite{matsubara2022rethinking} for symbolic regression. You can find a literature review of symbolic regression in \cite{makke2022interpretable}, and that of the early studies in \cite{kramer2023automated}.
 
 \textbf{Others} 
 
@@ -271,6 +282,25 @@ Hope et al. have written a captivating perspective paper on the automation of re
 
 Extensive discourse transpires concerning scientific discoveries. Yet, discussions pertaining to scientific comprehension remain relatively unexplored. Hope et al. delve into the conundrum of what it entails for a machine learning agent to not only unearth scientific knowledge but also to comprehend it \cite{krenn2022scientific}. They adopt a human-centric stance, positing that an agent's ability to offer explanations comprehensible to human scientists signifies the existence of its scientific understanding.
 
+\subsection{Applications}
+
+\subsubsection{Mathematics}
+The automation of mathematical proof, \textit{automated theorem proving} (ATP) , has been studied for a long time. Recently several effort has come up to improve ATP by using machine learning, and especially deep learning. The 
+ early seminal work is led by Schulz \cite{schulz2001learning} and Urban \cite{urban2004mptp,urban2008malarea}. The first work applying deep learning to ATP is \cite{irving2016deepmath}. Subsequently, numerous studies have emerged on Automated Theorem Proving (ATP) using deep learning \cite{bansal2019holist}. Recent studies on this topic are well organized in the following paper, so I recommend reading it if interested \cite{rabe2021towards}.
+ % TODO: more organized literature review
+
+ While research has been accumulated on ATP, there is still not much research done on the automated theorem discovery with a few exceptions \cite{gao2014systematic}. In recent years, attempts have been made to help humans to find mathematical conjectures \cite{davies2021advancing} and
+ automatically generate mathematical conjectures \cite{raayoni2021generating}  using machine learning.
+
+\subsubsection{Science}
+
+
+It has become commonplace to streamline domain-specific tasks in scientific research using machine learning, resulting in a vast number of published papers. Even just to mention a few that come to mind, there are studies on molecular biology \cite{jumper2021highly,senior2020improved}, material science \cite{ramprasad2017machine}, medical science \cite{vamathevan2019applications,shorten2021deep}, quantum mechanics \cite{carleo2017solving}, cosmology \cite{carleo2019machine}, genetics \cite{libbrecht2015machine}, and nuclear physics \cite{degrave2022magnetic}. Therefore, it is impossible to cover all applied studies of research automation of science. Here, I introduce a selection of fields and literature from among them. For the literature survey of these areas, please refer to \cite{xu2021artificial}.
+
+\textcolor{red}{TODO: Add application studies}
+
+
+
 \section{Proposal}
 
 Proposal for the progress of automation of individual tasks
@@ -281,10 +311,9 @@ Proposal for the progress towards the realization of intelligence that can auton
 
 \section{Conclusion}
 
-% \bibliographystyle{apalike}
-% \bibliography{ref}
 
-\bibliographystyle{unsrt}
+% \bibliographystyle{unsrt}
+\bibliographystyle{apalike}
 \bibliography{ref}
 
 \end{document}
