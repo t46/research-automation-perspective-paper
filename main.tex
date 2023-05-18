@@ -46,7 +46,7 @@ The purpose of this paper is to discuss the possibility of automating this activ
 
 One thing to note here is that my aim is not to automate or substitute the current research tasks, but to create intelligent agents capable of conducting research. In other words, as long as it is research, automated research may at first glance seem to be far removed from the current research activities. This is because the current research activity may not necessarily be the absolute optimal form in light of its purpose. 
 
-First, the optimal form is always influenced by the context of history. Of course, the optimum in the era when letterpress printing was mainstream is different from the optimum in the era when the Internet became infrastructure. Research itself has changed its form over time, and the optimal form of research in the present or future can naturally change. Moreover, it is believed that we have only explored a very limited range regarding the practice of research. The establishment of current research practices is a very recent event in human history, and we may not yet have arrived at the optimum way of intellectual production. Furthermore, current research assumes that humans are the main creators of knowledge. This naturally imposes human cognitive constraints, which may significantly limit the range of activities that can be conducted for knowledge production. 
+First, the optimal form is always influenced by the context of history. Of course, the optimum in the era when letterpress printing was mainstream is different from the optimum in the era when the Internet became infrastructure. Research itself has changed its form over time, and the optimal form of research in the present or future can naturally change. Moreover, as Nielsen and Qiu say \cite{nielsen}, it is believed that we have only explored a very limited range regarding the practice of research. The establishment of current research practices is a very recent event in human history, and we may not yet have arrived at the optimum way of intellectual production. Furthermore, current research assumes that humans are the main creators of knowledge. This naturally imposes human cognitive constraints, which may significantly limit the range of activities that can be conducted for knowledge production. 
 
 Therefore, instead of thinking about how to automate and streamline current tasks, I discuss the possibility of realizing intelligent agents that can autonomously perform the fundamental and core elements of research activity in a more optimal form, and what is necessary for this.
 
@@ -62,7 +62,7 @@ To create an agent capable of conducting research autonomously, it is crucial to
 \section{A Working Definition of Research}
 
 \subsection{Research as Knowledge Production}
-One commonly mentioned definition of research is the act of generating new knowledge. For instance, research of mathematics create unknown proofs of theorems, physics elucidates unknown natural laws, and engineering produces blueprints for never existed things. I will adopt this definition as the working definition in this paper. Therefore, whenever I refer to research in the following, please interpret it as discussing the knowledge production. \textcolor{red}{TODO: add examples}
+One commonly mentioned definition of research is the act of generating new knowledge. For instance, research of mathematics create unknown proofs of theorems, physics elucidates unknown natural laws, and engineering produces blueprints for never existed things. I will adopt this definition as the working definition in this paper. \textbf{Therefore, whenever I refer to research in the following, please interpret it as discussing the knowledge production.} \textcolor{red}{TODO: add examples}
 
 The reason why I deliberately use the word research instead of science is because I want to include fields like humanities and arts, which are not typically referred to as science, within the scope of automation in the long run. Science refers to a methodology for generating knowledge, and I believe that new knowledge is not necessarily produced only by scientific methods. I believe that so-called humanities and arts also share the commonality of producing new knowledge. Therefore, the definition of generating new knowledge can be said to encompass these fields as well.
 
@@ -75,7 +75,7 @@ Knowledge is what we know about a target. Thus, producing knowledge can be rephr
 
 However, there's a problem here, as the binary approach of categorizing things into known and unknown often does not always hold true. In deductive disciplines such as mathematics and logic, this might be different, but in the case of empirical sciences, due to their inductive nature, we cannot strictly assert that a certain hypothesis is correct. For example, even if a theory has withstood tens of thousands of tests, it is fundamentally impossible to deny the possibility that it may fail on the next attempt. As Karl Popper once aptly put it, all we can do is strengthen our confidence in the hypothesis by continuing to subject it to falsification tests \cite{popper1959logic}.
 
-When a hypothesis survives a test, it was said that our belief in the likelihood of the hypothesis strengthens. Empirical science implicitly assumes a principle that relies on inductive reasoning as the basis for these tests. For example, we believe that if the number of observations consistent with a certain claim increases, that claim is more likely to be valid (this is called the principle of confirmation). Additionally, we hold the belief that unless other factors change, what has held true so far will continue to hold true (this is called the principle of uniformity of nature). These principles of confirmation and uniformity are the foundations of inductive reasoning, and they are unavoidable in empirical science. However, both the principle of confirmation and the principle of uniformity are merely beliefs, and there is no guarantee anywhere that these are ``correct''. The reason these can serve as the foundation for testing is because these beliefs are far more solid than the belief in the likelihood of a hypothesis that someone has just recently presented. That is, empirical science could be described as an endeavor to update the likelihood of a hypothesis by tying the belief held about a certain hypothesis to a more solid belief. While mathematics and logic are rare examples, considering that all other research endeavors are fundamentally empirical, it may be possible to rephrase the endeavor of research, that is, the production of knowledge, as largely an endeavor to update our belief in the correctness of a certain object.
+When a hypothesis survives a test, it was said that our belief in the likelihood of the hypothesis strengthens. Empirical science implicitly assumes a principle that relies on inductive reasoning as the basis for these tests. For example, we believe that if the number of observations consistent with a certain claim increases, that claim is more likely to be valid (this is called the principle of confirmation). Additionally, we hold the belief that unless other factors change, what has held true so far will continue to hold true (this is called the principle of uniformity of nature). These principles of confirmation and uniformity are the foundations of inductive reasoning, and they are unavoidable in empirical science. However, both the principle of confirmation and the principle of uniformity are merely beliefs, and there is no guarantee anywhere that these are ``correct''. The reason these can serve as the foundation for testing is because these beliefs are far more solid than the belief in the likelihood of a hypothesis that someone has just recently presented. That is, empirical science could be described as an endeavor to update the likelihood of a hypothesis by tying the belief held about a certain hypothesis to a more solid belief. While mathematics and logic are rare examples, considering that all other research endeavors are fundamentally empirical, \textbf{it may be possible to rephrase the endeavor of research, that is, the production of knowledge, as largely an endeavor to update our belief in the correctness of a certain object.}
 
 \subsection{Disclaimer Regarding the Characteristics of Research}
 I have mentioned that research is an endeavor to transform the unknown into the known, but you may question what distinguishes it from other activities that appear to do the same. This issue arises from the fact that I have not properly defined knowledge in this paper. In this paper, I won't discuss this in detail but will limit myself to a brief disclaimer.
@@ -88,29 +88,29 @@ Next, you might question whose known and whose belief we are talking about. Know
 
 The reason I deliberately distinguished between mere knowledge and knowledge for humanity is because I believe that there could be knowledge for beings other than humans. As I have repeated, understanding is subjective, so if machines start conducting research in the future, it is natural to think that there will be unknowns for machines and beliefs for machines. Therefore, it's possible that we could live in a world where humans produce knowledge for humans, machines produce knowledge for machines, we could live in a world where knowledge is produced for all agents including machines and humans, or we could continue living in a world where knowledge is produced solely for humans. In this sense, I believe one of the problems that will be questioned in the future is whose objectivity and whose belief we are talking about. I will discuss this point in more detail later.
 
-\section{The Patterns in Research}
-
-It is believed that research began with individual and concrete tasks. Among them, common actions were patterned and crystallized as a scientific method. We currently recognize this abstract set of behaviors as research. For example, hypothetico-deductive method and hypothesis testing are abstracted scientific method.
-
-Also, researchers use a research paper as a medium of knowledge transfer. Therefore, there are patterned activities related to a research paper. Examples of these include conducting surveys, gathering information from papers, and writing a thesis.
-
-Note that these are necessary tasks just because we use a paper as a medium of knowledge transfer, but they may not necessarily be indispensable for generating new knowledge. There are other such tasks as well. For example, peer review and fund raising are essential to current research practices in society, but they may not necessarily be indispensable for knowledge production.
-
-In this way, various tasks arise in conjunction with research. When considering the automation and optimization of research, it is desirable to consider streamlining all of these tasks. However, in this article, we focus on the process from determining a research topic to publishing a research paper. We will refer to this process simply as the \textit{research process} from here on.
-
 \section{Research Process}
 
-\subsection{Overview}
+% It is believed that research began with individual and concrete tasks. Among them, common actions were patterned and crystallized as a scientific method. We currently recognize this abstract set of behaviors as research. For example, hypothetico-deductive method and hypothesis testing are abstracted scientific method.
 
-As mentioned earlier, research is an attempt to turn the unknown into the known. Therefore, the research process can be seen as a function that takes the unknown as input and outputs the known. However, in reality, a single research paper may not be enough to turn the unknown into the known. Therefore, in practice, the research process is considered to be a procedure that takes the unknown as input, and outputs a text that describes the procedures and their results, as well as their interpretation, in order to turn the unknown into the known.
+% Also, researchers use a research paper as a medium of knowledge transfer. Therefore, there are patterned activities related to a research paper. Examples of these include conducting surveys, gathering information from papers, and writing a thesis.
 
-First, let me structure the common research process. In particular, I will base the structuring of the research process on the method of empirical science, which many researches rely on as a foundation. However, I believe that this framework can be applied to other research activities, such as mathematics, as well. I will explain the reason for this later.
+% Note that these are necessary tasks just because we use a paper as a medium of knowledge transfer, but they may not necessarily be indispensable for generating new knowledge. There are other such tasks as well. For example, peer review and fund raising are essential to current research practices in society, but they may not necessarily be indispensable for knowledge production.
 
-The research process, especially that of empirical science, is carried out through the following steps: topic decision, hypothesis generation, verification design, verification, and analysis of experimental results. The outputs of these steps are then written into a paper, which undergoes peer review and is eventually published.
+% In this way, various tasks arise in conjunction with research. When considering the automation and optimization of research, it is desirable to consider streamlining all of these tasks. However, in this article, we focus on the process from determining a research topic to publishing a research paper. We will refer to this process simply as the \textit{research process} from here on.
 
-Note that some commonly seen items, such as surveys, are not included here for a reason. First, as mentioned earlier, gathering information from papers is only a means of knowledge transfer through the use of a thesis. Second, information extraction from papers can be done at any stage of the research process. Thus, I believe that processing related to a paper, such as \textit{reading papers} and \textit{writing a paper}, needs to be considered separately from the aforementioned research process.
+% \subsection{Overview}
 
-Taking all of this into account, the research process can be expressed as follows:
+% As mentioned earlier, research is an attempt to turn the unknown into the known. Therefore, the research process can be seen as a function that takes the unknown as input and outputs the known. However, in reality, a single research paper may not be enough to turn the unknown into the known. Therefore, in practice, the research process is considered to be a procedure that takes the unknown as input, and outputs a text that describes the procedures and their results, as well as their interpretation, in order to turn the unknown into the known.
+
+% First, let me structure the common research process. In particular, I will base the structuring of the research process on the method of empirical science, which many researches rely on as a foundation. However, I believe that this framework can be applied to other research activities, such as mathematics, as well. I will explain the reason for this later.
+
+% The research process, especially that of empirical science, is carried out through the following steps: topic decision, hypothesis generation, verification design, verification, and analysis of experimental results. The outputs of these steps are then written into a paper, which undergoes peer review and is eventually published.
+
+% Note that some commonly seen items, such as surveys, are not included here for a reason. First, as mentioned earlier, gathering information from papers is only a means of knowledge transfer through the use of a thesis. Second, information extraction from papers can be done at any stage of the research process. Thus, I believe that processing related to a paper, such as \textit{reading papers} and \textit{writing a paper}, needs to be considered separately from the aforementioned research process.
+
+Next, I will discuss how human beings have been conducting research. I'll structurize the abstract pattern of the process (which I will call\textit{ research process}) from determining the unknown to it becoming known. I will pay a particular attention to the scientific methods established by empirical sciences. However, as will be mentioned later, I believe this pattern may implicitly apply to other research fields, such as mathematics and humanities as well. Also, I will try to distinguish and discuss these research processes into necessary components for knowledge production and those that are not. As previously mentioned, because humans are currently the primary creators of knowledge, there are many constraints that come from human society. When considering the possibility of machines conducting research in the future, it will be extremely important to distinguish and organize what is dependent on humans and what is not.
+
+I believe that the conduct of human research can be roughly divided into three stages: knowledge production, knowledge evaluation, and knowledge sharing. Although these may not necessarily be distinctly separable from each other, I adopt this classification because it is useful for advancing discussion. The process of knowledge production consists largely of the steps: problem determination, hypothesis generation, verification design, and verification. And in this process, the ability to read and write documents and analyze data are required as necessary skills. Below, I will examine each of these in more detail. These are summarized in the Fig. \ref{fig:research_process}.
 
 \begin{figure}[htb]
     \centering
@@ -119,16 +119,16 @@ Taking all of this into account, the research process can be expressed as follow
     \label{fig:research_process}
 \end{figure}
 
-This structuring is tentative and there may be a better way to structure the research process. However, I have created this structure for practical purposes in order to move the discussion forward. I will explain the reason for this division later. It is extremely important to consider research and, ultimately, the automation of research when thinking about better structuring. I hope the structure of this article be a starting point for conceiving a better structurization.
 
-I will now proceed to a more detailed explanation of each step in the structured research process, followed by a separate discussion on reading and writing research papers.
+This structuring is tentative and there may be a better way to structure the research process. However, I have created this structure for practical purposes in order to move the discussion forward. I hope the structure of this article be a starting point for conceiving a better structurization. I believe that structuring and deepening understanding of the elements that are essentially important for knowledge production is extremely crucial when aiming for the automation of research.
 
-\subsection{Topic Decision}
-As mentioned earlier, research is an act of creating new knowledge. Usually, when people engage in research, they have a specific \textit{purpose} in mind before they decide what unknown they try to make known.
+\subsection{Knowledge Production}
+\subsubsection{Question Construction}
+To transform the unknown into the known, we first need to determine the unknown that will be the subject, in other words, we must construct a research question. We approach the unknown to the known by asking questions, providing tentative answers to them, and then verifying the validity of those answers. 
 
-For example, let's say that someone proposes an algorithm that extends the reasoning capabilities of neural networks. This research may entails the thought process of ``I want to create artificial general intelligence, which requires reasoning capabilities, and for that we need to....'' In this case, the final purpose is to achieve ``artificial general intelligence'', and the research conducted as a result is ``proposing an algorithm that extends the reasoning capabilities of neural networks.'' Of course, this purpose may also be a means to achieve another purpose (such as intellectual curiosity), but since we cannot infinitely regress, we will assume that there is one purpose for one study.
+Indeed, the idea that thinking of good questions is extremely important for research is widely accepted in the research community \cite{alon2009choose}. In other words, this means that we distinguish between questions that are important and those that are not, based on certain criteria. For example, \cite{alon2009choose} suggests that a good question is one that solves challenges facing the research community. We consider a question to be important if it generates knowledge that greatly contributes to a certain purpose. Valuing the degree of contribution to a purpose also implies viewing research as a form of problem-solving.
 
-In any case, there is gap between the purpose and the unknown we are trying to make known. We connect the sub-goals (, or sub-unknowns) by multi-step plausible inferences process.
+In practice, we seem to determine the questions we should tackle in this way, implicitly and explicitly. For example, let's say that someone try to answer a question of ``How neural networks have reasoning capability?'' in his/her study. This question may come from a thought process of ``I want to create artificial general intelligence, which requires systematic thinking, that needs ...'' In this case, the final purpose is to achieve ``artificial general intelligence'', and the question addressed as a result is ``ow neural networks have reasoning capability?'' In other words, when we want to conduct important research, we follow a process that starts with the goal we want to achieve, considers the tree of important unknowns that should be clarified for its achievement, and sets the end of that tree as the research question. This process is summarized in Fig. \ref{fig:unknown_tree}.
 
 \begin{figure}[htb]
     \centering
@@ -137,10 +137,17 @@ In any case, there is gap between the purpose and the unknown we are trying to m
     \label{fig:unknown_tree}
 \end{figure}
 
+Of course, the purpose mentioned here may be a sub-goal of a higher-level goal. For example, the goal of ``creating general artificial intelligence'' may be a sub-goal of a more fundamental goal of ``satisfying intellectual curiosity,'' and the goal of ``satisfying intellectual curiosity'' may be biologically demanded for better exploration of the environment. These can lead to an infinite regression when considered strictly, so I won't delve into it any further here, but it could become an important issue when considering how to realize fully autonomous agent to construct questions.
 
-In other words, when humans engage in research, topic selection and issue identification are necessary.
+Given these points, in realizing an agent that autonomously constructs questions, it may become important to consider how to automatically determine ``important questions,'' and how to acquire the ability to find goal-driven questions to solve for achieving the purpose. To achieve this, it would be important to first understand in more detail what kind of questions we consider important. It seems that we still lack an understanding of what kind of research questions are important, but in the field called \textit{science of science} \cite{wang2021}, which studies the research itself, scientific studies on research impact are also advancing. The insights gained here may provide important knowledge in building new algorithms and optimization metrics.
 
-\subsection{Hypothesis Generation}
+So far, I have explained the importance of constructing good questions. However, in light of the definition of knowledge production, this is not necessarily required for knowledge production to be as it is. From the perspective of knowledge production, as long as the unknown is truly unknown and can be rigorously approached towards becoming known, there should be no problem. The unknown can be anything arbitrary, and knowledge production itself does not demand a specific nature for it. The importance or value of knowledge is inherently dependent on context, so the significance of a certain knowledge is not determined a priori from the moment it is generated. Importance becomes an issue only when that knowledge is intended to be generated within human society, implicitly assuming that humans will use it in some form. In other words, the demand for importance is a constraint imposed by human society not by knowledge production.
+
+Science based on the importance of questions discussed above is a \textit{value-driven science} \cite{kitano2021nobel}. However, as previously mentioned, these may be due to cognitive constraints imposed by human society, including the inability to handle knowledge that is deemed ``unimportant.'' Therefore, when automating question generation, it may be possible to explore a wide range of questions, including those that were previously considered ``unimportant.'' In doing so, it is possible that knowledge that was not considered ``important'' according to previous criteria could actually be extremely significant. This is referred to as \textit{exploration-driven science} \cite{kitano2021nobel}, and it could become a new form of research liberated from constraints imposed by humans. 
+
+Indeed, it is impossible to create a completely value-neutral system. All agent systems must have some form of bias. However, what I would like to emphasize is the potential to incorporate biases different from the criteria previously used by humans, and how this can enable us to consider more diverse approaches to research. This highlights the importance of creating agents capable of autonomously conducting research .
+
+\subsubsection{Hypothesis Generation}
 Once the problem to be addressed has been identified, the next step is to generate a hypothesis. Research is an act of producing new knowledge, which can also be described as the act of converting the unknown to the known. Therefore, in research, inference about the unknown is inevitable. 
 
 The scientific method, a methodology for knowledge production as previously mentioned, predominantly employs the hypothesis testing method. In this approach, a prediction about the unknown is explicitly stated as a hypothesis, and a procedure called verification is established to evaluate the validity of this hypothesis. Through this verification process, the evaluation of the hypothesis is conducted and the uncertainty towards the target unknown is reduced. This is the knowledge production based on the hypothesis testing method.
@@ -151,7 +158,7 @@ In engineering research, as part of new knowledge, it is often required to propo
 
 In mathematical research, proving a theorem that was previously unknown is the production of knowledge. However, since mathematics is a deductive system, if the proof is correctly executed, it can be said to be ``correct'' in that sense. In other words, the proof itself is both the proposal and the verification. Therefore, mathematics is not a type of work that separates hypothesis and verification.
 
-\subsection{Verification Design}
+\subsubsection{Verification Design}
 Once a hypothesis has been established, a verification plan is created to determine how to verify it. The specific method of verification depends on the subject being investigated, making this aspect of research difficult to structurize and automate in a unified way.
 
 However, in many empirical sciences, the likelihood of a hypothesis is evaluated based on statistical significance. This is done by \textit{hypothesis testing} in practice. As this is a hypothesis test, it can only reject the null hypothesis, rather than directly determining the correctness of the hypothesis. Therefore, it can only be said that the hypothesis has survived for the time being. The belief that the surviving hypothesis is more likely to be valid is the basis for decision-making.
@@ -173,13 +180,13 @@ I separated the verification plan from the verification because I want to separa
 
 The output of this process is usually wrtitten in the result section in the paper.
 
-\subsection{Analysis}
+\subsubsection{Analysis}
 At this stage, researchers interpret the results obtained from the verification. While the process leading up to the verification involved following a pre-determined procedure, researchers now consider implications that may relate to the unknown that they originally attempted to solve. For example, they contemplate whether the hypothesis has been rejected or the claim has been supported, and whether there are any other noteworthy points to consider. In papers, this stage is often described in discussion section.
 
-\subsection{Peer Review}
+\subsubsection{Peer Review}
 In current research, a small group of experts review papers and the results that pass through their review are published. The review evaluates papers from multiple different perspectives. For example, at NeurIPS 2022, papers are evaluated based on the criterias of originality, quality, clarity, and significance.
 
-\subsection{Searching}
+\subsubsection{Searching}
 Research is an endeavor to create knowledge based on existing studies. Therefore, the first step is to search for papers that should be read. In this article, we refer to this process as \textit{search}.
 
 To find the necessary papers, you have to know what is written in each paper. Therefore, \textit{search} is closely related to \textit{reading}, which will be discussed in the next section. Here, For convenience, we will distinguish between the two: the former refers to finding the necessary papers from a large collection of papers, and the latter refers to extracting necessary information from the obtained single paper.
@@ -188,14 +195,14 @@ I shall make mention of the relationship between these concepts and the activity
 
 The distinction between the aforementioned tasks of reading and searching, as well as the definition of survey, are based solely on the fact that we humans distinguish between them. However, if desired information could be directly obtained through natural language instructions from a large set of academic paper data, the tasks of searching, reading, and comparison would become an end-to-end process. Thanks to the remarkable development of large-scale language models in recent years, such a possibility has become a realistic one. Further details on this possibility will be discussed later.
 
-\subsection{Reading}
+\subsubsection{Reading}
 As previously mentioned, acquiring information from academic papers is a fundamental task necessary in all aspects of research.
 
 In particular, there may be cases where one does not even know where to find the necessary knowledge. Therefore, in order to obtain the required information, it is necessary to first search for the academic papers themselves where the information is stored. 
 Additionally, researchers sometimes have to compare multiple papers. Researchers need to demonstrate in the paper that the problem they are trying to solve is truly unknown, and that their proposal is truly novel.
 
 A survey combines all of these tasks. In other words, it is the process of information retrieval and extraction from multiple academic papers followed by decision-making.
-\subsection{Writing}
+\subsubsection{Writing}
 
 Papers are assets, reports, and works.
 ``Importance'' is explained in a way that conveys information value to readers and makes them look attractive.
@@ -203,6 +210,8 @@ Papers are assets, reports, and works.
 While academic papers are already structured into sections such as introduction, method, results, discussion, and conclusion, I believe that further sub-structuring of these sections could make it easier for readers to gather information. For example, the introduction section contains a broad range of elements, but breaking it down into more detailed subheadings could help readers more easily access the information they need.
 
 There are various techniques for writing academic papers, but they are all designed with the assumption that humans will be reading the paper. Papers are considered to be ``reports'' and are expected to provide information to readers at a low cost. Additionally, papers are usually peer-reviewed and published in academic journals, so it is necessary to write attractive and engaging papers that will be accepted by the best journals. In this sense, papers are also ``works of art.'' However, I believe that the essential nature of papers lies in their role as the foundation of knowledge production, making papers an asset in terms of their ``knowledge'' aspect.
+
+\subsubsection{Data Analysis}
 
 
 \chapter{Research Automation}
@@ -265,7 +274,7 @@ Whether engaging in reading or writing, the presence of a system that comprehend
 % Modern research is constructed from three main phases: observation, hypothesis generation, and hypothesis validation <- not line but cycle
 
 \subsection{Issue Discovery}
-In research, tackling good scientific questions is of paramount importance \cite{alon2009choose}. In many instances, compelling questions are those that offer insights into the challenges faced by the research community. Lahav et al. have proposed a methodology for automating the discovery of prevailing challenges within the research community, as well as the emerging hypotheses to address them \cite{lahav2022search}.
+Lahav et al. have proposed a methodology for automating the discovery of prevailing challenges within the research community, as well as the emerging hypotheses to address them \cite{lahav2022search}.
 
 \subsection{Hypothesis Generation}
 A hypothesis is a proposition put forward in response to the problem or question that the research is focused on. These claims or proposals will be evaluated for their validity at a later stage through some form of procedure. These claims or proposals that involve uncertainty regarding its validity as an answer to the research objective are referred to as hypotheses in this context.
@@ -373,5 +382,9 @@ Proposal for the progress towards the realization of intelligence that can auton
 % \bibliographystyle{unsrt}
 \bibliographystyle{apalike}
 \bibliography{ref}
+
+\appendix
+\chapter{Research as Social Activity}
+In this paper, we will discuss automation focused on the unique elements of knowledge production as mentioned above. However, research is a social endeavor. And that society has various levels, such as research labs, universities, and research ecosystems. Therefore, if we think about optimizing the whole activity of research, we need to think about optimizing these wholes. Although it is out of the scope of this paper and therefore not discussed this time, I would like to discuss this in the future.
 
 \end{document}
