@@ -18,7 +18,7 @@ jobs:
         git config --local user.name "GitHub Action"
         git checkout gh-pages || git checkout -b gh-pages
         git fetch origin gh-pages
-        git merge -Xours
+        git merge -Xours origin/gh-pages
         git add .
         git commit -m "Add PDF"
-        git push origin gh-pages
+        git push -u origin gh-pages
