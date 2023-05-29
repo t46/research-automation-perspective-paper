@@ -57,7 +57,11 @@ Additionally, this paper is intended to be updated on an ongoing basis. If you f
 
 \chapter{What is Research?}
 
-To create an agent capable of conducting research autonomously, it is crucial to understand what research is in the first place. Research is a collective term for a series of similar practices that people have been building up since ancient times. Being a concept that has been shaped from the bottom up, it is difficult to establish a single absolute definition of research. Instead, I consider a working definition of research.
+To create an agent capable of conducting research autonomously, it is crucial to understand what research is in the first place. Therefore, in this chapter, I would like to discuss the characteristics of what is called research.
+
+However, my aim here is not to identify a universal, historically independent, and absolutely singular definition of what research is. It seems almost impossible to specify such a thing \cite{chalmers2013thing,sep-scientific-method}. I do not totally believe that I, a layperson in the philosophy of science, could provide an answer to a question that has yet to be resolved even within the philosophy of science.
+
+Rather, my goal is to endeavor to describe various characteristics of research to the extent that it can provide a starting point for engineers and information scientists who aim for autonomous research capabilities. To that end, I first discuss a possible working definition of research.
 
 \section{A Working Definition of Research}
 
@@ -77,6 +81,8 @@ However, there's a problem here, as the binary approach of categorizing things i
 
 When a hypothesis survives a test, it was said that our belief in the likelihood of the hypothesis strengthens. Empirical science implicitly assumes a principle that relies on inductive reasoning as the basis for these tests. For example, we believe that if the number of observations consistent with a certain claim increases, that claim is more likely to be valid (this is called the principle of confirmation). Additionally, we hold the belief that unless other factors change, what has held true so far will continue to hold true (this is called the principle of uniformity of nature). These principles of confirmation and uniformity are the foundations of inductive reasoning, and they are unavoidable in empirical science. However, both the principle of confirmation and the principle of uniformity are merely beliefs, and there is no guarantee anywhere that these are ``correct''. The reason these can serve as the foundation for testing is because these beliefs are far more solid than the belief in the likelihood of a hypothesis that someone has just recently presented. That is, empirical science could be described as an endeavor to update the likelihood of a hypothesis by tying the belief held about a certain hypothesis to a more solid belief. While mathematics and logic are rare examples, considering that all other research endeavors are fundamentally empirical, \textbf{it may be possible to rephrase the endeavor of research, that is, the production of knowledge, as largely an endeavor to update our belief in the correctness of a certain object.}
 
+This position may have some similarities with a famous stance in philosophy of science that argues everything is, at its core, subjective, relative or a matter of belief \cite{chalmers2013thing,kerlinger1973structure,howson2006scientific}. However, what I want to emphasize here is that I think the characteristic of research lies in tying beliefs about an object to stronger beliefs. And I believe that it is this strength of conviction, which seems self-evident to many people, that lends objectivity and persuasiveness to the claims of science.
+
 \subsection{Disclaimer Regarding the Characteristics of Research}
 I have mentioned that research is an endeavor to transform the unknown into the known, but you may question what distinguishes it from other activities that appear to do the same. This issue arises from the fact that I have not properly defined knowledge in this paper. In this paper, I won't discuss this in detail but will limit myself to a brief disclaimer.
 
@@ -87,6 +93,11 @@ Firstly, you may wonder if anything unknown would suffice. I believe that resear
 Next, you might question whose known and whose belief we are talking about. Knowing or understanding something is a subjective experience. Therefore, you might wonder if it can be called research if what is unknown to person A becomes closer to the known for person A. At least the knowledge currently being produced by research does not seem to be of this kind. This is because the knowledge produced by research implicitly assumes it to be knowledge for humanity. In other words, what current research is doing is bringing what is unknown to humanity closer to the known. Therefore, the knowledge produced must be interpretable by other humans, and it is important that the results and procedures are objective, that is, they align with the stronger beliefs of more people.
 
 The reason I deliberately distinguished between mere knowledge and knowledge for humanity is because I believe that there could be knowledge for beings other than humans. As I have repeated, understanding is subjective, so if machines start conducting research in the future, it is natural to think that there will be unknowns for machines and beliefs for machines. Therefore, it's possible that we could live in a world where humans produce knowledge for humans, machines produce knowledge for machines, we could live in a world where knowledge is produced for all agents including machines and humans, or we could continue living in a world where knowledge is produced solely for humans. In this sense, I believe one of the problems that will be questioned in the future is whose objectivity and whose belief we are talking about. I will discuss this point in more detail later.
+
+\subsection{The Previous Discussions Regarding the Definition of Research (Scientific Discovery).}
+
+
+In the previous section, I introduced my definition of research. Here, I will look back on the discussions that have taken place so far regarding the definition of research or scientific discoveries. Then, I will explain the correspondence between those discussions and the definition mentioned in the previous section. \textcolor{red}{TODO}
 
 \section{Research Process}
 
@@ -122,8 +133,7 @@ I believe that the conduct of human research can be roughly divided into three s
 
 This structuring is tentative and there may be a better way to structure the research process. However, I have created this structure for practical purposes in order to move the discussion forward. I hope the structure of this article be a starting point for conceiving a better structurization. I believe that structuring and deepening understanding of the elements that are essentially important for knowledge production is extremely crucial when aiming for the automation of research.
 
-\subsection{Knowledge Production}
-\subsubsection{Question Construction}
+\subsection{Knowledge Production: Question Construction}
 To transform the unknown into the known, we first need to determine the unknown that will be the subject, in other words, we must construct a research question. We approach the unknown to the known by asking questions, providing tentative answers to them, and then verifying the validity of those answers. 
 
 Indeed, the idea that thinking of good questions is extremely important for research is widely accepted in the research community \cite{alon2009choose}. In other words, this means that we distinguish between questions that are important and those that are not, based on certain criteria. For example, \cite{alon2009choose} suggests that a good question is one that solves challenges facing the research community. We consider a question to be important if it generates knowledge that greatly contributes to a certain purpose. Valuing the degree of contribution to a purpose also implies viewing research as a form of problem-solving.
@@ -141,28 +151,75 @@ Of course, the purpose mentioned here may be a sub-goal of a higher-level goal. 
 
 Given these points, in realizing an agent that autonomously constructs questions, it may become important to consider how to automatically determine ``important questions,'' and how to acquire the ability to find goal-driven questions to solve for achieving the purpose. To achieve this, it would be important to first understand in more detail what kind of questions we consider important. It seems that we still lack an understanding of what kind of research questions are important, but in the field called \textit{science of science} \cite{wang2021}, which studies the research itself, scientific studies on research impact are also advancing. The insights gained here may provide important knowledge in building new algorithms and optimization metrics.
 
+\subsubsection{Value-Neutral Question Construction}
+
 So far, I have explained the importance of constructing good questions. However, in light of the definition of knowledge production, this is not necessarily required for knowledge production to be as it is. From the perspective of knowledge production, as long as the unknown is truly unknown and can be rigorously approached towards becoming known, there should be no problem. The unknown can be anything arbitrary, and knowledge production itself does not demand a specific nature for it. The importance or value of knowledge is inherently dependent on context, so the significance of a certain knowledge is not determined a priori from the moment it is generated. Importance becomes an issue only when that knowledge is intended to be generated within human society, implicitly assuming that humans will use it in some form. In other words, the demand for importance is a constraint imposed by human society not by knowledge production.
 
 Science based on the importance of questions discussed above is a \textit{value-driven science} \cite{kitano2021nobel}. However, as previously mentioned, these may be due to cognitive constraints imposed by human society, including the inability to handle knowledge that is deemed ``unimportant.'' Therefore, when automating question generation, it may be possible to explore a wide range of questions, including those that were previously considered ``unimportant.'' In doing so, it is possible that knowledge that was not considered ``important'' according to previous criteria could actually be extremely significant. This is referred to as \textit{exploration-driven science} \cite{kitano2021nobel}, and it could become a new form of research liberated from constraints imposed by humans. 
 
 Indeed, it is impossible to create a completely value-neutral system. All agent systems must have some form of bias. However, what I would like to emphasize is the potential to incorporate biases different from the criteria previously used by humans, and how this can enable us to consider more diverse approaches to research. This highlights the importance of creating agents capable of autonomously conducting research.
 
+\subsubsection{Unknowness}
 In the previous statement, it was mentioned that as long as the unknown is truly unknown and it can be approached towards becoming known, there should be no problem. The process of approaching the known will be explained in the next section, and here I will delve a bit more into the determination of unknownness. 
 
 Currently, researchers often demonstrate the unknownness of a topic by referencing several previous studies in their papers and explaining that none of them have yet resolved the unknown. This implies the use of subjective evaluation criteria, where researchers examine several papers considered ``major literature'' in a field and consider them as unknown if none of them have provided an answer. Furthermore, as mentioned later, we evaluate the quality of research outcomes by having them assessed by a small number of experts in the same field. If these researchers determine that the previous studies have been sufficiently comprehensive, the determination of unknownness is considered somewhat valid. In other words, ultimately, the evaluation by a few experts may serve as the basis for establishing the unknownness.
 
 The current convention stems from the cognitive constraint that there is a limit to the literature that humans can examine. Since unknownness is a fundamental aspect of research, ideally, it should be evaluated objectively and rigorously. For instance, it would be desirable to quantitatively state which journals, what types of papers, and how many have been examined, and the result indicating their unknownness. Although systematic reviews already employ such approaches, there is, of course, a limit to the number of papers that can be evaluated manually. If machines did research, it would be possible to assess unknownness in a more data-driven manner. This becomes crucial in ensuring that the activity a machine does is truly research.
 
-\subsubsection{Hypothesis Generation}
-Once the problem to be addressed has been identified, the next step is to generate a hypothesis. Research is an act of producing new knowledge, which can also be described as the act of converting the unknown to the known. Therefore, in research, inference about the unknown is inevitable. 
+\subsection{Knowledge Production: Hypothesis Generation}
+We began by explaining that we first formulate the unknown we are addressing in the form of a question. The process of finding answers to this question is what constitutes research. Here, because the answer to this question is, of course, unknown, it requires inference as to what the answer could be. As a result of this inference, a plausible answer is formulated. This corresponds to the hypothesis generation.
 
-The scientific method, a methodology for knowledge production as previously mentioned, predominantly employs the hypothesis testing method. In this approach, a prediction about the unknown is explicitly stated as a hypothesis, and a procedure called verification is established to evaluate the validity of this hypothesis. Through this verification process, the evaluation of the hypothesis is conducted and the uncertainty towards the target unknown is reduced. This is the knowledge production based on the hypothesis testing method.
+In particular, science, by explicitly dividing the proposal of this plausible temporary answer and the corroboration of its tentative certainty into steps known as hypothesis generation and hypothesis verification, has enabled these processes to be carried out more systematically and rigorously. This is the well-known hypothesis-testing method, or scientific method. In this approach, a prediction about the unknown is explicitly stated as a hypothesis, and a procedure called verification is established to evaluate the validity of this hypothesis. Through this verification process, the evaluation of the hypothesis is conducted and the uncertainty towards the target unknown is reduced. This is the knowledge production based on the hypothesis testing method.
 
-Hypotheses are often implicitly established even if they are not explicitly stated. Moreover, multiple hypotheses are often created in a study. For example, in mathematics, knowledge production is achieved through a deductive process called proof. However, when searching for lemmas to use in this process, we sometimes make predictions such as ``this lemma might be useful`` and examine it with specific examples. This may be considered as implicitly establishing a hypothesis and roughly verifying it. Therefore, even if the hypothesis testing method is not explicitly utilized, hypothesis generation is considered to be a very important part of research in nature.
+Although we said that hypothesis generation is the important part of scientific method, the hypothesis generation is not necessarily unique to the empirical science. It is a task that inevitably arises when dealing with the unknown. 
 
-In engineering research, as part of new knowledge, it is often required to propose actual design plans or algorithms. This can be considered as having a similar function to a hypothesis in the sense that it is a proposal for addressing a problem and is evaluated in some way.
+Let's say, mathematics, a pure deductive field of research. In searching for lemmas to prove a theorem, we sometimes make predictions such as ``this lemma might be useful`` and examine it with few specific examples to check it usefulness. This may be considered as implicitly establishing a hypothesis and roughly verifying it. 
 
-In mathematical research, proving a theorem that was previously unknown is the production of knowledge. However, since mathematics is a deductive system, if the proof is correctly executed, it can be said to be ``correct'' in that sense. In other words, the proof itself is both the proposal and the verification. Therefore, mathematics is not a type of work that separates hypothesis and verification.
+If it were not necessary to make inferences about the unknown, it would probably be because the question was not unknown in the first place. Thus that is not research by definition. It may not be explicitly stated, but as long as it is research, it implicitly involves some form of hypothesis generation. 
+
+Therefore, the generation of a hypothesis, or the inference about the unknown, is essential for research in nature. In other words, in order to realize an intelligence capable of autonomously conducting research, it is necessary to consider how this task can be made possible.
+
+\subsubsection{Note on Unknown}
+Let me make a note here about the term unknown again. I wrote that if an answer can be immediately derived by inference, it was not unknown in the first place. However, research is an activity to transform the unknown into the known, so in some form, unknown should eventually approach the known (reducing uncertainty). Moreover, if there is something that seems to be completely unrelated to the known or experiences (though it is hard to imagine), it seems inherently impossible to bring it closer to the known. In that sense, it is reasonable to think that the unknown has some relationship with the known. Therefore, the above description might be more accurate if it refers to cases where the confidence in the answer is lower, or the path to the answer is complex, and uncertainty is high. This is similar to the discussion on the definition of"unknown in the previous section.
+
+\subsubsection{Machine Inference and Hypothesis}
+
+
+Here, I have explained that hypothesis generation is inference about the unknown, in other words, it is a prediction. As you all know, machine learning models also make predictions about unknown data. In this sense, prediction by machine learning can be equated with the generation of hypotheses. Therefore, when considering the automation of research, hypothesis generation can be dealt with as just a prediction task in a broad sense.
+
+Of course, hypothesis may have additional constraints on top of the prediction. For instance, there might be an implicit assumption that a hypothesis is something described in natural language. However, we think this is only due to the conventions of current human society. What is functionally important for the purpose of knowledge production is to provide a tentative answer to the unknown, regardless of its form or property. In this sense, in this paper, we take the position that hypothesis generation is the prediction.
+
+\subsubsection{Scientific Discovery}
+
+%％％％％％
+
+Since 19th centuries, the act of producing knowledge, in particular hypothesis, and that of verification of it have been distinguished as the context of discovery and context of justification \cite{sep-scientific-discovery}. And during the most of the 20th centuries, the discovery caught much less attention by philosophers of science. 
+
+In engineering discussions, there is often explicit formulation of sets or candidates of hypotheses, and the discovery of hypotheses in such situations is often discussed \cite{simon1973does,kitano2021nobel,bengio2022ml4sci}. However, when automating hypothesis generation it is also important to consider how such candidates arise in the first place. There have been attempts to understand this process, such as highlighting the importance of analogy \cite{thagard1984conceptual}, but the question of how to generate "good" hypotheses still remains unanswered.
+
+However, as emphasized above, what I aim for is not merely imitating human knowledge production, but rather the autonomous practice of knowledge production that is not bound by human conventions. And in terms of its functionality, hypothesis generation is sufficient as long as it meets the criterion of being an inference towards the unknown. In that sense, while understanding how humans generate hypotheses can be very useful in considering how to achieve effective hypothesis generation, I do not consider it necessary.
+
+The generation of initial hypothesis candidates has been discussed in the context of creativity in science. As you are well aware, current machine learning models are already capable of executing creative tasks effectively \cite{sep-creativity}. In that sense, it may be more meaningful from an engineering perspective to explore in more detail the methods for generating "good" hypotheses rather than just focusing on creativity. 
+
+Indeed, much of the current discourse on hypothesis generation focuses on specific research domains or discusses the exploration of hypotheses based on hypotheses that humans have explicitly defined. 
+
+I understand this situation because hypothesis is an answer to a tentative question and hence it varies depending on the question. For example, if a study aims to enhance our understanding of a particular phenomenon, then the description or mechanism of that phenomenon would become the hypothesis. Similarly, if the objective is to solve a particular problem, then the solution to that problem would be considered the hypothesis. 
+
+However, it is essential to consider how we can realize agents that construct candidates rather than just search for them, regardless of the specific research domain. This is a crucial question to address when contemplating artificial researchers.
+
+% \subsubsection{Others}
+
+% In engineering research, as part of new knowledge, it is often required to propose actual design plans or algorithms. This can be considered as having a similar function to a hypothesis in the sense that it is a proposal for addressing a problem and is evaluated in some way.
+
+% In mathematical research, proving a theorem that was previously unknown is the production of knowledge. However, since mathematics is a deductive system, if the proof is correctly executed, it can be said to be ``correct'' in that sense. In other words, the proof itself is both the proposal and the verification. Therefore, mathematics is not a type of work that separates hypothesis and verification.
+
+
+
+\subsection{Verification}
+
+A characteristics of research can be found in the systematicity, rigor, and objectivity of research practice \cite{sep-scientific-method,hoyningen2008systematicity,haack2003defending}. In particular, I believe that a characteristic of research lies not in the way of determining questions or generating hypotheses, but in the fact that the verification of hypotheses is done in an extremely rigorous and careful manner. It could be said that I'm taking a view similar to the new experimentalism, placing emphasis on verification in research, or experiments \cite{chalmers2013thing,mayo1996error}.
+
+Of course, generating a hypothesis is not a simple task. What we want to say is that, as long as any method of hypothesis generation is properly verified, it is considered research, and no matter how properly a hypothesis is proposed, if the verification is sloppy, it is not considered research. This means that verification may be at the heart of knowledge production. In other words, in order to create artificial intelligence that produces knowledge, it is important to consider how to create an intelligence that can perform verification.
 
 \subsubsection{Verification Design}
 Once a hypothesis has been established, a verification plan is created to determine how to verify it. The specific method of verification depends on the subject being investigated, making this aspect of research difficult to structurize and automate in a unified way.
@@ -178,6 +235,7 @@ In theoretical research, sometimes there is no verification plan. Theory is a hy
 % Therefore, it is understood that in current research practice, shared knowledge in the form of papers may not necessarily provide a complete answer to a given question. This is similar to research on negative data. Negative data cannot solve the unknown initially declared, but it can reduce a certain degree of uncertainty towards it. This is because the validity of the presented hypothesis may have decreased somewhat. If this is the case, each research shared in the form of a paper may be more appropriate to describe as "reducing uncertainty towards the unknown," rather than "making the unknown known." This can become complicated when scrutinized strictly, so let's put this aside for now and continue to discuss how "producing new knowledge" is research.
 
 In reality, conducting research is expected to be done with limited resources (time, funding, computing resources, people, etc.). Therefore, it is necessary to consider these resources when determining the verification approach. After a research design is determined at an abstract level, the feasibility of the research plan is roughly evaluated through a simple problem setting. This is known as a pilot study.
+
 \subsection{Verification}
 
 As mentioned earlier, in the case of empirical sciences, testing is often performed. Therefore, data is first generated, processed, and finally verified using the processed data. If we summarize the process of generating and processing raw data as data generation, this process can be broadly divided into data generation and judgment based on verification criteria. It may be rather said that the act of research itself is a process of repeatedly generating data and performing some kind of processing on it.
@@ -381,6 +439,14 @@ Automation of tasks and fundamentally autonomous (end-to-end) research
 Proposal for the progress towards the realization of intelligence that can autonomously conduct research.
 
 \section{Concrete Proposals}
+One problem is that the research papers do not necessarily represent the way to do science, which is rather constructed retrospectively \cite{schickore2008doing}.
+
+
+
+\chapter{Research Optimization}
+
+\chapter{Alignment}
+Understanding is subjective, so there is a need to consider alignment. Even if the process of hypothesis generation is incomprehensible to humans, as long as the verification is connected to fundamental human beliefs, it can be said to be knowledge based on a common foundation with humans.
 
 \chapter{Conclusion}
 
