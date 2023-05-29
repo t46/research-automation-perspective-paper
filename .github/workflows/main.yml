@@ -19,4 +19,6 @@ jobs:
         git checkout gh-pages || git checkout -b gh-pages
         git add .
         git commit -m "Add PDF"
-        git push -u origin gh-pages
+        git fetch origin gh-pages
+        git reset --hard FETCH_HEAD
+        git push -f origin gh-pages
