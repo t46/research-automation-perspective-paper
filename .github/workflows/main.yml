@@ -17,8 +17,8 @@ jobs:
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
         git checkout gh-pages || git checkout -b gh-pages
-        git pull --rebase origin gh-pages
-        git checkout --ours .
         git add .
         git commit -m "Add PDF"
+        git pull --rebase origin gh-pages
+        git checkout --ours .
         git push -u origin gh-pages
