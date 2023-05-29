@@ -14,6 +14,7 @@ jobs:
       run: |
         git config --local user.email "action@github.com"
         git config --local user.name "GitHub Action"
-        git add main.pdf
+        git checkout -b gh-pages
+        git add .
         git commit -m "Add PDF"
-        git push
+        git push -u origin gh-pages
