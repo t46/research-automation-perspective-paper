@@ -20,5 +20,5 @@ jobs:
         git add .
         git commit -m "Add PDF"
         git pull --rebase origin gh-pages
-        git checkout --ours .
+        git rebase --skip
         git push -u origin gh-pages
