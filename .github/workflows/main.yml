@@ -19,5 +19,5 @@ jobs:
         git add .
         git commit -m "add pdf"
         git fetch origin gh-pages:gh-pages
-        git merge origin/gh-pages -Xours
+        git merge origin/gh-pages  --allow-unrelated-histories -Xours
         git push -u origin gh-pages
