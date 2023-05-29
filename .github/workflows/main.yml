@@ -18,7 +18,7 @@ jobs:
         git config --local user.name "GitHub Action"
         git checkout gh-pages || git checkout -b gh-pages
         git config pull.rebase true
-        git pull origin gh-pages
+        git pull --rebase=interactive origin gh-pages -X ours
         git add .
         git commit -m "Add PDF"
-        git push -u origin gh-pages
+      git push -u origin gh-pages
