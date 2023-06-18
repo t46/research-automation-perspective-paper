@@ -384,8 +384,6 @@ I do not intend to claim that these uncertainties undermine the reliability of r
 
 I mentioned the difficulties inherent in verification to highlight their significance, particularly when considering autonomous artificial intelligence capable of self-verification. Ideally, autonomous agents are expected to establish their own methods and criteria for verification. However, if verification inherently carries such difficulties and uncertainties, the more rigorously we consider it, the more paralyzed the agent becomes, as it seemingly cannot accomplish anything. \textcolor{red}{TODO: Add explanation}
 
-\subsubsection{Add more discussion!! Everything I want to say!!!}
-
 % A characteristics of research can be found in the systematicity, rigor, and objectivity of research practice \cite{sep-scientific-method,hoyningen2008systematicity,haack2003defending}. 
 
 % In particular, I believe that a characteristic of research lies not in the way of determining questions or generating hypotheses, but in the fact that the verification of hypotheses is done in an extremely rigorous and careful manner. 
@@ -444,25 +442,24 @@ Considering this, when a fully autonomous artificial researcher is created, I th
 
 \subsubsection{Continuity between Hypothesis Generation and Verification}
 
-\subsection{Review}
-\textcolor{red}{Reconsider the epistemological role of peer review}
-In current research, a small group of experts review papers and the results that pass through their review are published. The review evaluates papers from multiple different perspectives. For example, at NeurIPS 2022, papers are evaluated based on the criterias of originality, quality, clarity, and significance.
+\subsubsection{\textcolor{red}{Add more discussion!! Everything I want to say!!!}}
 
-\section{Others}
-\textcolor{red}{TODO: Give a good title}
+\subsection{Peer Review}
+In current research, a small group of experts review papers and the results that pass through their review are published. This process is called \textit{peer review}. Peer review is now considered an indispensable practice in research across a wide range of fields. However, it is said that peer review became commonplace like tody only from the 1970s onwards \cite{baldwin2018scientific}.
 
-\subsection{Data Analysis}
-At this stage, researchers interpret the results obtained from the verification. While the process leading up to the verification involved following a pre-determined procedure, researchers now consider implications that may relate to the unknown that they originally attempted to solve. For example, they contemplate whether the hypothesis has been rejected or the claim has been supported, and whether there are any other noteworthy points to consider. In papers, this stage is often described in discussion section.
+Peer review, particularly pre-publication peer review, is commonly regarded as playing the role of a gatekeeper of knowledge, determining what becomes knowledge and what does not. It enables the production of high-quality knowledge by assessing the quality before publication. Here, let's delve a bit deeper and examine the specific role that peer review plays in knowledge production.
 
-\subsection{Searching}
-Research is an endeavor to create knowledge based on existing studies. Therefore, the first step is to search for papers that should be read. In this article, we refer to this process as \textit{search}.
+I believe that peer review serves two distinct roles in knowledge production. The first role is evaluating the fulfillment of necessary conditions for the knowledge of a research proposal. This involves assessing aspects such as the validity of the methodologies used and the sufficiency of the content's novelty. This process could potentially be skipped if these evaluations were flawlessly conducted in every research endeavor during the knowledge production process. In that sense, it can be seen as functionally redundant in relation to knowledge production. However, redundancy does not imply futility. Firstly, humans naturally make mistakes and have blind spots that they may not be aware of, so multiple checks hold significant value. Additionally, research is fundamentally conducted on the assumption of goodwill, making it important to have a process to verify if any misconduct or ethical issues have occurred for the sake of a healthy knowledge production. Lastly, as emphasized repeatedly in this paper, verification is an act of updating collective beliefs. Therefore, the existence of a process to confirm whether the verified results are acknowledged by others seems essential in the context of knowledge production for that society. Considering these factors, I believe that the first point, which functionally exhibits redundancy, plays an important role in knowledge production.
 
-To find the necessary papers, you have to know what is written in each paper. Therefore, \textit{search} is closely related to \textit{reading}, which will be discussed in the next section. Here, For convenience, we will distinguish between the two: the former refers to finding the necessary papers from a large collection of papers, and the latter refers to extracting necessary information from the obtained single paper.
+The second role evaluates whether a proposed study has value to the research community and society at large. This involves judging factors such as the importance of the research, its clarity, and its ethical validity. This evaluation pertains to the submitted knowledge rather than the process of knowledge production itself. Rather, it can be seen as an anticipatory assessment of the value judgments that will be made when the knowledge is disseminated in society.
 
-I shall make mention of the relationship between these concepts and the activity commonly referred to as a \textit{survey}. I define the survey as a series of processes of 1. searching for necessary papers, 2. extracting information from multiple papers, and 3. comparing them to make some kind of decision. Please note that comparison, searching, and reading are all closely related to each other in this context as well; for instance, proper comparison between papers is necessary for better searching.
+In summary, the first role can be interpreted as an extension of the knowledge production process, while the second role can be seen as a pre-emptive value judgment by society (Borrowing the words of Seetl, we can say that the former is the judgement of \textit{epistemic value} and the later is that of \textit{non-epistemic value} \cite{steel2010epistemic}). In other words, the act of peer review serves as a gate that connects the process leading to the production of knowledge with the subsequent processes. I summarized the review criteria of Nature and Neural Information Processing Systems in Table from the above perspectives. \textcolor{red}{TODO: Add table and a note on reproducibility in the table and footnote}
 
-The distinction between the aforementioned tasks of reading and searching, as well as the definition of survey, are based solely on the fact that we humans distinguish between them. However, if desired information could be directly obtained through natural language instructions from a large set of academic paper data, the tasks of searching, reading, and comparison would become an end-to-end process. Thanks to the remarkable development of large-scale language models in recent years, such a possibility has become a realistic one. Further details on this possibility will be discussed later.
 
+
+% The review evaluates papers from multiple different perspectives. For example, at NeurIPS 2022, papers are evaluated based on the criterias of originality, quality, clarity, and significance.
+
+\section{Techniques for Research}
 \subsection{Literacy}
 \subsubsection{Reading}
 As previously mentioned, acquiring information from academic papers is a fundamental task necessary in all aspects of research.
@@ -480,7 +477,22 @@ While academic papers are already structured into sections such as introduction,
 
 There are various techniques for writing academic papers, but they are all designed with the assumption that humans will be reading the paper. Papers are considered to be ``reports'' and are expected to provide information to readers at a low cost. Additionally, papers are usually peer-reviewed and published in academic journals, so it is necessary to write attractive and engaging papers that will be accepted by the best journals. In this sense, papers are also ``works of art.'' However, I believe that the essential nature of papers lies in their role as the foundation of knowledge production, making papers an asset in terms of their ``knowledge'' aspect.
 
-\chapter{Research Automation}
+
+\subsection{Information Retrieval}
+Research is an endeavor to create knowledge based on existing studies. Therefore, the first step is to search for papers that should be read. In this article, we refer to this process as \textit{search}.
+
+To find the necessary papers, you have to know what is written in each paper. Therefore, \textit{search} is closely related to \textit{reading}, which will be discussed in the next section. Here, For convenience, we will distinguish between the two: the former refers to finding the necessary papers from a large collection of papers, and the latter refers to extracting necessary information from the obtained single paper.
+
+I shall make mention of the relationship between these concepts and the activity commonly referred to as a \textit{survey}. I define the survey as a series of processes of 1. searching for necessary papers, 2. extracting information from multiple papers, and 3. comparing them to make some kind of decision. Please note that comparison, searching, and reading are all closely related to each other in this context as well; for instance, proper comparison between papers is necessary for better searching.
+
+The distinction between the aforementioned tasks of reading and searching, as well as the definition of survey, are based solely on the fact that we humans distinguish between them. However, if desired information could be directly obtained through natural language instructions from a large set of academic paper data, the tasks of searching, reading, and comparison would become an end-to-end process. Thanks to the remarkable development of large-scale language models in recent years, such a possibility has become a realistic one. Further details on this possibility will be discussed later.
+
+\subsection{Data Analysis}
+At this stage, researchers interpret the results obtained from the verification. While the process leading up to the verification involved following a pre-determined procedure, researchers now consider implications that may relate to the unknown that they originally attempted to solve. For example, they contemplate whether the hypothesis has been rejected or the claim has been supported, and whether there are any other noteworthy points to consider. In papers, this stage is often described in discussion section.
+
+\subsection{Deductive System}
+
+\chapter{Research Automation Literature Review}
 
 \section{Pipeline}
 While not necessarily using machine learning, there are several attempts to automate not a particular task but the entire research process. A seminal early works are Adam \cite{king2004functional}, and Eve \cite{williams2015cheaper}, closed-loop systems for scientific discovery. 
