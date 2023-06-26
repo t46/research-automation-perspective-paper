@@ -695,6 +695,33 @@ It has become commonplace to streamline domain-specific tasks in scientific rese
 
 
 \chapter{Proposal}
+In this chapter, I will discuss what should be done and how to achieve the realization of autonomous artificial researchers. Firstly, I will provide an overview of Chapter 1 and Chapter 2. Building upon that, I will propose subgoals to aim for in order to achieve autonomous artificial researchers. Subsequently, for each subgoal, I will organize subtasks and propose a general approach and strategy for how to pursue these intermediate goals.
+
+\section{Goal and Autonomy}
+The ultimate goal is to create an artificial intelligence that can produce knowledge. In other words, the aim is to develop a function that can autonomously generate some form of knowledge when given any input. Therefore, any attempt to achieve the realization of an artificial researcher should strive to create such a function, regardless of its specific form. As I have reiterated, if the knowledge generated through research is a shared belief in a justified and true society, then the goal can be rephrased as aiming to generate a belief in response to any input and justify it to the extent that it becomes a shared belief in a society.
+
+Among these goals, what I am aiming for is an artificial intelligence that can conduct research completely autonomously. Therefore, the ultimate aim is to minimize predetermined modules or algorithms decided by humans and create an end-to-end system. With that in mind, I would like to express my opinion on how much autonomy should be pursued.
+
+Firstly, autonomy ultimately boils down to the question of how much is taken for granted. The more predetermined elements there are, the lower the autonomy, and the fewer predetermined elements there are, the higher the autonomy. In this sense, autonomy is continuous and incremental.
+
+The highest level of autonomy in pursuing the realization of an artificial researcher is a state where the system invents and conducts research without assuming its purpose is knowledge production. This means not instructing the system to conduct research, not teaching what research is beforehand, but enabling the acquisition and execution of research. Humans can be considered researchers with this level of autonomy at least at the species level. This is because while humans are probably not designed as systems dedicated solely to research, they have progressively invented research throughout history. Of course, such a level of autonomy is not achievable without any assumptions, so if one aims for this level of autonomy, it is necessary to prepare an environment that induces the acquisition of research and design some form of inductive bias. What I am referring to here is a system with autonomy in the sense that research is acquired as a result of computational processing indirectly related to knowledge production and the necessary conditions for it.
+
+However, demanding such a level of autonomy may be somewhat excessive when it comes to pursuing an autonomous artificial researcher. Therefore, it seems reasonable to assume knowledge production as a design requirement. Since knowledge production is assumed, some form of information about what knowledge is must be provided. Here, we can classify it into two categories.
+
+The first is implicitly providing information about what research is. This involves allowing the system to acquire the concept of research on its own based on existing knowledge and data about the process of generating hypotheses and methods of verification. The history of machine learning research has shown the power of this end-to-end direction in creating strong intelligent systems. In that sense, this direction can be considered one of the directions to pursue.
+
+The second is explicitly providing information about what research is. This involves providing only the necessary information about the conditions related to research and aiming for their fulfillment. It does not mean explicitly instructing how to construct questions or specific means to justify beliefs. Instead, it only provides information about what needs to be done, and the system must acquire and execute them on its own. This is autonomy in the sense that one must acquire the methods oneself and execute them. I believe that if we provide information at this level, it can be considered a system capable of conducting research autonomously. On the other hand, I think that research achieved by hard-coding the processing within the construction of questions, hypothesis generation, and verification, while automatic, is not autonomous.
+
+While achieving the autonomy in the first two stages would certainly be great, it is expected to be quite challenging to aim for that directly. Therefore, I believe it is better to aim for the third level of autonomy. Specifically, as proposed in Chapter 2, it would be beneficial to aim to create a system that divides the research process into three modules: question construction, hypothesis generation, and verification, and connects them as a pipeline. To achieve that system, we should strive to incrementally enhance the internal autonomy of each module.
+
+\section{Pipeline}
+The ultimate goal is to create an artificial intelligence capable of conducting research autonomously. Therefore, in addition to automating individual modules of research, it is necessary to create a system that can autonomously carry out the entire research process from start to finish. Building such a research process pipeline is one of the sub-goals we aim for.
+
+This is similar to the pipelines discussed in MLOps in the context of machine learning or scientific workflows mentioned in previous studies. However, unlike those, I envision a system that does not include processing that is heavily dependent on specific research domains or tasks. Instead, I formalize it as a pipeline consisting of modules for question formulation, hypothesis generation, and planning and execution of validation, as discussed in Chapter 2. This system autonomously constructs and validates hypotheses for any given question with an unknown answer.
+
+\section{Strategy}
+
+
 
 \section{High Level Idea}
 
