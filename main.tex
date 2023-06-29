@@ -305,6 +305,45 @@ In practice, we seem to determine the questions we should tackle in this way, im
 
 % Of course, the purpose mentioned here may be a sub-goal of a higher-level goal. For example, the goal of ``creating general artificial intelligence'' may be a sub-goal of a more fundamental goal of ``satisfying intellectual curiosity,'' and the goal of ``satisfying intellectual curiosity'' may be biologically demanded for better exploration of the environment. These can lead to an infinite regression when considered strictly, so I won't delve into it any further here, but it could become an important issue when considering how to realize fully autonomous agent to construct questions.
 
+\subsubsection{Questioning as Information Seeking Behavior}
+\textcolor{red}{TODO: Reconstruct}
+
+The construction of a question is the act of seeking information \cite{watson2015ask}. Specifically, in the context of research, we consider information as knowledge. The act of seeking knowledge involves two steps: 1. Recognizing the lack of knowledge and 2. Attempting to fill that knowledge gap. In this discussion, we assume that intelligence is designed to consistently generate questions when given input. Therefore, we temporarily set aside the aspect of "triggering action" related to the second step of attempting to fill the knowledge gap.
+
+The recognition of a knowledge gap occurs when we expect to have certain knowledge and, upon referencing our accessible knowledge, we find that it is not available. For example, when running a program and encountering an error that we cannot resolve on our own, we recognize that we lack the necessary knowledge.
+
+The reasons for expecting the existence of certain knowledge can vary and are arbitrary. In this case, we assume that a purpose given by a third party creates an expectation of certain knowledge. For example, in the case of humans, we first consider what we need to do to achieve a certain purpose. We then anticipate the necessary knowledge to accomplish those tasks, and when we find that it is not present within our existing knowledge, we recognize the knowledge gap.
+
+Lastly, in this discussion, knowledge refers to the collective body of research findings, particularly academic papers. In actual research, a researcher may personally have a question and then investigate previous studies to confirm that it is indeed unknown before formulating it as a research question. However, what is important in the construction of a research question is that it is unknown to other entities. Therefore, for simplicity, we directly refer to the entirety of academic papers without including the step of comparing personal knowledge.
+
+To summarize, to create an intelligence capable of constructing questions in this setting, we need to design it to expect the necessary knowledge to achieve a given purpose provided by a third party, search for that knowledge in academic papers, assess whether the papers contain sufficient knowledge to achieve the purpose, and express any knowledge gaps as questions.
+
+In this case, we excluded the discussion of triggering action by design. However, when considering increasing autonomy, it is important to discuss how to incorporate this aspect into learning and acquisition. The question of "why do we seek information" has been extensively discussed in the context of curiosity.
+
+Furthermore, in this case, we defined the expectation of knowledge as aiming to achieve a given purpose. However, as mentioned earlier, this does not affect the formulation of questions. For example, let's consider the case of a child asking, "Why is the sky blue?" In this case, the child may already have prior knowledge of the concept of "sky" and "blue." Additionally, they may possess a naive concept of causality, believing that "A is B, so there must be a reason for it." Thus, they may have expected to have the knowledge that "the sky is blue because of B." However, when they reference their internal knowledge, they find that it does not contain the corresponding knowledge. Therefore, they may have asked the question "Why is the sky blue?" to evoke the knowledge they were lacking.
+
+In this way, the reasons for expecting the existence of certain knowledge can vary, and what, why, and how we seek information (knowledge) are not constrained by specific conditions. Therefore, when attempting to create an intelligence capable of constructing questions in the future, it is feasible to develop a more flexible intelligence.
+
+Additionally, in this case, we assumed that the given purpose and its achievement are predefined goals. However, humans naturally set their own goals. When considering the design of a more autonomous intelligence, it is conceivable to aim for automation in this aspect as well. However, as mentioned earlier, the question of what we seek knowledge about is not specific to research. Therefore
+
+, we temporarily set it aside for now. If we were to pursue this direction further, it would ultimately lead to an infinite regress, raising the question of how much information to consider as given.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{figs/question_formulation.jpg}
+    \caption{Question Formulation}
+    \label{fig:enter-label}
+\end{figure}
+
+\textcolor{red}{TODO: Is question formulation information retrieval??}
+
+
+% Asking questions is an act of seeking information \cite{watson2015ask}. The act of seeking information (or knowledge) arises from realizing the lack of one's own knowledge and the desire to fill that gap. Therefore, to create intelligence that can autonomously ask questions, it is necessary to incorporate mechanisms that induce these behaviors.
+
+% Determining what triggers this behavior in humans is a challenging problem. However, when designing a system, it is sufficient if it can induce such behavior, regardless of what it actually is. The principle that ``behavior is triggered when it is somehow desirable for the agent'' represents this idea. You are probably familiar with this concept in reinforcement learning, where rewards (desirability of actions) are provided, and maximizing the expected value of these rewards is formulated as an appropriate way to induce behavior.
+
+% The notion of triggering behavior by realizing the lack of one's own knowledge and attempting to fill it has been extensively studied in the context of curiosity in the field of reinforcement learning. In research, agents that pose questions can generally be formulated within this framework.
+
 \subsection{Hypothesis Generation}
 We began by explaining that we first formulate the unknown we are addressing in the form of a question. The process of finding answers to this question is research. Here, because the answer to this question is, of course, unknown, it requires inference as to what the answer could be. As a result of this inference, a plausible answer is formulated. This process corresponds to the \textit{hypothesis generation}. Hypothesis generation is the inference about the unknown and the definition of research is to transform unknown to known. Thus, every research including deductive research must entail hypothesis generation implicitly or explicitly. In this sense, hypothesis generation is a core of research.
 
@@ -545,6 +584,7 @@ Lastly, mathematics is abstract. From the ancient time, even in the absence of f
 Thus, the ability to utilize deductive systems is extremely important in expanding the realm of practically discoverable knowledge. Therefore, when it comes to achieving intelligence capable of autonomous research, it becomes crucial to consider how to construct new deductive systems or at least enable the utilization of existing deductive systems.
 
 \section{Conclusion}
+\textcolor{red}{TODO: Move to Appendix. Too abstract}
 
 In this chapter, we discussed what research is. Research is the act of producing new knowledge for a community of constituents capable of forming shared beliefs. We characterized the production of new knowledge as the process of posing unanswered questions, generating hypotheses in response to those questions, and verifying them. Additionally, starting from the standpoint that knowledge is belief, we also presented the depiction of research as belief updating.
 
@@ -720,9 +760,9 @@ As I have reiterated multiple times, the ultimate goal is to create an artificia
 First, let's discuss what it means for an AI to be able to conduct research. We delved into this topic in detail in Chapter 2. Research is the act of producing new knowledge for a community of constituents capable of forming shared beliefs. Producing new knowledge involves posing unanswered questions, formulating hypotheses in response to those questions, and verifying those hypotheses to update beliefs. Therefore, creating an intelligent system capable of conducting research means creating a system that can perform these tasks.
 
 \section{Goal and Autonomy}
-The ultimate goal is to create an artificial intelligence that can produce knowledge. In other words, the aim is to develop a function that can autonomously generate some form of knowledge when given any input. Therefore, any attempt to achieve the realization of an artificial researcher should strive to create such a function, regardless of its specific form. As I have reiterated, if the knowledge generated through research is a shared belief in a justified and true society, then the goal can be rephrased as aiming to generate a belief in response to any input and justify it to the extent that it becomes a shared belief in a society.
+% The ultimate goal is to create an artificial intelligence that can produce knowledge. In other words, the aim is to develop a function that can autonomously generate some form of knowledge when given any input. Therefore, any attempt to achieve the realization of an artificial researcher should strive to create such a function, regardless of its specific form. As I have reiterated, if the knowledge generated through research is a shared belief in a justified and true society, then the goal can be rephrased as aiming to generate a belief in response to any input and justify it to the extent that it becomes a shared belief in a society.
 
-Among these goals, what I am aiming for is an artificial intelligence that can conduct research completely autonomously. Therefore, the ultimate aim is to minimize predetermined modules or algorithms decided by humans and create an end-to-end system. With that in mind, I would like to express my opinion on how much autonomy should be pursued.
+What I am aiming for is an artificial intelligence that can conduct research completely autonomously. Therefore, the ultimate aim is to minimize predetermined modules or algorithms decided by humans and create an end-to-end system. With that in mind, I would like to express my opinion on how much autonomy should be pursued.
 
 Firstly, autonomy ultimately boils down to the question of how much is taken for granted. The more predetermined elements there are, the lower the autonomy, and the fewer predetermined elements there are, the higher the autonomy. In this sense, autonomy is continuous and incremental.
 
@@ -736,12 +776,96 @@ The second is explicitly providing information about what research is. This invo
 
 While achieving the autonomy in the first two stages would certainly be great, it is expected to be quite challenging to aim for that directly. Therefore, I believe it is better to aim for the third level of autonomy. Specifically, as proposed in Chapter 2, it would be beneficial to aim to create a system that divides the research process into three modules: question construction, hypothesis generation, and verification, and connects them as a pipeline. To achieve that system, we should strive to incrementally enhance the internal autonomy of each module.
 
+\section{Question Formulation}
+The construction of a question is the act of seeking information \cite{watson2015ask}. Specifically, in the context of research, we consider information as knowledge. The act of seeking knowledge involves two steps: 1. Recognizing the lack of knowledge and 2. Attempting to fill that knowledge gap. In this discussion, we assume that intelligence is designed to consistently generate questions when given input. Therefore, we temporarily set aside the aspect of "triggering action" related to the second step of attempting to fill the knowledge gap.
+
+The recognition of a knowledge gap occurs when we expect to have certain knowledge and, upon referencing our accessible knowledge, we find that it is not available. For example, when running a program and encountering an error that we cannot resolve on our own, we recognize that we lack the necessary knowledge.
+
+The reasons for expecting the existence of certain knowledge can vary and are arbitrary. In this case, we assume that a purpose given by a third party creates an expectation of certain knowledge. For example, in the case of humans, we first consider what we need to do to achieve a certain purpose. We then anticipate the necessary knowledge to accomplish those tasks, and when we find that it is not present within our existing knowledge, we recognize the knowledge gap.
+
+Lastly, in this discussion, knowledge refers to the collective body of research findings, particularly academic papers. In actual research, a researcher may personally have a question and then investigate previous studies to confirm that it is indeed unknown before formulating it as a research question. However, what is important in the construction of a research question is that it is unknown to other entities. Therefore, for simplicity, we directly refer to the entirety of academic papers without including the step of comparing personal knowledge.
+
+To summarize, to create an intelligence capable of constructing questions in this setting, we need to design it to expect the necessary knowledge to achieve a given purpose provided by a third party, search for that knowledge in academic papers, assess whether the papers contain sufficient knowledge to achieve the purpose, and express any knowledge gaps as questions.
+
+In this case, we excluded the discussion of triggering action by design. However, when considering increasing autonomy, it is important to discuss how to incorporate this aspect into learning and acquisition. The question of "why do we seek information" has been extensively discussed in the context of curiosity.
+
+Furthermore, in this case, we defined the expectation of knowledge as aiming to achieve a given purpose. However, as mentioned earlier, this does not affect the formulation of questions. For example, let's consider the case of a child asking, ``Why is the sky blue?'' In this case, the child may already have prior knowledge of the concept of ``sky'' and ``blue.'' Additionally, they may possess a naive concept of causality, believing that ``A is B, so there must be a reason for it.'' Thus, they may have expected to have the knowledge that ``the sky is blue because of B.'' However, when they reference their internal knowledge, they find that it does not contain the corresponding knowledge. Therefore, they may have asked the question ``Why is the sky blue?'' to evoke the knowledge they were lacking.
+
+In this way, the reasons for expecting the existence of certain knowledge can vary, and what, why, and how we seek information (knowledge) are not constrained by specific conditions. Therefore, when attempting to create an intelligence capable of constructing questions in the future, it is feasible to develop a more flexible intelligence.
+
+Additionally, in this case, we assumed that the given purpose and its achievement are predefined goals. However, humans naturally set their own goals. When considering the design of a more autonomous intelligence, it is conceivable to aim for automation in this aspect as well. However, as mentioned earlier, the question of what we seek knowledge about is not specific to research. Therefore
+
+, we temporarily set it aside for now. If we were to pursue this direction further, it would ultimately lead to an infinite regress, raising the question of how much information to consider as given.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{figs/question_formulation.jpg}
+    \caption{Question Formulation}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsection{How to Identify the Necessary Knowledge for Achieving a Goal?}
+In this situation, we need to consider how to identify the knowledge required to achieve our objectives. Typically, when given a goal, we start by listing the necessary elements to accomplish it. For example, to achieve general artificial intelligence, we may think that it requires the ability to handle language, understand the real world, be proficient in mathematics, and align with human values. To understand the real world, for instance, we may need the capability for interacting with the physical world, processing visual information, and so on. These requirements can be further broken down into multiple necessary elements. By repeating this process, we can narrow down the specific tasks that can be directly addressed. Then, the required knowledge to accomplish those tasks is demanded, and that's where it directly connects to the research question.
+
+Several things are happening here. Firstly, listing the elements necessary for achieving the goal means generating subgoals from the main goal. However, it's always a challenging problem to evaluate how a particular subgoal contributes to the achievement of a given goal. Especially in the case of research, the target might be an too general and ambitious vision that nobody has achieved before, so we need to think about what needs to be done to break it down into appropriate subproblems. In other words, it is necessary to construct a tree with nodes representing subgoals.
+
+Secondly, it is necessary to identify the most important subgoal from the selected candidate subgoals. Since only one question can be addressed in the end, it is necessary to select a single subgoal using some evaluation criteria. This may not be a problem if the subgoals can be judged on the same evaluation criteria, but in many cases, unrelated subgoals may arise. For example, to create general artificial intelligence, the development of machine learning theory may be equally important as the advancement of semiconductor technology. However, it may be difficult to compare their importance on the same evaluation axis.
+
+Thirdly, the question to ultimately arrive at must be verifiable. If the question is not specific, meaningful verification cannot be performed. Overly broad or ambiguous questions can result in countless or trivial answers, or they may be too unclear to provide practical answers. Increasing the specificity of the question corresponds to deepening the depth of the subgoal tree, so it may be important to construct a sufficiently deep tree and find an efficient way to navigate it. The verifiability is constrained by the knowledge, resources, such as funding and technology, that we currently have. Therefore, when conducting verification in reality, it is necessary to consider such feasibility. Whether to tackle a question with high feasibility or to further divide it into more subtasks for its realization is a matter of judgment. In any case, it is necessary to appropriately evaluate such feasibility. The scope of feasibility is vast, so it is a challenging problem to determine how to consider it in creating intelligent systems.
+
+Here, we discussed what needs to be done to construct questions that generate the necessary knowledge to achieve the goal. I believe that research that can generate knowledge that is expected to contribute to the achievement of the goal, and that has not been revealed in previous studies, can be considered as ``important'' research. In that sense, it may be important to consider how to achieve the automation of research in this direction.
+
+In this discussion, I have only touched upon a limited number of points that I personally consider important. However, I believe that there are other important points that should be considered. By seriously reflecting on ``how questions are currently being constructed,'' these points are expected to become clearer.
+
+Also, in this discussion, we considered the method of outputting questions from the goal through the construction and exploration of a tree structure. However, as mentioned by the predecessors, if an end-to-end approach ultimately becomes a powerful method, it may be more desirable to consider a direction in which questions are directly output from the goal. In particular, even when performing multi-step reasoning, it seems more natural to improve reasoning abilities using the recently developed approaches to multi-step logical reasoning, rather than explicitly considering tree structures. While the development of methods for multi-step reasoning is undoubtedly important in pursuing this direction, this is not a point that needs to be emphasized here as it is being addressed not only in the context of research automation but also more generally. As a discussion focused on the automation of research, it may be worth considering the construction of higher-quality datasets for goals and research questions. For example, it may be possible to construct a dataset by extracting only the ultimate goal and the research questions actually solved from the introductions of papers.
+
+However, an important point to note here is that the research questions created by humans so far are not necessarily optimal for achieving research goals. Firstly, machines may be capable of maximizing the objective better than humans due to cognitive constraints. Secondly, not all human research has been conducted by working backward from a clear goal. Some studies were conducted simply because they seemed interesting while reading papers. Additionally, as mentioned earlier, abstraction has significantly advanced science, but there are cases where the study of abstraction itself is the
+
+ objective rather than abstraction in some specific cases. In this regard, simply learning from human data without imitation may constrain the potential capabilities that machines can possess. Therefore, it becomes important to consider how to formulate the maximization of the probability of achieving research goals as a problem, rather than naive learning from human data.
+
+\subsection{How to Search Necessary Knowledge and Recognize the Lack of Knowledge?}
+There are various methods to determine whether the desired knowledge already exists. Typically, it is considered that candidates can be narrowed down in two steps. First, since research papers are composed of questions and their corresponding answers, one can search for papers that have similar questions and answers to the desired knowledge. Once these papers are found, the validity of their verification methods is evaluated. If it is determined that sufficient verification has not been conducted, it can be concluded that the knowledge does not exist.
+
+In this case, the knowledge itself was considered as the research paper database, so the process involved searching and individually assessing the papers as described above. However, for example, if the knowledge is represented by the distributed representation of a machine itself, the need for the search step may be eliminated. Nevertheless, even in this case, the reliability of the machine's judgment can only be trusted if it has appropriately assessed the effectiveness of its own verification. Therefore, the ability to understand and evaluate verification seems essential in determining the novelty of research.
+
+\textcolor{red}{TODO: Is question formulation information retrieval??}
+
+\subsection{Conclusion}
+In summary, the following abilities are required to generate research questions for achieving a specific goal:
+
+\begin{enumerate}
+    \item Predicting the necessary knowledge from the goal:
+    \begin{enumerate}
+        \item Solving prediction and reasoning problems with long-range relationships.
+        \item Refining knowledge by appropriately incorporating ``good'' qualities such as importance, concreteness, ethics, etc.
+    \end{enumerate}
+    \item Determing the existence of expected knowledge:
+    \begin{enumerate}
+        \item Searching for knowledge directly related to the expected knowledge.
+        \item Determining whether the knowledge has been properly validated.
+    \end{enumerate}
+\end{enumerate}
+
+1.a is related to research on improving the reasoning capabilities of machine learning models and on generating intermediate goals in reinforcement learning. If these research fields produce significant results, they can be directly applied. In this sense, it might be beneficial to seek cooperation from those who are actively conducting research in these areas. One of the unique aspects of long-distance inference problems that I think is interesting is the fact that the goal is something that has never been achieved before. This means that you cannot naively learn from data and need to generalize outside of the distribution. Therefore, it's essential to acquire skills not just to recognize patterns but to properly trace the path of reasoning. Moreover, because the goal has not been realized, sub-goals and the paths that connect them are ultimately based on the accumulation of hypothesis generation. In this sense, it can be said that this is a highly uncertain inference. This implies that the choice of which node to select is far from self-evident compared to other logical inference problems. Furthermore, there is the issue of the complexity of the distance between the goal and the question, which is far more intricate than, for example, games or planning everyday trips. For instance, to truly achieve the goal, it may be necessary to build large-scale apparatus like particle accelerators from scratch. This also means that the temporal distance between the goal and the current location is very long. Therefore, it becomes a problem that feedback on how much solving the question contributed to the goal is significantly delayed. While I've only listed a few examples here, there may be other unique challenges and issues that become more serious in research. It will be necessary to work on refining these technical challenges into specific research tasks through discussions with researchers in reasoning and planning.
+
+1.b is specific to the automation of research. We first need to be aware that these "good" aspects do not occur naturally. As mentioned before, these are non-epistemic values, so the more autonomy the agent has, the more these must be consciously incorporated. To create an intelligence that constructs ``good'' questions, we first need to understand what we consider a ``good'' question. Also, it's important to turn our attention to things that are not currently considered ``good,'' but should be deemed as ``good'' in essence. Only then can we discuss how to align that value with the agent. Therefore, I think we should start by listing the criteria for determining the ``goodness'' of a question. For this, discussions in the philosophy of science and meta-sciences like the Science of Science may be referenced. Alternatively, large-scale surveys of researchers engaged in actual research could also be important. Once the value is clarified, we might be able to think about creating an intelligence equipped with these values using the value alignment techniques that are currently being developed.
+
+2.a is a discussion of Information Retrieval itself. As previoßsly mentioned, research is a process of searching for information from various sources and utilizing it to produce knowledge. Therefore, information retrieval technology is essential, not just for constructing questions. So, it's crucial how much we can get information retrieval researchers involved in this. One of the things strongly related to the automation of research within information retrieval is the search for papers. I will discuss this in the section on information retrieval.
+
+2.b is a unique discussion about the automation of research. However, this greatly overlaps with the content to be discussed in the chapter on hypothesis testing. Specifically, what's needed here is the evaluation of testing, whereas what's required for the automation of hypothesis testing is the generation of testing. In this sense, the latter discussion includes the discussion here. Therefore, I will refrain from discussing this here and touch on it later.
+
+I have listed what I believe are important elements in the construction of questions. However, these are considered important under the assumptions mentioned earlier. For instance, if the goal is not to acquire knowledge necessary for achieving an objective, but to generate knowledge that an individual finds interesting, the necessary elements in question construction (particularly in parts 1.a and 1.b) would change. As previously mentioned, the value of knowledge is determined in relation to context and there's a high degree of uncertainty about how the value of knowledge will evolve in the future. This makes it fundamentally important to have a diverse range of ways to generate questions. The object achievement is highly prevalent and is expected to produce ``important'' knowledge, which is why it is discussed here. However, it is important to discuss what other ways of formulating questions could exist and how they can be implemented.
+
+\section{Hypothesis Generation}
+
+\section{Hypothesis Verification}
+
+
 \section{Pipeline}
 The ultimate goal is to create an artificial intelligence capable of conducting research autonomously. Therefore, in addition to automating individual modules of research, it is necessary to create a system that can autonomously carry out the entire research process from start to finish. Building such a research process pipeline is one of the sub-goals we aim for.
 
 This is similar to the pipelines discussed in MLOps in the context of machine learning or scientific workflows mentioned in previous studies. However, unlike those, I envision a system that does not include processing that is heavily dependent on specific research domains or tasks. Instead, I formalize it as a pipeline consisting of modules for question formulation, hypothesis generation, and planning and execution of validation, as discussed in Chapter 2. This system autonomously constructs and validates hypotheses for any given question with an unknown answer.
 
-\section{Strategy}
 
 
 
