@@ -830,6 +830,11 @@ In this case, the knowledge itself was considered as the research paper database
 
 \textcolor{red}{TODO: Is question formulation information retrieval??}
 
+\subsection{Multiple Reasons for Unknownness}
+new, unimportant, difficult, unnoticed, ... etc.
+
+\subsection{Finding ``Important'' but Unnoticed Questions}
+
 \subsection{Conclusion}
 In summary, the following abilities are required to generate research questions for achieving a specific goal:
 
@@ -857,6 +862,11 @@ In summary, the following abilities are required to generate research questions 
 I have listed what I believe are important elements in the construction of questions. However, these are considered important under the assumptions mentioned earlier. For instance, if the goal is not to acquire knowledge necessary for achieving an objective, but to generate knowledge that an individual finds interesting, the necessary elements in question construction (particularly in parts 1.a and 1.b) would change. As previously mentioned, the value of knowledge is determined in relation to context and there's a high degree of uncertainty about how the value of knowledge will evolve in the future. This makes it fundamentally important to have a diverse range of ways to generate questions. The object achievement is highly prevalent and is expected to produce ``important'' knowledge, which is why it is discussed here. However, it is important to discuss what other ways of formulating questions could exist and how they can be implemented.
 
 \section{Hypothesis Generation}
+In research, a hypothesis is a prediction of the answer to a question that no one knows the answer to. Therefore, a ``good'' hypothesis is primarily one that represents the true answer to the question. To generate such a ``good'' hypothesis, we need to consider several factors. Here, I would like to discuss the reasons for the unknown that we previously discussed. Easy questions naturally lead to the generation of good hypotheses, and there is not much meaning in discussing the quality of hypotheses in such situations. Therefore, in this context, we will focus on how to generate ``good'' hypotheses for difficult questions that many people are challenging but have not yet been answered.
+
+I do not precisely know what it means for a question to be difficult. However, if we consider an analogy with machine learning, inference about patterns that rarely occur in the training data is challenging. Therefore, difficult questions may correspond to the tail part of the distribution during the training phase in machine learning or cases where there is a distribution shift (specifically, when the true distribution is mistakenly inferred during training). If that is the case, the ability to appropriately infer hidden patterns without being misled by spurious correlations in past experiences could be crucial in generating ``good'' hypotheses for difficult questions.
+
+Humans have employed various means to solve this difficulty. One approach is to incorporate new perspectives by borrowing knowledge from other fields or old papers. As we accumulate knowledge for research, we implicitly acquire the dominant ways of looking at things in that era. While it may not be false correlation, it undoubtedly makes certain patterns less visible. Bringing in insights from unrelated fields to the current domain might relativize these perspectives and provide a trigger to notice hidden patterns. Another approach is to leverage the power of mathematics. For example, in the field of physics, hypotheses for a certain question are built as theories with the help of mathematical tools. This involves deductive operations at various points, allowing for leaps of inference that go beyond human past experiences. We have also utilized various techniques such as analogies and the use of computers. However, all of these methods have been human approaches to overcoming broad out-of-distribution generalization.
 
 \section{Hypothesis Verification}
 
