@@ -769,10 +769,21 @@ In this chapter, we will discuss what should be done and how to achieve the real
 
 As we have reiterated multiple times, the ultimate goal is to create an artificial intelligence that can autonomously conduct research. Therefore, in order to clarify the objectives, it is necessary to define what it means for an AI to be able to conduct research and what it means for it to be autonomous. Let's first discuss these aspects.
 
-\section{Goal and Research}
+\section{Goal}
+To reiterate, the proposition put forward in this paper is to strive for the realization of autonomous intelligent systems that can conduct research. This is because I believe it holds the potential to liberate research from the cognitive, historical, and social constraints that surround humans. Furthermore, I think it can lead to a future where better knowledge production occurs, ultimately enabling a broader and deeper understanding of the universe and nature.
+
+I believe that more people should engage in efforts aimed at developing artificial intelligence that autonomously conducts research on universal subjects. This is because there currently seems to be a limited number of such endeavors. Firstly, I think efforts in research automation can be classified along the axes of universality and autonomy. Universality refers to how many research fields a single automated research system can handle. For example, a system capable of conducting research in both physics and history would have higher universality compared to a system limited to either one. This can be understood as the ability to tackle universal questions. Next, autonomy refers to the level of human intervention involved. For instance, a system that requires humans to explicitly provide a set of hypotheses has lower autonomy compared to one that allows the machine to discover them on its own. From this perspective, previous endeavors in research automation can be organized as illustrated in the following diagram. (Diagram description). Thus, it can be said that there are still relatively few efforts focused on constructing highly universal and autonomous automated research systems.
+
+\textcolor{red}{TODO: Add Fig}
+
+Of course, efforts to automate research at all levels are important. For example, initiatives to automate a specific experiment in physics are valuable in their own right, as they aim to achieve the specific objective of enabling more efficient research. Therefore, the endeavors mentioned in this paper differ in their original goals, and it is not a matter of determining which is better or more important. Additionally, insights gained from these endeavors related to the construction of highly universal and autonomous systems are crucial. As achieving such systems involves high uncertainty, it is beneficial to start by creating concrete systems to increase problem resolution. This process will involve considering which aspects of a specific system can be abstracted to achieve universality and autonomy. Hence, the most important aspect is that all initiatives aspiring towards research automation gain momentum.
+
+\subsection{Goal and Research}
 First, let's discuss what it means for an AI to be able to conduct research. we delved into this topic in detail in Chapter 2. Research is the act of producing new knowledge for a community of constituents capable of forming shared beliefs. Producing new knowledge involves posing unanswered questions, formulating hypotheses in response to those questions, and verifying those hypotheses to update beliefs. Therefore, creating an intelligent system capable of conducting research means creating a system that can perform these tasks.
 
-\section{Goal and Autonomy}
+\textcolor{red}{TODO: revision}
+
+\subsection{Goal and Autonomy}
 % The ultimate goal is to create an artificial intelligence that can produce knowledge. In other words, the aim is to develop a function that can autonomously generate some form of knowledge when given any input. Therefore, any attempt to achieve the realization of an artificial researcher should strive to create such a function, regardless of its specific form. As we have reiterated, if the knowledge generated through research is a shared belief in a justified and true society, then the goal can be rephrased as aiming to generate a belief in response to any input and justify it to the extent that it becomes a shared belief in a society.
 
 What we am aiming for is an artificial intelligence that can conduct research completely autonomously. Therefore, the ultimate aim is to minimize predetermined modules or algorithms decided by humans and create an end-to-end system. With that in mind, we would like to express our opinion on how much autonomy should be pursued.
@@ -789,7 +800,13 @@ The second is explicitly providing information about what research is. This invo
 
 While achieving the autonomy in the first two stages would certainly be great, it is expected to be quite challenging to aim for that directly. Therefore, we believe it is better to aim for the third level of autonomy. Specifically, as proposed in Chapter 2, it would be beneficial to aim to create a system that divides the research process into three modules: question construction, hypothesis generation, and verification, and connects them as a pipeline. To achieve that system, we should strive to incrementally enhance the internal autonomy of each module.
 
-\section{Question Formulation}
+\textcolor{red}{TODO: revision}
+
+\section{What to do to achieve the objective}
+
+To create a universal artificial researcher, I believe it is necessary to automate the construction of questions, generation of hypotheses, and validation of hypotheses. This is because, as seen in Chapter 1, these functions appear to be essential in all research. In other words, by automating these functions as much as possible without relying on human intervention, we can move closer to the realization of an autonomous and universal artificial researcher.
+
+\subsection{Question Formulation}
 The construction of a question is the act of seeking information \cite{watson2015ask}. Specifically, in the context of research, we consider information as knowledge. The act of seeking knowledge involves two steps: 1. Recognizing the lack of knowledge and 2. Attempting to fill that knowledge gap. In this discussion, we assume that intelligence is designed to consistently generate questions when given input. Therefore, we temporarily set aside the aspect of "triggering action" related to the second step of attempting to fill the knowledge gap.
 
 The recognition of a knowledge gap occurs when we expect to have certain knowledge and, upon referencing our accessible knowledge, we find that it is not available. For example, when running a program and encountering an error that we cannot resolve on our own, we recognize that we lack the necessary knowledge.
@@ -817,7 +834,7 @@ Additionally, in this case, we assumed that the given purpose and its achievemen
     \label{fig:enter-label}
 \end{figure}
 
-\subsection{How to Identify the Necessary Knowledge for Achieving a Goal?}
+\subsubsection{How to Identify the Necessary Knowledge for Achieving a Goal?}
 In this situation, we need to consider how to identify the knowledge required to achieve our objectives. Typically, when given a goal, we start by listing the necessary elements to accomplish it. For example, to achieve general artificial intelligence, we may think that it requires the ability to handle language, understand the real world, be proficient in mathematics, and align with human values. To understand the real world, for instance, we may need the capability for interacting with the physical world, processing visual information, and so on. These requirements can be further broken down into multiple necessary elements. By repeating this process, we can narrow down the specific tasks that can be directly addressed. Then, the required knowledge to accomplish those tasks is demanded, and that's where it directly connects to the research question.
 
 Several things are happening here. Firstly, listing the elements necessary for achieving the goal means generating subgoals from the main goal. However, it's always a challenging problem to evaluate how a particular subgoal contributes to the achievement of a given goal. Especially in the case of research, the target might be an too general and ambitious vision that nobody has achieved before, so we need to think about what needs to be done to break it down into appropriate subproblems. In other words, it is necessary to construct a tree with nodes representing subgoals.
@@ -836,19 +853,19 @@ However, an important point to note here is that the research questions created 
 
  objective rather than abstraction in some specific cases. In this regard, simply learning from human data without imitation may constrain the potential capabilities that machines can possess. Therefore, it becomes important to consider how to formulate the maximization of the probability of achieving research goals as a problem, rather than naive learning from human data.
 
-\subsection{How to Search Necessary Knowledge and Recognize the Lack of Knowledge?}
+\subsubsection{How to Search Necessary Knowledge and Recognize the Lack of Knowledge?}
 There are various methods to determine whether the desired knowledge already exists. Typically, it is considered that candidates can be narrowed down in two steps. First, since research papers are composed of questions and their corresponding answers, one can search for papers that have similar questions and answers to the desired knowledge. Once these papers are found, the validity of their verification methods is evaluated. If it is determined that sufficient verification has not been conducted, it can be concluded that the knowledge does not exist.
 
 In this case, the knowledge itself was considered as the research paper database, so the process involved searching and individually assessing the papers as described above. However, for example, if the knowledge is represented by the distributed representation of a machine itself, the need for the search step may be eliminated. Nevertheless, even in this case, the reliability of the machine's judgment can only be trusted if it has appropriately assessed the effectiveness of its own verification. Therefore, the ability to understand and evaluate verification seems essential in determining the novelty of research.
 
 \textcolor{red}{TODO: Is question formulation information retrieval??}
 
-\subsection{Multiple Reasons for Unknownness}
+\subsubsection{Multiple Reasons for Unknownness}
 new, unimportant, difficult, unnoticed, ... etc.
 
-\subsection{Finding ``Important'' but Unnoticed Questions}
+\subsubsection{Finding ``Important'' but Unnoticed Questions}
 
-\subsection{Conclusion}
+\subsubsection{Conclusion}
 In summary, the following abilities are required to generate research questions for achieving a specific goal:
 
 \begin{enumerate}
@@ -874,12 +891,14 @@ In summary, the following abilities are required to generate research questions 
 
 we have listed what we believe are important elements in the construction of questions. However, these are considered important under the assumptions mentioned earlier. For instance, if the goal is not to acquire knowledge necessary for achieving an objective, but to generate knowledge that an individual finds interesting, the necessary elements in question construction (particularly in parts 1.a and 1.b) would change. As previously mentioned, the value of knowledge is determined in relation to context and there's a high degree of uncertainty about how the value of knowledge will evolve in the future. This makes it fundamentally important to have a diverse range of ways to generate questions. The object achievement is highly prevalent and is expected to produce ``important'' knowledge, which is why it is discussed here. However, it is important to discuss what other ways of formulating questions could exist and how they can be implemented.
 
-\section{Hypothesis Generation}
+
+
+\subsection{Hypothesis Generation}
 As mentioned earlier, from the perspective of knowledge production, we believe that hypotheses are sufficient in principle if they fulfill the function of providing provisional answers to questions. However, in order to avoid unnecessary testing, it is important to derive ``plausible'' hypotheses. There are various approaches to this, but to provide some food for thought, we would like to share our personal view on how humans generate hypotheses.
 
 Hypothesis generation is sometimes considered an unanalyzable, emergent process or a result of genius. However, we believe that human-generated hypotheses are produced through a process of trial and error in rational inference. In the following discussion, for the sake of simplicity, we will focus on hypothesis generation for why questions. Please note that not all research questions are why questions (e.g., ``Does life exist beyond Earth?'' is not a why question, but it is a scientifically investigable question).
 
-\subsection{Analyzing Question}
+\subsubsection{Analyzing Question}
 Researchers start with a question, the composition of which has been discussed in the previous section. Given the question, we break down the content of the question and analyze each part in detail. For example, let's say we have a question, ``Why are apples red?'' The first thing we would consider is what an apple is and what red means. we would also think about what it means for something to be red. Then, we focus on the properties of apples and the color red and abstract them. we may also think about other red things besides apples. If we already know the reason why tomatoes are red before knowing why apples are red, we might consider that the reason for tomatoes being red could apply to apples as well. By conducting this kind of analysis, we can connect our understanding to existing similar knowledge and attempt to explain using those existing reasons. These ways of focusing on abstract structural similarities between specific concepts and inferring that what can be said about A, which has the same structure, can also be said about B is called analogical reasoning. This has been considered to be important method in hypothesis formation.
 
 As given in these simple examples, one can easily find analogical examples. However, many of the questions researchers actually grapple with are more complex, and it's not immediately clear how they relate to existing knowledge. Researchers have been finding a way to generate ``plausible'' hypotheses even in such cases. 
@@ -890,7 +909,7 @@ In essence, Darwin initially had the question of ``how does evolution occur,'' b
 
 In the case of Darwin, it involved a more observational approach within the field of natural history, which prompted the transformation of his question. However, in fields such as theoretical research that utilize mathematics, different methods may be employed. For example, consider the scenario where there are two theories, Theory A and Theory B, and the goal is to achieve a unified description between them. In this case, one might repeatedly perform mathematical transformations on the objects described by each theory, reducing the significant problem of ``incompatibility between Theory A and Theory B'' to inconsistencies between specific properties of each theory. By introducing axioms that resolve these inconsistencies, it may be possible to construct a unified theory. It is important to reiterate that in cases where the subject matter is mathematically described, formal operations can be applied to objects of interest, such as Object A and Object B, to transform them into different forms. This process can lead to the discovery of unexpected similarities. It is through this approach that one can discuss the similarities between objects even when they may defy intuition or cannot be imagined through empirical means. Therefore, I believe that hypothesis generation plays a powerful role in identifying similarities between objects, especially in cases where it is necessary to discuss the similarities between objects that may not be intuitively evident or imagined through experience.
 
-\subsection{Confirming Plausibility in Hypothesis Generation}
+\subsubsection{Confirming Plausibility in Hypothesis Generation}
 
 In the previous section, we discussed our belief that during hypothesis generation, humans engage in question analysis. Now, let's explore what it means to perform analysis in this context. In simple cases like ``apples are red,'' it may be sufficient to apply existing knowledge. However, in research, especially when tackling challenging questions, we believe that the following steps are involved. First, from the knowledge at hand, we select several hypotheses that are strongly related to the question and have a high level of confidence. Alternatively, new knowledge with high confidence may come into play. We then proceed with accepting these hypotheses as premises. If the deduced results partially answer the question, we temporarily set aside that portion. Instead, we focus on progressing thoughts regarding the remaining parts of the question or generating hypotheses that maintain consistency with this knowledge. Specifically, we generate hypotheses that seem relevant, and then verify that they do not contradict existing knowledge.
 
@@ -900,7 +919,7 @@ Indeed, by considering the relationships between existing knowledge and new know
 
 % In highly mathematicalized disciplines like physics, for example, one might judge the plausibility of a hypothesis by comparing the deduced consequences from that hypothesis with existing knowledge. In this way, hypotheses that are judged to be somewhat consistent with the assumed premises may be recognized as ``plausible'' and worthy of rigorous testing. Of course, there are factors other than the plausibility of a hypothesis that can affect its ``value,'' but we believe that plausibility is the most important value in terms of knowledge production.
 
-\subsection{Hypothesis Generation from Verification Results}
+\subsubsection{Hypothesis Generation from Verification Results}
 
 Then, the validity of those hypotheses is assessed through hypothesis testing. In actual research practice, even if hypothesis testing yields negative results, it does not necessarily mean that the proposed hypothesis is completely discarded. Instead, supplementary variables may be introduced into the initially proposed hypothesis, and the modified hypothesis may be retested. On the other hand, it is also possible that the assumptions of the hypothesis are reconsidered, leading to the generation of new hypotheses. These are all practices of researchers involved in hypothesis generation, so let me explain them in more detail.
 
@@ -918,7 +937,7 @@ In this way, researchers start by revising less firmly held beliefs first and re
 
 Thinking in this way, we can understand why mathematics has played a crucial role in science. First and foremost, in mathematics, it is necessary to state the assumptions explicitly. Therefore, among all the potential influencing assumptions, only the assumptions under consideration are represented as mathematical objects. Furthermore, mathematics is a deductive system, so if any contradictions arise in the results, we can conclude that one of the assumed premises must be incorrect as long as the inference rules are correctly applied. Consequently, we can confine the process, which could have an infinite number of causes, to a finite and debuggable system for discussion. Additionally, when verifying the consistency of a hypothesis with the underlying assumptions used to generate it, the relationship of how the hypothesis is deduced from those assumptions can also be mathematically examined. This allows us to proceed with confidence, understanding the reasons why and to what extent we need to question each assumption. Finally, mathematics is abstract so is help us to find the analogical relationships. we believe these factors have hugely contributed for humans to generate plausible question.
 
-\subsection{What is Necessary for Hypothesis Generating Machine}
+\subsubsection{What is Necessary for Hypothesis Generating Machine}
 As we have been stating repeatedly, hypothesis generation is a prediction based on experience. More specifically, one could formulate hypothesis generation currently performed by humans as a broader question-answering task. If that is the case, what requirements are there for creating a machine learning model that generates research hypotheses, beyond just a question-answering task? Particularly, is it merely a result of human cognitive constraints that we explicitly transform a question statement to find analogies, or is this an important aspect in hypothesis generation not limited to humans?
 
 The answer to this seems to vary depending on who the question's answer is unknown to. Firstly, let's discuss the scenario where the answer to the question is unknown to humanity. This scenario corresponds to utilizing artificial intelligence just for a hypothesis generator for humans. In this case, it may not necessarily be required for machines to undergo the intermediate step of explicitly converting the question, as it is possible for them to directly generate an answer to the question. This is because what is unknown to humans may already be known or obvious to machines. Currently, artificial intelligence demonstrates capabilities that surpass human abilities, and as their capabilities continue to advance, this trend is likely to accelerate further. It is important to note that even in cases where a direct answer is provided without explicit question transformation, as you may already be aware, there is an implicit process of transformation occurring.
@@ -939,19 +958,19 @@ Another aspect that can be learned from human examples is that humans determine 
 
 % Humans have employed various means to solve this difficulty. One approach is to incorporate new perspectives by borrowing knowledge from other fields or old papers. As we accumulate knowledge for research, we implicitly acquire the dominant ways of looking at things in that era. While it may not be false correlation, it undoubtedly makes certain patterns less visible. Bringing in insights from unrelated fields to the current domain might relativize these perspectives and provide a trigger to notice hidden patterns. Another approach is to leverage the power of mathematics. For example, in the field of physics, hypotheses for a certain question are built as theories with the help of mathematical tools. This involves deductive operations at various points, allowing for leaps of inference that go beyond human past experiences. we have also utilized various techniques such as analogies and the use of computers. However, all of these methods have been human approaches to overcoming broad out-of-distribution generalization.
 
-\subsection{Conclusion}
+\subsubsection{Conclusion}
 In this section, we have presented a hypothesis that the tasks involved in hypothesis generation may vary depending on who the answer to the question is unknown to. If the answer to a hypothesis is unknown to humans, it may be sufficient for the machine to generate questions directly based on the hypothesis. However, if the answer to a hypothesis is unknown to the machine, we have suggested that the machine needs to analyze and appropriately transform the hypothesis.
 
 Nevertheless, it is worth noting that the aspects discussed above can also be useful in the context of hypothesis generation for humans.
 
 \textcolor{red}{TODO}
 
-\section{Hypothesis Verification}
+\subsection{Hypothesis Verification}
 Validation of hypotheses allows for any action to be considered as long as it is subject to validation, meaning that it updates an individual's beliefs. In this sense, it is believed to be extremely difficult to fully automate the act of validation universally and unconditionally. To achieve complete automation, the realization of physical robots capable of movements at least equivalent to humans in the real world would be necessary, which goes beyond the scope of developing intelligence.
 
 Therefore, to automate this process, it is necessary to proceed with automation gradually, starting from what can be automated. Two directions can be considered as ways to mitigate this problem. The first direction is to break down the validation process and gradually automate parts that are relatively feasible for automation using machine learning. The second direction is to prioritize the automation of research domains where validation is relatively easy.
 
-\subsection{Verification Design}
+\subsubsection{Verification Design Overview}
 
 First, let's explain the former direction. As mentioned earlier, we believe that the validation process can be divided into three stages: formulating a validation plan, preparing for the execution of the validation plan, and executing the validation plan. Among these stages, the execution of the validation plan and the preparation for it require interaction with the physical world in many fields. For example, in certain fields, you may need to purchase and raise rats for training, while in others, you may need to observe physical objects directly. On the other hand, formulating a validation plan is a process that is purely confined to the human mind in a wide range of fields. Of course, in many cases, interacting directly with the physical world can lead to better validation plans, but it is important to note that it is not an absolute requirement. Therefore, to automate the execution and preparation of validation, it is suggested that the power of robotics researchers be leveraged, while machine learning researchers should focus on automating the formulation of validation plans. 
 
@@ -972,7 +991,7 @@ Creating a plan is known to be a challenging task, not limited to verification p
 
 Finally, once the necessary elements for verification are understood, they need to be represented as executable procedures. This is not just a requirement of a verification plan but a necessary condition for knowledge to become knowledge for society after it is generated. In order to generate knowledge for society, it is necessary not only to verify hypotheses but also for the verification procedures to be understandable to other members of society and judged as valid. While it is desirable for the question generation process and hypothesis generation process to be publicly available, it is of utmost importance that the verification process is disclosed. However, since this can be done as soon as the plan is created, it is not considered a difficult task in that sense.
 
-\subsection{Narrowing Down the Domain}
+\subsubsection{Narrowing Down the Domain}
 
 Next, let's discuss the second direction, which is to prioritize the automation of validation in research domains where it is relatively easy. As mentioned earlier, the greatest challenge for machine learning researchers in the unified automation of hypothesis validation is the fact that some fields require interaction with the physical world for the execution of validation preparation. Therefore, the second direction is to focus on narrowing down the domains where the execution and preparation of validation take place solely within the computer world and aim for complete automation in these domains.
 
@@ -984,23 +1003,34 @@ Based on the above, we propose that the automation of fields requiring interacti
 
 Although we can proceed them in parallel, we believe that we should prioritize the automation of validation plan development. This is because, as mentioned repeatedly, the execution and preparation of validation do not require validation-specific capabilities. It aims to acquire more general abilities, and many individuals who are not pursuing research automation are also working towards achieving this. However, the realization of validation plan capabilities is a point of particular interest for those pursuing research automation, and it has not received sufficient attention nor progress unless driven by individuals aiming for research automation. Therefore, we believe that prioritizing the automation in this area would be beneficial.
 
-\section{Pipeline}
-The ultimate goal is to create an artificial intelligence capable of conducting research autonomously. Therefore, in addition to automating individual modules of research, it is necessary to create a system that can autonomously carry out the entire research process from start to finish. Building such a research process pipeline is one of the sub-goals we aim for.
+\subsection{Call for Perspective Papers}
 
-This is similar to the pipelines discussed in MLOps in the context of machine learning or scientific workflows mentioned in previous studies. However, unlike those, we envision a system that does not include processing that is heavily dependent on specific research domains or tasks. Instead, we formalize it as a pipeline consisting of modules for question formulation, hypothesis generation, and planning and execution of validation, as discussed in Chapter 2. This system autonomously constructs and validates hypotheses for any given question with an unknown answer.
+It is necessary to collectively create a perspective paper that includes these automation-related aspects and others. For example, while reading and writing papers are essential skills in research, I am not aware of many recent perspective papers that consider these topics. Furthermore, due to my own lack of knowledge, I do not have a comprehensive understanding of perspective papers on the automation of specific individual studies. I believe many people, not just myself, may be unaware of perspective papers on the automation of research in other fields. Therefore, I suggest creating a space where insights into research automation can be accumulated, and I encourage domain experts to contribute their expertise in areas that may be lacking. This way, I believe the entire endeavor of research automation can accelerate.
+
+\section{How to Approach the Goal}
+
+\subsection{Open Source Projects}
+
+Firstly, I believe that research and development for creating a universal and autonomous artificial researcher should be carried out in an open manner. Furthermore, I think that all research automation projects should strive to share knowledge as much as possible. Firstly, by conducting open research, more people can participate in research automation projects. This leads to an increase in the amount of human resources devoted to the project, enabling faster progress towards achieving the objective. Secondly, sharing knowledge eliminates the need for reinventing the wheel. This reduces wasteful utilization of resources and promotes more efficient progress towards the objective. Thirdly, it removes barriers between individuals sharing the common goal of research automation. Currently, it seems that there is insufficient information sharing between different fields related to the same objective of research automation. For example, research on automating physical property prediction and research on information retrieval from papers seem to exist within different communities. By sharing information, valuable insights that are beneficial to one's own project may be obtained, potentially accelerating the project.
+
+\subsection{Construction of Research Pipelines}
+
+I believe it is beneficial to aim for the development of research pipelines that can automatically conduct research. A research pipeline is a software system that takes input and generates knowledge as output, encompassing the sequence of processes involved in research. Since this process does not require human intervention, it can be considered as an autonomous research system with a high level of autonomy. I propose realizing this system by combining the sub-processes of "question construction," "hypothesis generation," and "hypothesis validation." This creates a universal system that is potentially applicable to any research. These sub-processes can be likened to abstract classes in programming. Each process automatically formulates appropriate questions, generates hypotheses, and performs validation based on the input. This is the goal of the system.
+
+It is advisable to start by representing a specific research as a pipeline. Initially, creating a concrete system helps clarify the actions involved in actual research and makes the specific challenges to be addressed more tangible. When dealing with projects with high uncertainty, it is crucial to concretize the problems to be solved. Specifically, the goal is to programmatically represent the actions that researchers perform as comprehensively as possible. It is acceptable to consider certain aspects as constants if their execution is difficult as a program. Then, running the system should reproduce the original research. The next step is to progressively automate the processes and constants provided by humans to enhance autonomy. Naturally, automating a specific research pipeline alone does not guarantee the development of an autonomous pipeline. However, this approach allows for the identification of research automation challenges and paves the way for their resolution through research and development. Importantly, it is essential to express individual tasks as components or sub-processes of question construction, hypothesis generation, or hypothesis validation. This is similar to inheriting an abstract class, ensuring that the automation of these processes is achieved as individual tasks are automated.
+
+In practice, it becomes evident that fully automating an entire research is highly challenging. Therefore, before automating specific research, it may be advantageous to start by creating simplified toy models and aiming to build systems that can execute them automatically. For example, certain parts that require obtaining and using a real dataset can be replaced with appropriately created sample datasets. The approach is similar to that of specific research pipelines, addressing research challenges while aiming to increase autonomy and universality.
+
+Research in the field of machine learning is suitable as a specific research to start with. Firstly, many machine learning studies are conducted entirely on computers. As mentioned earlier, the greatest difficulty in achieving universal automation lies in the interaction with the real world. Technologies related to real-world interaction are used for hypothesis validation rather than the validation itself. This requires advancements in robotics research. Therefore, to pursue the automation of the entire research process, it may be best to set aside fields that require interaction with the real world and initially focus on automating research that can be done solely on PCs. Secondly, many attempts to automate machine learning processes have already been made. For example, in MLOps, various pipelines for automating tasks such as experiment management and training in machine learning have been proposed and put into practical use. AutoML, which is a field of machine learning research, has also produced numerous innovations in automating many of the tasks involved in machine learning. Moreover, the culture of machine learning and related engineering fields already has a wealth of knowledge and insights regarding automation. By effectively utilizing this knowledge, it may be possible to achieve research pipeline realization more efficiently compared to other fields. Thirdly, machine learning researchers and engineers who undertake research automation are likely to be more familiar with machine learning research. Fourthly, many studies in machine learning and related research areas are open-source. Consequently, it is considered easier to retrieve information from papers compared to other fields. For these reasons, I believe it is a good approach to start by automating a specific research project in the machine learning domain.
+
+\textcolor{red}{Remarks about Autores PJ}
+
+% The ultimate goal is to create an artificial intelligence capable of conducting research autonomously. Therefore, in addition to automating individual modules of research, it is necessary to create a system that can autonomously carry out the entire research process from start to finish. Building such a research process pipeline is one of the sub-goals we aim for.
+
+% This is similar to the pipelines discussed in MLOps in the context of machine learning or scientific workflows mentioned in previous studies. However, unlike those, we envision a system that does not include processing that is heavily dependent on specific research domains or tasks. Instead, we formalize it as a pipeline consisting of modules for question formulation, hypothesis generation, and planning and execution of validation, as discussed in Chapter 2. This system autonomously constructs and validates hypotheses for any given question with an unknown answer.
 
 
-
-
-\section{High Level Idea}
-
-Proposal for the progress of automation of individual tasks
-
-Automation of tasks and fundamentally autonomous (end-to-end) research
-
-Proposal for the progress towards the realization of intelligence that can autonomously conduct research.
-
-\section{Concrete Proposals}
+\section{Others}
 One problem is that the research papers do not necessarily represent the way to do science, which is rather constructed retrospectively \cite{schickore2008doing}.
 
 
