@@ -24,7 +24,7 @@
 }
 
 \title{Towards General and Autonomous Artificial Researcher: Perspective Paper}
-\author{Shiro Takagi}
+\author{Shiro Takagi \footnote{The LaTeX file of this perspective paper is stored on GitHub. The paper is still under active development, and you can review the past update history from the repository. If you have any proposals to improve this paper, please feel free to submit a pull request to the repository. Let's work together to create a better paper! \\ GitHub: \url{https://github.com/t46/research-automation-perspective-paper}. }}
 
 \begin{document}
 \sloppy
@@ -56,17 +56,19 @@ Next, in chapter 3, we will discuss ``Where are we currently standing'' to work 
 In chapter 4, we will present our proposals on ``What to do to achieve the goal.'' Building upon the clarity of the goal from chapter 2 and the understanding of the current state from chapter 3, we will discuss how to bridge the gaps between them. We will also explore the directions and specific approaches for research and development, suggesting the policies and avenues that may be most effective. Through these discussions, our aim with this paper is to providing useful information for as many individuals striving for research automation.
 
 \section{Pursuing Better Research}
-\textcolor{red}{TODO: not just automating etc}
+Please emphasize once again that what we are aiming for is to achieve a better way of knowledge production. The realization of versatile and autonomous artificial intelligence is merely a means to that end. Therefore, even if certain practices are widely adopted at present, we will strive for better methods if they are not essential for knowledge production and if there are superior alternatives. In other words, we propose to pursue the realization of artificial intelligence that enables a different and improved way of knowledge production, rather than simply automating the current research practices. Even if this means a departure from the current norms. 
 
-\section{Others}
+In reality, while the practices of knowledge production developed by humans are highly sophisticated, robust, and productive, it is not necessarily true that all of them have reached the absolute optimum way of doing things. Firstly, research practices are strongly influenced by history and society. For example, peer review is widely accepted today, but it is said to have gained such dominant status because foundations in Cold War-era America demanded peer review to ensure accountability. Even without peer review, it cannot be denied that current research practices are influenced by the demands of various stakeholders, such as funding agencies and academic publishers. Moreover, the fact that research outcomes are still represented in the form of papers is clearly a remnant of the era when print was predominant. These practices might have been optimal under the social conditions and technologies of that time, but they may not necessarily be optimal in the present, as society has evolved. Additionally, meeting societal demands does not always lead to the optimization of knowledge production. Secondly, it seems that we sometimes lack a widely shared understanding of how to optimally carry out certain aspects of research. For instance, it is important to formulate good research questions and hypotheses, but there are still many aspects about how to do this effectively that remain unclear, and it appears to rely heavily on individuals' tacit knowledge. In such a situation, simply replacing current practices with machines may not guarantee a good knowledge production process. Thirdly, as Nielsen and Qiu say \cite{nielsen}, it is believed that we have only explored in a very limited subspace in the space of possible research practices. The establishment of current research practices is a very recent event in human history, and we may not yet have arrived at the optimum way of intellectual production. \textcolor{red}{TODO: Add examples.} Finally, as we mentioned above, current research assumes that humans are the main creators and consumer of knowledge. This naturally imposes human cognitive constraints, which may significantly limit the range of activities that can be conducted for knowledge production. Based on these reasons, we aim to progress the discussion in a way that allows us to identify what is fundamentally essential for knowledge production, while also drawing inspiration from the positive aspects of past practices. We will not be bound by the current approaches but instead strive to clarify what is truly crucial for effective knowledge production.
 
-The purpose of this perspective paper is to discuss the possibility of automating this activity of research, that is, the realization of intelligent agents capable of conducting research autonomously. After summarizing attempts at research automation so far, we intend to present our personal perspective on promising ideas, necessary elements, and ways to proceed in order to create artificial researchers. In particular, this paper is aimed at machine learning researchers and developers, with the goal of increasing the number of colleagues aiming for research automation by providing concrete possible actions.
+% \section{Others}
 
-One thing to note here is that our aim is not to automate or substitute the current research tasks, but to create intelligent agents capable of conducting research. In other words, as long as it is research, automated research may at first glance seem to be far removed from the current research activities. This is because the current research activity may not necessarily be the absolute optimal form in light of its purpose. 
+% The purpose of this perspective paper is to discuss the possibility of automating this activity of research, that is, the realization of intelligent agents capable of conducting research autonomously. After summarizing attempts at research automation so far, we intend to present our personal perspective on promising ideas, necessary elements, and ways to proceed in order to create artificial researchers. In particular, this paper is aimed at machine learning researchers and developers, with the goal of increasing the number of colleagues aiming for research automation by providing concrete possible actions.
 
-First, the optimal form is always influenced by the context of history. Of course, the optimum in the era when letterpress printing was mainstream is different from the optimum in the era when the Internet became infrastructure. Research itself has changed its form over time, and the optimal form of research in the present or future can naturally change. Moreover, as Nielsen and Qiu say \cite{nielsen}, it is believed that we have only explored a very limited range regarding the practice of research. The establishment of current research practices is a very recent event in human history, and we may not yet have arrived at the optimum way of intellectual production. Furthermore, current research assumes that humans are the main creators of knowledge. This naturally imposes human cognitive constraints, which may significantly limit the range of activities that can be conducted for knowledge production. 
+% One thing to note here is that our aim is not to automate or substitute the current research tasks, but to create intelligent agents capable of conducting research. In other words, as long as it is research, automated research may at first glance seem to be far removed from the current research activities. This is because the current research activity may not necessarily be the absolute optimal form in light of its purpose. 
 
-Therefore, instead of thinking about how to automate and streamline current tasks, we discuss the possibility of realizing intelligent agents that can autonomously perform the fundamental and core elements of research activity in a more optimal form, and what is necessary for this.
+% First, the optimal form is always influenced by the context of history. Of course, the optimum in the era when letterpress printing was mainstream is different from the optimum in the era when the Internet became infrastructure. Research itself has changed its form over time, and the optimal form of research in the present or future can naturally change. Moreover, as Nielsen and Qiu say \cite{nielsen}, it is believed that we have only explored a very limited range regarding the practice of research. The establishment of current research practices is a very recent event in human history, and we may not yet have arrived at the optimum way of intellectual production. Furthermore, current research assumes that humans are the main creators of knowledge. This naturally imposes human cognitive constraints, which may significantly limit the range of activities that can be conducted for knowledge production. 
+
+% Therefore, instead of thinking about how to automate and streamline current tasks, we discuss the possibility of realizing intelligent agents that can autonomously perform the fundamental and core elements of research activity in a more optimal form, and what is necessary for this.
 
 \section{Continual update of this paper}
 
@@ -75,10 +77,10 @@ Additionally, this paper is intended to be updated on an ongoing basis. If you f
 \section{Notes}
 \textcolor{red}{TODO: Add any notes and policies of this perspective paper, e.g. free from human convention, limited knowledge on philosophy, scope, etc}
 
-
 \textcolor{red}{TODO: Add lots of high-level illustration}
 
 \chapter{What is Research?}
+\label{chapter-what-is-research}
 
 To create an agent capable of conducting research autonomously, it is crucial to understand what research is in the first place. Therefore, in this chapter, we would like to discuss the characteristics of what is called research.
 
@@ -625,7 +627,8 @@ Firstly, in this world, there exist countless pairs of statements and correspond
 
 Next, generating a hypothesis involves selecting one pair of a claim and a belief from among the potential claims that could serve as potential answers to the question. It is at this point, by choosing a hypothesis or considering multiple candidate hypotheses, that discourse becomes consciously acknowledged, and beliefs are substantively assigned. Finally, as we discussed in Chapter 2, verification involves gaining evidence for the belief in the chosen hypothesis, resulting in the updating of the belief state. The updated beliefs are represented in black in the diagram.
 
-\chapter{Research Automation Literature Review}
+\chapter{Literature Review}
+\label{chapter-literature-review}
 
 \section{Pipeline}
 While not necessarily using machine learning, there are several attempts to automate not a particular task but the entire research process. A seminal early works are Adam \cite{king2004functional}, and Eve \cite{williams2015cheaper}, closed-loop systems for scientific discovery. 
@@ -776,6 +779,7 @@ It has become commonplace to streamline domain-specific tasks in scientific rese
 
 
 \chapter{Proposal}
+\label{chapter-proposal}
 In this chapter, we will discuss what should be done and how to achieve the realization of autonomous artificial researchers. Firstly, we will provide an overview of Chapter 1 and Chapter 2. Building upon that, we will propose subgoals to aim for in order to achieve autonomous artificial researchers. Subsequently, for each subgoal, we will organize subtasks and propose a general approach and strategy for how to pursue these intermediate goals.
 
 As we have reiterated multiple times, the ultimate goal is to create an artificial intelligence that can autonomously conduct research. Therefore, in order to clarify the objectives, it is necessary to define what it means for an AI to be able to conduct research and what it means for it to be autonomous. Let's first discuss these aspects.
