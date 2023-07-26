@@ -32,7 +32,7 @@
 \tableofcontents
 
 \begin{abstract}
-    In this paper, we propose a perspective on the realization of machine learning algorithms that can conduct research autonomously. First, we look back at what kind of activities research, which is the subject of automation, involves. Next, we review existing research attempting to automate each component of these research activities. Based on these, we propose ideas for the realization of artificial researchers who can conduct research autonomously, and suggest a roadmap and action plan to achieve them.
+    In this paper, we propose a perspective on the realization of a general and autonomous artificial researcher. First, we discuss the definition of research to clarify the goal we pursue. Second, we review existing literature of research automation to know our current standing point. Third, based on these discussions, we propose what we should to realize a general and autonomous artificial researcher.
 \end{abstract}
 
 \chapter{Introduction}
@@ -242,7 +242,7 @@ The definition discussed here is merely a provisional one based on the naive per
 
 \section{Knowledge Production System}
 
-\textcolor{red}{TODO: more focus on the implication for research automation}
+% \textcolor{red}{TODO: more focus on the implication for research automation}
 
 % It is believed that research began with individual and concrete tasks. Among them, common actions were patterned and crystallized as a scientific method. We currently recognize this abstract set of behaviors as research. For example, hypothetico-deductive method and hypothesis testing are abstracted scientific method.
 
@@ -320,7 +320,7 @@ In conclusion, the following text focuses on the process of research, where know
 
 % Though we explained that research is belied revision, it would be convenient to see as a function that takes the unknown as input and outputs the known.  % TODO: rearrange
 
-\subsubsection{Three Modules in Knowledge Production System}
+\subsubsection{Three Sub-Systems in Knowledge Production System}
 In this section, we will explain three essential elements that we think are functionally necessary in knowledge production: \textit{question formulation}, \textit{hypothesis generation}, and \textit{hypothesis verification}. These are the abstract structure of the research process that has been emphasized so far.
 
 Constructing questions is equal to deciding the unknown to be investigated, which is necessary by definition for research, which is the art of bringing the unknown closer to the known. Generating hypotheses is inevitable when dealing with the unknown, although they may be implicit and the extent may vary. This is because if we did not require any inference with uncertainty, the unknown would not have been unknown in the first place. In other words, when dealing with the truly unknown, one must generate some hypothesis. The third element is hypothesis verification, which is a process that shows us how probable it is that a hypothesis is true. This element is indispensable, as it is converting our unjustified beliefs that a hypothesis is true into knowledge.\footnote{
