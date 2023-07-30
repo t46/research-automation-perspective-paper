@@ -655,7 +655,11 @@ Hypothesis generation is the act of creating potential answers to a question, so
 % \subsection{Hypothesis Generation: Proposal}
 % As mentioned earlier, from the perspective of knowledge production, we believe that hypotheses are sufficient in principle if they fulfill the function of providing provisional answers to questions. However, in order to avoid unnecessary testing, it is important to derive ``plausible'' hypotheses. There are various approaches to this, but to provide some food for thought, we would like to share our personal view on how humans generate hypotheses.
 
-Hypothesis generation is sometimes considered an unanalyzable, emergent process or a result of genius. However, we believe that human-generated hypotheses are produced through a process of trial and error in rational inference. In the following discussion, for the sake of simplicity, we will focus on hypothesis generation for why questions. \footnote{
+Hypothesis generation is sometimes considered an unanalyzable, emergent process or a result of genius.\footnote{
+Since 19th centuries, the act of producing knowledge, in particular hypothesis, and that of verification of it have been distinguished as the context of discovery and context of justification \cite{sep-scientific-discovery}. And during the most of the 20th centuries, the discovery caught much less attention by philosophers of science.
+
+In engineering discussions, there is often explicit formulation of sets or candidates of hypotheses, and the discovery of hypotheses in such situations is often discussed \cite{simon1973does,kitano2021nobel,bengio2022ml4sci}. However, when automating hypothesis generation it is also important to consider how such candidates arise in the first place. There have been attempts to understand this process, such as highlighting the importance of analogy \cite{thagard1984conceptual} or mental model \cite{nersessian1999model}, but the question of how to generate ``good'' hypotheses still remains unanswered. The generation of initial hypothesis candidates has been discussed in the context of creativity in science. As you are well aware, however, current machine learning models are already capable of executing creative tasks effectively \cite{sep-creativity}. Thus, there is a debate about how much emphasis should be placed on creativity when considering the development of artificial intelligence capable of generating new hypotheses.
+} However, we believe that human-generated hypotheses are produced through a process of trial and error in rational inference. In the following discussion, for the sake of simplicity, we will focus on hypothesis generation for why questions. \footnote{
 Please note that not all research questions are why questions (e.g., ``Does life exist beyond Earth?'' is not a why question, but it is a scientifically investigable question).
 }
 
@@ -813,7 +817,7 @@ It is true that humans have historically provided explanations for hypotheses. H
 So, is explanation merely an unnecessary byproduct of hypothesis generation, or does it serve some useful purpose? Eliminating explanations could lead to the following problems: 1. Reduction in the amount of information obtainable from knowledge production, and 2. Decline in future knowledge productivity. The reduction in the amount of information obtainable from knowledge production is a clear loss if explanations are deemed unnecessary.
 
 The potential decline in future knowledge productivity arises from the fact that explanations increase the reusability of knowledge. Throughout history, humans have constructed hypotheses in the form of models with a small number of variables to explain various phenomena. 
-\textcolor{red}{TODO: (Explanation of potential negative consequences resulting from the elimination of explanations.)}
+\textcolor{red}{TODO: Explanation}
 
 Regarding approaches to deal with the issue of interpretability, I believe there are at least three stances. First, one may completely abandon the explanation of hypothesis generation. As repeatedly mentioned, whether or not an explanation exists for how hypotheses are generated does not affect the reliability of knowledge as long as the verification process is transparent to us. Concerning the reusability of knowledge, it is not an issue if machines can reuse knowledge among themselves, even if it is not interpretable to humans. Therefore, this approach aims to separate interpretability and the reusability of knowledge and seeks ways for machines to reuse knowledge among themselves.
 
@@ -838,14 +842,9 @@ Third, one may not require explanations from machines but instead seek to enhanc
 % \subsubsection{Note on Unknown}
 % Let us make a note here about the term unknown again. We wrote that if an answer can be immediately derived by inference, it was not unknown in the first place. However, research is an activity to transform the unknown into the known, so in some form, unknown should eventually approach the known (reducing uncertainty). Moreover, if there is something that seems to be completely unrelated to the known or experiences (though it is hard to imagine), it seems inherently impossible to bring it closer to the known. In that sense, it is reasonable to think that the unknown has some relationship with the known. Therefore, the above description might be more accurate if it refers to cases where the confidence in the answer is lower, or the path to the answer is complex, and uncertainty is high. This is similar to the discussion on the definition of unknown in the previous section.
 
-\subsection{\textcolor{red}{Existing Discussion on Hypothesis Generation}}
-\textcolor{red}{TODO: add studies}
+% \subsection{\textcolor{red}{Reference}}
 
 %％％％％％
-
-Since 19th centuries, the act of producing knowledge, in particular hypothesis, and that of verification of it have been distinguished as the context of discovery and context of justification \cite{sep-scientific-discovery}. And during the most of the 20th centuries, the discovery caught much less attention by philosophers of science. 
-
-In engineering discussions, there is often explicit formulation of sets or candidates of hypotheses, and the discovery of hypotheses in such situations is often discussed \cite{simon1973does,kitano2021nobel,bengio2022ml4sci}. However, when automating hypothesis generation it is also important to consider how such candidates arise in the first place. There have been attempts to understand this process, such as highlighting the importance of analogy \cite{thagard1984conceptual} or mental model \cite{nersessian1999model}, but the question of how to generate ``good'' hypotheses still remains unanswered. The generation of initial hypothesis candidates has been discussed in the context of creativity in science. As you are well aware, however, current machine learning models are already capable of executing creative tasks effectively \cite{sep-creativity}. Thus, there is a debate about how much emphasis should be placed on creativity when considering the development of artificial intelligence capable of generating new hypotheses.
 
 % \subsubsection{Good Hypothesis}
 
