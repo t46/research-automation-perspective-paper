@@ -1260,23 +1260,16 @@ Thus, the ability to utilize deductive systems is extremely important in expandi
 \subsection{Behavior}
 Finally, although this is not a technique, let us stress the importance of being able to behave freely. As we repeatedly emphasized in the section of verification instantiation, acquiring the ability to act freely is essential to truly achieve a general and autonomous artificial researcher. This means that if the research is completed within the PC, the researcher can perform any operation on the PC at will, and if the research occurs within the real world, the researcher can handle all four limbs at will, just like a human being.
 
+\subsubsection{Behavior in PC}
+In recent years, research has emerged that aims to enable operations on PCs to be performed in natural language. For example, a language model is being developed that will allow a user to operate a browser like a human being by receiving instructions in natural language \cite{nakano2021webgpt}. Although currently limited to browser operations, this is a framework that can be extended to any behavior on a PC in the future. Research is also underway to automate code generation and execution, which will be an important elemental technology for automating many actions on the PC \cite{gulwani2017program}. Finally, research on using tools for language models \cite{mialon2023augmented} will also aid in the acquisition of actions on the PC. This is because once browser operations and code generation become highly automated, it is expected that calling those language models as tools will allow them to automatically perform fairly complex and sophisticated actions on the PC. Therefore, it seems very important that these technologies, which are currently being actively studied in the machine learning research community, continue to develop in order to realize general-purpose and autonomous artificial researchers.
+
+\subsubsection{Behavior in Real World}
+The development of robots that move like humans has been an active area of research. We believe that the development of robots that move like humans and animals, such as those being developed by Boston Dynamics \cite{kuindersma2016optimization}, will be essential to the future automation of these general-purpose, autonomous studies. More directly related to research, our efforts in the field of laboratory automation, which aims to automate experiments, is precisely the area in which we have seriously considered automating research, including such real-world behaviors. In particular, the development of a research specialized general-purpose humanoid robot (\textit{LabDroid}) like ``Mahoro'' \cite{yachie2017robotic} is a powerful step in this direction. As LabDroid becomes more versatile, we will move closer to achieving general-purpose research automation.
+
+
 \section{Conclusion}
-\textcolor{red}{TODO: Move to Appendix. Too abstract}
-
 In this chapter, we discussed what research is. Research is the act of producing new knowledge for a community of constituents capable of forming shared beliefs. We characterized the production of new knowledge as the process of posing unanswered questions, generating hypotheses in response to those questions, and verifying them. Additionally, starting from the standpoint that knowledge is belief, we also presented the depiction of research as belief updating.
-
-From the perspective that research is belief updating, the roles of question construction, hypothesis generation, and hypothesis verification can be represented in the following Fig. \ref{fig:beliefupdate}. 
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\textwidth]{figs/beliefupdate.jpg}
-    \caption{Research Process as Belief Update}
-    \label{fig:beliefupdate}
-\end{figure}
-In the diagram, circles represent statements, and squares represent beliefs in response to those statements. Note that while circles were described as statements, they are not limited to textual representations as long as they are associated with beliefs. Beliefs are determined by the subject holding the belief (in this case, an agent) and the object of the belief (the statement), but please note that we are assuming a fixed agent in this context.
-
-Firstly, in this world, there exist countless pairs of statements and corresponding beliefs (or latent beliefs). Posing a question corresponds to extracting a subset of unknown statements from this pool. More precisely, an unknown statement refers to a statement for which the agent is unsure whether to assign a strong or weak belief. Choosing corresponds to implicitly determining a function that assigns beliefs to each statement. For example, let's consider posing the question ``When did the universe begin?'' This answer to this question is unknown to humanity. By posing this question, the range of possible answers is narrowed down. However, it is not realistically possible for an agent to be aware of all statements and potential answers that could exist. Therefore, while we mentioned pairs of beliefs and statements, please consider that most of these beliefs are latent and potential.
-
-Next, generating a hypothesis involves selecting one pair of a claim and a belief from among the potential claims that could serve as potential answers to the question. It is at this point, by choosing a hypothesis or considering multiple candidate hypotheses, that discourse becomes consciously acknowledged, and beliefs are substantively assigned. Finally, as we discussed in Chapter 2, verification involves gaining evidence for the belief in the chosen hypothesis, resulting in the updating of the belief state. The updated beliefs are represented in black in the diagram.
+\textcolor{red}{TODO}
 
 \chapter{Literature Review}
 \label{chapter-literature-review}
@@ -1629,5 +1622,21 @@ Understanding is subjective, so there is a need to consider alignment. Even if t
 \appendix
 \chapter{Research as Social Activity}
 In this paper, we will discuss automation focused on the unique elements of knowledge production as mentioned above. However, research is a social endeavor. And that society has various levels, such as research labs, universities, and research ecosystems. Therefore, if we think about optimizing the whole activity of research, we need to think about optimizing these wholes. Although it is out of the scope of this paper and therefore not discussed this time, we would like to discuss this in the future.
+
+\chapter{Research as Belief Update}
+
+From the perspective that research is belief updating, the roles of question construction, hypothesis generation, and hypothesis verification can be represented in the following Fig. \ref{fig:beliefupdate}. 
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\textwidth]{figs/beliefupdate.jpg}
+    \caption{Research Process as Belief Update}
+    \label{fig:beliefupdate}
+\end{figure}
+In the diagram, circles represent statements, and squares represent beliefs in response to those statements. Note that while circles were described as statements, they are not limited to textual representations as long as they are associated with beliefs. Beliefs are determined by the subject holding the belief (in this case, an agent) and the object of the belief (the statement), but please note that we are assuming a fixed agent in this context.
+
+Firstly, in this world, there exist countless pairs of statements and corresponding beliefs (or latent beliefs). Posing a question corresponds to extracting a subset of unknown statements from this pool. More precisely, an unknown statement refers to a statement for which the agent is unsure whether to assign a strong or weak belief. Choosing corresponds to implicitly determining a function that assigns beliefs to each statement. For example, let's consider posing the question ``When did the universe begin?'' This answer to this question is unknown to humanity. By posing this question, the range of possible answers is narrowed down. However, it is not realistically possible for an agent to be aware of all statements and potential answers that could exist. Therefore, while we mentioned pairs of beliefs and statements, please consider that most of these beliefs are latent and potential.
+
+Next, generating a hypothesis involves selecting one pair of a claim and a belief from among the potential claims that could serve as potential answers to the question. It is at this point, by choosing a hypothesis or considering multiple candidate hypotheses, that discourse becomes consciously acknowledged, and beliefs are substantively assigned. Finally, as we discussed in Chapter 2, verification involves gaining evidence for the belief in the chosen hypothesis, resulting in the updating of the belief state. The updated beliefs are represented in black in the diagram.
+
 
 \end{document}
