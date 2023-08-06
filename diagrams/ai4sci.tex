@@ -1,0 +1,114 @@
+
+\tikzstyle{my-box}=[
+    rectangle,
+    draw=red,
+    rounded corners,
+    text opacity=1,
+    minimum height=1.5em,
+    minimum width=5em,
+    inner sep=2pt,
+    align=center,
+    fill opacity=.5,
+]
+\tikzstyle{leaf}=[my-box, minimum height=1.5em,
+    fill=orange!20, text=black, align=left,font=\scriptsize,
+    inner xsep=2pt,
+    inner ysep=4pt,
+]
+\begin{figure*}[tp]
+    \centering
+    \resizebox{\textwidth}{!}{
+        \begin{forest}
+            forked edges,
+            for tree={
+                grow=east,
+                reversed=true,
+                anchor=base west,
+                parent anchor=east,
+                child anchor=west,
+                base=left,
+                font=\small,
+                rectangle,
+                draw=red,
+                rounded corners,
+                align=left,
+                minimum width=4em,
+                edge+={darkgray, line width=1pt},
+                s sep=3pt,
+                inner xsep=2pt,
+                inner ysep=3pt,
+                ver/.style={rotate=90, child anchor=north, parent anchor=south, anchor=center},
+            },
+            where level=1{text width=5.6em,font=\scriptsize,}{},
+            where level=2{text width=5.6em,font=\scriptsize,}{},
+            where level=3{text width=5.5em,font=\scriptsize,}{},
+            where level=4{text width=6.1em,font=\scriptsize,}{},
+            [
+                AI for Research, ver
+                [
+                    Natural Science, ver 
+                    [
+                            \cite{zhang2023artificial}{,}
+                            \cite{xu2021artificial}{,}
+                            , leaf, text width=46.8em
+                    ]
+                    [
+                        Phisics
+                        [
+                            Contrastive~\cite{chalmers2013thing}{,}
+                            POTTER~\cite{chalmers2013thing}{,}
+                            , leaf, text width=39.7em
+                        ]
+                    ]
+                    [
+                        Chemistry
+                        [
+                            \cite{coley2020autonomous}{,}
+                            , leaf, text width=39.7em
+                        ]
+                    ]
+                    [
+                        Astoronomy
+                        [
+                            CoT~\cite{chalmers2013thing}{,}
+                            Self-C~\cite{chalmers2013thing}{,}
+                            , leaf, text width=39.7em
+                        ]
+                    ]
+                    [
+                        Medical Science
+                        [
+                            ScienceQA~\cite{chalmers2013thing}{,}
+                            MarT~\cite{chalmers2013thing}{,}
+                            , leaf, text width=39.7em
+                        ]
+                    ]
+                ]
+                [
+                    Formal Science, ver
+                    [
+                        Mathematics
+                        [
+                            CoT~\cite{chalmers2013thing}{,}
+                            Self-C~\cite{chalmers2013thing}{,}
+                            STaR~\cite{chalmers2013thing}{,}
+                            , leaf, text width=39.7em
+                        ]
+                    ]
+                    [
+                        Computer Science
+                        [
+                            Contrastive~\cite{chalmers2013thing}{,}
+                            POTTER~\cite{chalmers2013thing}{,}
+                            CoT~\cite{chalmers2013thing}{,}
+                            MCR~\cite{yoran2023answering}
+                            , leaf, text width=39.7em
+                        ]
+                    ]
+                ]
+            ]
+        \end{forest}
+    }
+    \caption{Taxonomy of Reasoning with Language Model Prompting.}
+    \label{fig:categorization_of_reasoning_big}
+\end{figure*}
