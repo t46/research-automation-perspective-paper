@@ -1,15 +1,111 @@
-\chapter{Existing Discussion on Research Automation}
+\chapter{Landscape of Research Fields for Research Automation}
 \label{chapter-literature-review}
 
-This chapter will focus specifically on the automation of science. Attempts to automate science began soon after the advent of computers. Until then, humans had developed science by describing experiences (primary science) and by making predictions through the construction of theories (secondary science). With the advent of computers came simulation science (third science), which uses computers to automate complex scientific computations, and data-driven science (fourth science), which automates the discovery of laws from large-scale data \cite{hey2009fourth}. Within the individual academic discipline ``X,'' the third science gave rise to the field of \textit{Computational-X} and the fourth science gave rise to the field of \textit{X-infomatics}, leading to the automation of entire academic disciplines.
+% 本章では、研究の自動化を目指す試みを幅広く紹介します。特に、これまで同じ論文上やコミュニティ間で論じられることがなかった研究たちも含めて、「研究の自動化を目指す研究群」として統一的に紹介しようと思います。一つ一つの論文を丁寧に紹介することは現実的ではないため、あくまで本論文では各分野や研究の取り組み全体をごく簡単に紹介することに注力します。各分野での研究成果についての詳細な説明については、すでにいくつもの素晴らしいレビュー論文が出版されていますので、そちらをご参照ください。ただし、近年の言語モデルを用いた取り組みについては個別の事例も扱いながら紹介しようと思います。
 
-In particular, the field of \textit{AI for Science}, which automates scientific research with AI, has expanded rapidly and achieved significant results due to the remarkable development of machine learning technology since the 2010s. Automation of scientific research with AI, including logical AI, has been an area of interest since the advent of AI \cite{langley1987scientific}, and the remarkable performance of deep neural networks has now made almost all scientific fields more or less influenced by AI. In particular, recent developments in large-scale language modeling have significantly solved one of the biggest barriers to AI in the past, namely, language processing, and are creating a major trend toward automation in all fields of science.
+% 各分野を紹介した後で、汎用的で自律的な人工研究者という観点から、それらを分類する二つの軸を提案します。一つ目が汎用性の軸で、これは各研究の自動化の取り組みが、どれぐらい広い研究領域に対して汎用的なタスクを自動化するものであるかというものです。例えば、科学研究全てで必要となるようなタスクの自動化はある特定の研究課題を自動化するようなものよりも汎用的であると言えます。二つ目が研究過程のどの部分を自動化しているか、という軸です、これは自律性の軸に対応します。例えば、ある研究は仮説生成全体を自動化しているかもしれませんし、別の研究は仮説検証の特定の過程のみを自動化しているかもしれません。全ての研究過程の作業が自動化されている場合、これは自律性が高いと言えます。
 
-While there have been some excellent review articles and perspective papers on previous efforts to automate research, there have not yet been many reviews that deal with these research automation efforts in a shallow or even conservative manner. Therefore, this chapter provides the most comprehensive review possible of research on research automation to date.
+% 最後に、研究分野の紹介と軸の提案を踏まえて、研究の自動化に関するパースペクティブ論文・レビュー論文のうちいくつかについて論じます。特に、紹介されている個別の研究よりも、それらの研究がどのようにして既存研究を整理しているか、どのような提案をしているかを見ていきます。これによって、本論文による整理の位置付けを改めて明確にし、次章以降の議論に繋げていきます。
 
-The field related to research automation is vast. While it is not possible to cover all of them, we aim to present as comprehensive an introduction as possible. For this reason, the review of each individual field will be limited to a brief overview. We will introduce survey papers and other literature in those fields, and those who wish to understand more advanced discussions should refer to those references.
+\section{Existing Discussion on Research Automation}
 
-In the following, we will present the past efforts of mankind related to research automation, paying attention to what level of general ``task'' each research automation is oriented toward. This is because efforts to automate research can be interpreted as automating a set of tasks in the research process, or acquiring the ability to do so. Note that the level of generality treated here is naturally not absolute, but is set for convenience. Also, please keep in mind that this classification is for classifying human research activities, so humans are only assumed as the subject of the research. After introducing each effort, we will position these efforts in light of the formulation of the knowledge production process that this paper has dealt with.
+Attempts to automate research began soon after the advent of computers. Until then, humans had developed science by describing experiences (primary science) and by making predictions through the construction of theories (secondary science). With the advent of computers came simulation science (third science), which uses computers to automate complex scientific computations, and data-driven science (fourth science), which automates the discovery of laws from large-scale data \cite{hey2009fourth}. Within the individual academic discipline ``X,'' the third science gave rise to the field of \textit{Computational-X} and the fourth science gave rise to the field of \textit{X-infomatics}, leading to the automation of entire academic disciplines.
+
+\subsubsection{AI for Science}
+
+Automation of scientific research with AI, including logical AI, has been an area of interest since the advent of AI \cite{langley1987scientific}. In the early stages of research, researchers created logic AIs that mimics the problem-solving process of researchers \cite{lindsay1993dendral}.
+
+The remarkable performance of deep neural networks has now made almost all scientific fields more or less influenced by AI. The term \textit{AI for Science}, which automates scientific research with machine learning, has appeared due to the remarkable development of machine learning technology since the 2010s. 
+
+AI for Science is a concept that encompasses a very wide range of initiatives. All attempts to solve problems in any process within science using machine learning or to develop the foundational technologies for them can be considered within the scope of AI for Science. Indeed, a vast number of machine learning application studies have been generated in numerous scientific fields \cite{xu2021artificial}, such as AI for Material Science and AI for Medical Science, named few.
+\footnote{In this paper, it is not possible to introduce each of these individually, so we will omit the introduction of application studies in each research area of AI here. There are several excellent review papers available, so if you are interested, please refer to those.}
+
+Wang et al. \cite{wang2023scientific} have excellently summarized these activities, we will introduce existing automation efforts while borrowing the view of their work. They categorize and organize various initiatives in AI for Science by focusing on which scientific processes they are related to: data handling, hypothesis generation, and simulation and experimentation \cite{wang2023scientific}. This is based on the view that the essence of science lies in the collection, transformation, and understanding of data.
+
+The group of studies that incorporate biases to handle scientific data on AI, giving it information about the governing physical rule, is called \textit{physics-informed machine learning} \cite{karniadakis2021physics}. The incorporated biases include the ability to handle partial differential equations (PDE), symmetry, and intuitive physics \cite{hao2022physics}. Karniadakis et al. \cite{karniadakis2021physics} and Hao et al. \cite{hao2022physics} systematically and clearly summarize existing research from the perspective of which elements of machine learning are modulated by which biases and how they are incorporated. % TODO
+
+The ability to handle PDEs gives us the basis for both the simulation of physical models and the discovery of the law from data, which we will discuss later. Studies that aim for better inductive biases and architectures in deep learning by treating symmetry as a first principle are called \textit{geometric deep learning} \cite{bronstein2021geometric}. Given the importance of symmetry in natural sciences, this group of research also plays a significant role in AI for Science. Zhang et al.  organize existing research in AI for Science across different research domains, focusing on symmetry as one of the common foundational pillars \cite{zhang2023artificial}.
+
+The methods for generating hypotheses vary significantly depending on the subject, so there exists a wide range of approaches to automate this process. For example, attempts to generate hypotheses from articles or from scientific data are being undertaken in all research fields. 
+
+One long-standing approach to hypothesis generation by AI is the research focused on discovering symbolic equations that describe scientific laws from data (\textit{equation discovery}). Among the earliest pioneering studies in this area, the BACON system by Langley et al. \cite{langley1987scientific}, and subsequent studies based on it, are well-known. In particular, the research on equation discovery that is mainly studied in the machine learning community is known as \textit{symbolic regression}, which originally started from research that used genetic programming approaches to discover symbolic equations.
+ Kramer provides a comprehensive overview of the history of equation discovery research, including early studies that did not utilize machine learning \cite{kramer2023automated}. Famous deep learning approaches include AI Feynman \cite{udrescu2020ai,udrescu2020ai2}, which transformed the problem itself into a simple form and discovered the fundamental physical laws selected from Feynman's physics lectures.
+
+% Symbolic regression is a problem of exploring a combinatorial hypothesis space among hypothesis generation \cite{wang2023scientific}. 
+In science, exploration plays a crucial role, as exemplified by the search for hypothesis spaces and experimental conditions mentioned later. Therefore, methodologies for better automated exploration by machines have been sought, using techniques such as active learning. There is a perspective paper of research automation by Kitano \cite{kitano2021nobel} that focuses on the importance of machine-driven exploration of hypothesis spaces. Kitano points out that current hypothesis selection is value-driven, based on human value criteria, and argues that we should aim for hypothesis generation through exhaustive machine-driven exploration that is not dependent on such human value criteria. He points out that some of the Nobel Prize-winning research is actually the result of such exhaustive exploration, emphasizing the importance of this approach.
+% \subsubsection{Symbolic Regression / Equation Discovery}
+% % \subsubsection{Symbolic Regression} 
+% Scientists have constructed models in the form of mathematical equations that explain them from observational data. This has enabled us to go beyond observational data to understand and predict underlying phenomena. That is to say, formulating a mathematical representation that elucidates the phenomenon behind the data is an extremely critical step in science. 
+
+% One attempt to automate this endeavor is \textit{symbolic regression} \cite{makke2022interpretable}, or \textit{equation discovery}. These are attempts to infer from the data a formula that explains it. While classical approaches to symbolic regression have traditionally employed methods such as evolutionary computation, recent years have seen the emergence of strategies utilizing deep neural networks \cite{petersen2019deep,udrescu2020ai,udrescu2020ai2,cranmer2020discovering,kamienny2022end,d2022deep}. Some researchers have proposed the frameworks \cite{landajuela2022unified,keren2023computational} and benchmarks \cite{matsubara2022rethinking} for symbolic regression. You can find a literature review of symbolic regression in \cite{makke2022interpretable}, and that of the early studies in \cite{kramer2023automated}.
+
+Once a hypothesis is formed, it is tested through experimentation. An experiment is the act of generating observational data through a set of predefined procedures. In modern science, simulations are used to generate data that resembles observational data. To create better simulations, knowledge of scientific computing is essential. The attempt to automate the generation and analysis of scientific data by combining scientific computing and machine learning is known as \textit{Scientific Machine Learning (SciML)} \cite{baker2019basic}. In physical simulations, numerical solutions to differential equations often come into play, so physics-Informed Machine Learning is also frequently discussed in this context. Experiments and numerical calculations come with uncertainties, so there is a long history of research on quantifying these uncertainties (\textit{uncertainty quantification}). This is also an important topic of study in SciML.
+
+There is also a long history of research applying machine learning to experimental design. In particular, research on the efficient search for experimental conditions using active learning, including Bayesian optimization (\textit{Bayesian experimental design}), has been attempted in various application fields.
+
+% 特に科学技術計算と機械学習を組み合わせて科学データの解析を自動化する試みは Scientific Machine Learning (SciML) と呼ばれています。（シミュレーション）
+
+% 機械学習において科学データを扱えるような帰納的バイアスを組み込む研究群は Physics-informed machine learning と呼ばれています。組み込まれるものとしては、直観物理、微分方程式を扱う能力、対称性を抽出する能力などがあります。微分方程式の取り扱いは科学計算がずっと扱ってきたものですので、微分方程式を扱う研究は SciML の文脈で議論されることも多いです。また、対称性は幾何学的構造の保存なので、これらは geometric machine learning の一つとして議論されています。
+
+% データからそのデータの背後の法則を記述するシンボリックな方程式を推定する試みも行われてきた。機械学習を用いてデータから方程式を推論する、symbolic regression がある。方程式を発見するシステムの先駆けとして BACON がある。2000年代には単位による制約から数学的に可能な方程式を同定する研究も行われた。これらは equation discovery という名前で研究されてきました。
+
+\subsubsection{Automated Research Workflow}
+Some studies have attempted to represent the processing of calculations and the flow of data in science as a single pipeline and to automate these processes. These studies refer to such pipelines as \textit{scientific workflow} or \textit{automated research workflow} \cite{national2022automated}. The work of \cite{gil2022will} expresses an insightful perspective for research automation from the point of this scientific workflow community. She introduced the idea of workflows for automated scientific data analysis and continuous generation, verification, and update of hypotheses.
+
+\subsubsection{Laboratory Automation}
+\textit{Laboratory automation} is a program that seeks to automate empirical research involving scientific experiments that involve interaction with the physical world.
+
+What makes this effort unique compared to other efforts to automate research is that it seeks to automate even manual labor of humans in experimentation by developing robots for experiments to automate the entire process of experimentation. A notable example includes pioneering research in genetics by Ross King, who fully automated the cycle of hypothesis generation, verification, and discovery of new hypotheses with Adam \cite{king2004functional}. Another example is A.I. Cooper, which enabled the use of the same experimental equipment as humans through autonomous robots \cite{burger2020mobile}. Many attempts at laboratory automation are specialized for specific experiments. However, efforts are underway to develop humanoid robots capable of conducting experiments \cite{yachie2017robotic}, as well as initiatives to automate the low-level behaviors of robots, towards more general automation.
+
+% A few examples include ``Mahoro'', a general humanoid robot that can conduct various experiments \cite{yachie2017robotic}. The robot could automatically conducted cell culture tasks using \cite{ochiai2021variable}
+
+
+\subsubsection{Automating Mathematics}
+The automation of mathematical proof, \textit{automated theorem proving} (ATP) , has been studied for a long tius. Recently several effort has come up to improve ATP by using machine learning, and especially deep learning. The early seminal work is led by Schulz \cite{schulz2001learning} and Urban \cite{urban2004mptp,urban2008malarea}. The first work applying deep learning to ATP is \cite{irving2016deepmath}. Subsequently, numerous studies have emerged on Automated Theorem Proving (ATP) using deep learning \cite{bansal2019holist}. Recent studies on this topic are well organized in the following paper, so we recommend reading it if interested \cite{rabe2021towards}.
+% TODO: more organized literature review
+
+While research has been accumulated on ATP, there is still not much research done on the automated theorem discovery with a few exceptions \cite{gao2014systematic}. In recent years, attempts have been made to help humans to find mathematical conjectures \cite{davies2021advancing} and
+automatically generate mathematical conjectures \cite{raayoni2021generating}  using machine learning.
+
+\subsubsection{Automating Machine Learning}
+The attempt to automate various tasks related to machine learning is called \textit{AutoML}. This includes hyperparameter optimization, neural architecture search (NAS), and automation of various pre- and post-processing steps in machine learning. The following website \cite{automlorg} provides a very active overview of AutoML. For literature review, the book \cite{hutter2019automated} explained well about the AutoML by 2019, the paper \cite{bischl2023hyperparameter} and \cite{lindauer2020best,white2023neural} summarizes comprehensively the current state of hyperparameter selection and NAS, respectively. Recently, research has emerged that allows machine learning tasks to be executed with text-based instructions alone \cite{vijay2023prompt}.
+
+Additionally, there is an initiative called MLOps (Machine Learning Operations) that aims to to streamline and automate operations related to machine learning primarily in the business context. This includes automating tasks such as model deployment and continuous training, as well as experiment management. MLOps have tried to automate the laborous tasks that need to be automated to aim for the full automation, such as experiment management, versioning, and deployment. The paper \cite{kreuzberger2023machine} is a good scientific review paper on MLOps.
+
+\subsubsection{Scholarly Document Processing}
+
+\subsubsection{Automating Peer-Review}
+There are also attempts to automate the peer-review process. Researchers have tried to automate review generation \cite{yuan2022can}, paper screening \cite{schulz2022future}, research paper assessment \cite{kousha2022artificial}, reviewer assignment \cite{zhao2022reviewer}, and more. As in other fields, recent years have seen research on the automation of peer review using large-scale language models. For traditional research on the automation of peer review, \cite{kousha2022artificial} and \cite{lin2021automated1} have conducted comprehensive literature reviews. In particular, Kousha et al. cover a wide range of topics related to the automation of various aspects of peer review.
+
+% Many studies have tried to automate peer review generation \cite{thelwall2019artificial,li2019generating,schulz2022future,yuan2022can,yuan2022kid,lin2021automated1,lin2021automated2,kumar2022investigations,bharti2022can,uban2021generating,wang2020reviewrobot}. While not generating peer reviews directly, studies focused on automating research paper assessment  can be said to be related to the peer review automation. \cite{kousha2022artificial,li2020multi,huang2018deep}. These studies have proposed the method to assess the quality \cite{thelwall2022predicting,thelwall2022can}, novelty \cite{pelletier2022novelpy,amplayo2019evaluating,shibayama2020measuring}, soundness \cite{cabanac2022decontamination}, and significance \cite{zong2022citation,xia2023review,soni2022predicting,manghi2021new,soni2021follow,van2020schubert,mckeown2016predicting}.
+
+% These investigations concern the automation of processes occurring subsequent to a manuscript's arrival at the hands of reviewers. Conversely, researchers also have investigated the automation before that process, such as determining the appropriate journal for submission \cite{michail2023journal} and assigning the reviewers \cite{zhao2022reviewer}.
+
+% While not centered on automation, certain studies engage in the scientific analysis of the review process \cite{shah2022challenges,verma2021attend,bharti2022confident,bharti2022betterpr,verma2022lack,kennard2022disapere}. These investigations serve to enhance our understanding of the nature of peer review and, in turn, provide valuable insights for the design of more effective automated review methodologies. 
+
+% 数学の定理の証明を自動化する研究は古くから、Automated Theorem Proving (ATP) という名前で研究されています。証明を変換された定理たちをノードにもつ木の探索問題に帰着させるのが基本的なアプローチです。
+
+% より最適な実験条件の決定を自動で行う試みもあります。有名なものはベイズ最適化を用いたベイズ実験計画と呼ばれているものです。
+
+% 学術論文の取得からの情報抽出までを自動化しようという試みも長い研究があります。Scholarly document processing などと呼ばれます。これらはもともと自然言語処理やテキストマイニング、情報検索などのコミュニティで研究されてきました。近年は大規模言語モデルの登場により、多くの課題が解決されました。
+
+% 人間が手作業で行ってきた実験をロボットの力を借りて自動化しようという試みもあります。これらは laboratory automation と呼ばれています。
+
+% 科学における計算の処理とデータの流れを一つのパイプラインとして表現し、それらの処理を自動化しようという研究もあります。これらの研究ではこのようなパイプラインを Scientific Workflow あるいは Automated Research Workflow と呼んでいます。
+
+% 機械学習自体を自動化しようという試みは AutoML として知られています。ハイパーパラメータの探索やアーキテクチャの探索の最適化と自動化などが主に研究されています。また、主にビジネスにおいて機械学習に関連する諸タスクの実行を自動化する取り組みの総体は、MLOps と呼ばれています。
+
+% Peer review を自動化しようという研究も存在します。
+
+% 機械学習の中でも科学研究への応用の文脈でよく言及される分野があります。例えば、active learning, explainable AI, uncertainty quantification, out-of-distribution generalization, exploration、などはこれらの例の一部です。
+
+% 記号的なAIの分野でも早くから研究の自動化の取り組みが行われてきました。例えば、DENDRAL は科学者の思考を自動化したものや、アブダクションなどの推論によって知識発見を自動化しようという試みもある。これらの取り組みは広義には Knowledge Representation and Reasoning という分野の中で盛んに研究が行われてきた。
+
+% While there have been some excellent review articles and perspective papers on previous efforts to automate research, there have not yet been many reviews that deal with these research automation efforts in a shallow or even conservative manner. Therefore, this chapter provides the most comprehensive review possible of research on research automation to date.
+
+% The field related to research automation is vast. While it is not possible to cover all of them, we aim to present as comprehensive an introduction as possible. For this reason, the review of each individual field will be limited to a brief overview. We will introduce survey papers and other literature in those fields, and those who wish to understand more advanced discussions should refer to those references.
+
+% In the following, we will present the past efforts of mankind related to research automation, paying attention to what level of general ``task'' each research automation is oriented toward. This is because efforts to automate research can be interpreted as automating a set of tasks in the research process, or acquiring the ability to do so. Note that the level of generality treated here is naturally not absolute, but is set for convenience. Also, please keep in mind that this classification is for classifying human research activities, so humans are only assumed as the subject of the research. After introducing each effort, we will position these efforts in light of the formulation of the knowledge production process that this paper has dealt with.
 
 \textcolor{red}{CAUTION: We have not read all of the literature in detail and it may contain errors. We will continue to update this paper, but if you find errors, please contact us or throw us a pull request.}
 
@@ -39,45 +135,6 @@ Fig. \ref{fig:generality_level} represents the hierarchical structure of general
 
 \textcolor{red}{TODO: Skip for now. Need reconstruction because many of the issue discussed below are no more issue for research automation. Most of these will moved to Appendix}
 
-\subsubsection{Searching}
-
-Firstly, let us mention academic search engines that provide features to help researchers find relevant papers from a vast amount of literature \cite{googlescholar,semanticscholar,dblp,pubmed,citeseerx}. 
-
-Specialized search systems have also been proposed for specific purposes. For example, some studies have been proposed systems to discover studis in other domeins \cite{kang2022augmenting}, difficulties, limitations and emerging hypotheses \cite{lahav2022search}, and author homepages \cite{patel2021author}. Also, in response to the COVID pandemic, several systems have emerged in recent times to search for COVID-19 related papers \cite{hope2020scisight}.
-
-Instead of searching for papers manually, there are approaches that directly recommend papers to researchers. In practice, it is common for the specific aspects of academic papers that researchers want to compare to vary depending on the situation and research field. Therefore, researchers have invented the method allowing comparison in certain aspect of papers \cite{ostendorff2020aspect} and tailored to some particular research area \cite{breitinger2022recommending}. Also, some researchers study recommendation of authors instead of papers \cite{portenoy2022bursting}. A comprehensive summary of classical research on paper recommendation can be found in \cite{bai2019scientific}.
-
-\subsubsection{Reading}
-The majority of research on automation in research pertains to automating operations related to papers. Specifically, research on information extraction from papers constitutes the majority. Here, \textit{reading} refers to extracting information from a paper.
-
-Several methods specialized in extracting specific information have been proposed. For instance, there are studies for extracting mathematical expressions \cite{greiner2020math,madisetty2021neural}, measure \cite{harper2021semeval,kohler2021s}, tabale and figure \cite{shen2022vila,hashmi2021current,zhuang2022resel,yamamoto2021visual}, dataset \cite{hou2019identification,kumar2021dataquest,prasad2019dataset}, and results \cite{kardas2020axcell}.
-
-There are also studies that focus not on information extraction, but on determining the meaning of sentences written in papers. One representative example is research on citation classification, which involves understanding the intent behind the cited text \cite{pride2019act,kunnath2021meta,kunnath2022dynamic,kunnath2022act2,lauscher2021multicite}. Another example is topic/theme classification, which detect the main topic of the paper \cite{sadat2022hierarchical,mendoza2022benchmark,salatino2022cso}.
-
-One of the most heavily researched areas of information extraction from scientific papers is summarization. Some studies propose methods to generate the contribution of a paper \cite{hayashi2020s}, scientific claims \cite{wright2022generating}, and lay summarization \cite{goldsack2022making}. Other studies have attempted to create better paper summaries using citation graph \cite{chen2022scientific,an2021enhancing}, or propose the summarization system \cite{erera2019summarization}.
-
-Many of the earlier summarization studies only used limited information such as abstracts. In recent years, there have been proposed studies that generate summaries by reading the entire paper \cite{subramanian2019extractive,qi2022sapgraph,dong2020discourse,tretyak2020combination}.
-
-Also, the number of papers has increased dramatically, and the time available for obtaining information from a single paper has become increasingly limited. Thus, some studies propose the methods to generate extremely short summaries, such as TLDR \cite{cachola2020tldr} and key phrases \cite{boudin2021keyphrase,garg2021keyphrase}.
-
-To advance these summarization studies, some studies propose datasets \cite{yasunaga2019scisummnet,bastan2022sume} and annotation platforms \cite{el2022platform} for paper summarization. 
-
-The early research on paper summarization, which was conducted relatively early, is well summarized in \cite{altmami2022automatic}. If you are interested, please also refer to this paper.
-
-Up to this point, we have described methods that assume extracting specific information or summarizing papers. In contrast, there are studies that issue queries in natural language to retrieve desired information from papers. This has been formalized as a question-answering task, a more general problem setting \cite{lu2022learn,ruggeri2022argscichat,saikh2022scienceqa}. 
-
-In the field of question-answering for academic papers, some web services have gained attention for its high performance \cite{elicit,scispace}. Elicit use large language models and compose them to write \textit{compositional language model programs}. Ought \cite{ought}, the provider of Elicit, publish the instructions of how to write compositional language model programs \cite{primer2022}. Also, they disclose how to update their system with their idea of \textit{process supervision} \cite{reppert2023iterated}. Therefore, for those who are interested in question-answering systems for scientific papers, we strongly recommend reading these papers and documents.
-
-Lastly, many tools have been proposed to assist researchers in reading papers. These studies highlight rhetorical roles \cite{fok2023scim,lauscher2018arguminsci}, generate description to terminologies \cite{august2022generating,head2021augmenting,murthy2022accord}, simplify texts for non-experts \cite{august2022paper,jeblick2022chatgpt}, and allow interaction \cite{kang2022threddy,elicit,scispace}.
-
-\subsubsection{Writing}
-Research is the act of producing a novel knowledge on top of prior studies. The apt incorporation of previous literature and elucidation of the distinctions between the proposition and previous studies are essential. Consequently, some researchers have investigated to generate comparative arguments \cite{yu2022scientific} and others have studied to generate citation texts \cite{arita2022citation,gu2022controllable,wang2021autocite,xing2020automatic,funkquist2022citebench}. Additionally, several studies exist that, instead of directly producing text, aspire to assist in the writing process by recommending relevant literature for inclusion as citations \cite{farber2020citation,zhang2020dual,duma2019contextual,farber2018cite,gosangi2021use}. Furthermore, there exist investigations aimed at automating systematic reviews writing \cite{dones2022systematic}.
-
-Scholarly articles are structured documents. This structural property enables researchers to generate texts per sections. Thereafter, 
-researchers have endeavored to generate, for example, abstract \cite{kumarasinghe2022automatic,gao2022comparing,wang2019paperrobot}, related works \cite{li2022automatic,shah2021generating}, table description in result section \cite{moosavi2021scigen,moosavi2021learning}, conclusion, and future work \cite{wang2019paperrobot}. Wang et al. propose to generate even next research's probable title \cite{wang2019paperrobot}.
-
-Similar to the situation with reading, proposals have emerged for systems to support writing \cite{narimatsu2021task}, as well as for datasets to train text generation \cite{chen2021scixgen}. In recent times, some researchers try to have GPT series to write academic papers \cite{transformer2022can}. 
-
 \subsection{Peer Review}
 Many studies have tried to automate peer review generation \cite{thelwall2019artificial,li2019generating,schulz2022future,yuan2022can,yuan2022kid,lin2021automated1,lin2021automated2,kumar2022investigations,bharti2022can,uban2021generating,wang2020reviewrobot}. While not generating peer reviews directly, studies focused on automating research paper assessment  can be said to be related to the peer review automation. \cite{kousha2022artificial,li2020multi,huang2018deep}. These studies have proposed the method to assess the quality \cite{thelwall2022predicting,thelwall2022can}, novelty \cite{pelletier2022novelpy,amplayo2019evaluating,shibayama2020measuring}, soundness \cite{cabanac2022decontamination}, and significance \cite{zong2022citation,xia2023review,soni2022predicting,manghi2021new,soni2021follow,van2020schubert,mckeown2016predicting}.
 
@@ -90,14 +147,9 @@ While not centered on automation, certain studies engage in the scientific analy
 \section{Automation of Tasks for Diverse Fields of Science}
 % There are prerequisite competencies and knowledge required to conduct scientific research. And the question of how to acquire such abilities has been one of the major concerns of AI research for science. Therefore, we will first introduce these research areas. In particular, we will present research on processing scientific literature and understanding scientific knowledge.
 
-\subsection{Automated Theorem Proving}
+% \subsection{Automated Theorem Proving}
 
-The automation of mathematical proof, \textit{automated theorem proving} (ATP) , has been studied for a long tius. Recently several effort has come up to improve ATP by using machine learning, and especially deep learning. The 
- early seminal work is led by Schulz \cite{schulz2001learning} and Urban \cite{urban2004mptp,urban2008malarea}. The first work applying deep learning to ATP is \cite{irving2016deepmath}. Subsequently, numerous studies have emerged on Automated Theorem Proving (ATP) using deep learning \cite{bansal2019holist}. Recent studies on this topic are well organized in the following paper, so we recommend reading it if interested \cite{rabe2021towards}.
- % TODO: more organized literature review
 
- While research has been accumulated on ATP, there is still not much research done on the automated theorem discovery with a few exceptions \cite{gao2014systematic}. In recent years, attempts have been made to help humans to find mathematical conjectures \cite{davies2021advancing} and
- automatically generate mathematical conjectures \cite{raayoni2021generating}  using machine learning.
 
 % \subsection{Understanding Scientific Knowledge}
 
