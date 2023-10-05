@@ -73,20 +73,6 @@ Second, the quality of peer review comments varies. Especially in the machine le
 However, this second point is a difficulty that occurs inherently in the process of peer review, and it is a difficulty that must be resolved in order to realize automation of research. Rather, the main issue is how to make machines acquire the value judgments that are currently tacit knowledge. Therefore, it would be useful to first analyze and discuss these value judgments, at least among humans, and then proceed to form some kind of consensus.
 \textcolor{red}{TODO:(move to challenge)}
 
-\section{Building Foundation}
-\subsection{Building Dataset}
-It is important to establish the necessary infrastructure for research automation. The two pillars of research automation are the development of basic models that incorporate academic knowledge and the construction of data sets. The development of an infrastructure model that incorporates scientific knowledge has already been proposed in many places and is actually under development, so I will not emphasize its necessity here again. Also, regarding data sets, the construction of data sets for the acquisition of scientific knowledge has been done in various places as well, so I will not emphasize that here either.
-
-Instead, we propose here to construct a research process dataset. A research process dataset is behavioral log data that incorporates all possible tasks throughout the entire process of the study, from start to finish. Ideally, individual tasks should be labeled as to whether they correspond to question construction, hypothesis generation, or hypothesis testing. We believe that building such a data set is important because, as explained in the Literacy section of Chapter 2, the current paper is not a data log of the entire research process. This makes it difficult to be data-driven and end-to-end learning how to do research itself. I believe that building a research process will help solve these problems and increase the likelihood of more flexible intelligent agents.
-
-However, building a dataset of the research process seems daunting. This is because researchers who do not currently keep research logs would have to go to the trouble of recording their research process.\footnote{
-In an experimental laboratory in the natural sciences, it is common to take research notes, so it may not be that difficult to record more detailed processes as an extension of this practice. However, in the machine learning field, the culture of taking research notes does not seem to be that common. (We think it is common to keep logs of experiments, but it seems to be rare to describe the details, for example, where and how the data was obtained.) 
-} Therefore, it seems necessary to devise a way to make it easier for researchers to keep logs. It may be to manage the research process on GitHub, or to take research notes as in natural science research, but it is important to discuss how to achieve these things.
-
-Being able to construct a dataset of the research process would be ideal, but may not be immediately feasible. As an alternative, it seems important to create a dataset designed to automate question construction, hypothesis generation, and hypothesis testing. At its simplest, one might start by building a dataset of papers labeled with the parts that correspond to the question, hypothesis, and test, respectively. This would be a relatively simple but important step in achieving a generic artificial researcher.
-
-Alternatively, instruction tuning could be done by viewing question construction, hypothesis generation, and hypothesis testing as tasks, respectively. This would produce a language model that can execute question construction, hypothesis generation, and hypothesis testing with greater fidelity. This could be the foundation for a general-purpose, autonomous artificial researcher.
-
 \section{Promote Wider Involvement in Automating Research}
 In order to achieve the major goal of automating research, it is important to have the help of as many people as possible.
 
