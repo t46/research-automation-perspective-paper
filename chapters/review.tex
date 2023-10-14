@@ -72,7 +72,7 @@ There is also a long history of research applying machine learning to experiment
 \subsection{Automating Physical Experimentation}
 
 \subsubsection{Laboratory Automation}
-While AI for Science largely targets the software dimension of scientific research, robotics ventures into automating the hardware aspect, particularly in experimental settings. 
+While AI for Science largely targets the software dimension of scientific research, robotics ventures into automating the hardware aspect, particularly in experimental settings. It has been pointed out that automating experiments in the physical world is crucial yet challenging for the automation of scientific research \cite{coley2020autonomous,zenil2023}. 
  \textit{Laboratory automation}, or \textit{self-driving lab} \cite{abolhasani2023rise}, is a program that seeks to automate empirical research involving scientific experiments that involve interaction with the physical world.
 
 What makes this effort unique compared to other efforts to automate research is that it seeks to automate even manual labor of humans in experimentation by developing robots for experiments to automate the entire process of experimentation. A notable example includes pioneering research in genetics by Ross King, who fully automated the cycle of hypothesis generation, verification, and discovery of new hypotheses with Adam \cite{king2004functional}. Another example is A.I. Cooper, which enabled the use of the same experimental equipment as humans through autonomous robots \cite{burger2020mobile}. 
@@ -151,7 +151,7 @@ Whether engaging in reading or writing, the presence of a system that comprehend
 Indeed, there are studies investigating the scientific knowledge comprehension level of GPT.
 \cite{bordt2023chatgpt}.
 
-Applications of GPTs to research \cite{wang2023survey}.
+Applications of GPTs to research \cite{wang2023survey,bran2023chemcrow}. \textcolor{red}{UPDATE}
 
 \subsubsection{Automating Peer-Review}
 One notable example of automating scholarly document processing is the automation of peer review process. Researchers have tried to automate review generation \cite{yuan2022can,yuan2022kid,wang2020reviewrobot}, paper screening \cite{schulz2022future}, research paper assessment \cite{kousha2022artificial}, reviewer assignment \cite{zhao2022reviewer}, and more. As in other fields, recent years have seen research on the automation of peer review using large language models such as GPTs \cite{wexin2023can,liu2023reviewergpt,robertson2023gpt4,hosseini2023fighting}. For traditional research on the automation of peer review, \cite{kousha2022artificial} and \cite{lin2021automated1} have conducted comprehensive literature reviews. In particular, Kousha et al. cover a wide range of topics related to the automation of various aspects of peer review.
@@ -217,7 +217,7 @@ Kitano \cite{kitano2021nobel} has proposed as a grand challenge the creation of 
 % \subsubsection{Nobel Turing Challenge}
 % Kitano also harbors an ambition to automate the entirety of the research process \cite{kitano2021nobel}. This is a thought-provoking paper that is meticulously contemplated. Kitano underscores the ability of AI in automating science to execute exhaustive and thorough exploration as a significant strength. We, as humans, aim to generate hypotheses that yield impactful results (Kitano refers to this as a value-driven approach). However, the importance of research findings is context-dependent, and research that we humans deemed unimportant may become crucial if the presuppositions or the context alter. Kitano proposes to eschew this value-driven approach and implement an alternative, exploration-driven methodology to science, aiming for novel scientific discoveries that were unattainable by human capabilities. Besides, Kitano with many examples and detailed consideration, presents a plethora of stimulating ideas, such as the continuous hypothesis network update, a roadmap to achieve autonomous artificial scientists, and proposition of the Nobel Turing Challenge as a Grand Challenge to substantially advance these endeavors. We highly encourage those interested to delve into this fascinating read.
 
-Zenil et al. \cite{zenil2023} highlight the importance of creating embodied AI that can autonomously conduct experiments for the automation of science. Additionally, they advocate for the establishment of AI/Robotics experimental laboratory research centers and propose milestones and guidelines to realize fully automated self-driving labs.
+
 
 
 % Hope et al. \cite{hope2022computational} introduce a human-centric agenda related to research automation, where AI helps humans overcome their cognitive limit by efficiently extracting relevant information from the ever-expanding body of research data, tailored specifically to the tasks researchers are engaged in - a framework they term \textit{task-guided scientific knowledge retrieval}. They start by conceptualizing the act of research as an interaction between a researcher's \textit{inner cognitive world} and the \textit{outer world}, or \textit{scientific ecosystem}. Building on this, they underscore the vital role of representing and retrieving information that aligns with the inner cognitive world of researchers, deftly transforming the cognitive functions used in human research into algorithmic processes.
@@ -278,14 +278,18 @@ Another approach is to generate hypotheses from a group of academic papers \cite
 % find research idea (hypothesis) by link prediction and verbalizaation of it \cite{xu2023exploring} <- Hypothesis?
 
 \subsubsection{Hypothesis Verification}
-Among the initiatives above, attempts to automate the verification of hypotheses include automated experimental design, laboratory automation, and automated theorem proving. For example, some researchers have tried to automate experimental design for quantum physics \cite{ruiz2022digital} or proposed to design workflow of scientific research as a software \cite{goble2020fair}. 
+Among the initiatives above, attempts to automate the verification of hypotheses include automated experimental design, laboratory automation, and automated theorem proving. For example, some researchers have tried to automate experimental design for quantum physics \cite{ruiz2022digital} or proposed to design workflow of scientific research as a software \cite{goble2020fair}. Among these, studies attempting to automate physical experiments and workflows in the laboratory are primarily conducted under the domain of laboratory automation, while the rest primarily pertains to the automation of sub-processes of validation that can be completed in the computers.
+
+Wang et al. have categorized groups of studies that utilize AI to assist experiments into areas such as research planning, research guidance, and generating observational data through numerical simulations \cite{wang2023scientific}. Coley et al. discuss in detail the challenges of automating experimental and computational validations, as well as the selection of experiments, while referencing studies on automated verification \cite{coley2020autonomousII}.
+
+% They further categorize hypothesis generation into black-box inference and exploration within both discrete and continuous hypothesis spaces, discussing in detail. Additionally, in validation, they discuss the use cases of AI in experimental design, manipulation, and data generation through simulation. Moreover, they organize applied research on AI, focusing on data handling, such as data generation and representation, instead of question generation.
+
 
 % Others have proposed machine learning algorithms for formulating and executing experimental designs in a more abstract and simple manner \cite{herrmann2022learning}. 
 
-Compared to question construction and hypothesis generation, there are few attempts to automate hypothesis verification related tasks from the academic literature. Somewhat related is the field of \textit{scientific claim verification} \cite{li2019scientific,wadden2020fact,wadden2022scifact,wadden2022multivers,wang2023using}, which determines the validity of a scientific claim through analysis of research paper. This is not the planning or execution of validation, but it is related to the automation of validation in the sense that it seeks to understand the validity of scientific claims. Since it is an assessment of the validity of a study, the findings of this study may have implications for the automation of peer-review.
+In recent years, there have been studies attempting to autonomously conduct experiments using language models \cite{boiko2023emergent}.
 
-\cite{boiko2023emergent}
-\cite{bran2023chemcrow}
+\textcolor{red}{TODO: UPDATE}
 
 \subsubsection{Entire Process}
 Most research on research automation automates some tasks in the research process. In contrast, there are attempts to automate the entire research process from start to finish.
