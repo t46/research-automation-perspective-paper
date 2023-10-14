@@ -50,7 +50,7 @@ One long-standing approach to hypothesis generation by AI is the research focuse
  Kramer provides a comprehensive overview of the history of equation discovery research, including early studies that did not utilize machine learning \cite{kramer2023automated}. Famous deep learning approaches include AI Feynman \cite{udrescu2020ai,udrescu2020ai2}, which transformed the problem itself into a simple form and discovered the fundamental physical laws selected from Feynman's physics lectures.
 
 % Symbolic regression is a problem of exploring a combinatorial hypothesis space among hypothesis generation \cite{wang2023scientific}. 
-In science, exploration plays a crucial role, as exemplified by the search for hypothesis spaces and experimental conditions mentioned later. Therefore, methodologies for better automated exploration by machines have been sought, using techniques such as active learning. There is a perspective paper of research automation by Kitano \cite{kitano2021nobel} that focuses on the importance of machine-driven exploration of hypothesis spaces. Kitano points out that current hypothesis selection is value-driven, based on human value criteria, and argues that we should aim for hypothesis generation through exhaustive machine-driven exploration that is not dependent on such human value criteria. He points out that some of the Nobel Prize-winning research is actually the result of such exhaustive exploration, emphasizing the importance of this approach.
+% In science, exploration plays a crucial role, as exemplified by the search for hypothesis spaces and experimental conditions mentioned later. Therefore, methodologies for better automated exploration by machines have been sought, using techniques such as active learning. There is a perspective paper of research automation by Kitano \cite{kitano2021nobel} that focuses on the importance of machine-driven exploration of hypothesis spaces. Kitano points out that current hypothesis selection is value-driven, based on human value criteria, and argues that we should aim for hypothesis generation through exhaustive machine-driven exploration that is not dependent on such human value criteria. He points out that some of the Nobel Prize-winning research is actually the result of such exhaustive exploration, emphasizing the importance of this approach.
 % \subsubsection{Symbolic Regression / Equation Discovery}
 % % \subsubsection{Symbolic Regression} 
 % Scientists have constructed models in the form of mathematical equations that explain them from observational data. This has enabled us to go beyond observational data to understand and predict underlying phenomena. That is to say, formulating a mathematical representation that elucidates the phenomenon behind the data is an extremely critical step in science. 
@@ -230,36 +230,57 @@ Zenil et al. \cite{zenil2023} highlight the importance of creating embodied AI t
 Extensive discourse transpires concerning scientific discoveries. Yet, discussions pertaining to scientific comprehension remain relatively unexplored. Krenn et al. delve into the conundrum of what it entails for a machine learning agent to not only unearth scientific knowledge but also to comprehend it \cite{krenn2022scientific}. They adopt a human-centric stance, positing that an agent's ability to offer explanations comprehensible to human scientists signifies the existence of its scientific understanding.
 
 \subsection{Which Processes are Automated?}
-In Chapter 2, we proposed the idea that research consists of formulating questions, generating hypotheses, and verifying those hypotheses. In this section, we would like to clarify which of these processes the initiative for research automation aims to automate. 
+In Chapter 2, we proposed the idea that research consists of formulating questions, generating hypotheses, and verifying those hypotheses. In this section, we would like to clarify which of these processes the initiative for research automation aims to automate. As explain before, Wang et al. similarly categorize the efforts of AI for Science based on which parts of the research process are automated \cite{wang2023scientific}. 
 
-Wang et al. similarly categorize the efforts of AI for Science based on which parts of the research process are automated \cite{wang2023scientific}. They further categorize hypothesis generation into black-box inference and exploration within both discrete and continuous hypothesis spaces, discussing in detail. Additionally, in validation, they discuss the use cases of AI in experimental design, manipulation, and data generation through simulation. Moreover, they organize applied research on AI, focusing on data handling, such as data generation and representation, instead of question generation.
+% They further categorize hypothesis generation into black-box inference and exploration within both discrete and continuous hypothesis spaces, discussing in detail. Additionally, in validation, they discuss the use cases of AI in experimental design, manipulation, and data generation through simulation. Moreover, they organize applied research on AI, focusing on data handling, such as data generation and representation, instead of question generation.
 
 \subsubsection{Question Construction}
 
-In research automation studies, questions are often given. Therefore, automating the construction of questions, or setting subsequent goals, is recognized as a challenge that needs to be addressed in the future \cite{coley2020autonomousII,zenil2023,kitano2021nobel}. 
+In research automation studies, questions are often given. Therefore, automating the construction of questions, or setting the goal behind, is recognized as a challenge that needs to be addressed in the future \cite{coley2020autonomousII,zenil2023,kitano2021nobel}. 
 
-An exception is research that automatically discovers questions and issues from the academic literature (\textit{literature based discovery}) \cite{lahav2022search,wang2023learning}. For example, Lahav et al. have proposed a methodology for automating the discovery of prevailing challenges within the research community, as well as the emerging hypotheses to address them \cite{lahav2022search}.
+An exception is research that automatically discovers or generates research questions and challenges from the academic literature \cite{lahav2022search,liu2023creative,oppenlaender2023mapping,surita2020can}. For example, Lahav et al. have proposed a methodology for automating the discovery of prevailing challenges within the research community, as well as the emerging hypotheses to address them \cite{lahav2022search}. Oppenlaender and Hämäläinen used GPTs to extract research challenges from HCI papers \cite{oppenlaender2023mapping}. Surita et al. conducted research using techniques of \textit{question generation}, one of the tasks in NLP, to identify the underlying research questions from a paper corpus \cite{surita2020can}. While different from discovering research questions, studies aimed at identifying research trends \cite{krenn2022scientific,krenn2022predicting} are also important in terms of pinpointing significant research directions and can provide insights for research on question discovery.
 
-Zhang is examining, not just in science but more generally, how problem discovery can be formulated, what constitutes a good problem, and how problem discovery can be achieved \cite{zhang2021problem}. % To Challenge?
+For question generation, Liu et al. proposed a task to generate research questions for Human Computer Interaction (HCI) and a dataset for that purpose. They evaluated the performance of the baseline model not only in terms of accuracy but also from the perspectives of novelty and surprise \cite{liu2023creative}. Lahat and colleagues had ChatGPT generate research questions related to gastroenterology \cite{lahat2023evaluating}. They found that while it could produce relevant and clear questions, they lacked originality.
+
+There are also attempts to formulate the task of problem generation as a machine learning problem. Zhang has examined, not just in science but more generally, how problem discovery can be formulated, what constitutes a good problem, and how problem discovery can be automatically achieved by machines \cite{zhang2021problem}. % To Challenge?
+
+% Extract research challenges from academic paper with GPT-3.5 \cite{oppenlaender2023mapping}.
+
+% Generating HCI research question with language models \cite{liu2023creative}.
+
+% Research priority identification by ChatGPT \cite{lahat2023evaluating}
+
+% Identifying question behind the academic papers \cite{surita2020can}
+
+% Finding emerging research trends in quantum physics \cite{krenn2022scientific} and AI \cite{krenn2022predicting}.
+
 
 \subsubsection{Hypothesis Generation}
-It is probably fair to say that hypothesis generation is one of the most common processes studied in research automation. Prediction of 3D structures from amino acid sequences, prediction of material structures from desired physical properties, and prediction of newly applicable disease candidates from existing drugs, just to name a few, are examples of automated hypothesis generation. In the example given in the previous section, symbolic regression is another example of hypothesis generation. These studies are often aimed at automation and optimization to solve bottlenecks in problems specific to each research area.
+It is probably fair to say that hypothesis generation is one of the most common processes studied in research automation. Just to name a few, prediction of 3D structures from amino acid sequences, prediction of material structures from desired physical properties, and prediction of newly applicable disease candidates from existing drugs are examples of automated hypothesis generation. In the example given in the previous section, equation discovery, mathematical conjecture generation, knowledge discovery with an abduction algorithm, and hypothesis space exploration are just few examples of this. Wang et al. categorized a group of studies that assist hypothesis generation with AI based on how they utilize AI. They classified these studies into three types: black-box inference by AI, AI-guided exploration of combinatorial hypothesis spaces, and optimization by AI within differentiable hypothesis spaces \cite{wang2023scientific}. 
 
-One study of automated hypothesis generation that is generic to a wide range of fields is the automatic generation of hypotheses from scholarly literature. In recent years, several researchers have presented studies on automating scientific analogical reasoning for identifying the relationship between problems and their corresponding solutions \cite{kang2022augmenting,chan2018solvent}, which is hypothesis.
+Many problems related to hypothesis generation are formulated as search problems within the hypothesis space \cite{langley1987scientific}. Indeed, it has been pointed out that typical methods of hypothesis generation in chemical research \cite{coley2020autonomous}, as well as some hypothesis generation methods that have led to Nobel Prize-level research \cite{kitano2021nobel}, are based on such search approaches. Consequently, many studies of automated hypothesis generation propose ways to represent such hypothesis spaces and efficient methods for searching within them. However, as Coley et al point out, currently the hypothesis space to be explored is predefined by humans \cite{coley2020autonomousII}. In that sense, it cannot be said that the machine is truly generating hypotheses from scratch. How to realize open-ended exploration of hypotheses is a challenge in creating an AI capable of hypothesis generation.
 
 % \subsubsection{Hypothesis Generation from Scientific Papers}
 
-One study of automated hypothesis generation that is generic to a wide range of fields is the automatic generation of hypotheses from scholarly literature. In recent years, several researchers have presented studies on automating scientific analogical reasoning for identifying the relationship between problems and their corresponding solutions \cite{kang2022augmenting,chan2018solvent}, which is hypothesis.
+
+Another approach is to generate hypotheses from a group of academic papers \cite{kang2022augmenting,chan2018solvent,wang2023learning,xu2023exploring}. In this method, while a set of papers is specified, the set of hypotheses is not explicitly defined by humans. In this sense, it's a general-purpose methodology. For examples, Kang et al. and Chan et al. have presented studies on automating scientific analogical reasoning for identifying the relationship between problems and their corresponding solutions from a corpus of research papers \cite{kang2022augmenting,chan2018solvent}.
 
 % For example Portenoy proposed a system that recommend researchers who are pursuing analogous research objectives via divergent approaches \cite{portenoy2022bursting}.el techniques.
 
 % \subsubsection{Others} 
 
-Some methods have been proposed that don't generate hypotheses directly, but rather assist humans in generating hypotheses from experimental data 
- \cite{friederich2021scientific}.
+% Some methods have been proposed that don't generate hypotheses directly, but rather assist humans in generating hypotheses from experimental data  \cite{friederich2021scientific}.
+
+ % Hypothesis generation by literature based discovery \cite{wang2023learning}
+
+% Supporting research idea generation with visualization \cite{guo2018topic}
+
+% find research idea (hypothesis) by link prediction and verbalizaation of it \cite{xu2023exploring} <- Hypothesis?
 
 \subsubsection{Hypothesis Verification}
-Attempts to automate the verification of hypotheses include Bayesian experimental design, laboratory automation, and automated theorem proving, if theorems are viewed as hypotheses, as mentioned above. For example, some researchers have tried to automate experimental design for quantum physics \cite{ruiz2022digital} or proposed to design workflow of scientific research as a software \cite{goble2020fair}. Others have proposed machine learning algorithms for formulating and executing experimental designs in a more abstract and simple manner \cite{herrmann2022learning}. 
+Among the initiatives above, attempts to automate the verification of hypotheses include automated experimental design, laboratory automation, and automated theorem proving. For example, some researchers have tried to automate experimental design for quantum physics \cite{ruiz2022digital} or proposed to design workflow of scientific research as a software \cite{goble2020fair}. 
+
+% Others have proposed machine learning algorithms for formulating and executing experimental designs in a more abstract and simple manner \cite{herrmann2022learning}. 
 
 Compared to question construction and hypothesis generation, there are few attempts to automate hypothesis verification related tasks from the academic literature. Somewhat related is the field of \textit{scientific claim verification} \cite{li2019scientific,wadden2020fact,wadden2022scifact,wadden2022multivers,wang2023using}, which determines the validity of a scientific claim through analysis of research paper. This is not the planning or execution of validation, but it is related to the automation of validation in the sense that it seeks to understand the validity of scientific claims. Since it is an assessment of the validity of a study, the findings of this study may have implications for the automation of peer-review.
 
