@@ -2,7 +2,7 @@
 \label{chapter-literature-review}
 Since the advent of computers, the history of science can perhaps be described as a history where the automation of science by machines has progressed. The emergence of computational science (computational-X), made possible by high-speed and precise calculations using computers, the rise of data-driven science due to rapid data generation (data-driven science), and the advocacy of e-science are representative examples of this \cite{hey2009fourth}. Gray termed these new scientific practice emerging by the power of computers as new ``paradigms'' of science, borrowing by Kuhn.
 
-Attempts to automate these studies are substitutions of research tasks by machines, and are closely related to the development of machines capable of conducting research. In this chapter, We would like to briefly look back at some of the initiatives related to the automation of research. Then, I will explain how these can be interpreted in terms of the generality and autonomy of research automation. Through this, I hope to provide some insight into where we stand now in terms of realizing artificial intelligence capable of conducting research.
+Attempts to automate these studies are substitutions of research tasks by machines, and are closely related to the development of machines capable of conducting research. In this chapter, We would like to briefly look back at some of the initiatives related to the automation of research. Then, we will explain how these can be interpreted in terms of the generality and autonomy of research automation. Through this, we hope to provide some insight into where we stand now in terms of realizing artificial intelligence capable of conducting research.
 % コンピュータの登場以来の科学の歴史は、計算機による科学の自動化が進んでいった歴史だと言っても良いかもしれません。コンピュータにより高速で性格な計算が可能になったことで登場した計算科学や、高速なデータ生成により生まれたデータ駆動科学などの登場、e-science の提唱などがこれらの例です。これらの研究を自動化する試みは研究タスクの機械による代替ですので、研究ができる機械の開発と密接に関係しています。そこでこの章では、研究の自動化に関するこれまでのイニシアチブのうちのいくつかを簡単に振り返りたいと思います。その後、これらが研究の自動化の汎用性と自律性という観点からどのように解釈しうるかを説明します。これによって、研究ができる人工知能の実現に対して、私たちが今何がどこまでできているのかをざっくり見積もる手助けとなればと思っています。
 
 % 本章では、研究の自動化を目指す試みを幅広く紹介します。特に、これまで同じ論文上やコミュニティ間で論じられることがなかった研究たちも含めて、「研究の自動化を目指す研究群」として統一的に紹介しようと思います。一つ一つの論文を丁寧に紹介することは現実的ではないため、あくまで本論文では各分野や研究の取り組み全体をごく簡単に紹介することに注力します。各分野での研究成果についての詳細な説明については、すでにいくつもの素晴らしいレビュー論文が出版されていますので、そちらをご参照ください。ただし、近年の言語モデルを用いた取り組みについては個別の事例も扱いながら紹介しようと思います。
@@ -233,7 +233,7 @@ In Chapter 2, we proposed the idea that research consists of formulating questio
 
 \subsubsection{Question Construction}
 
-In research automation studies, questions are often given. Therefore, automating the construction of questions, or setting the goal behind, is recognized as a challenge that needs to be addressed in the future \cite{coley2020autonomousII,zenil2023,kitano2021nobel}. 
+In research automation studies, questions are often given. Research on automatically generating research questions is not as prevalent as automation in other processes. In natural language processing, there is a task of automatically generating questions \cite{pan2019recent,zhang2021review}, but this is done with different motivations than research activities like data augmentation. Automating the construction of questions, or setting the goal behind, is recognized as a challenge that needs to be addressed in the future \cite{coley2020autonomousII,zenil2023,kitano2021nobel}. 
 
 An exception is research that automatically discovers or generates research questions and challenges from the academic literature \cite{lahav2022search,liu2023creative,oppenlaender2023mapping,surita2020can}. For example, Lahav et al. have proposed a methodology for automating the discovery of prevailing challenges within the research community, as well as the emerging hypotheses to address them \cite{lahav2022search}. Oppenlaender and Hämäläinen used GPTs to extract research challenges from HCI papers \cite{oppenlaender2023mapping}. Surita et al. conducted research using techniques of \textit{question generation}, one of the tasks in NLP, to identify the underlying research questions from a paper corpus \cite{surita2020can}. While different from discovering research questions, studies aimed at identifying research trends \cite{krenn2022scientific,krenn2022predicting} are also important in terms of pinpointing significant research directions and can provide insights for research on question discovery.
 
@@ -290,7 +290,13 @@ Wang et al. have categorized groups of studies that utilize AI to assist experim
 
 In recent years, there have been studies attempting to automate the experimentation using language models \cite{boiko2023emergent,charness2023generation}.
 
-\textcolor{red}{TODO: UPDATE}
+% Compared to question construction and hypothesis generation, there are few attempts to automate
+% hypothesis verification related tasks from the academic literature. Somewhat related is the field of
+% scientific claim verification \cite{li2019scientific,wadden2020fact,wadden2022scifact,wadden2022multivers,wang2023using}, which determines the validity of a scientific claim
+% through analysis of research paper. This is not the planning or execution of validation, but it is related
+% to the automation of validation in the sense that it seeks to understand the validity of scientific claims.
+% Since it is an assessment of the validity of a study, the findings of this study may have implications
+% for the automation of peer-review
 
 % Most research on research automation automates some tasks in the research process. 
 

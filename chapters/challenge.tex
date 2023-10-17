@@ -1,81 +1,121 @@
 \chapter{Challenges and Propositions}
+In Chapter 2, we examined the definition of research and its implications, and in Chapter 3, we provided an overview of past efforts related to the automation of research. In this chapter, based on these, we will reorganize the challenges towards realizing an autonomous and general artificial intelligence capable of conducting research.
+
+
 
 \section{Challenges}
 
-\subsubsection{Post-Automation}
+ \subsection{General and Autonomous Question Construction, Hypothesis Generation, and Hypothesis Verification}
 
-Extensive discourse transpires concerning scientific discoveries. Yet, discussions pertaining to scientific comprehension remain relatively unexplored. Krenn et al. delve into the conundrum of what it entails for a machine learning agent to not only unearth scientific knowledge but also to comprehend it \cite{krenn2022scientific}. They adopt a human-centric stance, positing that an agent's ability to offer explanations comprehensible to human scientists signifies the existence of its scientific understanding.
+ In Chapter 2, we explained that in order to create an AI capable of conducting any research, it is deemed necessary to realize the formulation of questions, generation of hypotheses, and validation of these hypotheses as a combination of universal skills applicable to all research. In this section, we will revisit and organize the potential challenges in achieving an AI that can conduct each of these processes.
 
-sun-rise \cite{leslie2023does}
+ \subsubsection{Common Challenges}
+One of the major challenges that can be a common issue for any process, as pointed out in prior research \cite{coley2020autonomousII}, is how to execute these tasks in open-ended situations. For instance, in the automation of experiments, robots use experimental equipment selected, prepared, and set up by humans. However, humans do these tasks from scratch with their own hands. Humans do not use a given corpus of papers; instead, they search for and use them on their own. Candidates for hypotheses are not explicitly provided; humans begin by identifying potential hypotheses. Even when formulating questions that serve a particular goal, humans set that goal themselves. 
 
-\subsection{General Question Construction, Hypothesis Generation, and Hypothesis Verification}
+In many cases in research automation, these elements are pre-determined by humans. How to let machines autonomously perform these tasks starting only with the same initial information given to humans is crucial in realizing an autonomous artificial researcher. Moreover, having this kind of freedom is essential to achieving a general artificial researcher as well. This is because if we impose constraints on AI to research only within specific research questions or hypothesis spaces defined by humans, it cannot become an AI capable of conducting arbitrary research. Therefore, a significant challenge is how to make AI acquire complex foundational skills and fundamental reasoning abilities to realize these capacities.
 
 \subsubsection{Question Construction}
 
-Realizing AI that construct a ``good'' question in a generic way is challenging. As discussed in Section \ref{section:the-relativity-of-knowledge-production-to-society}, research is relative to society and different criteria can be considered for what makes a ``good'' question. Thus, some human perspective on the ``goodness'' of a question must be incorporated. We need to discuss what we consider good, what we should prioritize, and how to incorporate the value to AI.
+The first issue discussed in Chapter 2 is the problem of determining the unknown nature of the answer to a question. Given that research is an endeavor to produce new knowledge, it is necessary for the answer to the question to be unknown. Therefore, there is a need to generate such questions or later verify that the answer to the question is indeed unknown.
 
-Moreover, determining inputs to the question construction module is not trivial. In hypothesis generation, the question is the primary input, whereas in verification, it's the hypothesis. However, question formation take any input. Once you seriously try to identify the origin of question, you will encounter infinite regress. This is a unique problem that arises when aiming for a general-purpose and autonomous artificial researcher. This is because the issue revolves around how much input can be assumed while still being considered autonomous, given that it can potentially take any input.
+The second challenge is the issue of how to make a machine generate a ``good'' question. Firstly, what researchers consider as a ``good'' question is not always consistently agreed upon among them. Furthermore, we pointed out that the ``goodness'' of a question is inherently a concept relative to the individual or society. Hence, there seems to be a need to clearly define what constitutes a good question and think about how to effectively integrate these definitions.
 
-\cite{wang2023skillqg}
+The third challenge is that as we demand more autonomy from AI, the automation of question formulation becomes more difficult. Inherently, questions are constructed based on various motivations, such as pure intellectual curiosity or for specific objectives. It is very challenging to automate the construction of questions without defining which of these motivations should be the source. Moreover, as mentioned in Chapter 2, the construction of questions encounters the problem of infinite regression when pursued with strict autonomy. Even if not taken to that extreme, setting higher-order objectives behind questions for AI is an exceptionally difficult task.
 
-neural question generation \cite{pan2019recent}
+It seems that the automation of question formulation has received relatively less attention compared to other processes. Since the formulation of questions is an essential element in conducting research, it would be desirable for more focus to be directed towards the research on automating this process.z
+
+% Realizing AI that construct a ``good'' question in a generic way is challenging. As discussed in Section \ref{section:the-relativity-of-knowledge-production-to-society}, research is relative to society and different criteria can be considered for what makes a ``good'' question. Thus, some human perspective on the ``goodness'' of a question must be incorporated. We need to discuss what we consider good, what we should prioritize, and how to incorporate the value to AI.
+
+% \textcolor{red}{TODO}
+
+% Moreover, determining inputs to the question construction module is not trivial. In hypothesis generation, the question is the primary input, whereas in verification, it's the hypothesis. However, question formation take any input. Once you seriously try to identify the origin of question, you will encounter infinite regress. This is a unique problem that arises when aiming for a general-purpose and autonomous artificial researcher. This is because the issue revolves around how much input can be assumed while still being considered autonomous, given that it can potentially take any input.
+
+% \cite{wang2023skillqg}
+
+% neural question generation \cite{pan2019recent}
 
 
 \subsubsection{Hypothesis Generation}
 
-Outputs from machine learning models are essentially inferences tinged with uncertainty. From this perspective, one could posit that these models are already inherently generating hypotheses. Indeed, they are already employed for hypothesis generation in numerous scientific investigations.
+One challenge in creating an intelligence capable of hypothesis generation, not just as a tool for humans, is the need to empower the machine itself to form plausible hypotheses for questions to which even the machine doesn't know the answer. Current machine learning models have been criticized for potentially not knowing what they don't know \footnote{
+In our discussion with Wataru Kumagai, we were reminded once again of the importance of self-awareness in creating an AI capable of conducting research.
+}. 
+Moreover, they are known to confidently provide answers or fabricate falsehoods about topics they are ignorant of. Therefore, it seems essential to first accurately recognize what is unknown, either for oneself or the world at large, as told in sections of question construction. Upon facing an unknown subject, there's a need to reduce uncertainty and approach understanding. As mentioned in Chapter 2, humans attempt to understand uncertain subjects by gathering information from papers, experiments, or by reframing questions. While it may not be necessary to adopt the exact same approach, it seems essential to enable machines to autonomously adopt strategies to reduce uncertainties.
 
-However, while these hypotheses might be hypotheses in the sense that the answers are unknown to humans, they might be self-evident to the machine learning model. When we talk about AI generating hypotheses in the context of AI conducting research, the ultimate expectation is for the AI to provide plausible answers to what is unknown to AI itself. This remains an unresolved issue.
+% Outputs from machine learning models are essentially inferences tinged with uncertainty. From this perspective, one could posit that these models are already inherently generating hypotheses. Indeed, they are already employed for hypothesis generation in numerous scientific investigations.
 
-It seems crucial for AI to acquire systematic thinking to realize this, as humans developed systems like language and mathematics, allowing them to infer about subjects beyond their experience. Systematic thinking is not only important for out-of-distribution generalization but is also valued for interpretability, causal inference, logical reasoning, mathematical processing, and planning.
+% However, while these hypotheses might be hypotheses in the sense that the answers are unknown to humans, they might be self-evident to the machine learning model. When we talk about AI generating hypotheses in the context of AI conducting research, the ultimate expectation is for the AI to provide plausible answers to what is unknown to AI itself. This remains an unresolved issue.
 
+As one of the promising approaches for tacking unknowns, it seems crucial for AI to acquire systematic thinking to realize this, as humans developed systems like language and mathematics, allowing them to infer about subjects beyond their experience. Systematic thinking is not only important for out-of-distribution generalization but is also valued for interpretability, causal inference, logical reasoning, mathematical processing, and planning.
+
+\textcolor{red}{TODO}
 
 \subsubsection{Hypothesis Verification}
 
-Creating AI that autonomously verifies hypotheses is challenging. While current models can mimic human verification, truly understanding the verification strategy demands more work. Sometimes, they even need to devise the verification measure themselves.
-
-Although research on autonomous hypothesis verification is limited, the need for verification is recognized beyond outside of the context of research automation, such as in fact-checking. Studies like \textit{scientific claim verification}, which received much attention during the COVID-20 pandemic \cite{wadden2020fact}, or the chain-of-verification approach to minimize hallucination \cite{dhuliawala2023chain} may offer insights for enhancing automated verification.
-
-Compared to question construction and hypothesis generation, there are few attempts to automate
-hypothesis verification related tasks from the academic literature. Somewhat related is the field of
-scientific claim verification \cite{li2019scientific,wadden2020fact,wadden2022scifact,wadden2022multivers,wang2023using}, which determines the validity of a scientific claim
-through analysis of research paper. This is not the planning or execution of validation, but it is related
-to the automation of validation in the sense that it seeks to understand the validity of scientific claims.
-Since it is an assessment of the validity of a study, the findings of this study may have implications
-for the automation of peer-review
-
-The biggest challenge for autonomous verification is the need to freely move around in the real world or within a computer, and to manipulate objects within that world at will. We believe this to be one of the greatest barriers to full research automation. Laboratory automation have attempted to address this challenge in real world by developing robots. We will discuss the case within the computer in Section \ref{section:behaviour-inside-the-computer}.
-
-\subsubsection{AI Capable of Peer Review}
-
-Given the difficulty of these challenges, automating peer review could be a strategic starting point. This is because peer review is a universal process across diverse research fields and it assesses the validity and quality of problems, hypotheses, and verification methods, which is easier than generating them. Despite some progress, full automation is still elusive \cite{yuan2022can,schulz2022future}.
+In Chapter 2, we highlighted several challenges in realizing an AI capable of verification. First and foremost, the AI itself needs to understand what verification is, and by what criteria a sequence of actions qualifies as verification. Ideally, it would be preferable for the AI to contemplate and understand from scratch what verification is. However, many humans don't do this either, and as discussed in Chapter 2, the philosophical debate on precisely defining verification is still unresolved. Therefore, it's harsh to demand this of a machine. At the very least, the machine needs to thoroughly understand and proficiently use verification concepts that humans employ, such as statistical hypothesis testing, from first principles.
 
 
-\subsection{Behaviour inside the Computer}
-\label{section:behaviour-inside-the-computer}
+Second, the AI must be able to formulate detailed and complex plans to verify a hypothesis. With the advancements in language models in recent years, we are now much more capable of formulating superior plans than before. However, devising detailed plans remains a challenging issue.
+
+Third, it has to be prepared to carry out these plans and execute the plan with the combination of human-like complex actions.As mentioned in Chapter 2, to achieve this, the AI must be able to search for, create, purchase, and manipulate equipment with almost the same degree of freedom as humans, requiring it to exhibit extremely sophisticated and complex behaviors. This is an immensely challenging issue, and it might even be fair to say it's one of the biggest bottlenecks in realizing an intelligence capable of generic and autonomous research. Laboratory automation have attempted to address this challenge in real world by developing robots. We will discuss the case within the computer below.
+
 For AI to execute research on a computer, it must perform any operation within the computer. For instance, machine learning research entails, setting an environment, preparing datasets and models, and writing and executing codes. To allow AI to prepare these without human intervention, the AI itself must be able to autonomously search the web, select data, download it, and so on. Furthermore, once the AI generates code for verification, it must operate the shell to execute it.
 
 There are ongoing initiatives to enable language models to operate browsers \cite{nakano2021webgpt,act1}. While full browser operations might seem ambitious, there are already endeavors to allow language models to conduct searches \cite{mialon2023augmented}. If we achieve browser automation, it will greatly advance research automation involving web operations. Moreover, efforts like the open interpreter \cite{openinterpreter} aim to automate any computer action. This direction holds promise for automating all research confined within a computer. Although these studies are gaining traction in the machine learning domain, they're not always linked to research automation. We advocate recognizing this as a pivotal challenge in the realm of research automation.
 
-\subsection{Dataset of Research Process}
-It is important to establish the necessary infrastructure for research automation. The two pillars of research automation are the development of basic models that incorporate academic knowledge and the construction of data sets. The development of an infrastructure model that incorporates scientific knowledge has already been proposed in many places and is actually under development, so I will not emphasize its necessity here again. Also, regarding data sets, the construction of data sets for the acquisition of scientific knowledge has been done in various places as well, so I will not emphasize that here either.
+In the field of machine learning, it seems that the discussion on automated validation has not garnered much attention until now. However, recently, the need for verification is recognized in the machine learning community beyond outside of the context of research automation. Studies like \textit{scientific claim verification}, which received much attention during the COVID-20 pandemic \cite{wadden2020fact}, or attempts to minimize hallucination \cite{dhuliawala2023chain} are examples of them. These are not attempts to automate validation in research. Therefore, these findings cannot be directly applied to the automation of research validation. However, we expect that these studies will provide useful insights for the future development of artificial intelligence capable of understanding validation.
 
-Instead, we propose here to construct a research process dataset. A research process dataset is behavioral log data that incorporates all possible tasks throughout the entire process of the study, from start to finish. Ideally, individual tasks should be labeled as to whether they correspond to question construction, hypothesis generation, or hypothesis testing. We believe that building such a data set is important because, as explained in the Literacy section of Chapter 2, the current paper is not a data log of the entire research process. This makes it difficult to be data-driven and end-to-end learning how to do research itself. I believe that building a research process will help solve these problems and increase the likelihood of more flexible intelligent agents.
+% Creating AI that autonomously verifies hypotheses is challenging. While current models can mimic human verification, truly understanding the verification strategy demands more work. Sometimes, they even need to devise the verification measure themselves.
 
-However, building a dataset of the research process seems daunting. This is because researchers who do not currently keep research logs would have to go to the trouble of recording their research process.\footnote{
-In an experimental laboratory in the natural sciences, it is common to take research notes, so it may not be that difficult to record more detailed processes as an extension of this practice. However, in the machine learning field, the culture of taking research notes does not seem to be that common. (We think it is common to keep logs of experiments, but it seems to be rare to describe the details, for example, where and how the data was obtained.) 
-} Therefore, it seems necessary to devise a way to make it easier for researchers to keep logs. It may be to manage the research process on GitHub, or to take research notes as in natural science research, but it is important to discuss how to achieve these things.
+% The biggest challenge for autonomous verification is the need to freely move around in the real world or within a computer, and to manipulate objects within that world at will. We believe this to be one of the greatest barriers to full research automation. Laboratory automation have attempted to address this challenge in real world by developing robots. We will discuss the case within the computer in Section \ref{section:behaviour-inside-the-computer}.
 
-Being able to construct a dataset of the research process would be ideal, but may not be immediately feasible. As an alternative, it seems important to create a dataset designed to automate question construction, hypothesis generation, and hypothesis testing. At its simplest, one might start by building a dataset of papers labeled with the parts that correspond to the question, hypothesis, and test, respectively. This would be a relatively simple but important step in achieving a generic artificial researcher.
+% \subsubsection{AI Capable of Peer Review}
 
-Alternatively, instruction tuning could be done by viewing question construction, hypothesis generation, and hypothesis testing as tasks, respectively. This would produce a language model that can execute question construction, hypothesis generation, and hypothesis testing with greater fidelity. This could be the foundation for a general-purpose, autonomous artificial researcher.
+% Given the difficulty of these challenges, automating peer review could be a strategic starting point. This is because peer review is a universal process across diverse research fields and it assesses the validity and quality of problems, hypotheses, and verification methods, which is easier than generating them. Despite some progress, full automation is still elusive \cite{yuan2022can,schulz2022future}.
+
+
+% \subsection{Behaviour inside the Computer}
+% \label{section:behaviour-inside-the-computer}
+
+
+% Lab Notebook?
+% \subsection{Dataset of Research Process}
+% It is important to establish the necessary infrastructure for research automation. The two pillars of research automation are the development of basic models that incorporate academic knowledge and the construction of data sets. The development of an infrastructure model that incorporates scientific knowledge has already been proposed in many places and is actually under development, so I will not emphasize its necessity here again. Also, regarding data sets, the construction of data sets for the acquisition of scientific knowledge has been done in various places as well, so I will not emphasize that here either.
+
+% Instead, we propose here to construct a research process dataset. A research process dataset is behavioral log data that incorporates all possible tasks throughout the entire process of the study, from start to finish. Ideally, individual tasks should be labeled as to whether they correspond to question construction, hypothesis generation, or hypothesis testing. We believe that building such a data set is important because, as explained in the Literacy section of Chapter 2, the current paper is not a data log of the entire research process. This makes it difficult to be data-driven and end-to-end learning how to do research itself. I believe that building a research process will help solve these problems and increase the likelihood of more flexible intelligent agents.
+
+% However, building a dataset of the research process seems daunting. This is because researchers who do not currently keep research logs would have to go to the trouble of recording their research process.\footnote{
+% In an experimental laboratory in the natural sciences, it is common to take research notes, so it may not be that difficult to record more detailed processes as an extension of this practice. However, in the machine learning field, the culture of taking research notes does not seem to be that common. (We think it is common to keep logs of experiments, but it seems to be rare to describe the details, for example, where and how the data was obtained.) 
+% } Therefore, it seems necessary to devise a way to make it easier for researchers to keep logs. It may be to manage the research process on GitHub, or to take research notes as in natural science research, but it is important to discuss how to achieve these things.
+
+% Being able to construct a dataset of the research process would be ideal, but may not be immediately feasible. As an alternative, it seems important to create a dataset designed to automate question construction, hypothesis generation, and hypothesis testing. At its simplest, one might start by building a dataset of papers labeled with the parts that correspond to the question, hypothesis, and test, respectively. This would be a relatively simple but important step in achieving a generic artificial researcher.
+
+% Alternatively, instruction tuning could be done by viewing question construction, hypothesis generation, and hypothesis testing as tasks, respectively. This would produce a language model that can execute question construction, hypothesis generation, and hypothesis testing with greater fidelity. This could be the foundation for a general-purpose, autonomous artificial researcher.
 
 
 
 \subsection{Alignment}
-As discussed in Section \ref{section:the-relativity-of-knowledge-production-to-society}, when realizing an AI that autonomously conducts research, the issue of alignment arises. In the medium to long term, it's essential to devise ways to ensure that AI doesn't engage in research that could be dangerous to humans. In the long term, we must contemplate how to construct a knowledge system that are mutually translatable between human society and AI society. While these issues may not arise in the short term, it's crucial to engage in discussions now, looking towards the long-term future.
+As discussed in Section 2, when realizing an AI that autonomously conducts research, the issue of alignment arises. 
 
-\section{Constructing a Research Pipeline}
+First and foremost, it is essential to consider ways to ensure that AI does not engage in research that could harm humans. However, this is a challenging issue. The problem of ensuring that AI does not harm humans is a difficult problem in AI Alignment. Furthermore, knowledge and technology produced by research are fundamentally value-neutral. That is, the knowledge can be used for good or ill. Therefore, even if AI were to research with harmful intentions, it would be challenging to judge from the actual research results.
+
+The remaining two issues arise in the ultra-long term when AI becomes fully autonomous in conducting research. The second issue is that to enable meaningful knowledge production for humans, there needs to be an alignment between the knowledge systems of AI and humans. As mentioned in Chapter 2, if knowledge and verification are relative concepts to society, research conducted autonomously by AI may become meaningless to humans. On the other hand, if we were to correct AI to follow human methods entirely, we might unnecessarily limit the machine's potential capabilities. Deciding how much human methodology and values to incorporate and how much freedom to allow the machine, and finding ways to achieve this, will be a significant challenge in creating research-capable AI.
+
+The third issue concerns the alignment between AI and nature, not between humans and AI. As mentioned in Chapter 2, the fact that humans have come to understand nature is likely not unrelated to our long history of interacting with nature. It seems there's no guarantee that artificial machines like AI, which lack such experiences, would lead to an understanding of nature through their autonomously generated knowledge.
+
+The latter two issues are problems that only arise when demanding extreme autonomy from machines and are not immediately problematic. However, when discussing the limitations and possibilities of knowledge production and natural understanding by agents independent of humans, they seem to become relevant issues.
+
+% In the medium to long term, it's essential to devise ways to ensure that AI doesn't engage in research that could be dangerous to humans. 
+
+% In the long term, we must contemplate how to construct a knowledge system that are mutually translatable between human society and AI society. While these issues may not arise in the short term, it's crucial to engage in discussions now, looking towards the long-term future.
+
+% \subsubsection{Understanding}
+
+% Extensive discourse transpires concerning scientific discoveries. Yet, discussions pertaining to scientific comprehension remain relatively unexplored. Krenn et al. delve into the conundrum of what it entails for a machine learning agent to not only unearth scientific knowledge but also to comprehend it \cite{krenn2022scientific}. They adopt a human-centric stance, positing that an agent's ability to offer explanations comprehensible to human scientists signifies the existence of its scientific understanding.
+
+sun-rise \cite{leslie2023does}
+
+\section{Constructing Research Pipeline Prototypes}
 We propose to start by building a research pipeline, connecting the modules of the knowledge production system. The research pipeline is a software system that takes input and generates knowledge as output, encompassing the sequence of processes involved in research. Since this process does not require human intervention, it can be considered as an autonomous research system. We propose this system to be composed of the sub-processes of ``question construction,'' ``hypothesis generation,'' and ``hypothesis verification.'' This creates a general system that is potentially applicable to any research. These sub-processes can be likened to abstract classes in programming. Each process automatically formulates appropriate questions, generates hypotheses, and performs verification based on the input. 
 
 Initially, we will assume a specific research problem, and this research problem can be a simple one. And the inner workings of detailed hypothesis testing and hypothesis generation can be guided (but not hard-coded) to achieve the desired results. Anyway, the high-level concept is to create the minimum necessary to automatically execute each process of question construction, hypothesis generation, and hypothesis testing. Then, by gradually making the contents of each module autonomous and gradually loosening the restrictions on the research problem, we will lead to a general-purpose and autonomous artificial researcher.
