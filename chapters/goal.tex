@@ -1,38 +1,13 @@
-\chapter{What is the Goal?}
+\chapter{What is Research?}
 \label{chapter-what-is-research}
 
-To reiterate, \textbf{the proposition put forward in this paper is to strive for the realization of general and autonomous artificial researcher}. Autonomy refers to the level of human intervention and design involved. For instance, a system that requires humans to explicitly provide a set of hypotheses has lower autonomy compared to one that allows the machine to discover them on its own.  Generality refers to how many research fields a single automated research system can handle. For example, a system capable of conducting research in both physics and history is more general compared to a system limited to either one.
-
-While it might be easier to grasp what a more autonomous system is, the challenge lies in defining what a general artificial researcher is. This is because we need to comprehend what it means for a system to be capable of both physics and history research, for example. Therefore, to create a general artificial researcher, it seems necessary to first define what research itself is. By discussing what constitutes research and what is required to conduct it, we may uncover the abilities that the system must possess. Hence, the following sections will explore the fundamental nature of research. After discussing autonomy a bit below, we will discuss what research is all about.
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{figs/goal.jpg}
-    \caption{General and Autonomous Artificial Researcher}
-    \label{fig:goal}
-\end{figure}
-
-\subsubsection{Level of Autonomy}
-What we are aiming for is an artificial intelligence that can conduct research completely autonomously. Therefore, the ultimate aim is to minimize predetermined modules or algorithms decided by humans and create an end-to-end system. With that in mind, we would like to express our opinion on how much autonomy should be pursued.
-
-Firstly, autonomy ultimately boils down to the question of how much is taken for granted. The more predetermined elements there are, the lower the autonomy, and the fewer predetermined elements there are, the higher the autonomy. In this sense, autonomy is continuous and incremental.
-
-The highest level of autonomy in pursuing the realization of an artificial researcher is a state where the system invents and conducts research without even assuming its purpose as research. This means not instructing the system to conduct research, not teaching what research is beforehand, but enabling the acquisition and execution of research. Humans can be considered researchers with this level of autonomy at least at the species level. This is because while humans are probably not designed as systems dedicated solely to research, they have progressively invented research throughout history. Of course, such a level of autonomy is not achievable without any assumptions, so if one aims for this level of autonomy, it is necessary to prepare an environment that induces the acquisition of research and design some form of inductive bias. What we are referring to here is a system with autonomy in the sense that research is acquired as a result of computational processing indirectly related to knowledge production and the necessary conditions for it.
-
-However, demanding such a level of autonomy may be somewhat excessive when it comes to pursuing an autonomous artificial researcher. Therefore, it seems reasonable to assume research as a design requirement. Since research is assumed to be the purpose, some form of information about what knowledge is must be provided. Here, we can classify it into two categories.
-
-The first is implicitly providing information about what research is. This involves allowing the system to acquire the concept of research on its own based on existing knowledge and data about the process of research. The history of machine learning research has shown the power of this end-to-end direction in creating strong intelligent systems. In that sense, this direction can be considered one of the directions to pursue.
-
-The second is explicitly providing information about what research is. This involves providing only the necessary information about the conditions related to research and aiming for their fulfillment. It does not mean explicitly instructing how to construct questions or specific means to justify beliefs. Instead, it only provides information about what needs to be done, and the system must acquire and execute them on its own. This is autonomy in the sense that one must acquire the methods oneself and execute them. We believe that if we provide information at this level, it can be considered a system capable of conducting research autonomously. On the other hand, we think that research achieved by hard-coding the each single process within the research is not autonomous. It is expected to be quite challenging to aim for the first one   directly. Therefore, we believe it is better to aim for the third level of autonomy. 
-
-A particularly serious part of building an autonomous system is the question of what to do with the initial values. This is because some input must be given as a given, and the question is to what extent this information can be given by a human being and still be called autonomous. This will be discussed again in this paper.
-
-\section{What is Research?}
 To create an agent capable of conducting research autonomously, it is crucial to understand what research is in the first place. Therefore, in this section, we would like to discuss the characteristics of what is called research.
 
 However, our aim here is not to identify a universal, historically independent, and absolutely singular definition of what research is. It seems almost impossible to specify such a thing \cite{chalmers2013thing,sep-scientific-method}. We do not totally believe that we could provide an answer to a question that has yet to be resolved even within the philosophy of science.
 
 Rather, our goal is to endeavor to describe various characteristics of research to the extent that it can provide a starting point for engineers and information scientists who aim for autonomous research capabilities. To that end, we first discuss a possible working definition of research.
+
+\section{Defining Research}
 
 \subsection{Research as Knowledge Production}
 
