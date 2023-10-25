@@ -189,7 +189,7 @@ The definition discussed here is merely a provisional one based on the naive int
 
 % \subsection{The Previous Discussions Regarding the Definition of Research (Scientific Discovery).}
 
-\section{Knowledge Production System}
+\subsection{Question Construction, Hypothesis Generation, and  Verification}
 
 % \textcolor{red}{TODO: more focus on the implication for research automation}
 
@@ -211,13 +211,15 @@ The definition discussed here is merely a provisional one based on the naive int
 
 % Note that some commonly seen items, such as surveys, are not included here for a reason. First, as mentioned earlier, gathering information from papers is only a means of knowledge transfer through the use of a thesis. Second, information extraction from papers can be done at any stage of the research process. Thus, I believe that processing related to a paper, such as \textit{reading papers} and \textit{writing a paper}, needs to be considered separately from the aforementioned research process.
 
-\subsection{Overview}
+% \subsection{Overview}
 
 % \textcolor{red}{TODO: reconsider the research process, structure of knowledge production system, and the scope of this paper}
 
-The definition of research stated in the previous chapter is somewhat too abstract to serve as a concrete guideline for building something based on it. Moreover, it feels distant from the research practices employed by humans, making it challenging to immediately connect my standing point to with the goal. While the ultimate goal is to achieve a fully end-to-end system for conducting research, it is practical and useful to start by discussing how to realize individual sub-processes within the research process. Breaking down the research process into partial processes will make the functions that need to be achieved much clearer.
+The definition of research stated in this section is somewhat too abstract to serve as a concrete guideline for building something based on it. Moreover, it feels distant from the research practices employed by humans, making it challenging to immediately connect our standing point to with the goal. While the ultimate goal is to achieve a fully aunotomous system for conducting research, it is practical and useful to start by discussing how to realize individual sub-processes within the research process. Breaking down the research process into partial processes will make the functions that need to be achieved much clearer.
 
-Therefore, I attempt to structure the research process a bit more by decomposing it into its constituting elements. Specifically, I will divide the process of producing knowledge from any given input into appropriate sub-processes. During this division, each sub-process will be structured with the level of abstraction required for all types of research. This is because the aim of this paper is to achieve a general artificial researcher. Hence, even if an element seems crucial in current research, if it is not necessarily essential to the definition of research seen so far, I will treat those elements separately from the constituents of the research process in this study. By separating these elements, I intend to clarify the indispensable components for realizing an artificial researcher. 
+Therefore, I view research process as a \textit{knowledge production system} and attempt to structure the process by decomposing it into its constituting modules. During this division, each sub-process will be structured with the level of abstraction required for all types of research. This is because the focus of this paper is a general artificial researcher. 
+
+% Hence, even if an element seems crucial in current research, if it is not necessarily essential to the definition of research seen so far, I will treat those elements separately from the constituents of the research process in this study. By separating these elements, I intend to clarify the indispensable components for realizing an artificial researcher. 
 
 % \subsubsecti on{Outline of the Structure}
 % In this section, I will discuss the three things tightly related to the knowledge production. I will first discuss the functionally essential elements for knowledge production system, which is the abstract structure of the research process that has been emphasized so far. These elements correspond to the modules in knowledge production system. This is a main topic of this chapter. 
@@ -226,19 +228,6 @@ Therefore, I attempt to structure the research process a bit more by decomposing
 
 % In the previous chapter, I discussed the definition of research. In this chapter, I will focus on the high-level abstract structuring of the research process while paying attention to its functional aspects. By emphasizing the functional aspects, I mean paying attention to the role that each step plays in knowledge production. By higher-level abstract structuring, I intend to focus on the processes that is as universal as possible across research fields, regardless of the specific domain. The purpose of this kind of structuring is to clarify what kind of modules should be created as intermediate steps of research when aiming for research automation. In the following, I will structurize the research process into a chronological sequence for the purpose of clarity. However, it is important to note that the focus lies not on the temporal order nor human convention, but rather on the functionality in relation to knowledge production and the inputs and outputs of each of these processes. Also, as previously mentioned, because humans are currently the primary knowledge generators, there are many constraints that come from human society. Thus I will do my best to distinguish and organize what is dependent on humans and what is not. Before delving into specific discussions, let us first explain the scope of this chapter. After that, I will discuss the outline to be addressed in this section, followed by the main discussions.
 
-\subsubsection{Scope of the Discussion}
-I think that the activities related to research can be broadly divided into two phases: the process of knowledge production, typically in the form of papers or other publications, and the phase of maintaining, sharing, evaluating, and utilizing the knowledge. While the latter phase is a crucial aspect of knowledge, it will not be extensively addressed here since my interest primarily likes on knowledge production. However, it's important to note that the distinction between the two phases is not strictly delineated. For instance, how knowledge is used often influences the production process. Additionally, research evaluation and revision are ongoing processes, and as mentioned earlier, belief updates are not set in stone. Thus, evaluation of the value of knowledge may not be completely exclude from my discussion simply because they mainly take place after knowledge production. As such, given the difficulty in making a strict demarcation, I will make sure to touch upon elements that are not necessarily considered for knowledge production even within the latter. The aforementioned distinction is merely a matter of emphasis, and it should be understood that it does not imply completely disregarding the latter phase.
-
-Furthermore, factors influenced by social constraints such as funding acquisition and collaboration agreements that typically occur before the research are not addressed in this paper. Knowledge production can be seen as a function that produces knowledge from inputs such as people, capital, resources, and information. Viewing it this way, the acquisition of money or human capital can be considered inputs to the function rather than the knowledge production itself. Thus, I do not touch on this topic in this chapter. I admit that these factors are also crucial elements in the pursuit of true autonomy in research, so they will be subject to future discussions. Also, even if it is information acquisition, if that is strongly related to the internal of knowledge production itself, I will address it later in this paper. 
-
-In conclusion, the following text focuses on the process of research, where knowledge is output as research outcomes given any input. For simplicity, I will refer to this process as the \textit{knowledge production system} or just \textit{research process}. It is worth reiterating that this distinction is provisional, intended to facilitate further discussion and the development of better categorizations or broader automation in the future.
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{figs/research_process_society.jpg}
-    \caption{Knowledge Production System and Society}
-    \label{fig:research_process_society}
-\end{figure}
 
 % \textcolor{red}{TODO: add the excuse that research is social activity}
 
@@ -269,18 +258,12 @@ In conclusion, the following text focuses on the process of research, where know
 
 % Though I explained that research is belied revision, it would be convenient to see as a function that takes the unknown as input and outputs the known.  % TODO: rearrange
 
-\subsubsection{Three Sub-Systems in Knowledge Production System}
+\subsubsection{Three Sub-Modules in Knowledge Production System}
 In the following sections, I will explain three essential elements that I think are functionally necessary in knowledge production: \textit{question construction}, \textit{hypothesis generation}, and \textit{hypothesis verification}. These are the abstract structure of the research process that has been emphasized so far.
 
-Constructing questions is equal to deciding the unknown to be investigated, which is necessary by definition for research, which is the art of bringing the unknown closer to the known. Generating hypotheses is inevitable when dealing with the unknown, although they may be implicit and the extent may vary. This is because if I did not require any inference with uncertainty, the unknown would not have been unknown in the first place. In other words, when dealing with the truly unknown, one must generate some hypothesis. The third element is hypothesis verification, which is a process that shows us how probable it is that a hypothesis is true. This element is indispensable, as it is converting my unjustified beliefs that a hypothesis is true into knowledge.\footnote{
-While the term ``verification'' is used here, it does not imply a definitive determination of the truth or falsehood of propositions, as commonly used in philosophy. It is used in the sense of just strengthening beliefs as used in everyday language. Thus, ``confirmation'' may be a more accurate term, but verification is more widely recognized, so I will use that.
+Constructing questions is equal to deciding the unknown to be investigated, which is necessary by definition for research, which is the art of bringing the unknown closer to the known. Since answering this question is the objective, hypothesis generation is necessary. The reason it's not just a simple question answering, but question construction and hypothesis generation, is because no one knows the answer of the question yet. The third process is hypothesis verification, which is a process that shows us how probable it is that a hypothesis is true. This is indispensable, as it is converting our beliefs that a hypothesis is true into knowledge.\footnote{
+While the term ``verification'' is used here, it does not imply a definitive determination of the truth or falsehood of propositions. It is used in the sense of just strengthening beliefs as used in everyday language. Thus, ``confirmation'' may be a more accurate term, but verification is more widely recognized, so I will use that.
 }
-
-When summarizing these intermediate steps, it goes as follows: First, upon receiving any input, I formulate a question. Taking this question as input, hypotheses are generated. Finally, these hypotheses are input and validated resulting in the creation of knowledge as a research outcome. These processes are considered a proper decomposition of the research process, as they request each other's outputs as inputs and seamlessly connect the entire research process from input to output without any gaps.
-% \textcolor{red}{TODO: However, I can identify discovery with justification because both are belief updates. I'll add this point wherever in this paper.} Fig. \ref{fig:knowledge_production_system}.
-
-% \textcolor{red}{TODO: Add fig like this. add this sentence to the explanation of the fig "we approach the unknown to the known by asking questions, providing tentative answers to them, and then verifying the validity of those answers. " }.
-% Fig. \ref{fig:research_process}.
 
 \begin{figure}[htb]
     \centering
@@ -289,20 +272,12 @@ When summarizing these intermediate steps, it goes as follows: First, upon recei
     \label{fig:knowledge_production_system}
 \end{figure}
 
+% When summarizing these intermediate steps, it goes as follows: First, upon receiving any input, I formulate a question. Taking this question as input, hypotheses are generated. Finally, these hypotheses are input and validated resulting in the creation of knowledge as a research outcome. These processes are considered a proper decomposition of the research process, as they request each other's outputs as inputs and seamlessly connect the entire research process from input to output without any gaps.
+% \textcolor{red}{TODO: However, I can identify discovery with justification because both are belief updates. I'll add this point wherever in this paper.} Fig. \ref{fig:knowledge_production_system}.
 
-\subsubsection{Research as Information Processing System}
-Our structurization so far is based on the perspective that research, in other words, the knowledge production system, can be seen as an information processing system.\footnote{Although my discussion here is influenced by David Marr's three levels  \cite{marr2010vision}, it is not exactly the same, so I mention it only in this footnote to avoid misunderstandings} First of all, all information procesing systems have an objective and achieve that objective by processing inputs. In my case, the objective in research is to produce a new knowledge for a society. The reason I divided the research process into the question construction, hypothesis generation, and hypothesis verification is equivalent to breaking down this information processing into three sub-modules. Each of these three sub-modules is also an information processing system with its own objective. For example, the objective of the question construction module is to discover unknown knowledge.
+% \textcolor{red}{TODO: Add fig like this. add this sentence to the explanation of the fig "we approach the unknown to the known by asking questions, providing tentative answers to them, and then verifying the validity of those answers. " }.
+% Fig. \ref{fig:research_process}.
 
-When I have mention in this section that I would focus on the parts functionally related to knowledge production, it have meant two things. The first is to ensure that the objectives of these sub-modules are essential sub-objectives in all research. As mentioned earlier, these modules should not be something that works for history research but not for mathematics research. I should consider modules that have objective essential to all research for realizing general artificial researcher. Additionally, the process of peer review, while relevant to knowledge production, was considered to be a process of judging the ``value of knowledge'' and so was not included in the knowledge production system. The second point is that the my discussion is limited to the objective of the modules and not about the specific representation of information or the specific algorithms for information processing within the modules. For example, reading and writing papers are currently universally necessary for any research. However, a paper is just one of all representations of information, and there could be alternative representations (e.g., blogs). Moreover, while one person may conduct experiments using rats to verify a hypothesis, another person may present historical records showing statements from deceased individuals that match the hypothesis. These are different methods of verification, but both serve the purpose of verification.
-
-\textcolor{red}{TODO: Why this structurization is useful}
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\linewidth]{figs/information_processing_system.jpg}
-    \caption{Knowledge Production System}
-    \label{fig:information_processing_system}
-\end{figure}
 
 \section{Question Construction}
 \cite{alvesson2013constructing}
