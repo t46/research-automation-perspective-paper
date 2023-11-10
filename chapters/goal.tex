@@ -29,6 +29,7 @@ Of course I admit that science is the most rigorous and reliable framework for k
 Please note that this definition is provisional. By viewing research as the production of knowledge, I can indeed characterize the wide range of current research activities of humans comprehensively, which is why I adopted this definition. However, as I will see later, difficulties also arise when defining it this way. Perhaps in some cases it might be better to focus on natural science and define research more narrowly as something like ``finding patterns in nature''. Defining what constitutes research is a challenging issue, and I believe that researchers should spend time discussing this definition, as I aim to create AI that can conduct research. The purpose of creating AI capable of research and how I should perceive the act of research should be discussed further in the future.
 
 \subsection{Knowledge Production as Belief Revision}
+\label{section-knowledge-production-as-belief-revision}
 I have defined research as the generation of new knowledge. Then, what exactly is knowledge, and what does it mean to produce knowledge? I will explore this question in this section. 
 
 Defining knowledge and knowledge production rigorously is a philosophical debate that has not yet been settled \cite{sep-epistemology}, and I won't delve into it deeply here. Instead, I would like to provide some primitive ideas that can serve as a starting point for further discussions on how to realize an artificial researcher.
@@ -284,6 +285,13 @@ The framework I presented claims that in the process of generating knowledge, th
 Furthermore, setting aside whether a strict methodology like that of research is required, I believe that all endeavors to transform the unknown into the known, to some extent, inevitably involve the construction of questions, the generation of hypotheses, and the verification of these hypotheses. In other words, I think this framework might be an embodiment of the very act of turning the unknown into the known. In this sense, this framework might be better understood as a fundamental unit in research.
 
 \section{Question Construction}
+
+問いの生成は現在の機械学習コミュニティであまり注目されていないことを強調（データ拡張の文脈くらい）なので、定式化からしっかり話すよ、という感じで話し始める。
+
+サーベイを下に持ってったので、サーベイの知見をここにぎゅっと流し込んでもいい。
+
+Q, H, V は別々のセクションではなく一つのセクションにまとめる
+
 
 The first module of research process should be question construction. This is because in order to produce new knowledge, one must first be aware of what they don't know and strive to generate that unknown knowledge. Questioning is an act of trying to fill a gap in the  information that the questioner possesses, and in that sense, the act of trying to produce missing knowledge for humanity is the very act of posing and answering a question.
 
@@ -643,6 +651,15 @@ An AI tasked with formulating questions autonomously is expected to be capable o
 
 % I have listed what I believe are important elements in the construction of questions. However, these are considered important under the assumptions mentioned earlier. For instance, if the goal is not to acquire knowledge necessary for achieving an objective, but to generate knowledge that an individual finds interesting, the necessary elements in question construction (particularly in parts 1.a and 1.b) would change. As previously mentioned, the value of knowledge is determined in relation to context and there's a high degree of uncertainty about how the value of knowledge will evolve in the future. This makes it fundamentally important to have a diverse range of ways to generate questions. The object achievement is highly prevalent and is expected to produce ``important'' knowledge, which is why it is discussed here. However, it is important to discuss what other ways of formulating questions could exist and how they can be implemented.
 
+\subsection{Challenges}
+The first issue discussed in Chapter 2 is the problem of determining the unknown nature of the answer to a question. Given that research is an endeavor to produce new knowledge, it is necessary for the answer to the question to be unknown. Therefore, there is a need to generate such questions or later verify that the answer to the question is indeed unknown.
+
+The second challenge is the issue of how to make a machine generate a ``good'' question. Firstly, what researchers consider as a ``good'' question is not always consistently agreed upon among them. Furthermore, we pointed out that the ``goodness'' of a question is inherently a concept relative to the individual or society. Hence, there seems to be a need to clearly define what constitutes a good question and think about how to effectively integrate these definitions.
+
+The third challenge is that as we demand more autonomy from AI, the automation of question formulation becomes more difficult. Inherently, questions are constructed based on various motivations, such as pure intellectual curiosity or for specific objectives. It is very challenging to automate the construction of questions without defining which of these motivations should be the source. Moreover, as mentioned in Chapter 2, the construction of questions encounters the problem of infinite regression when pursued with strict autonomy. Even if not taken to that extreme, setting higher-order objectives behind questions for AI is an exceptionally difficult task.
+
+It seems that the automation of question formulation has received relatively less attention compared to other processes. Since the formulation of questions is an essential element in conducting research, it would be desirable for more focus to be directed towards the research on automating this process.z
+
 \section{Hypothesis Generation}
 The second component is \textit{hypothesis generation}. Research is the endeavor to find answers to research questions. Here, as mentioned before, these questions are ones for which the answers are not known. Therefore, we generate hypotheses as candidate answers to these questions and find answers by validating them. Given that research is an endeavor to turn the unknown into the known, the generation of hypotheses, whether implicit or explicit, is an inevitable element in research.
 
@@ -678,6 +695,9 @@ Even if hypotheses for humans are successfully generated, the machine may not be
 % まとめると、1. 人間のように複雑な仮説の生成をいかに可能にするか、2. 機械自身にとっても答えが未知であるときにいかに良い答えの生成を可能にするか、が課題であると私は思っています。これらの課題解決への糸口を掴むためには、人間がどのように仮説生成をしているかを見ていくのは有用であるように思われます。そこで、以下のセクションでは人間がどのように仮説生成をしているかを見ていきます。
 
 \subsection{How Do Humans Generate Hypotheses?}
+より良い推論ができるようになるには、という話で、結局汎用人工知能を作りたいというかなり広い論点と被ってしまう、という注意を入れる
+より良い人工知能を作りたい多くの人が関心がある論点。科学研究にユニークな点としては、探索空間が広大であることなどが知られてる。仮説空間を陽に定めない場合は、自分自身も知らないという状況がユニーク。これを解決するためにつような要素は結局みんなが必要だと思ってる要素だけど、みたいな話。
+
 In order to create an AI that can generate reliable answers to difficult questions whose answers are unknown to anyone, it seems prudent to look at how humans generate hypotheses. Therefore, I would like to briefly present my thoughts on how humans appear to generate hypotheses. 
 Note that the methods humans use to generate hypotheses are diverse, and the discussion here can by no means cover them all. I hope that what I present can be taken as a starting point for further exploration.
 
@@ -690,13 +710,18 @@ It seems that in the process of generating a hypothesis to answer a single quest
 
 For example, Charles Darwin began with the question ``How does evolution occur?'' However, after reading Lyell's work and becoming convinced of the importance of selection in evolution as an analogy of artificial selection, he formulated and tackled the question ``How does selection (equivalent of artificial selection) occur in nature?'' Here we see a shift in the question. It was precisely because of this change in question that, upon reading Malthus's essay on population, he was able to realize that natural selection is brought about by competition between species, and thus he could fully answer the initial question, ``How does evolution occur?'' \cite{gribbin2022origin}
 
-On the other hand, it appears that we are not having our current machine learning models go through such a complex process of trial and error for hypothesis generation. In many cases, when a question is presented, machine learning models predict answers through a single inference based on fixed parameters. This seems too simplistic compared to the human process of hypothesis generation, which often involves repeatedly generating and testing questions and hypotheses.
+On the other hand, it appears that we are not having our neural networks go through such a complex process of trial and error for hypothesis generation. In many cases, when a question is presented, neural networks predict answers through a single inference based on fixed parameters. This seems too simplistic compared to the human process of hypothesis generation, which often involves repeatedly generating and testing questions and hypotheses.
 
 % For humans, answering a question essentially means constructing the answer from known concepts. A question whose answer is unknown can be said to be one whose answer does not immediately connect with existing knowledge. Humans seem to somehow successfully link the unknown answer with their known knowledge. As these examples also illustrate, realizing the prediction of answers in cases where the answer is unknown to everyone in the world appear to be a challenge.
 % 人間の場合、ある問いに答えるとは、その問いの答えを既知の概念で構成することに他なりません。答えがを知らない問いというのは、その答えが既存の知識に直ちには結びつかない問いであると言えます。このような状況下で、なんとかして答えが未知の問いを既知の知識に結びつけるのが、人間が仮説生成をする際に行なっていることであるように思われます。
 
+\subsubsection{Analyzing Question}
+\textcolor{red}{TODO: remove or modify}
+In difficult questions where the relationship to known knowledge is not immediately apparent, it seems that we first tend to analyze the question in detail. For example, let's say you have a question, ``Why are apples red?'' The first thing you would consider is what an apple is and what red means. You would also think about what it means for something to be red. Then, you would focus on the properties of apples and the color red and abstract them. you may also think about other red things besides apples. If you already know the reason why tomatoes are red before knowing why apples are red, you might consider that the reason for tomatoes being red could apply to apples as well. By conducting this kind of analysis, you can connect your understanding to existing similar knowledge and attempt to explain using those existing reasons. These ways of focusing on abstract structural similarities between specific concepts and inferring that what can be said about A, which has the same structure, can also be said about B is called \textit{analogical reasoning}. This has been considered to be important method in hypothesis generation \cite{thagard_1984}.
 
-Theoretical virtues \cite{schindler2022theoretical}
+I believe that the process of analyzing a question corresponds to the feature transformation that occurs via the intermediate layers in a neural network. In this sense, neural networks also analyze questions. The difference may lie in the fact that humans explicitly perform the analysis of the question and ultimately make inferences for answers based on formal similarities that are linked to symbolic known knowledge.
+
+% hesse1965models,thagard_1984,gentner1993shift,holyoak1996mental,dunbar1997scientists
 
 % I began by explaining that I first formulate the unknown I am addressing in the form of a question. The process of finding answers to this question is research. Here, because the answer to this question is, of course, unknown, it requires inference as to what the answer could be. As a result of this inference, a plausible answer is formulated. This process corresponds to the \textit{hypothesis generation}. Hypothesis generation is the inference about the unknown and the definition of research is to transform unknown to known. Thus, every research including deductive research must entail hypothesis generation implicitly or explicitly. In this sense, hypothesis generation should be the second module of knowledge production system.
 
@@ -704,74 +729,64 @@ Theoretical virtues \cite{schindler2022theoretical}
 
 % Hypothesis generation is the act of creating potential answers to a question, so naturally, it is essential to generate plausible hypotheses that are close to the actual answer. Therefore, let's start by referring to how humans generate hypotheses and then discuss how I can generate reliable hypotheses, drawing inspiration from human methods.
 
+\subsection{Challenges}
+One challenge in creating an intelligence capable of hypothesis generation, not just as a tool for humans, is the need to empower the machine itself to form plausible hypotheses for questions to which even the machine doesn't know the answer. Current machine learning models have been criticized for potentially not knowing what they don't know \footnote{
+In our discussion with Wataru Kumagai, we were reminded once again of the importance of self-awareness in creating an AI capable of conducting research.
+}. 
+Moreover, they are known to confidently provide answers or fabricate falsehoods about topics they are ignorant of. Therefore, it seems essential to first accurately recognize what is unknown, either for oneself or the world at large, as told in sections of question construction. Upon facing an unknown subject, there's a need to reduce uncertainty and approach understanding. As mentioned in Chapter 2, humans attempt to understand uncertain subjects by gathering information from papers, experiments, or by reframing questions. While it may not be necessary to adopt the exact same approach, it seems essential to enable machines to autonomously adopt strategies to reduce uncertainties.
+
+% Outputs from machine learning models are essentially inferences tinged with uncertainty. From this perspective, one could posit that these models are already inherently generating hypotheses. Indeed, they are already employed for hypothesis generation in numerous scientific investigations.
+
+% However, while these hypotheses might be hypotheses in the sense that the answers are unknown to humans, they might be self-evident to the machine learning model. When we talk about AI generating hypotheses in the context of AI conducting research, the ultimate expectation is for the AI to provide plausible answers to what is unknown to AI itself. This remains an unresolved issue.
+
+As one of the promising approaches for tacking unknowns, it seems crucial for AI to acquire systematic thinking to realize this, as humans developed systems like language and mathematics, allowing them to infer about subjects beyond their experience. Systematic thinking is not only important for out-of-distribution generalization but is also valued for interpretability, causal inference, logical reasoning, mathematical processing, and planning.
+
+% \textcolor{red}{TODO}
+
 \subsection{Others}
+Theoretical virtues \cite{schindler2022theoretical}
+
 GPT-3 learn to quantify the uncertinty of its answer \cite{lin2022teaching}
 
 LLMs know that they know \cite{kadavath2022language}
-
+ 
 can ChatGPT generate scientific hypothesis? \cite{park2023can}
 
-
-
 \section{Hypothesis Verification}
-The third sub-module is hypothesis verification. Knowledge production in this paper is defined as the process of justifying beliefs in a way that convinces all members of the society. Hypothesis verification corresponds to this justification. As emphasized repeatedly, hypothesis verification in research aims to reduce my belief about the truth or falsity of a hypothesis to a strong conviction. In particular, science has been able to convince many people by reducing their belief about it to such a strong conviction that I can no longer live without assuming it.
+The third sub-module is hypothesis verification. Knowledge production in this paper is defined as the process of justifying beliefs in a way that convinces members of the society. Hypothesis verification corresponds to this justification. As explained in Section \ref{section-knowledge-production-as-belief-revision}, I believe that science is a reliable source of knowledge production precisely because it is grounded in methods based on strong beliefs that are held by virtually every human being and are so fundamental that even everyday life would be impossible without them.
 
-I consider verification to be a particularly crucial process in the generation of knowledge. Questions and hypotheses can be generated in arbitrary ways, and they can take any form. However, verification must not be taken like this. Verification must be done in a manner that can convincingly update the shared beliefs of other members of society. Therefore, it is the most demanding process in the research journey in terms of rigor and caution. I believe that the rigor of this process is what truly sets research apart from other activities. The rigor and systematicity of the verification process is considered the very reason why science or research is referred to as rigorous \cite{sep-scientific-method,hoyningen2008systematicity,haack2003defending}.
+In the previous section, I pointed out the possibility that allowing verification methods to be entirely autonomously constructed could result in outputs that are meaningless to humans. So, what exactly needs to be created, and to what extent, in order to develop an AI capable of performing verification? I would like to consider this point in this section.
 
-\subsection{Statistical Hypothesis Verification}
-Analyzing how statistical methods can validate hypotheses is crucial for automating hypothesis testing. Many research endeavors heavily rely on inductive inference to validate hypotheses, and statistics provide specific techniques for inductive reasoning. Therefore, I examine how I perform inductive inference using statistical methods, taking inspiration from Ohtsuka's arguments \cite{otsuka2022thinking}.
+I consider the notion of verification as an update of shared beliefs to be useful in comprehensively describing the process of verification across a wide range of research, from theoretical studies to humanities. However, it might be somewhat too abstract when aiming for the current purpose. To provide a foundation for further discussion, I would like to focus on verification in science, particularly on its core elements: experimentation and statistical analysis.
 
-\subsubsection{Inductive Inference and Inference Statistics}
+\subsection{Experimentation}
+Experiments are generally considered a series of procedures to test a hypothesis, particularly referring to the process of data generation. I believe that the main elements in an experiment are the interventions to test a hypothesis and the generation of data to artificially create observations of phenomena. Verification is then done through the analysis of data obtained from these experiments.
 
-Inductive inference is a method of constructing general principles from data. I assume that data is sampled from a probability model and formulate the problem of inferring this probability model from the data as inferential statistics. The assumption of the existence of a probability model corresponds to the assumption of the uniformity of nature, which posits that similar situations will hold even in unobserved circumstances. As the uniformity of nature is a prerequisite for inductive inference, these formulations correspond to setting the foundation for inductive inference.
+The experiment can largely be divided into three phases: designing the verification plan, preparing to execute the verification plan, and actually carrying it out. Therefore, it seems that in order to create an AI that can conduct experiments, we must create an AI capable of performing all of these tasks.
 
-This probability model is assumed to be true as a prerequisite for inductive inference. However, in actual statistical inference, I perform inductive inference by establishing statistical models that approximate this probability model. In many cases, I assume specific families of distributions for these statistical models and reduce the problem to estimating parameters of these distribution families from the data. This is the formulation of inductive inference using statistical terms.
+\subsubsection{Automating Experimentation}
+実験の自動化のレビューの話を書く、LAとか実験計画とか
 
-Within these formulations, the question arises of ``what kind of'' inductive inference I am performing. This precisely pertains to ``what is considered validated'' or ``how beliefs are justified.'' While multiple perspectives are possible, I will introduce discussions on classical hypothesis testing (referred to as just hypothesis testing below) and the approach using Bayesian statistics (referred to as just Bayesian statistics below).\footnote{
-Note that this is not a discussion about what each position think about probability is, but rather a discussion on what they think is justification means.
-}
+\subsubsection{Understanding Verification}
+To become capable of designing verification plans, it seems necessary to have the ability to understand what verification is and the ability to engage in long-term planning. Additionally, preparing for verification, possessing a human-like body, and the capability to manipulate it freely will be required. Among these, the acquisition of intricate planning and flexible action has been the subject of research by many artificial intelligence researchers.
 
-\subsubsection{Bayesian Statistics and Epistemological Internalism}
-In Bayesian statistics, I perform inductive inference by updating the degree of belief in a hypothesis based on the evidence provided by the data. The validity in inductive inference is adjusting the degree of belief in the conclusion in a consistent manner with the degree of belief in the premise. Representing the prior belief with prior probability and the likelihood with evidence, Bayesian statistics calculate the posterior probability following probability rules like Bayes' theorem. In this sense, Bayesian statistics, including Bayes' theorem, provides the logic for inductive inference. 
+On the other hand, the acquisition of the ability to understand verification seems to receive relatively little attention. There are indeed studies that focus on the importance of verification for reducing hallucinations and verifying the reliability of scientific claims, but these do not aim to determine what constitutes verification in scientific research. Therefore, I believe that considering how to make machines comprehend what can qualify as verification remains one of the challenges ahead.
 
-Ohtsuka argues that Bayesian statistics justifies beliefs based on a valid inference rule from other beliefs and compares this position to epistemological internalism \cite{otsuka2022thinking}.
+\subsection{Statistical Inference and Verification}
+In science, the validity of hypotheses is judged based on data generated from experiments using inductive reasoning. We have formalized inductive reasoning with concepts from probability theory and constructed methods to perform inductive reasoning through statistical inference. Inductive reasoning is a premise of science, and implementing it via statistical inference is a widely practiced approach. Therefore, when creating an AI capable of performing meaningful verification for humans, it would be sensible to take these as a given (this relates to the points mentioned earlier).
 
-\subsubsection{Classical Statistics and Epistemological Externalism}
-In classical hypothesis testing, I first formulate some hypothesis regarding the probability model and then compare it with the data to either reject or retain the hypothesis. In other words, testing is a function that maps data to two options: rejecting or retaining the null hypothesis. Based on this result, I perform inductive inference (or behaviour). 
+On the other hand, there can be multiple interpretations of what it means for a hypothesis to be justified by statistical analysis \cite{otsuka2022thinking}. This implies that there are conflicting views on what methodology should be adopted to justify beliefs. As a result, there are multiple methodologies for statistical inference. Ideally, a machine capable of verification should understand ``why a certain inference is valid in justifying a hypothesis''  and be able to select or construct an appropriate methodology from these options. Otherwise, it might not truly understand what constitutes verification.
 
-Ohtsuka interprets testing as a kind of examining tool that makes a judgment based on certain data and sees testing theory as a theory that measures the reliability of this examination tool. Making judgments about hypotheses based on data can be seen as a belief formation process, and testing theory educates the reliability of this process through measures like the size and power of the test. From this, classical statistical testing takes a stance that the justification of a belief is determined by the process through which it was formed, similar to epistemological externalism \cite{otsuka2022thinking}.
+To create an AI that can verify hypotheses, I believe it is necessary for the AI to understand the basis for verification. However, to create an AI that can perform human-like science, it may be sufficient if it can appropriately use statistical inference methods, which humans employ. This is because even if it doesn't understand why that constitutes verification, as long as it uses statistical inference correctly without violating its premises or rules, there should be no issue in using it just as a tool. In reality, even humans do not always seem to grasp these differences when conducting verification. For instance, it is not uncommon for people to use hypothesis testing without understanding why it is a valid means of justifying beliefs about a hypothesis. 
+% 科学では、実験で生成したデータをもとに帰納推論によって仮説の妥当性を判断する。私たちは帰納的推論を確率論の概念で定式化し、統計的推論によって帰納推論をする方法を構築してきた。帰納推論をすることは科学の前提であり、統計的推測によって帰納推論を実施することは広く行われている実践である。したがって、人間にとって意味のあるような検証ができる AI を作る際には、これらは所与のものとするのが良いだろう（これは上で述べた論点と関連する）。
 
-\subsubsection{For Automating Statistical Hypothesis Verification}
+% これに対して、統計的分析によって仮説が正当化されるとはどのようなことなのかについては複数の解釈が存在しうる。これはすなわち、信念を正当化するためにはどのような方法論を取るべきかという点について対立する立場があることを意味する。その結果、複数の統計的推論の方法論が存在している。したがって、理想的には検証ができる機械は、「なぜその推論が仮説を正当化する上で妥当なのか」を自ら理解し、これらのうちから適切な方法論を選択する、ないし自ら適切な方法論を構成することが望ましい。むしろそれができていないと本当の意味で何を持って検証としているかを理解しているといえないということもできるかもしれない。
 
-As such, when it comes to statistical methods for hypothesis verification, there are multiple perspectives on what constitutes justification. It is a challenging issue to known how various statistical techniques, each with their own approach, can provide evidence to substantiate a hypothesis based on the data \cite{otsuka2022thinking,sober2008evidence,sep-statistics}. Therefore, when seeking to allow machines to autonomously conduct hypothesis verification, determining what they should be capable of is a challenging issue.
+% ただし、人間が開発した仮説検定などの統計的推論の手法を道具として適切に使うことができる AI を実現することができれば十分かもしれない。なぜなら、人間でさえこれらの違いを把握して検証を実行している場合は多くないように思われるからである。例えば仮説検定がなぜ仮説に対する信念を正当化する手段として妥当なのかを理解せず、使っている場合も少なくないように思われる。そしてこれは仮設検定という道具を使うための前提や規則に反していない限りでは問題はない。
 
-\subsection{Challenges for Automating Hypothesis Verification}
+% As emphasized repeatedly, hypothesis verification in research aims to reduce a belief about the truth or falsity of a hypothesis to a strong conviction. In particular, science has been able to convince many people by reducing their belief about it to such a strong conviction that I can no longer live without assuming it.
 
-\subsubsection{The Inherent Difficulty of the Act of Verification}
-In the first place, the act of verification is a highly challenging process. Firstly, as mentioned earlier, inductive approaches cannot verify hypotheses in the same way as deductive reasoning. Also, I notice that hypothetico-deductive method, which involves verifying claims derived from a hypothesis to confirm its validity, is still widely used today. However, verifying a deduced claim does not support the hypothesis because there may be many hypothesis that can result in the same deduced claim. In response to these, Karl Popper proposed that while hypotheses cannot be confirmed, they can be falsified \cite{sep-scientific-method}. However, in practice, the verification of hypotheses involves implicitly relying on numerous auxiliary hypotheses. When using experimental apparatus, it requires many assumptions to trust them. Even when an experiment fails, determining whether the hypothesis was incorrect or the experiment itself was flawed is not as straightforward as one might think. Thus, there is inherent uncertainty in attributing the results of verification to a specific cause \cite{chalmers2013thing,sep-physics-experiment,sep-scientific-underdetermination} as I have discussed in the section of hypothesis generation. Furthermore, all reasoning and observational evidence are inevitably influenced by some form of theories, individuals, or societal factors \cite{sep-science-theory-observation}. Therefore, it is necessary to carefully examine them to ensure that they are not distorted by unintended influences. 
-
-\subsubsection{The Difficulty of General Hypothesis Verification}
-I recognize that the the way to verify a hypothesis is strikingly diverse, as it can significantly differ depending on the subject of research. For instance, if one wishes to study the behavior of rat, they may need to train the rat. On the other hand, if you want to test a theory of particle physics, you may have to construct and run a huge particle accelerator. In the field of history, the existence of historical records might serve as evidence, while in mathematics, the verification process revolves around the proofs themselves. Due to this high degree of flexibility, hypothesis verification can be the most challenging aspect to automate for realizing a ``general'' artificial researcher.
-
-% \subsection{How to Justify Beliefs}
-% In many empirical sciences, statistical methods occupy a privileged position as the primary means of verifying hypotheses. Therefore, it seems important to consider in what sense I can say that a statistical method can validate hypotheses, while I admit that the methods of verification vary greatly depending on the type of question or hypothesis and it cannot be said that there is any universal method for verification. The use of inferential statistics methods is widely accepted, but it is a challenging issue to known how various statistical techniques, each with their own approach, can provide evidence to substantiate a hypothesis based on the data in the real world \cite{otsuka2022thinking,sober2008evidence,sep-statistics}. Thus, what constitutes the verification of a hypothesis, or in other words, the justification of a belief, is a very difficult debate in which it is likely challenging to arrive at a unified answer. Please note that the discussions mentioned earlier, such as the uniformity of nature, pertain to the validity of induction itself. In statistical methods, however, induction is assumed and the discussion begins with formulating this uniformity by assuming a probability model. 
-
-Furthermore, as explained in the section on statistical hypothesis testing, it was also described how even with inductive inference using the same statistical theory, there are multiple perspectives on how it justifies beliefs. Even empirical sciences, which employ highly universal verification methods based on statistical approaches, face such difficulties. Therefore, aiming for autonomous acquisition of verification methods in broader fields of research would likely pose even greater challenges. These issues will require further in-depth discussions in the future.
-
-% This discussion of statistical method provides important insights for the pursuit of developing AI capable of conducting autonomous research. As can be seen from the assumption of being rooted in machine learning, the validity of inductive inference itself is generally accepted and not a practical concern in creating such AI. However, how to make agents acquire the methods of justification is a important issue. If the criterion for justifying beliefs is to be acquired completely autonomously from scratch, it may very well lead to criteria that are meaningless for humans. Additionally, it seems that the criteria for justification employed by humans are diverse. When properly considering the reasons that these criteria are believed to provide justification, I can recognize that there are highly intricate structures involved. In light of such considerations, the extent to which one can understand and acquire criteria for justification from the criteria humans already employ is a nontrivial problem. 
-
-
-% I do not intend to claim that these uncertainties undermine the reliability of research. Such uncertainties exist in almost all human endeavors. Research, among these activities, strives to confront these uncertainties with great care and rigor. Above all, the fact that the results generated through research have effectively supported my lives demonstrates their efficacy.
-
-% I mentioned the difficulties inherent in verification to highlight their significance, particularly when considering autonomous artificial intelligence capable of self-verification. Ideally, autonomous agents are expected to establish their own methods and criteria for verification. However, if verification inherently carries such difficulties and uncertainties, the more rigorously I consider it, the more paralyzed the agent becomes, as it seemingly cannot accomplish anything. \textcolor{red}{TODO: Add explanation}
-
-% A characteristics of research can be found in the systematicity, rigor, and objectivity of research practice \cite{sep-scientific-method,hoyningen2008systematicity,haack2003defending}. 
-
-% In particular, I believe that a characteristic of research lies not in the way of determining questions or generating hypotheses, but in the fact that the verification of hypotheses is done in an extremely rigorous and careful manner. 
-
-% It could be said that I'm taking a view similar to the new experimentalism, placing emphasis on verification in research, or experiments \cite{chalmers2013thing,mayo1996error}.
-
-% Of course, generating a hypothesis is not a simple task. What I want to say is that, as long as any method of hypothesis generation is properly verified, it is considered research, and no matter how properly a hypothesis is proposed, if the verification is sloppy, it is not considered research. This means that verification may be at the heart of knowledge production. In other words, in order to create artificial intelligence that produces knowledge, it is important to consider how to create an intelligence that can perform verification.
+% I consider verification to be a particularly crucial process in the generation of knowledge. Questions and hypotheses can be generated in arbitrary ways, and they can take any form. However, verification must not be taken like this. Verification must be done in a manner that can convincingly update the shared beliefs of other members of society. Therefore, it is the most demanding process in the research journey in terms of rigor and caution. I believe that the rigor of this process is what truly sets research apart from other activities. The rigor and systematicity of the verification process is considered the very reason why science or research is referred to as rigorous \cite{sep-scientific-method,hoyningen2008systematicity,haack2003defending}.
 
 \subsubsection{The Difficulty of Autonomous Acquisition of Hypothesis Verification}
 In the case of hypothesis testing, just like in hypothesis generation, the tasks for automating hypothesis testing vary depending on who the hypothesis testing is for. If artificial intelligence is used as a tool for human research, it is sufficient for artificial intelligence to faithfully reproduce what humans do as verification. For example, it would be great if it could conduct, for instance, hypothesis testing. If the machine is capable of automatically preparing for statistical hypothesis testing, calling the appropriate statistical hypothesis testing libraries at the right timing, and using them correctly for the relevant subjects, then I would have no complaints about their performance.
@@ -789,97 +804,97 @@ On the other hand, aiming to make machines understand and acquire the concept of
 
 % Considering this, when a fully autonomous artificial researcher is created, I think it is far from obvious whether they would autonomously conduct meaningful research on nature or be able to share knowledge with us humans without possessing at least these naturally constrained intuitions, sensory organs, and basis of beliefs. Therefore, when creating autonomous artificial researchers, it may be necessary to provide them with such nature-rooted beliefs in the form of some inductive bias.
 
-\subsection{Towards Autonomous Verification}
+% \subsection{Towards Autonomous Verification}
 
-As mentioned above, I believe that the process of verification is highly diverse. This diversity makes achieving an end-to-end approach immediately difficult. Therefore, it would be better to start by further breaking down the process of hypothesis verfication into more detailed sub-processes. For a practical first step for the verification process automation, I propose tentatively dividing the verification process into three stages: \textit{verification design}, \textit{verification instantiation}, and \textit{verification execution}. At each stage, you will create a verification plan, prepare for the verification, and carry out the verification.
+% As mentioned above, I believe that the process of verification is highly diverse. This diversity makes achieving an end-to-end approach immediately difficult. Therefore, it would be better to start by further breaking down the process of hypothesis verfication into more detailed sub-processes. For a practical first step for the verification process automation, I propose tentatively dividing the verification process into three stages: \textit{verification design}, \textit{verification instantiation}, and \textit{verification execution}. At each stage, you will create a verification plan, prepare for the verification, and carry out the verification.
 
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=\textwidth]{figs/verification.jpg}
-    \caption{Verification}
-    \label{fig:verification}
-\end{figure}
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics[width=\textwidth]{figs/verification.jpg}
+%     \caption{Verification}
+%     \label{fig:verification}
+% \end{figure}
 
-\subsubsection{Verification Design} 
-In verification design, the agent will create a plan to execute the verification, which consists of hypotheses, verification criteria (criteria to determine if the output confirms or refutes the hypotheses), and the procedures for conducting the verification. The verification plan should be specific and detailed enough so that anyone faithfully executing it can reproduce the same verification process and result. For example, suppose I am considering an experiment to compare a proposed method with a baseline and validate the hypothesis that the proposed method performs better. In this case, the plan should describe in detail which model to use, what dataset to employ, and how to measure the performance. Thanks to this specification, I can separates the two functionally distinct stages of verification: the phase of considering what needs to be validated and the phase of actually executing the verification.
+% \subsubsection{Verification Design} 
+% In verification design, the agent will create a plan to execute the verification, which consists of hypotheses, verification criteria (criteria to determine if the output confirms or refutes the hypotheses), and the procedures for conducting the verification. The verification plan should be specific and detailed enough so that anyone faithfully executing it can reproduce the same verification process and result. For example, suppose I am considering an experiment to compare a proposed method with a baseline and validate the hypothesis that the proposed method performs better. In this case, the plan should describe in detail which model to use, what dataset to employ, and how to measure the performance. Thanks to this specification, I can separates the two functionally distinct stages of verification: the phase of considering what needs to be validated and the phase of actually executing the verification.
 
-It is during the verification design stage that specific skills for hypothesis verification are required. This is because automating the preparation and execution of a plan involves the automation of more general intellectual tasks, not limited to research automation, while creating a verification plan demands an explicit understanding of what verification entails and what criteria constitute a successful verification. In aiming to automate this verification plan, the key lies in teaching machines how to understand the concept of verification.\footnote{
-Even humans may sometimes do verification without proper understanding of the method. For example, someone may conduct hypothesis testing just because ``everyone does it.'' While this may be an extreme example, it is not common for researchers to understand the epistemological implications of inductive reasoning and statistical inference and in what sense I can say I verify a hypothesis. In that sense, the requirement for machines to understand verification may be somewhat challenging. However, if the aim is to truly enable AI to autonomously conduct research, it appears crucial for the AI to have a proper understanding of what constitutes verification.
-}
+% It is during the verification design stage that specific skills for hypothesis verification are required. This is because automating the preparation and execution of a plan involves the automation of more general intellectual tasks, not limited to research automation, while creating a verification plan demands an explicit understanding of what verification entails and what criteria constitute a successful verification. In aiming to automate this verification plan, the key lies in teaching machines how to understand the concept of verification.\footnote{
+% Even humans may sometimes do verification without proper understanding of the method. For example, someone may conduct hypothesis testing just because ``everyone does it.'' While this may be an extreme example, it is not common for researchers to understand the epistemological implications of inductive reasoning and statistical inference and in what sense I can say I verify a hypothesis. In that sense, the requirement for machines to understand verification may be somewhat challenging. However, if the aim is to truly enable AI to autonomously conduct research, it appears crucial for the AI to have a proper understanding of what constitutes verification.
+% }
 
-% Multiple abilities are needed to create a verification plan, but based on the discussion so far, it is evident that at least two abilities are required.
-
-
-% At this stage, I contemplate how to validate the hypotheses and proceed to formulate a verification plan. In a verification plan, the agent writes about the hypotheses, verification criteria (what will be considered as evidence for verification), and the procedures for conducting the verification. These plans should be as much detailed as possible. The Fig. provides an example in the context of machine learning. The idea is to create a blueprint for a pipeline where verification is automatically executed by faithfully following the plan.
-
-% Furthermore, for artificial intelligence to perform autonomous verification, it seems essential that the AI not only adopts certain verification criteria but also be able to explain the meaning behind them and how they contribute to the verification process. Even humans may sometimes engage in this without conscious awareness, such as conducting hypothesis testing because ``everyone does it.'' In that sense, this requirement may be somewhat challenging. However, if the aim is to truly enable AI to autonomously conduct research, it appears crucial for the AI to have a proper understanding of what constitutes verification and be able to design it itself or, at the very least, explain it adequately.
-
-There are several abilities that a machine must possess in the context of verification planning, but based on the discussion so far, it is evident that at least two abilities are required: understanding what verification is and planning to achieve objectives.
-
-Let's first discuss the ability to understand verification. As mentioned in the sections on question construction and hypothesis generation, this is an extremely crucial ability in the overall automation of the research process. As before, the extent to which ``understanding'' is required depends on how much autonomy is expected in the automation of verification. If that is used as a verification tool for humans, what machines to do is just using human verification methods properly. On the other hand, if they were required to understand the concept of verification from scratch, I would face a lot of challenges as I just described in this chapter. 
-
-If you aim to achieve the former, one of the initial steps could be creating a dataset specifically tailored for verification. By gathering research papers that utilize widely used verification methods like statistical hypothesis testing, you can train a model to construct verification methods from these hypotheses. One naive approach could be to start by generating method descriptions in research papers from the given hypotheses. 
-
-If you were to achieve the latter, you might want to begin by contemplating what beliefs mean for machines. Alternatively, placing agents in situations where verification becomes necessary could implicitly help them acquire the concept of verification. In this case, addressing the issue of generalization across environments, such as enabling machines to explicitly reuse the concept of verification, will be crucial. Eventually, as repeatedly emphasized, discussing how to resolve the alignment problem will be necessary.
-
-% If artificial intelligence is used as a tool for human research, it is sufficient for artificial intelligence to faithfully reproduce what humans do as verification. For example, it would be great if it could use basic concepts such as hypothesis testing, controlled experiments, and interventions and automatically create experimental plans based on them. In this case, it is not necessary for the machine to strictly know why it constitutes verification, as long as it can learn from numerous examples of human verification and use it appropriately. In other words, in this case, the required understanding can be described as indirect and practical understanding through examples of human usage. Furthermore, if it can understand the concepts of hypothesis testing and controlled experiments from first principles, it would be a significant achievement in terms of automatic verification.
-
-% On the other hand, if artificial intelligence itself is allowed to conduct research for its own knowledge generation, it seems that artificial intelligence needs to understand what verification is, whether explicitly or implicitly. And similar to the unknown nature of the answer to a problem, it seems to be an ability that cannot be acquired just by observing examples of human verification. This is because verification involves updating the beliefs of the members of a society, which depends on the nature of the beliefs of the machine group itself. Whether the knowledge generated by such agents is understandable by humans or can say something about nature is not obvious, but this will be discussed in detail in later chapters.
-
-Let us move on the second ability: planning. Understanding verification is a necessary condition for setting verification criteria by considering what can be tested against a given hypothesis. When conducting actual verification, under the assumption of a hypothesis and verification criteria, one must devise procedures for carrying out the verification. For example, in experimental research, let's say a hypothesis A is formulated, and a verification criterion is established that considers the hypothesis valid if it meets certain criteria through statistical hypothesis testing. To actually perform this verification, it is necessary to generate data to be used for verification, and if there is no apparatus to generate the data, one may need to create it. Thus, in a verification plan, one must develop a plan to fulfill the purpose of executing the verification.
-
-Creating a plan is known to be a challenging task, not limited to verification plans. To achieve a goal, one must understand what is necessary and comprehend the appropriate sequence of steps to achieve the goal. As mentioned earlier in the section on constructing questions, when creating a plan, it is essential to consider feasibility, taking into account the complex external factors such as current financial capabilities and accessible resources. Understanding and incorporating these constraints appropriately can be a highly challenging task, as they are intricately linked to various external factors.
-
-While there are already a difficult task, the particular challenge in creating verification plans for research lies in the fact that one may need to create things necessary for verification if they do not already exist. This is an extremely high-level difficulty problem. To carry this out, one must first accurately identify what is currently lacking. After recognizing the deficiencies, one must consider how to create what does not exist. Once the method is known, materials for creating it must be prepared, and it must be actually built. And even if it is created, one must investigate whether they function properly. This is an unbelievably complex task, and it seems highly unlikely to simultaneously expect the creation of such intermediate products by directly generating a verification plan from the verification itself. Therefore, in aiming for true automation of verification, it is crucial to seriously consider how to solve this problem.
+% % Multiple abilities are needed to create a verification plan, but based on the discussion so far, it is evident that at least two abilities are required.
 
 
-Finally, once the necessary elements for verification are understood, they need to be represented as something that can be understood by other researchers. This is not a requirement of a verification plan but a necessary condition for knowledge to become knowledge for society. In order to generate knowledge for society, it is necessary not only to verify hypotheses but also for the verification procedures to be understandable to other members of society and judged as valid.\footnote{
-While it is desirable for the question generation process and hypothesis generation process to be publicly available, it is of utmost importance that the verification process is disclosed. 
-} Also, as discussed in the section on hypothesis generation, verification must ensure that the causes behind the verification results are traceable as much as possible. While this is not an inherent requirement of the act of verification a hypothesis, it is a crucial characteristic needed for proper interpretation of verification results and for better knowledge production through hypothesis testing. As mentioned earlier, it is impossible to enumerate all potential assumptions, so it becomes necessary to explicitly state assumptions as comprehensively and in as much detail as possible to make the process realistic. Recognizing the underlying assumptions, including those behind the scenes, and selecting which assumptions to prioritize as potential causes of the results, is indeed a challenging task.
+% % At this stage, I contemplate how to validate the hypotheses and proceed to formulate a verification plan. In a verification plan, the agent writes about the hypotheses, verification criteria (what will be considered as evidence for verification), and the procedures for conducting the verification. These plans should be as much detailed as possible. The Fig. provides an example in the context of machine learning. The idea is to create a blueprint for a pipeline where verification is automatically executed by faithfully following the plan.
+
+% % Furthermore, for artificial intelligence to perform autonomous verification, it seems essential that the AI not only adopts certain verification criteria but also be able to explain the meaning behind them and how they contribute to the verification process. Even humans may sometimes engage in this without conscious awareness, such as conducting hypothesis testing because ``everyone does it.'' In that sense, this requirement may be somewhat challenging. However, if the aim is to truly enable AI to autonomously conduct research, it appears crucial for the AI to have a proper understanding of what constitutes verification and be able to design it itself or, at the very least, explain it adequately.
+
+% There are several abilities that a machine must possess in the context of verification planning, but based on the discussion so far, it is evident that at least two abilities are required: understanding what verification is and planning to achieve objectives.
+
+% Let's first discuss the ability to understand verification. As mentioned in the sections on question construction and hypothesis generation, this is an extremely crucial ability in the overall automation of the research process. As before, the extent to which ``understanding'' is required depends on how much autonomy is expected in the automation of verification. If that is used as a verification tool for humans, what machines to do is just using human verification methods properly. On the other hand, if they were required to understand the concept of verification from scratch, I would face a lot of challenges as I just described in this chapter. 
+
+% If you aim to achieve the former, one of the initial steps could be creating a dataset specifically tailored for verification. By gathering research papers that utilize widely used verification methods like statistical hypothesis testing, you can train a model to construct verification methods from these hypotheses. One naive approach could be to start by generating method descriptions in research papers from the given hypotheses. 
+
+% If you were to achieve the latter, you might want to begin by contemplating what beliefs mean for machines. Alternatively, placing agents in situations where verification becomes necessary could implicitly help them acquire the concept of verification. In this case, addressing the issue of generalization across environments, such as enabling machines to explicitly reuse the concept of verification, will be crucial. Eventually, as repeatedly emphasized, discussing how to resolve the alignment problem will be necessary.
+
+% % If artificial intelligence is used as a tool for human research, it is sufficient for artificial intelligence to faithfully reproduce what humans do as verification. For example, it would be great if it could use basic concepts such as hypothesis testing, controlled experiments, and interventions and automatically create experimental plans based on them. In this case, it is not necessary for the machine to strictly know why it constitutes verification, as long as it can learn from numerous examples of human verification and use it appropriately. In other words, in this case, the required understanding can be described as indirect and practical understanding through examples of human usage. Furthermore, if it can understand the concepts of hypothesis testing and controlled experiments from first principles, it would be a significant achievement in terms of automatic verification.
+
+% % On the other hand, if artificial intelligence itself is allowed to conduct research for its own knowledge generation, it seems that artificial intelligence needs to understand what verification is, whether explicitly or implicitly. And similar to the unknown nature of the answer to a problem, it seems to be an ability that cannot be acquired just by observing examples of human verification. This is because verification involves updating the beliefs of the members of a society, which depends on the nature of the beliefs of the machine group itself. Whether the knowledge generated by such agents is understandable by humans or can say something about nature is not obvious, but this will be discussed in detail in later chapters.
+
+% Let us move on the second ability: planning. Understanding verification is a necessary condition for setting verification criteria by considering what can be tested against a given hypothesis. When conducting actual verification, under the assumption of a hypothesis and verification criteria, one must devise procedures for carrying out the verification. For example, in experimental research, let's say a hypothesis A is formulated, and a verification criterion is established that considers the hypothesis valid if it meets certain criteria through statistical hypothesis testing. To actually perform this verification, it is necessary to generate data to be used for verification, and if there is no apparatus to generate the data, one may need to create it. Thus, in a verification plan, one must develop a plan to fulfill the purpose of executing the verification.
+
+% Creating a plan is known to be a challenging task, not limited to verification plans. To achieve a goal, one must understand what is necessary and comprehend the appropriate sequence of steps to achieve the goal. As mentioned earlier in the section on constructing questions, when creating a plan, it is essential to consider feasibility, taking into account the complex external factors such as current financial capabilities and accessible resources. Understanding and incorporating these constraints appropriately can be a highly challenging task, as they are intricately linked to various external factors.
+
+% While there are already a difficult task, the particular challenge in creating verification plans for research lies in the fact that one may need to create things necessary for verification if they do not already exist. This is an extremely high-level difficulty problem. To carry this out, one must first accurately identify what is currently lacking. After recognizing the deficiencies, one must consider how to create what does not exist. Once the method is known, materials for creating it must be prepared, and it must be actually built. And even if it is created, one must investigate whether they function properly. This is an unbelievably complex task, and it seems highly unlikely to simultaneously expect the creation of such intermediate products by directly generating a verification plan from the verification itself. Therefore, in aiming for true automation of verification, it is crucial to seriously consider how to solve this problem.
 
 
-
-\subsubsection{Verification Instantiation} 
-At this stage, the research plan that has been developed is translated into an executable instance. For example, if the research plan states, ``Train the model B with the dataset A...'' the necessary steps would involve acquiring dataset A from the appropriate source, formatting it to be compatible with the model's input requirements, and preparing the data for training, etc. Similarly, if the plan states, ``When a rat presses the switch B, food is dispensed...'' the agent has to prepare rats, food, and create a machine that dispenses food upon pressing the switch, and so on. This process involves translating the plan into physical or computational instance for execution.
-
-\begin{figure}[htb]
-    \centering
-    \includegraphics[width=0.5\textwidth]{figs/verification_instantiation.jpg}
-    \caption{Verification Instantiation}
-    \label{fig:verification_instantiation}
-\end{figure}
-
-As evident upon reading, this process is highly challenging to automate. Even research confined to the realm of computers, such as research of computer science, requires accomplishing a vast number of complex tasks. For research that necessitates physical realization in the real world, the development of robotics and embodied agents are necessary. Regarding the question of where and how to tackle these problems, I will provide my perspective in the later chapter. However, it is important to note that unless the research is constrained by questions and hypotheses, aiming for true automation will inevitably require overcoming these challenges
-
-To reiterate, this process can be accomplished through the automation of actions, and it does not necessarily require unique technological developments for research automation. For instance, in studies that are entirely computer-based, automating all actions within the computer system would suffice. In recent times, attempts have been made to have language models operate computers, and the progress in such research corresponds to the advancement of automation in this process. If the research involves activities in the physical world, achieving full automation of human movements (or their equivalents) would make this process feasible. Therefore, research focused on developing humanoid robots that can move like humans will contribute to the automation of this process.
-
-% Once a hypothesis has been established, a verification plan is created to determine how to verify it. The specific method of verification depends on the subject being investigated, making this aspect of research difficult to structurize and automate in a unified way.
-
-% However, in many empirical sciences, the likelihood of a hypothesis is evaluated based on statistical significance. This is done by \textit{hypothesis testing} in practice. As this is a hypothesis test, it can only reject the null hypothesis, rather than directly determining the correctness of the hypothesis. Therefore, it can only be said that the hypothesis has survived for the time being. The belief that the surviving hypothesis is more likely to be valid is the basis for decision-making.
-
-% In any case, humans seem to use statistics or probability as the basis for assessing the validity of a hypothesis. In other words, I seem to concede to consider a hypothesis as plausible if something that cannot happen by chance, such as observing the same number repeatedly. This is based on the assumption of the ``principle of confirmation,`` which assumes that if the number of observations increases, it can be considered more reliable, and the ``principle of uniformity,`` which assumes that things will continue to proceed as they have been if the conditions remain the saus. These beliefs ultimately serve as the basis for verification and scientific knowledge production. 
-
-% I will not delve into the validity of these beliefs here. What matters is that my research activity follow a practice that ``when a hypothesis is present, and a certain criterion and procedure are prepared, and the hypothesis is considered valid according to that procedure, I consider it valid.''
-
-% In theoretical research, sometimes there is no verification plan. Theory is a hypothesis, and its validity is determined separately through verification (not in the sense of whether it is mathematically valid, but for example whether it explains physical phenomena or not). However, in complex modern science, theorists propose a theory, and experimentalists verify it.
-
-% Therefore, it is understood that in current research practice, shared knowledge in the form of papers may not necessarily provide a complete answer to a given question. This is similar to research on negative data. Negative data cannot solve the unknown initially declared, but it can reduce a certain degree of uncertainty towards it. This is because the validity of the presented hypothesis may have decreased somewhat. If this is the case, each research shared in the form of a paper may be more appropriate to describe as "reducing uncertainty towards the unknown," rather than "making the unknown known." This can become complicated when scrutinized strictly, so let's put this aside for now and continue to discuss how "producing new knowledge" is research.
-
-% In reality, conducting research is expected to be done with limited resources (time, funding, computing resources, people, etc.). Therefore, it is necessary to consider these resources when determining the verification approach. After a research design is determined at an abstract level, the feasibility of the research plan is roughly evaluated through a simple problem setting. This is known as a pilot study.
+% Finally, once the necessary elements for verification are understood, they need to be represented as something that can be understood by other researchers. This is not a requirement of a verification plan but a necessary condition for knowledge to become knowledge for society. In order to generate knowledge for society, it is necessary not only to verify hypotheses but also for the verification procedures to be understandable to other members of society and judged as valid.\footnote{
+% While it is desirable for the question generation process and hypothesis generation process to be publicly available, it is of utmost importance that the verification process is disclosed. 
+% } Also, as discussed in the section on hypothesis generation, verification must ensure that the causes behind the verification results are traceable as much as possible. While this is not an inherent requirement of the act of verification a hypothesis, it is a crucial characteristic needed for proper interpretation of verification results and for better knowledge production through hypothesis testing. As mentioned earlier, it is impossible to enumerate all potential assumptions, so it becomes necessary to explicitly state assumptions as comprehensively and in as much detail as possible to make the process realistic. Recognizing the underlying assumptions, including those behind the scenes, and selecting which assumptions to prioritize as potential causes of the results, is indeed a challenging task.
 
 
 
-\subsubsection{Verification Execution}
-Finally, the instantiated research plan is executed according to the prescribed procedures. In verification design, I am crafting the essence of the verification, and during verification instantiation, I am preparing it to be executed in a concrete and feasible manner. Therefore, there are almost no tasks to be done in this process. The preparation for verification, being distinct from the actual execution of verification, is not a verification in itself. With this understanding, I have adopted this formal classification for the current context.
-\footnote{
-Typically,``experiments'' refers to the data generation process and subsequent analysis and interpretation are conducted separately. However, since I am discussing a verification plan in this context, all of them are in the same single plan. Therefore, please note that what emerges from executing the verification plan is not data but the verification results.
+% \subsubsection{Verification Instantiation} 
+% At this stage, the research plan that has been developed is translated into an executable instance. For example, if the research plan states, ``Train the model B with the dataset A...'' the necessary steps would involve acquiring dataset A from the appropriate source, formatting it to be compatible with the model's input requirements, and preparing the data for training, etc. Similarly, if the plan states, ``When a rat presses the switch B, food is dispensed...'' the agent has to prepare rats, food, and create a machine that dispenses food upon pressing the switch, and so on. This process involves translating the plan into physical or computational instance for execution.
 
-In many empirical studies, the data generated from experiments is often used not only for the verification of hypotheses but also for generating new hypotheses or giving some insights. However, as hypothesis generation and hypothesis verification play different roles in knowledge production, I do not assume any uses of the generated data beyond verification in this context. Of course, please note that this does not imply that such actions are prohibited in practice. Data analysis will be discussed in a separate section.
-}
+% \begin{figure}[htb]
+%     \centering
+%     \includegraphics[width=0.5\textwidth]{figs/verification_instantiation.jpg}
+%     \caption{Verification Instantiation}
+%     \label{fig:verification_instantiation}
+% \end{figure}
 
-\subsubsection{Starting from Verification Design}
+% As evident upon reading, this process is highly challenging to automate. Even research confined to the realm of computers, such as research of computer science, requires accomplishing a vast number of complex tasks. For research that necessitates physical realization in the real world, the development of robotics and embodied agents are necessary. Regarding the question of where and how to tackle these problems, I will provide my perspective in the later chapter. However, it is important to note that unless the research is constrained by questions and hypotheses, aiming for true automation will inevitably require overcoming these challenges
 
-As mentioned above, I believe that the verification process can be divided into three stages: formulating a verification plan, preparing for the execution of the verification plan, and executing the verification plan. Among these stages, the execution of the verification plan and the preparation for it require interaction with the physical world in many fields. For example, in certain fields, you may need to purchase and raise rats for training, while in others, you may need to observe physical objects directly. On the other hand, formulating a verification plan is a process that is purely confined to the human mind in a wide range of fields. Therefore, it can be a good idea starting from automating verification design process.
+% To reiterate, this process can be accomplished through the automation of actions, and it does not necessarily require unique technological developments for research automation. For instance, in studies that are entirely computer-based, automating all actions within the computer system would suffice. In recent times, attempts have been made to have language models operate computers, and the progress in such research corresponds to the advancement of automation in this process. If the research involves activities in the physical world, achieving full automation of human movements (or their equivalents) would make this process feasible. Therefore, research focused on developing humanoid robots that can move like humans will contribute to the automation of this process.
+
+% % Once a hypothesis has been established, a verification plan is created to determine how to verify it. The specific method of verification depends on the subject being investigated, making this aspect of research difficult to structurize and automate in a unified way.
+
+% % However, in many empirical sciences, the likelihood of a hypothesis is evaluated based on statistical significance. This is done by \textit{hypothesis testing} in practice. As this is a hypothesis test, it can only reject the null hypothesis, rather than directly determining the correctness of the hypothesis. Therefore, it can only be said that the hypothesis has survived for the time being. The belief that the surviving hypothesis is more likely to be valid is the basis for decision-making.
+
+% % In any case, humans seem to use statistics or probability as the basis for assessing the validity of a hypothesis. In other words, I seem to concede to consider a hypothesis as plausible if something that cannot happen by chance, such as observing the same number repeatedly. This is based on the assumption of the ``principle of confirmation,`` which assumes that if the number of observations increases, it can be considered more reliable, and the ``principle of uniformity,`` which assumes that things will continue to proceed as they have been if the conditions remain the saus. These beliefs ultimately serve as the basis for verification and scientific knowledge production. 
+
+% % I will not delve into the validity of these beliefs here. What matters is that my research activity follow a practice that ``when a hypothesis is present, and a certain criterion and procedure are prepared, and the hypothesis is considered valid according to that procedure, I consider it valid.''
+
+% % In theoretical research, sometimes there is no verification plan. Theory is a hypothesis, and its validity is determined separately through verification (not in the sense of whether it is mathematically valid, but for example whether it explains physical phenomena or not). However, in complex modern science, theorists propose a theory, and experimentalists verify it.
+
+% % Therefore, it is understood that in current research practice, shared knowledge in the form of papers may not necessarily provide a complete answer to a given question. This is similar to research on negative data. Negative data cannot solve the unknown initially declared, but it can reduce a certain degree of uncertainty towards it. This is because the validity of the presented hypothesis may have decreased somewhat. If this is the case, each research shared in the form of a paper may be more appropriate to describe as "reducing uncertainty towards the unknown," rather than "making the unknown known." This can become complicated when scrutinized strictly, so let's put this aside for now and continue to discuss how "producing new knowledge" is research.
+
+% % In reality, conducting research is expected to be done with limited resources (time, funding, computing resources, people, etc.). Therefore, it is necessary to consider these resources when determining the verification approach. After a research design is determined at an abstract level, the feasibility of the research plan is roughly evaluated through a simple problem setting. This is known as a pilot study.
+
+
+
+% \subsubsection{Verification Execution}
+% Finally, the instantiated research plan is executed according to the prescribed procedures. In verification design, I am crafting the essence of the verification, and during verification instantiation, I am preparing it to be executed in a concrete and feasible manner. Therefore, there are almost no tasks to be done in this process. The preparation for verification, being distinct from the actual execution of verification, is not a verification in itself. With this understanding, I have adopted this formal classification for the current context.
+% \footnote{
+% Typically,``experiments'' refers to the data generation process and subsequent analysis and interpretation are conducted separately. However, since I am discussing a verification plan in this context, all of them are in the same single plan. Therefore, please note that what emerges from executing the verification plan is not data but the verification results.
+
+% In many empirical studies, the data generated from experiments is often used not only for the verification of hypotheses but also for generating new hypotheses or giving some insights. However, as hypothesis generation and hypothesis verification play different roles in knowledge production, I do not assume any uses of the generated data beyond verification in this context. Of course, please note that this does not imply that such actions are prohibited in practice. Data analysis will be discussed in a separate section.
+% }
+
+% \subsubsection{Starting from Verification Design}
+
+% As mentioned above, I believe that the verification process can be divided into three stages: formulating a verification plan, preparing for the execution of the verification plan, and executing the verification plan. Among these stages, the execution of the verification plan and the preparation for it require interaction with the physical world in many fields. For example, in certain fields, you may need to purchase and raise rats for training, while in others, you may need to observe physical objects directly. On the other hand, formulating a verification plan is a process that is purely confined to the human mind in a wide range of fields. Therefore, it can be a good idea starting from automating verification design process.
 
 % As mentioned earlier, in the case of empirical sciences, testing is often performed. Therefore, data is first generated, processed, and finally verified using the processed data. If I summarize the process of generating and processing raw data as data generation, this process can be broadly divided into data generation and judgment based on verification criteria. It may be rather said that the act of research itself is a process of repeatedly generating data and performing some kind of processing on it.
 
@@ -895,63 +910,7 @@ As mentioned above, I believe that the verification process can be divided into 
 % \chapter{Challenges and Ideas}
 % In Chapter 2, we examined the definition of research and its implications, and in Chapter 3, we provided an overview of past efforts related to the automation of research. In this chapter, based on these, we will reorganize the challenges towards realizing an autonomous and general artificial intelligence capable of conducting research.
 
-\section{Complex Compositions of Question Construction, Hypothesis Generation, and Verification}
-
-Night Science
-
-- 仮説駆動型研究が新しい発見を妨げる可能性がある \cite{yanai2020hypothesis}
-
-\section{Challenges}
-
- \subsection{General and Autonomous Question Construction, Hypothesis Generation, and Hypothesis Verification}
-
- In Chapter 2, we explained that in order to create an AI capable of conducting any research, it is deemed necessary to realize the formulation of questions, generation of hypotheses, and validation of these hypotheses as a combination of universal skills applicable to all research. In this section, we will revisit and organize the potential challenges in achieving an AI that can conduct each of these processes.
-
- \subsubsection{Common Challenges}
-One of the major challenges that can be a common issue for any process, as pointed out in prior research \cite{coley2020autonomousII}, is how to execute these tasks in open-ended situations. For instance, in the automation of experiments, robots use experimental equipment selected, prepared, and set up by humans. However, humans do these tasks from scratch with their own hands. Humans do not use a given corpus of papers; instead, they search for and use them on their own. Candidates for hypotheses are not explicitly provided; humans begin by identifying potential hypotheses. Even when formulating questions that serve a particular goal, humans set that goal themselves. 
-
-In many cases in research automation, these elements are pre-determined by humans. How to let machines autonomously perform these tasks starting only with the same initial information given to humans is crucial in realizing an autonomous artificial researcher. Moreover, having this kind of freedom is essential to achieving a general artificial researcher as well. This is because if we impose constraints on AI to research only within specific research questions or hypothesis spaces defined by humans, it cannot become an AI capable of conducting arbitrary research. Therefore, a significant challenge is how to make AI acquire complex foundational skills and fundamental reasoning abilities to realize these capacities.
-
-人間はその答えが未知であることを自ら自覚し、そのような場合に取るべき手段を過去から援用することで、段階的に不確実性を削減しているように思われます。これは仮説の生成だけじゃなくて、問いの構築でも仮説の検証でも言えること。それが汎用的な手法を構築する上で重要なこと。
-
-\subsubsection{Question Construction}
-
-The first issue discussed in Chapter 2 is the problem of determining the unknown nature of the answer to a question. Given that research is an endeavor to produce new knowledge, it is necessary for the answer to the question to be unknown. Therefore, there is a need to generate such questions or later verify that the answer to the question is indeed unknown.
-
-The second challenge is the issue of how to make a machine generate a ``good'' question. Firstly, what researchers consider as a ``good'' question is not always consistently agreed upon among them. Furthermore, we pointed out that the ``goodness'' of a question is inherently a concept relative to the individual or society. Hence, there seems to be a need to clearly define what constitutes a good question and think about how to effectively integrate these definitions.
-
-The third challenge is that as we demand more autonomy from AI, the automation of question formulation becomes more difficult. Inherently, questions are constructed based on various motivations, such as pure intellectual curiosity or for specific objectives. It is very challenging to automate the construction of questions without defining which of these motivations should be the source. Moreover, as mentioned in Chapter 2, the construction of questions encounters the problem of infinite regression when pursued with strict autonomy. Even if not taken to that extreme, setting higher-order objectives behind questions for AI is an exceptionally difficult task.
-
-It seems that the automation of question formulation has received relatively less attention compared to other processes. Since the formulation of questions is an essential element in conducting research, it would be desirable for more focus to be directed towards the research on automating this process.z
-
-% Realizing AI that construct a ``good'' question in a generic way is challenging. As discussed in Section \ref{section:the-relativity-of-knowledge-production-to-society}, research is relative to society and different criteria can be considered for what makes a ``good'' question. Thus, some human perspective on the ``goodness'' of a question must be incorporated. We need to discuss what we consider good, what we should prioritize, and how to incorporate the value to AI.
-
-% \textcolor{red}{TODO}
-
-% Moreover, determining inputs to the question construction module is not trivial. In hypothesis generation, the question is the primary input, whereas in verification, it's the hypothesis. However, question formation take any input. Once you seriously try to identify the origin of question, you will encounter infinite regress. This is a unique problem that arises when aiming for a general-purpose and autonomous artificial researcher. This is because the issue revolves around how much input can be assumed while still being considered autonomous, given that it can potentially take any input.
-
-% \cite{wang2023skillqg}
-
-% neural question generation \cite{pan2019recent}
-
-
-\subsubsection{Hypothesis Generation}
-
-One challenge in creating an intelligence capable of hypothesis generation, not just as a tool for humans, is the need to empower the machine itself to form plausible hypotheses for questions to which even the machine doesn't know the answer. Current machine learning models have been criticized for potentially not knowing what they don't know \footnote{
-In our discussion with Wataru Kumagai, we were reminded once again of the importance of self-awareness in creating an AI capable of conducting research.
-}. 
-Moreover, they are known to confidently provide answers or fabricate falsehoods about topics they are ignorant of. Therefore, it seems essential to first accurately recognize what is unknown, either for oneself or the world at large, as told in sections of question construction. Upon facing an unknown subject, there's a need to reduce uncertainty and approach understanding. As mentioned in Chapter 2, humans attempt to understand uncertain subjects by gathering information from papers, experiments, or by reframing questions. While it may not be necessary to adopt the exact same approach, it seems essential to enable machines to autonomously adopt strategies to reduce uncertainties.
-
-% Outputs from machine learning models are essentially inferences tinged with uncertainty. From this perspective, one could posit that these models are already inherently generating hypotheses. Indeed, they are already employed for hypothesis generation in numerous scientific investigations.
-
-% However, while these hypotheses might be hypotheses in the sense that the answers are unknown to humans, they might be self-evident to the machine learning model. When we talk about AI generating hypotheses in the context of AI conducting research, the ultimate expectation is for the AI to provide plausible answers to what is unknown to AI itself. This remains an unresolved issue.
-
-As one of the promising approaches for tacking unknowns, it seems crucial for AI to acquire systematic thinking to realize this, as humans developed systems like language and mathematics, allowing them to infer about subjects beyond their experience. Systematic thinking is not only important for out-of-distribution generalization but is also valued for interpretability, causal inference, logical reasoning, mathematical processing, and planning.
-
-\textcolor{red}{TODO}
-
-\subsubsection{Hypothesis Verification}
-
+\subsection{Challenges}
 In Chapter 2, we highlighted several challenges in realizing an AI capable of verification. First and foremost, the AI itself needs to understand what verification is, and by what criteria a sequence of actions qualifies as verification. Ideally, it would be preferable for the AI to contemplate and understand from scratch what verification is. However, many humans don't do this either, and as discussed in Chapter 2, the philosophical debate on precisely defining verification is still unresolved. Therefore, it's harsh to demand this of a machine. At the very least, the machine needs to thoroughly understand and proficiently use verification concepts that humans employ, such as statistical hypothesis testing, from first principles.
 
 
@@ -964,6 +923,56 @@ For AI to execute research on a computer, it must perform any operation within t
 There are ongoing initiatives to enable language models to operate browsers \cite{nakano2021webgpt,act1}. While full browser operations might seem ambitious, there are already endeavors to allow language models to conduct searches \cite{mialon2023augmented}. If we achieve browser automation, it will greatly advance research automation involving web operations. Moreover, efforts like the open interpreter \cite{openinterpreter} aim to automate any computer action. This direction holds promise for automating all research confined within a computer. Although these studies are gaining traction in the machine learning domain, they're not always linked to research automation. We advocate recognizing this as a pivotal challenge in the realm of research automation.
 
 In the field of machine learning, it seems that the discussion on automated validation has not garnered much attention until now. However, recently, the need for verification is recognized in the machine learning community beyond outside of the context of research automation. Studies like \textit{scientific claim verification}, which received much attention during the COVID-20 pandemic \cite{wadden2020fact}, or attempts to minimize hallucination \cite{dhuliawala2023chain} are examples of them. These are not attempts to automate validation in research. Therefore, these findings cannot be directly applied to the automation of research validation. However, we expect that these studies will provide useful insights for the future development of artificial intelligence capable of understanding validation.
+
+\section{Compositions of Question Construction, Hypothesis Generation, and Verification}
+
+Night Science
+
+- 仮説駆動型研究が新しい発見を妨げる可能性がある \cite{yanai2020hypothesis}
+
+\subsubsection{Common Challenges}
+One of the major challenges that can be a common issue for any process, as pointed out in prior research \cite{coley2020autonomousII}, is how to execute these tasks in open-ended situations. For instance, in the automation of experiments, robots use experimental equipment selected, prepared, and set up by humans. However, humans do these tasks from scratch with their own hands. Humans do not use a given corpus of papers; instead, they search for and use them on their own. Candidates for hypotheses are not explicitly provided; humans begin by identifying potential hypotheses. Even when formulating questions that serve a particular goal, humans set that goal themselves. 
+
+In many cases in research automation, these elements are pre-determined by humans. How to let machines autonomously perform these tasks starting only with the same initial information given to humans is crucial in realizing an autonomous artificial researcher. Moreover, having this kind of freedom is essential to achieving a general artificial researcher as well. This is because if we impose constraints on AI to research only within specific research questions or hypothesis spaces defined by humans, it cannot become an AI capable of conducting arbitrary research. Therefore, a significant challenge is how to make AI acquire complex foundational skills and fundamental reasoning abilities to realize these capacities.
+
+人間はその答えが未知であることを自ら自覚し、そのような場合に取るべき手段を過去から援用することで、段階的に不確実性を削減しているように思われます。これは仮説の生成だけじゃなくて、問いの構築でも仮説の検証でも言えること。それが汎用的な手法を構築する上で重要なこと。
+
+\subsection{Challenges}
+
+ % \subsection{General and Autonomous Question Construction, Hypothesis Generation, and Hypothesis Verification}
+
+ In Chapter 2, we explained that in order to create an AI capable of conducting any research, it is deemed necessary to realize the formulation of questions, generation of hypotheses, and validation of these hypotheses as a combination of universal skills applicable to all research. In this section, we will revisit and organize the potential challenges in achieving an AI that can conduct each of these processes.
+
+
+\subsubsection{The Difficulty of General Hypothesis Verification}
+I recognize that the the way to verify a hypothesis is strikingly diverse, as it can significantly differ depending on the subject of research. For instance, if one wishes to study the behavior of rat, they may need to train the rat. On the other hand, if you want to test a theory of particle physics, you may have to construct and run a huge particle accelerator. In the field of history, the existence of historical records might serve as evidence, while in mathematics, the verification process revolves around the proofs themselves. Due to this high degree of flexibility, hypothesis verification can be the most challenging aspect to automate for realizing a ``general'' artificial researcher.
+
+\subsubsection{Feedback from Verification}
+In the first place, the act of verification is a highly challenging process. Firstly, as mentioned earlier, inductive approaches cannot verify hypotheses in the same way as deductive reasoning. Also, I notice that hypothetico-deductive method, which involves verifying claims derived from a hypothesis to confirm its validity, is still widely used today. However, verifying a deduced claim does not support the hypothesis because there may be many hypothesis that can result in the same deduced claim. In response to these, Karl Popper proposed that while hypotheses cannot be confirmed, they can be falsified \cite{sep-scientific-method}. However, in practice, the verification of hypotheses involves implicitly relying on numerous auxiliary hypotheses. When using experimental apparatus, it requires many assumptions to trust them. Even when an experiment fails, determining whether the hypothesis was incorrect or the experiment itself was flawed is not as straightforward as one might think. Thus, there is inherent uncertainty in attributing the results of verification to a specific cause \cite{chalmers2013thing,sep-physics-experiment,sep-scientific-underdetermination} as I have discussed in the section of hypothesis generation. Furthermore, all reasoning and observational evidence are inevitably influenced by some form of theories, individuals, or societal factors \cite{sep-science-theory-observation}. Therefore, it is necessary to carefully examine them to ensure that they are not distorted by unintended influences.
+
+
+% \subsubsection{Question Construction}
+
+
+
+% Realizing AI that construct a ``good'' question in a generic way is challenging. As discussed in Section \ref{section:the-relativity-of-knowledge-production-to-society}, research is relative to society and different criteria can be considered for what makes a ``good'' question. Thus, some human perspective on the ``goodness'' of a question must be incorporated. We need to discuss what we consider good, what we should prioritize, and how to incorporate the value to AI.
+
+% \textcolor{red}{TODO}
+
+% Moreover, determining inputs to the question construction module is not trivial. In hypothesis generation, the question is the primary input, whereas in verification, it's the hypothesis. However, question formation take any input. Once you seriously try to identify the origin of question, you will encounter infinite regress. This is a unique problem that arises when aiming for a general-purpose and autonomous artificial researcher. This is because the issue revolves around how much input can be assumed while still being considered autonomous, given that it can potentially take any input.
+
+% \cite{wang2023skillqg}
+
+% neural question generation \cite{pan2019recent}
+
+
+% \subsubsection{Hypothesis Generation}
+
+
+
+% \subsubsection{Hypothesis Verification}
+
+
 
 % Creating AI that autonomously verifies hypotheses is challenging. While current models can mimic human verification, truly understanding the verification strategy demands more work. Sometimes, they even need to devise the verification measure themselves.
 
@@ -994,16 +1003,7 @@ In the field of machine learning, it seems that the discussion on automated vali
 
 
 
-\subsection{Alignment}
-As discussed in Section 2, when realizing an AI that autonomously conducts research, the issue of alignment arises. 
 
-First and foremost, it is essential to consider ways to ensure that AI does not engage in research that could harm humans. However, this is a challenging issue. The problem of ensuring that AI does not harm humans is a difficult problem in AI Alignment. Furthermore, knowledge and technology produced by research are fundamentally value-neutral. That is, the knowledge can be used for good or ill. Therefore, even if AI were to research with harmful intentions, it would be challenging to judge from the actual research results.
-
-The remaining two issues arise in the ultra-long term when AI becomes fully autonomous in conducting research. The second issue is that to enable meaningful knowledge production for humans, there needs to be an alignment between the knowledge systems of AI and humans. As mentioned in Chapter 2, if knowledge and verification are relative concepts to society, research conducted autonomously by AI may become meaningless to humans. On the other hand, if we were to correct AI to follow human methods entirely, we might unnecessarily limit the machine's potential capabilities. Deciding how much human methodology and values to incorporate and how much freedom to allow the machine, and finding ways to achieve this, will be a significant challenge in creating research-capable AI.
-
-The third issue concerns the alignment between AI and nature, not between humans and AI. As mentioned in Chapter 2, the fact that humans have come to understand nature is likely not unrelated to our long history of interacting with nature. It seems there's no guarantee that artificial machines like AI, which lack such experiences, would lead to an understanding of nature through their autonomously generated knowledge.
-
-The latter two issues are problems that only arise when demanding extreme autonomy from machines and are not immediately problematic. However, when discussing the limitations and possibilities of knowledge production and natural understanding by agents independent of humans, they seem to become relevant issues.
 
 % In the medium to long term, it's essential to devise ways to ensure that AI doesn't engage in research that could be dangerous to humans. 
 
