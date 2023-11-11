@@ -1,5 +1,5 @@
-% \documentclass{article}
-\documentclass{book}
+\documentclass{article}
+% \documentclass{book}
 
 \let\cleardoublepage\clearpage
 
@@ -18,7 +18,7 @@
 % \setlength{\parindent}{0pt}
 
 % \usepackage{natbib}
-\newenvironment{abstract}{}{}
+% \newenvironment{abstract}{}{}
 \usepackage{abstract}
 \usepackage{here}
 \usepackage{tabularx}
@@ -36,8 +36,8 @@
 
 \usepackage[whole]{bxcjkjatype}  % Japanese
 
-\title{Speculative Exploration of the Potential of Research-Capable Artificial Intelligence}
-\author{Anonymous \footnote{The LaTeX file of this perspective paper is stored on GitHub. The paper is still under active development, and because I have not read all cited literature in detail, it may contain error. If you have any proposals to improve this paper or find any mistakes and misunderstandings, please feel free to submit a pull request to the repository. Let's work together to create a better paper! \\ GitHub: TODO. }}
+\title{Speculative Exploration of Artificial Intelligence that Can Conduct Research}
+\author{Shiro Takagi \footnote{The LaTeX file of this perspective paper is stored on GitHub. The paper is still under active development, and because I have not read all cited literature in detail, it may contain error. If you have any proposals to improve this paper or find any mistakes and misunderstandings, please feel free to submit a pull request to the repository. Let's work together to create a better paper! \\ GitHub: TODO. }}
 
 \begin{document}
 \sloppy
@@ -45,7 +45,7 @@
 \tableofcontents
 
 \begin{abstract}
-    In this paper, I propose a perspective on the realization of a general and autonomous artificial researcher. First, I discuss the definition of research to clarify the goal I pursue. Second, I review existing literature of research automation to know our current standing point. Third, based on these discussions, I propose what I should to realize a general and autonomous artificial researcher.
+This paper presents a speculative discussion on artificial intelligence capable of conducting research. First, it examines what research entails, aiming to lay the groundwork for a discussion on what it would mean to create AI capable of conducting research. Next, it focuses on the construction of questions, generation of hypotheses, and verification of hypotheses, which are considered essential elements in research, and discusses the possibilities and challenges of AI capable of these tasks. Finally, the paper discusses what could be the first steps towards realizing AI capable of conducting research.
 \end{abstract}
 
 
@@ -62,7 +62,7 @@
 
 \appendix
 
-\chapter{Question Construction, Hypothesis Generation, and Hypothesis Verification}
+% \section{Question Construction, Hypothesis Generation, and Hypothesis Verification}
 
 \section{Hypothesis Generation}
 
@@ -431,19 +431,19 @@ Furthermore, as explained in the section on statistical hypothesis testing, it w
 
 \input{chapters/review}
 
-\chapter{Archive}
+\section{Archive}
 
-\section{Pursuing Better Research}
+\subsection{Pursuing Better Research}
 Please emphasize once again that what I are aiming for is to achieve a better way of knowledge production. The realization of general and autonomous artificial intelligence is a means to that end. Therefore, even if certain research practices are widely adopted at present, I will strive for better methods if they are not essential for knowledge production and if there are superior alternatives. In other words, I propose to pursue the realization of artificial intelligence that enables a different and improved way of knowledge production, rather than simply automating the current research practices.
 
 While the practices of research developed by humans are highly sophisticated, robust, and productive, it is not necessarily true that all of them have reached the absolute optimum way of doing research. Firstly, research practices are strongly influenced by history and society. For example, peer review is widely accepted today, but it is said to have gained such dominant status because foundations in Cold War-era U.S. demanded peer review to ensure accountability \cite{baldwin2018scientific}. Moreover, the fact that research outcomes are still represented in the form of papers is clearly a remnant of the era when print was predominant. These practices might have been optimal under the social conditions and technologies of that time, but they may not necessarily be optimal in the present, as society has changed a lot. Additionally, meeting societal demands does not always lead to the optimization of knowledge production. Secondly, it seems that I sometimes lack a widely shared understanding of how to optimally carry out certain aspects of research. For instance, it is important to formulate good research questions and hypotheses, but there are still many aspects about how to do this effectively that remain unclear, and it appears to rely heavily on individuals' tacit knowledge. In such a situation, simply replacing current practices with machines may not guarantee a good knowledge production process. Thirdly, as Nielsen and Qiu say \cite{nielsen}, it is believed that I have only explored in a very limited subspace in the space of possible research practices. The establishment of current research practices is a very recent event in human history, and I may not yet have arrived at the optimum way of research. \textcolor{red}{TODO: Add examples.} Finally, as I mentioned above, current research assumes that humans are the main creators and consumers of knowledge. This naturally imposes human cognitive constraints, which may significantly limit the range of activities that can be conducted for knowledge production. Based on these reasons, I aim to progress the discussion in a way that allows us to identify what is fundamentally essential for knowledge production, while also drawing inspiration from the positive aspects of past practices. I will not be bound by the current approaches but instead strive to clarify what is truly crucial for research.
 
-\section{Call for Cooperation}
+\subsection{Call for Cooperation}
 I would be delighted if all of you could contribute to writing this research paper. The initial draft of this paper was created by a novice machine learning researcher named OO. I have made efforts to write the text as carefully as possible, but due to his limited research experience, He may not be able to provide profound insights into the topic, and there might be inaccuracies in his understanding of fields that are not his expertise. In particular, the literature review chapter prioritizes comprehensive coverage of the literature, which means that the evaluation of individual references might not be appropriate. Also, there are naturally limitations and biases regarding the scope of papers that can be covered and the research areas targeted. Therefore, if you find any errors, missed literature, or points for improvement in the paper, I would be grateful if you could let us know.
 
 
 
-\section{Towards Understanding this Universe}
+\subsection{Towards Understanding this Universe}
 It has been a long-standing goal of humanity to understand nature, the universe, and the world. Through this intellectual curiosity, mankind has made remarkable intellectual advancements and uncovered astonishing findings about nature. While perfect understanding of this universe may be infeasible, the desire to know as much as possible about as many things as possible in this universe is a shared sentiment among researchers.
 
 However, it seems that there are limitations to achieving this goal solely through current human capabilities. This is because humans have several cognitive constraints when it comes to understanding phenomena. For instance, there is a limit to the amount of information humans can process, and comprehending highly complex, nonlinear, and non-equilibrium systems in their entirety is challenging. Such constraints appear to narrow the scope of nature that can be understood. \textcolor{red}{TODO: update the explanation of cognitive limitation}
@@ -452,15 +452,15 @@ Furthermore, there is a possibility that the methodologies of knowledge producti
 
 We believe that artificial intelligence capable of autonomously conducting all research holds great potential in overcoming these challenges and getting closer to the goal. Firstly, AI is not constrained by a physical device like the human brain, enabling processing speeds and capacities that are orders of magnitude beyond human capabilities \cite{hope2022computational,kitano2021nobel}. Secondly, by optimizing AI for knowledge production, it becomes possible to generate knowledge more efficiently, without being constrained by extraneous factors commonly encountered in human research. Lastly, and most importantly, AI has the potential to possess a different understanding of nature compared to humans. Moreover, AI might have the capacity to comprehend nature more extensively than humans. If that's the case, it seems essential to develop autonomously researching artificial intelligence if one aims to acquire as much knowledge as possible about this universe. Therefore, I propose the pursuit of autonomous AI researchers to realize these possibilities.
 
-\section{Objectivity of Research}
+\subsection{Objectivity of Research}
 
 The objectivity of research seems to arise from such demand that knowledge should be for humanity. Because of this requirement, researchers conduct research with extreme precision and caution. This serves as one of the justifications for the knowledge produced through research being reliable. I admit that finding the basis of objectivity of research is a challenging philosophical issue. Please note that what I have stated here is merely the humble intuition.
 
 Seeking public accessibility in knowledge implies that the expressions of knowledge and the process of knowledge production should be understandable to everyone. For instance, in human societies, knowledge is often expressed with texts. This is because language serves as a highly universal means of conveying information that a significant number of people can comprehend and handle. Similarly, the process of knowledge production is also conveyed through language.
 
 
-\chapter{Chapter Title}
-\section{Scope of the Discussion}
+% \section{Chapter Title}
+\subsection{Scope of the Discussion}
 I think that the activities related to research can be broadly divided into two phases: the process of knowledge production, typically in the form of papers or other publications, and the phase of maintaining, sharing, evaluating, and utilizing the knowledge. While the latter phase is a crucial aspect of knowledge, it will not be addressed here since the focus of this paper is on knowledge production. 
 
 However, it's important to note that the distinction between the two phases is not strictly delineated. For instance, the value and usage of knowledge in a society would influence the production process of it, and research evaluation and revision are ongoing even after the knowledge is produced into the society. Thus, evaluation of the value of knowledge may not be completely exclude from my discussion simply because they mainly take place after knowledge production. As such, I will make sure to touch upon elements that are not always necessary for knowledge. 
@@ -734,7 +734,7 @@ In recent years, research has emerged that aims to enable operations on computer
 \subsubsection{Behavior in Real World}
 The development of robots that move like humans has been an active area of research. I believe that the development of robots that move like humans and animals, such as those being developed by Boston Dynamics \cite{kuindersma2016optimization}, will be essential to the future automation of these general-purpose, autonomous studies. More directly related to research, our efforts in the field of laboratory automation, which aims to automate experiments, is precisely the area in which I have seriously considered automating research, including such real-world behaviors. In particular, the development of a research specialized general-purpose humanoid robot (\textit{LabDroid}) like ``Mahoro'' \cite{yachie2017robotic} is a powerful step in this direction. As LabDroid becomes more versatile, I will move closer to achieving general-purpose research automation.
 
-\chapter{Additional Literature}
+% \section{Additional Literature}
 
 \section{Scholarly Document Processing}
 \label{appendix:scholarly-document-processing}
@@ -760,7 +760,7 @@ Research is the act of producing a novel knowledge on top of prior studies. The 
 Scholarly articles are structured documents. This structural property enables researchers to generate texts per sections. Thereafter, 
 researchers have endeavored to generate, for example, abstract \cite{kumarasinghe2022automatic,gao2022comparing,wang2019paperrobot}, related works \cite{li2022automatic,shah2021generating,liu2023causal}, table description in result section \cite{moosavi2021scigen,moosavi2021learning}, conclusion, and future work \cite{wang2019paperrobot}. Wang et al. propose to generate even next research's probable title \cite{wang2019paperrobot}.
 
-\chapter{Alignment}
+\section{Alignment}
 % \subsection{Alignment}
 As discussed in Section 2, when realizing an AI that autonomously conducts research, the issue of alignment arises. 
 
@@ -772,12 +772,12 @@ The third issue concerns the alignment between AI and nature, not between humans
 
 The latter two issues are problems that only arise when demanding extreme autonomy from machines and are not immediately problematic. However, when discussing the limitations and possibilities of knowledge production and natural understanding by agents independent of humans, they seem to become relevant issues.
 
-\chapter{Research Optimization}
+\section{Research Optimization}
 
-\chapter{Research as Social Activity}
+\section{Research as Social Activity}
 In this paper, I will discuss automation focused on the unique elements of knowledge production as mentioned above. However, research is a social endeavor. And that society has various levels, such as research labs, universities, and research ecosystems. Therefore, if I think about optimizing the whole activity of research, I need to think about optimizing these wholes. Although it is out of the scope of this paper and therefore not discussed this time, I would like to discuss this in the future.
 
-\chapter{Research as Belief Update}
+\section{Research as Belief Update}
 
 From the perspective that research is belief updating, the roles of question construction, hypothesis generation, and hypothesis verification can be represented in the following Fig. \ref{fig:beliefupdate}. 
 \begin{figure}[htb]

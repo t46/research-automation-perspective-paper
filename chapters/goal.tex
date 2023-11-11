@@ -1,4 +1,4 @@
-\chapter{What is Research?}
+\section{What Would be Activities Called Research?}
 \label{chapter-what-is-research}
 
 To create an agent capable of conducting research autonomously, it is crucial to understand what research is in the first place. Therefore, in this section, I would like to discuss the characteristics of what is called research.
@@ -7,7 +7,7 @@ Our aim here is not to identify a universal, historically independent, and absol
 
 Rather, my goal is to endeavor to describe various characteristics of research to the extent that it can provide a starting point for engineers and researchers who aim for realizing AI that can conduct research autonomously.In the following sections, I first discuss a possible working definition of research.
 
-\section{Defining Research}
+% \section{Defining Research}
 
 \subsection{Research as Knowledge Production}
 
@@ -193,7 +193,9 @@ The definition discussed here is merely a provisional one based on the naive int
 
 % \subsection{The Previous Discussions Regarding the Definition of Research (Scientific Discovery).}
 
-\subsection{Question Construction, Hypothesis Generation, and  Verification}
+\section{Question Construction, Hypothesis Generation, and  Verification}
+
+問いの構築、仮説の生成、仮説の検証が大事なのはパッと聞くと当たり前なので、なぜわざわざ言ってるのかを書く。
 
 % \textcolor{red}{TODO: more focus on the implication for research automation}
 
@@ -661,6 +663,9 @@ The third challenge is that as we demand more autonomy from AI, the automation o
 It seems that the automation of question formulation has received relatively less attention compared to other processes. Since the formulation of questions is an essential element in conducting research, it would be desirable for more focus to be directed towards the research on automating this process.z
 
 \section{Hypothesis Generation}
+より良い推論ができるようになるには、という話で、結局汎用人工知能を作りたいというかなり広い論点と被ってしまう、という注意を入れる
+より良い人工知能を作りたい多くの人が関心がある論点。科学研究にユニークな点としては、探索空間が広大であることなどが知られてる。仮説空間を陽に定めない場合は、自分自身も知らないという状況がユニーク。これを解決するためにつような要素は結局みんなが必要だと思ってる要素だけど、みたいな話。
+
 The second component is \textit{hypothesis generation}. Research is the endeavor to find answers to research questions. Here, as mentioned before, these questions are ones for which the answers are not known. Therefore, we generate hypotheses as candidate answers to these questions and find answers by validating them. Given that research is an endeavor to turn the unknown into the known, the generation of hypotheses, whether implicit or explicit, is an inevitable element in research.
 
 \subsection{What Would be the Challenges for an AI to Generate Hypotheses?}
@@ -695,8 +700,6 @@ Even if hypotheses for humans are successfully generated, the machine may not be
 % まとめると、1. 人間のように複雑な仮説の生成をいかに可能にするか、2. 機械自身にとっても答えが未知であるときにいかに良い答えの生成を可能にするか、が課題であると私は思っています。これらの課題解決への糸口を掴むためには、人間がどのように仮説生成をしているかを見ていくのは有用であるように思われます。そこで、以下のセクションでは人間がどのように仮説生成をしているかを見ていきます。
 
 \subsection{How Do Humans Generate Hypotheses?}
-より良い推論ができるようになるには、という話で、結局汎用人工知能を作りたいというかなり広い論点と被ってしまう、という注意を入れる
-より良い人工知能を作りたい多くの人が関心がある論点。科学研究にユニークな点としては、探索空間が広大であることなどが知られてる。仮説空間を陽に定めない場合は、自分自身も知らないという状況がユニーク。これを解決するためにつような要素は結局みんなが必要だと思ってる要素だけど、みたいな話。
 
 In order to create an AI that can generate reliable answers to difficult questions whose answers are unknown to anyone, it seems prudent to look at how humans generate hypotheses. Therefore, I would like to briefly present my thoughts on how humans appear to generate hypotheses. 
 Note that the methods humans use to generate hypotheses are diverse, and the discussion here can by no means cover them all. I hope that what I present can be taken as a starting point for further exploration.
@@ -924,31 +927,80 @@ There are ongoing initiatives to enable language models to operate browsers \cit
 
 In the field of machine learning, it seems that the discussion on automated validation has not garnered much attention until now. However, recently, the need for verification is recognized in the machine learning community beyond outside of the context of research automation. Studies like \textit{scientific claim verification}, which received much attention during the COVID-20 pandemic \cite{wadden2020fact}, or attempts to minimize hallucination \cite{dhuliawala2023chain} are examples of them. These are not attempts to automate validation in research. Therefore, these findings cannot be directly applied to the automation of research validation. However, we expect that these studies will provide useful insights for the future development of artificial intelligence capable of understanding validation.
 
-\section{Compositions of Question Construction, Hypothesis Generation, and Verification}
+\section{Combining Questions, Hypotheses, and Verification}
+
+研究の構成要素である問いの構築、仮説の生成、仮説の検証について説明しました。実際の研究は極めて複雑な試行錯誤的なプロセスであり、これらが最初に想定していた通りそれぞれ一回ずつしか行われないということは稀です。研究ができる AI を作るためには、そのような複雑な研究実践が可能でなければならないように思われます。そこで、本セクションでは、そのような AI を作るために考慮すべきであろう事項について検討していきます。また、問いの構築、仮説の生成、仮説の検証のいずれの自動化においても共通する課題についても議論します。
 
 Night Science
 
 - 仮説駆動型研究が新しい発見を妨げる可能性がある \cite{yanai2020hypothesis}
 
-\subsubsection{Common Challenges}
-One of the major challenges that can be a common issue for any process, as pointed out in prior research \cite{coley2020autonomousII}, is how to execute these tasks in open-ended situations. For instance, in the automation of experiments, robots use experimental equipment selected, prepared, and set up by humans. However, humans do these tasks from scratch with their own hands. Humans do not use a given corpus of papers; instead, they search for and use them on their own. Candidates for hypotheses are not explicitly provided; humans begin by identifying potential hypotheses. Even when formulating questions that serve a particular goal, humans set that goal themselves. 
+\subsection{Countless Question, Hypothesis, and Verification in Research Process}
+We generate countless questions and hypotheses, including implicit ones, for the purpose of creating a single question or hypothesis, or for planning and preparing for single verification.
+
+For example, when questioning how an unresolved issue can be solved, we might ask why this problem hasn't been solved so far, or if there are any studies of similar challenges being addressed. In response, we might consult literature or recall our own memory, hypothesizing that ``This could be the reason it hasn't been solved,'' or that ``This could be useful in solving the current challenge.'' We repeat this process innumerably to eventually construct an answer to the original question. Similarly, when planning verification, we implicitly pose many questions and formulate numerous auxiliary hypotheses.
+
+To generate a plausible hypothesis, there must be sufficient grounds to believe it is valid. These grounds could be knowledge from our own memory, descriptions from newly researched literature, opinions from other researchers, or some belief, such as natural law should be simple. In addition, to examine the validity of the hypothesis, we might try simple tests. For example, we might create a toy model to represent the hypothesis and examine its behavior, or conduct preliminary experiments. In other words, each time a plausible hypothesis is generated, it undergoes a sort of verification, whether implicit or explicit, and to varying degrees of simplicity.
+
+In this way, to conduct research, we pose countless questions and hypotheses and conduct several simple  experiments to verify the plausibility of the hypothesis if necessary. This is because research is an endeavor facing the unknown, and this process contains a lot of uncertainties. By gradually reducing these uncertainties through trial and error, research progresses. This gradual reduction of uncertainty seems essential, especially when tackling difficult questions that no one in the world knows the answers to. Therefore, AI capable of conducting research should autonomously be able to generate numerous questions and hypotheses as needed and choose more plausible hypotheses through simple verification during the knowledge production process.
+
+% 私たちは、一つの問いや仮説を生成するために、あるいは検証の計画や準備をするために、暗黙的なものも含めると無数の問いや仮説を生成しています。
+
+% 例えば、ある解決されてない課題をどのように解くことができるか問うた場合、ではそもそもなぜこの問題はこれまで解かれてこなかったのだろうか、似たような課題に取り組んでいる事例はないだろうか、と問うかもしれません。これに対して文献を調べたり過去の知見を思い出したりして、これが原因で解けなかったのではないか、これは今回の課題の解決に使えるのではないか、といった仮説を立てるでしょう。これを無数に繰り返して、最終的に元々答えたかった問いに対する答えを構成します。また、検証の計画を立てる際にも、私たちは暗黙的に多くの問いを立てて無数の補助仮説を立てています。
+
+% 確からしい仮説を生成するためには、その仮説が妥当であると信ずるだけの根拠がなければなりません。その根拠となるのはは自分の記憶にある知識かもしれませんし、新しく調べた文献の記述かもしれませんし、他の研究者の意見かもしれません。これに加えて、確からしい検証をするために、私たちは試してみる、すなわち簡単な検証をすることもあります。例えば、仮説を表現するトイモデルを作って挙動を調べてみるかもしれませんし、プレ実験をしてみるかもしれません。
+
+% このように、私たちは一つの問いを作り、それに答える一つの仮説を作り、それを一度検証するために、無数の問いと仮説を立て、必要とあれば仮説の確からしさを簡単に検証するいくつもの実験を行います。これは、研究が未知に立ち向かう営みであり、その過程にはいくつもの不確定な要素が存在するからです。それらの不確実性を一歩一歩試行錯誤的に削減していくことで、一つの研究が進んでいくように思われます。このような漸進的な不確実性の削減は、特に誰も答えを知らないような難しい問いに挑戦する際には不可欠であるように思われます。従って、研究ができる AI もこのように、必要に際して問いや仮説を生成し、簡易的な検証によってより確からしい仮説を選択するということを自律的に行えるようになる必要があるでしょう。
+
+
+\subsection{Discovering New Questions}
+Researchers often set out to solve one question, only to find themselves discovering an entirely unrelated question in the process. This new question, unrelated to the original question and even its underlying purpose, may lead them to pivot their research focus and potentially make significant scientific discoveries. Since research is full of uncertainty, it's not uncommon to be unable to foresee everything from the start. Thus, this discovery and shift of question is not rare.
+
+If an AI capable of conducting research were tasked with achieving a single objective, such serendipitous discoveries might not occur. This is because any new questions it finds, no matter how intriguing or scientifically important, may not be directly relevant to achieving its predefined goal. Therefore, to encourage an AI to uncover such unrelated questions, it might be necessary to set multiple objectives or a broader high-level goal that encompasses both sets of questions, like ``understanding nature.'' Additionally, to switch from the current question to a new one, the AI would need to evaluate which of the two questions holds more value.
+
+% 研究者は、ある問いを解くために別の問いを立てるだけではなく、その問いに答えようとする中で、最初の問いやその背後の目的とは全く関係ない別の問いを見つけることがあります。そして研究の途中でそちらの問いに取り組むことに切り替え、その結果大きな科学的発見を成し遂げることもあります。不確実性が高い研究という取り組みにおいては、最初から全てを見通せることは多くありません。したがって、このようなことが起こることは少なくありません。
+
+% もし 研究ができる AI にある一つの目的を達成することを目指させるとしたら、このようなことは起き得ないでしょう。なぜなら、そこで見つかった問いはどれだけ面白くてもどれだけ科学的に重要でも、その目的を達成するために必ずしも重要とは限らないからです。したがって、AI にこのような問いの発見をさせるためには、複数の目標を持たせる、あるいは両方の問いを包括するようなより大きな（例えば「自然を理解する」のような）大きな目標を持たせる必要があるように思われます。加えて、現在やっている問いに取り組むのをやめて新しい問いに取り組む意思決定をするためには、AI はこれらの異なる二つの問いのどちらが価値があるかを比較しなければならないように思われます。
+
+\subsection{Feedback from Verification Result}
+化学自動化論文の内容もここに追加する
+
+In research, it's not always common for the initial hypothesis to directly answer the question posed. Rather, the process typically involves revising the hypothesis based on the results of verification, followed by additional rounds of testing. This cycle of hypothesis revision and retesting is crucial in the journey toward finding answers to the posed questions, especially when seeking unknown answers, as mentioned earlier. Consequently, it seems necessary for an AI capable of conducting research to have the ability to revise its hypotheses based on the outcomes of these verifications.
+% 研究では最初に建てた仮説がそのまま問いの答えであるという場合は必ずしも多くはありません。検証の結果を踏まえて、仮説を修正し、再度新たな検証をし、というサイクルを繰り返すことで、問いの答えへと近づいていきます。前述したように、これは未知の答えを発見しようとする以上必要となってくる過程です。したがって、研究ができる AI もこのような検証結果を踏まえて仮説を修正できることが求められるように思われます。
+
+However, when the result for verification were negative, identifying the cause of the result is not as straightforward as one might think. This is because the verification relies on numerous implicit and explicit hypotheses and all of them can be the cause of the result \cite{sep-scientific-underdetermination}. The cause may be the proposed main hypothesis, a premise behind the hypothesis, an auxiliary hypothesis, an observation, an experimental instrument, or all of them. An AI that can conduct research must identify which of these possibilities is the cause. Once the candidates for the cause are determined, the AI has to generate a more plausible hypothesis based on the results of verification, as we have discussed so far.
+
+In science, to identify the cause, it would be necessary to appropriately interpret the data generated by experiments. However, what one reads from the data can change depending on the individual's beliefs, prior knowledge, and what they expect to find. Therefore, these verification results may be reinterpreted multiple times, and with each reinterpretation, the hypothesis that needs to be revised may change. Ideally, AI capable of conducting research should be able to interpret verification results with these possibilities in mind.
+% 科学であれば、原因を特定するためには、実験によって生成されたデータを適切に解釈する必要があるでしょう。しかし、データから何を読み取るかは、その人の持つ信念や事前知識やそこから何を期待するかによって変わり得ます。したがって、この検証結果は何度も再解釈される可能性があり、その度に修正すべきだと思われる仮説が違ってくるかもしれません。研究ができる AI は理想的にはこのような可能性も視野に入れて検証結果を解釈していくことができるようになることが望まれるでしょう。
+
+
+\subsection{Common Challenges}
+review の解釈のやつもここに入れる
+
+\subsubsection{Open-Endedness}
+One of the major challenges that can be a common issue for any process, as pointed out in prior research as well  \cite{coley2020autonomousII}, is how to execute these tasks in open-ended situations. For instance, in the automation of experiments, robots use experimental equipment selected, prepared, and set up by humans. However, humans do these tasks from scratch with their own hands. Humans do not use a given corpus of papers; instead, they search for and use them on their own. Candidates for hypotheses are not explicitly provided; humans begin by identifying potential hypotheses. Even when formulating questions that serve a particular goal, humans set that goal themselves. 
 
 In many cases in research automation, these elements are pre-determined by humans. How to let machines autonomously perform these tasks starting only with the same initial information given to humans is crucial in realizing an autonomous artificial researcher. Moreover, having this kind of freedom is essential to achieving a general artificial researcher as well. This is because if we impose constraints on AI to research only within specific research questions or hypothesis spaces defined by humans, it cannot become an AI capable of conducting arbitrary research. Therefore, a significant challenge is how to make AI acquire complex foundational skills and fundamental reasoning abilities to realize these capacities.
 
-人間はその答えが未知であることを自ら自覚し、そのような場合に取るべき手段を過去から援用することで、段階的に不確実性を削減しているように思われます。これは仮説の生成だけじゃなくて、問いの構築でも仮説の検証でも言えること。それが汎用的な手法を構築する上で重要なこと。
+\subsubsection{Generality}
+汎用性がなぜいるかなどの説明？上の定義はそもそもそういうモチベーションから始まってるので、ここでわざわざ書かなくても良い。
 
-\subsection{Challenges}
+特定の研究課題に特化すれば、問いの構築、仮説の生成、仮説の検証を実行できるような機械はすでに開発されています。これまでのセクションでこれらの概念の定義を改めて検討したのは、研究ができる AI とは特定の研究課題に特化した方法でこれらを実行するのではなく、どのような研究対象に対してもこれらを自律的に遂行できる AI であることが望まれるからです。このような汎用的な研究ができる AI をどのように実現するかというのが課題です？
+
+% どのような研究対象に対しても問いを立て、仮説を生成し、仮説を検証できるような人工知能を作るためには、これらを汎用的な方法で実行する必要があります。このように
+
+% \subsection{Challenges}
 
  % \subsection{General and Autonomous Question Construction, Hypothesis Generation, and Hypothesis Verification}
 
- In Chapter 2, we explained that in order to create an AI capable of conducting any research, it is deemed necessary to realize the formulation of questions, generation of hypotheses, and validation of these hypotheses as a combination of universal skills applicable to all research. In this section, we will revisit and organize the potential challenges in achieving an AI that can conduct each of these processes.
+ % In Chapter 2, we explained that in order to create an AI capable of conducting any research, it is deemed necessary to realize the formulation of questions, generation of hypotheses, and validation of these hypotheses as a combination of universal skills applicable to all research. In this section, we will revisit and organize the potential challenges in achieving an AI that can conduct each of these processes.
 
 
-\subsubsection{The Difficulty of General Hypothesis Verification}
-I recognize that the the way to verify a hypothesis is strikingly diverse, as it can significantly differ depending on the subject of research. For instance, if one wishes to study the behavior of rat, they may need to train the rat. On the other hand, if you want to test a theory of particle physics, you may have to construct and run a huge particle accelerator. In the field of history, the existence of historical records might serve as evidence, while in mathematics, the verification process revolves around the proofs themselves. Due to this high degree of flexibility, hypothesis verification can be the most challenging aspect to automate for realizing a ``general'' artificial researcher.
+% \subsubsection{The Difficulty of General Hypothesis Verification}
+% I recognize that the the way to verify a hypothesis is strikingly diverse, as it can significantly differ depending on the subject of research. For instance, if one wishes to study the behavior of rat, they may need to train the rat. On the other hand, if you want to test a theory of particle physics, you may have to construct and run a huge particle accelerator. In the field of history, the existence of historical records might serve as evidence, while in mathematics, the verification process revolves around the proofs themselves. Due to this high degree of flexibility, hypothesis verification can be the most challenging aspect to automate for realizing a ``general'' artificial researcher.
 
-\subsubsection{Feedback from Verification}
-In the first place, the act of verification is a highly challenging process. Firstly, as mentioned earlier, inductive approaches cannot verify hypotheses in the same way as deductive reasoning. Also, I notice that hypothetico-deductive method, which involves verifying claims derived from a hypothesis to confirm its validity, is still widely used today. However, verifying a deduced claim does not support the hypothesis because there may be many hypothesis that can result in the same deduced claim. In response to these, Karl Popper proposed that while hypotheses cannot be confirmed, they can be falsified \cite{sep-scientific-method}. However, in practice, the verification of hypotheses involves implicitly relying on numerous auxiliary hypotheses. When using experimental apparatus, it requires many assumptions to trust them. Even when an experiment fails, determining whether the hypothesis was incorrect or the experiment itself was flawed is not as straightforward as one might think. Thus, there is inherent uncertainty in attributing the results of verification to a specific cause \cite{chalmers2013thing,sep-physics-experiment,sep-scientific-underdetermination} as I have discussed in the section of hypothesis generation. Furthermore, all reasoning and observational evidence are inevitably influenced by some form of theories, individuals, or societal factors \cite{sep-science-theory-observation}. Therefore, it is necessary to carefully examine them to ensure that they are not distorted by unintended influences.
+% \subsubsection{Feedback from Verification}
+% In the first place, the act of verification is a highly challenging process. Firstly, as mentioned earlier, inductive approaches cannot verify hypotheses in the same way as deductive reasoning. Also, I notice that hypothetico-deductive method, which involves verifying claims derived from a hypothesis to confirm its validity, is still widely used today. However, verifying a deduced claim does not support the hypothesis because there may be many hypothesis that can result in the same deduced claim. In response to these, Karl Popper proposed that while hypotheses cannot be confirmed, they can be falsified \cite{sep-scientific-method}. However, in practice, the verification of hypotheses involves implicitly relying on numerous auxiliary hypotheses. When using experimental apparatus, it requires many assumptions to trust them. Even when an experiment fails, determining whether the hypothesis was incorrect or the experiment itself was flawed is not as straightforward as one might think. Thus, there is inherent uncertainty in attributing the results of verification to a specific cause \cite{chalmers2013thing,sep-physics-experiment,sep-scientific-underdetermination} as I have discussed in the section of hypothesis generation. Furthermore, all reasoning and observational evidence are inevitably influenced by some form of theories, individuals, or societal factors \cite{sep-science-theory-observation}. Therefore, it is necessary to carefully examine them to ensure that they are not distorted by unintended influences.
 
 
 % \subsubsection{Question Construction}
@@ -1013,7 +1065,7 @@ In the first place, the act of verification is a highly challenging process. Fir
 
 % Extensive discourse transpires concerning scientific discoveries. Yet, discussions pertaining to scientific comprehension remain relatively unexplored. Krenn et al. delve into the conundrum of what it entails for a machine learning agent to not only unearth scientific knowledge but also to comprehend it \cite{krenn2022scientific}. They adopt a human-centric stance, positing that an agent's ability to offer explanations comprehensible to human scientists signifies the existence of its scientific understanding.
 
-sun-rise \cite{leslie2023does}
+% sun-rise \cite{leslie2023does}
 
 \section{Ideas for Elucidating Challenges}
 
