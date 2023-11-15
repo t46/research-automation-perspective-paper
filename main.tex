@@ -64,6 +64,52 @@ This paper presents a speculative discussion on artificial intelligence capable 
 
 % \section{Question Construction, Hypothesis Generation, and Hypothesis Verification}
 
+\section{Definition}
+
+\subsection{Alternative Definitions}
+% 真理促進的ではない。帰納推論だけでは難しい。
+
+% So far, I have examined the consequences of perceiving research as the production of new knowledge for society, and knowledge as a justified true belief. While the current definition of research may be suitable for comprehensively describing the wide range of human research conducted so far, adopting this definition led to counterintuitive conclusions with seemingly intractable problems. Therefore, I would like to discuss how this definition can be modified, or what other definitions might be conceivable.
+
+% \subsubsection{Limited to Human Knowledge}
+% One of the biggest issues of the definition is that it implies that a fully autonomous artificial researcher is likely to produce knowledge that is meaningless to humans, or even useless to understand nature. To mitigate this problem, we may force knowledge an artificial researcher produces to be relevant for humans.
+
+% One idea is to ensure that the foundation for validation remains fundamentally human, as I mentioned above. This is because the above problem arose entirely from allowing AI to autonomously construct even the foundation for verification. It is conceivable, for example, to make AI unconditionally and strongly believe in the validity of inductive reasoning and statistical hypothesis testing 
+
+% Another alternative is to force AI to produce knowledge that humans can understand. This is the more restrictive definition because it is conceivable that there is a procedure where humans might be convinced something is true if that is confirmed by it even if they can't fully grasp how it works. It seems that what people desire is an AI that produces knowledge in this sense, so for those people, this definition may be more than sufficient.
+
+% A downside of adopting these definitions is that they might preclude the production of knowledge that, while certainly explaining nature, cannot be verified within the framework of human validation. If one believes that nature transcends human cognitive limitations, it seems reasonable to assume that such knowledge exists. While this may not be a concern for many people, it certainly limits the possibility of machines to do research and hence understand this nature beyond human limits. 
+
+% It seems that one of the purposes of creating an intelligence capable of autonomously conducting research is to advance the understanding of this world beyond human limitations. Considering this, I believe that it is desirable to remove such constraints if possible. Whether such constraints are fundamentally unavoidable, or whether it is possible to relax them in some way, is something that I hope will be further discussed in the future
+
+
+% \subsubsection{Knowledge Consistent with Nature}
+% An approach that could be considered in principle to relax the aforementioned constraints is to enforce a verification basis that is consistent with nature, without necessarily requiring a human verification foundation. 
+
+% As mentioned earlier, the reason humans can generate knowledge useful for understanding nature based on belief systems may be because our belief systems have been formed through interaction with nature. If this is the case, there is a possibility that by allowing machines to acquire a belief system consistent with nature in the same way, they could produce knowledge leading to the understanding of nature without being constrained by human knowledge. For instance, it might be possible, in principle, to do this by allowing machines to interact with the external world in the real world to form its belief system, just as humans do.
+
+% However, I have no idea how to create such a machine. Even if such a machine were to be developed, as it relies on a verification basis different from humans, we might not be able to judge whether it is functioning properly. For us to be convinced of the discovery by the machine, it needs to be reflected in our belief system, but this is no different from being consistent with our belief system. Therefore, even though it is theoretically conceivable, it seems impractical to realize this approach. Considering this, it seems necessary that the basis for verification should be human one.
+
+ 
+% \subsubsection{Research as New Pattern Discovery}
+% One of the main reasons the definition I adopted lead to counterintuitive results may be because I regard research as the production of ``knowledge'', and knowledge as ``belief''. I interpret research as the updating of beliefs just because it is consistent with human research practices so far. Rather, an essential aspect of research seems to be discovering or creating something ``novel'', and whether or not that constitutes ``knowledge'' seems secondary.
+
+% Given this, it might be worthwhile to simply define research as the ``discovery of new patterns (in nature)''. This definition seems to at least encompass our current research endeavors. It emphasizes the discovery of new things, is not dependent on the subject, and, (by specifying ``in nature'',) appears to align with the goal of understanding nature.
+
+% This might be too abstract, so it would be necessary to re-analyze what this definition truly means. I'd like to consider that discussion as future work.
+
+% \subsubsection{Research as Question Answering}
+% Defining research as merely a question-and-answer process might be one approach. However, a distinguishing feature of research is that the answer is unknown to anyone. Nobody knows the correctness of the answer, but it is indirectly provided by the subject of study, such as nature. While it's unclear to what extent this formulation can alleviate the issues with the definition we've adopted, it seems worth considering for furhter study.
+
+\subsubsection{Pragmatist Epistemology}
+Up to now, we have assumed that justification should be truth-conducive since this is what most researchers would expect. That is, I regard belief that reflect the truth of this world is knowledge. However, there is also a position that regard beliefs useful for human should be knowledge. This position is known as \textit{pragmatist epistemology}. 
+
+From this perspective, it could be possible to argue that the outputs of current machine learning models, for example, may be considered knowledge since it shows high predictive performance, leading humans to the desired behaviours. In this sense, this position is highly compatible with statistical machine learning \cite{otsuka2022thinking}.
+
+As such, this pragmatism presents a different view of research from that of majority of researchers, and it could be seen as advocating a redefinition of the act of research. Many researchers may not accept this view. Nevertheless, in recent years, deep neural networks have made rapid advancements and have produced many ``useful'' outcomes in research, which has made the debate on whether to consider their outputs as knowledge much more relevant and realistic than ever before.
+
+In this paper, I take the position that knowledge is JTB, and research is an endeavor to approach a truth. Therefore, I will not address this issue in the following sections that much. However, we must seriously consider the implications presented by deep neural networks and delve deeper into the discussion of how we should define research, what constitutes research, and what purpose research serves.
+
 \section{Hypothesis Generation}
 
 \subsection{Generating Plausible Hypothesis}
@@ -428,6 +474,32 @@ Furthermore, as explained in the section on statistical hypothesis testing, it w
 % It could be said that I'm taking a view similar to the new experimentalism, placing emphasis on verification in research, or experiments \cite{chalmers2013thing,mayo1996error}.
 
 % Of course, generating a hypothesis is not a simple task. What I want to say is that, as long as any method of hypothesis generation is properly verified, it is considered research, and no matter how properly a hypothesis is proposed, if the verification is sloppy, it is not considered research. This means that verification may be at the heart of knowledge production. In other words, in order to create artificial intelligence that produces knowledge, it is important to consider how to create an intelligence that can perform verification.
+
+\subsection{Autonomous Hypothesis Verification}
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{figs/incommensurability.jpg}
+    \caption{Incommensurability}
+    \label{fig:incommensurability}
+\end{figure}
+
+I said that research is to generate knowledge for humanity. However, this is merely because humans have been the only ones conducting research thus far. I believe that in principle there could be knowledge for beings other than humans and hence research for them as well. 
+
+For example, if a group of machines are each capable of holding certain belief state which is similar to each other, they seem to be able to hold a shared belief. If these agents have a way to ground their belief that a hypothesis is true to their shared belief, then this can be regarded as research within that society. Therefore, the definition of knowledge as belief leads to the conclusion that research by and for the machines would look like this.
+
+\begin{figure}[htb]
+    \centering
+    \includegraphics[width=\linewidth]{figs/shared_belief_revision.jpg}
+    \caption{Belief Revision}
+    \label{fig:shared_belief_revision}
+\end{figure}
+
+There are two implications here. Firstly, if we let AI entirely autonomously conduct research in the sense of current definition, including the design of the conceptual foundation of verification, they would likely produce nonsense for humans. This is because the systems of beliefs of humans and those machines would be entirely different from each other. Therefore, to conduct research that is meaningful to humans, it could be said that the foundation of the method of verification should be based on the foundation of human verification.
+
+The second implication is that if the foundation of verification is autonomously constructed, the AI capable of conducting research in the sense of this definition would even produce knowledge meaningless for understanding nature. This is because while human beliefs have been shaped to be consistent with nature through interactions with it, the beliefs of machines are not necessarily so. Through the process of evolution, humans have spent vast amounts of time interacting with and modifying their bodies to survive in nature. Our beliefs are formed in such contexts, and the beliefs we currently possess are likely advantageous for living in nature. Therefore, I believe that our strong belief serves as a reliable foundation for understanding nature. Machines do not possess bodies embedded with such interactions with nature. Therefore, just because they have strong convictions does not guarantee that these will serve as a reliable foundation for explaining nature. 
+
+When aiming for artificial intelligence that can conduct research autonomously, we still do not know how much can be entrusted to AI, namely, where the limits of autonomy lie. Based on the above two conclusions, it becomes apparent that when letting AI conduct research in the current definition's sense, it seems difficult to have AI create the conceptual foundation of verification from scratch. Therefore, it appears necessary to teach this AI what verification entails through human examples or align their values regarding verification with human values.
 
 \input{chapters/review}
 
