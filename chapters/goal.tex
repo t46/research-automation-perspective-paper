@@ -1,5 +1,5 @@
 \section{What Would be Activities Called Research?}
-\label{chapter-what-is-research}
+\label{section-what-is-research}
 
 「研究の定義は何か？」よりも、「私たちは研究をどのように特徴づけたらいいのか？」とかの方がいいかも？
 
@@ -661,8 +661,26 @@ As already mentioned, these are just a part of the value judgments that humans m
 % It seems that the automation of question formulation has received relatively less attention compared to other processes. Since the formulation of questions is an essential element in conducting research, it would be desirable for more focus to be directed towards the research on automating this process.
 
 \subsection{Hypothesis Generation}
+二つ目の要素は仮説の生成です。研究とは問いを立てて、その問いに対する答えようとする営みです。研究者はこの問いに答える過程を仮説の生成と仮説の検証の二つに分離して行います。仮説の生成は質問に対する答えの予想であり、仮説の検証はそれが実際に確からしいかを調べる操作です。問いに答える過程をこのように二つの段階に分けるのは、リサーチクエスチョンは人類が誰もその答えを知らないようなものであり、そのため一度に答えを言い当てることは事実上困難であること、そして一個人の思考は必ずしも真理促進的ではないことなどが理由として考えられます。言い換えるなら、仮説生成と検証への分離は人間が極めて不確実性の高い対象の真実を明らかにするために開発した方法論であると言えます。
+
+\textcolor{red}{自分の、仮説生成と予測の違いがわからないという率直な気持ちを書いてFBを待つのがいい気がする。アナロジーの話とかもみんなわかってるけどそれでもみたいな感じ。仮説を数式で表現するとかは科学にユニーク？モデリング？}
+
+問いの構築と仮説の生成は科学における人間の創造性が発揮される場所として認識されてきました。例えば。。。
+
+機械学習モデルは予測です。検証を伴わない予測という意味で仮説生成と同じ。広義の意味ではこの定義に吸収される。フレームとしては質問応答だし、ood 予測。
+
+実際、科学の仮説生成に広く使われてる。
+
+じゃあ、研究に特有の予測の性質とはなんだろうか？自分にとって未知なものに対する推論←OODの程度がすごい、whyquestionに特化してる←因果推論、探索空間が広域？
+
+汎用的な仮説生成機械を作ろうとすると、より良い予測ができる汎用モデルを構築するという話に結局収斂してしまう。
+
+仮説の生成と仮説の検証の間に、演繹的推論がある・これが科学ではとても大きな役割を果たしていた。
+
 より良い推論ができるようになるには、という話で、結局汎用人工知能を作りたいというかなり広い論点と被ってしまう、という注意を入れる
 より良い人工知能を作りたい多くの人が関心がある論点。科学研究にユニークな点としては、探索空間が広大であることなどが知られてる。仮説空間を陽に定めない場合は、自分自身も知らないという状況がユニーク。これを解決するためにつような要素は結局みんなが必要だと思ってる要素だけど、みたいな話。
+
+仮説からの演繹の話はどこかで書く。おそらくこの仮説の生成のところで書く？←仮説の確からしさを見る？その意味だと検証？？理論研究の位置付けにもよるけど、演繹はやっぱり仮説のところで扱うべきでは。
 
 The second component is \textit{hypothesis generation}. Research is the endeavor to find answers to research questions. Here, as mentioned before, these questions are ones for which the answers are not known. Therefore, we generate hypotheses as candidate answers to these questions and find answers by validating them. Given that research is an endeavor to turn the unknown into the known, the generation of hypotheses, whether implicit or explicit, is an inevitable element in research.
 
@@ -759,13 +777,25 @@ LLMs know that they know \cite{kadavath2022language}
 can ChatGPT generate scientific hypothesis? \cite{park2023can}
 
 \subsection{Hypothesis Verification}
-The third sub-module is hypothesis verification. Knowledge production in this paper is defined as the process of justifying beliefs in a way that convinces members of the society. Hypothesis verification corresponds to this justification. As explained in Section \ref{section-knowledge-production-as-belief-revision}, I believe that science is a reliable source of knowledge production precisely because it is grounded in methods based on strong beliefs that are held by virtually every human being and are so fundamental that even everyday life would be impossible without them.
+最後の要素は仮説の検証です。私たちは問いに対する予想の確からしさを検証によって確かめることで、ある仮説が真である・偽であるという信念を正当化します。したがって、知識を生み出すためには検証は不可欠です。
 
-In the previous section, I pointed out the possibility that allowing verification methods to be entirely autonomously constructed could result in outputs that are meaningless to humans. So, what exactly needs to be created, and to what extent, in order to develop an AI capable of performing verification? I would like to consider this point in this section.
+検証がどのようなものになるかは当然ですが問いと仮説が何であるかに依存します。例えば、問いが ``Why-question'' であれば、検証は因果関係を明らかにできる方法ではないといけません。問いが物理的世界についての言及であれば検証は当然物理的世界との相互作用を必要とします。仮説が数学的証明で証明され得るものであれば、数学的証明が検証となるでしょう。検証ができる AI は、検証とは何かというハイレベルな理解を持ち、これらのいずれの状況でも、問いと仮説に基づいて、適切な検証法を自ら選択・構築し実行できることが期待されます。
 
-I consider the notion of verification as an update of shared beliefs to be useful in comprehensively describing the process of verification across a wide range of research, from theoretical studies to humanities. However, it might be somewhat too abstract when aiming for the current purpose. To provide a foundation for further discussion, I would like to focus on verification in science, particularly on its core elements: experimentation and statistical analysis.
+仮説の生成に比べると AI 自身に検証をさせるという話は多くはありません。科学における実験計画やシミュレーションなど検証の一部分のタスクを代替させる研究は以前から多くありますが、AI 自身に検証とは何かを理解させ、仮説を検証するためには何をすべきかゼロから考えさせるような取り組みは、まだ多くないと言って良いでしょう。確かに機械学習の研究では、科学的主張の妥当性を判断する研究や、予測が事実であるかを確認する研究は、検証に関連する研究ですが、いずれも人間が行う科学研究のような検証を構築して実行するものではありません。査読の自動化も論文で提案されている検証の妥当性の判断を求められるという意味で、検証の理解に関連する研究ですが、研究を生成するものではありません。
+
+本セクションでは、自律的に研究ができる AI を作るために必要そうなことを考える思考の種を提供できるよう、検証について分析していきます。検証とは何か、すなわち正当化についてはすでにセクション 2 で話をしましたので、ここではそれに関する議論については割愛します。代わりに、このセクションでは人間のような検証をする際に重要であると思われる要素について議論します。特に、科学における検証である実験とその重要な要素である統計的分析について議論します。これによって、検証ができる AI は何ができなければならないのかについて少しだけ解像度を上げる手助けとなれば幸いです。
+
+\textcolor{red}{因果とかの話する？}
+
+% The third sub-module is hypothesis verification. Knowledge production in this paper is defined as the process of justifying beliefs in a way that convinces members of the society. Hypothesis verification corresponds to this justification. As explained in Section \ref{section-knowledge-production-as-belief-revision}, I believe that science is a reliable source of knowledge production precisely because it is grounded in methods based on strong beliefs that are held by virtually every human being and are so fundamental that even everyday life would be impossible without them.
+
+% In the previous section, I pointed out the possibility that allowing verification methods to be entirely autonomously constructed could result in outputs that are meaningless to humans. So, what exactly needs to be created, and to what extent, in order to develop an AI capable of performing verification? I would like to consider this point in this section.
+
+% I consider the notion of verification as an update of shared beliefs to be useful in comprehensively describing the process of verification across a wide range of research, from theoretical studies to humanities. However, it might be somewhat too abstract when aiming for the current purpose. To provide a foundation for further discussion, I would like to focus on verification in science, particularly on its core elements: experimentation and statistical analysis.
 
 \subsubsection{Experimentation}
+科学者で実験の重要性を否定する人はいないでしょう。実験とはある仮説をテストするための一連の手続きのことで、科学における検証そのものです。したがって、検証ができる AI は当然実験ができなければなりません。
+
 Experiments are generally considered a series of procedures to test a hypothesis, particularly referring to the process of data generation. I believe that the main elements in an experiment are the interventions to test a hypothesis and the generation of data to artificially create observations of phenomena. Verification is then done through the analysis of data obtained from these experiments.
 
 The experiment can largely be divided into three phases: designing the verification plan, preparing to execute the verification plan, and actually carrying it out. Therefore, it seems that in order to create an AI that can conduct experiments, we must create an AI capable of performing all of these tasks.
