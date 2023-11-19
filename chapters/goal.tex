@@ -177,11 +177,11 @@ Considering this, if the goal is to create AI that produces knowledge for humans
 
 While beliefs are indeed subjective, in research, justification is expected to be conducive to truth, thus making justified knowledge objective. This is because whether a proposition is true or not determines whether that belief is justified, regardless of what we think.
 
-Since our research involves inductive reasoning, we cannot ``prove'' that our justification methods are strictly truth-conducive, but considering the numerous discoveries we have made through them, I believe these are valid justifications. Therefore, if AI can appropriately utilize these justifications developed by humans, it is expected to uncover numerous unknown truths.
+Since our research involves inductive reasoning, we cannot ``prove'' that our justification methods are strictly truth-conducive, but considering the numerous discoveries we have made through them, I believe these are valid justifications. If AI can fully master and appropriately utilize these justifications developed by humans, it would be enough for them to uncover numerous unknown truths.
 
-I explained that it seems sufficient if AI can master the justification methods developed by humans. Then, instead of using the justification methods developed by humans, is it possible for an AI to construct new truth-conducive justification methods on its own? Human beings, for example, have developed statistical hypothesis testing as a method for evaluating hypotheses, so can AI similarly develop its own unique methods for evaluating new hypotheses?
+So, is it possible for an AI to construct new truth-conducive justification methods on its own instead of just mastering human developed methods? Human beings, for example, have developed statistical hypothesis testing as a method for evaluating hypotheses, so can AI similarly develop its own unique methods for evaluating new hypotheses?
 
-As I mentioned that we cannot ``prove'' our justification to be truth-conducive, our justification is based on several premises. This means that we need an interpretation of ``how a justification is truth-conducive'' in some sense, and depending on that interpretation, there actually exist multiple methods of justification even in the case of humans \cite{otsuka2022thinking}.
+As I mentioned that we cannot ``prove'' our justification to be truth-conducive, our justification is based on several premises. This means that we make an interpretation of ``how a justification is truth-conducive'' in some sense, and depending on that interpretation, there actually exist multiple methods of justification even in the case of humans \cite{otsuka2022thinking}.
 % \footnote{
 % For example, validating a hypothesis through statistical hypothesis testing essentially means believing that the inductive reasoning, which is a premise of statistical hypothesis testing, is valid. Using inductive reasoning implies believing in its premises, such as the principle of uniformity of nature \cite{sep-induction-problem}. Of course, there is no guarantee that this principle always holds, but it is such a natural assumption that has been shaped by nature through evolution and development and doubting it would make living practically impossible.
 % }
@@ -189,7 +189,7 @@ As I mentioned that we cannot ``prove'' our justification to be truth-conducive,
 % I naively assume that beliefs rooted directly in perception are more robust, and the notion that anchoring a belief on those foundations enhances its reliability. However, the question of how to justify beliefs is a complex problem with extensive discussions \cite{sep-epistemology} (my position seems to align somewhat with what is called \textit{empirical foundationalism}).Due to my limited philosophical knowledge and the ability to delve deeper into philosophical discussions, this paper will not further pursue these arguments.
 % }
 
-Therefore, when allowing AI to autonomously construct up to the method of justification, the AI is expected to make value judgments about ``how a justification is truth-conduciv'' and to choose the most optimal method of justification in some sense. In the case of humans, who have bodies formed through interaction with nature in the process of evolution and development and a belief system based on these bodies, it seems that they have already acquired a value system useful for understanding nature. Whether machines, which do not possess such a value system, can construct such methods of justification is an open problem.
+Therefore, when allowing AI to autonomously construct up to the method of justification, the AI is expected to make value judgments about ``how a justification is truth-conducive'' and to select the optimal method of justification. In the case of humans, who have bodies formed through interaction with nature in the process of evolution and development and a belief system based on these bodies, it seems that they have already acquired a value system useful for understanding nature. Whether machines, which do not possess such a value system, can construct such methods of justification is an open problem.
 
 This is not merely a philosophical inquiry. This is because, as long as we do not understand what constitutes the most truth-conducive justification, there is a possibility that better methods of justification may exist. Moreover, machines, not bound by cognitive constraints like humans, theoretically have the potential to discover such justifications. Particularly, the quality of a truth-conducive justification can be determined regardless of whether it involves humans or machines. Therefore, in the sense that its quality can be determined without human judgment, there is a possibility that machines could autonomously construct it. If this were to happen, it might enable the production of knowledge that humans alone could not have achieved.
 
@@ -799,36 +799,43 @@ can ChatGPT generate scientific hypothesis? \cite{park2023can}
 実験では観察が困難な現象や様々な条件の影響を正確に調べるために、統制された方法で人工的に自然現象を生成し、これ対して積極的に介入をすることで調べたい変数の関係や因果関係などの違いを人為的に作り出します \cite{radder2009philosophy}。これらを観測して実験データとして保存し、このデータを解析することで仮説が真であるか否かを判定します。
 (footnote) 必ずしも検証の時だけではなく、仮説を生成する際にも実験は行われます。また、実験で出てきた結果を受けて新しい問いや仮説を生成することが行われます。この時、データを生成するまでの過程を、あるいは必ずしも検証のためだけではなくデータ生成となんらかのデータ解析をすることを指して実験と呼んでいるように思われます。本論文では計画を立てて、準備をして、データを生成してそれを解析して検証結果を判断することを指して実験と呼びますが、それが必ずしも実際の実践を反映していない可能性がある点には注意してください。
 
-実験を実施するためには、まず実験のデザインをし、実験の手続きを書き下し、実験の計画を立てなければなりません。このためには、何をどうしたら仮説を検証したことになるのかという検証についての理解、そして既存の技術を駆使して具体的にそれを実現する方法を考える能力が必要になります。そして、これらを実際に実行可能なものとするため、実験の準備をしなければなりません。例えば薬品を購入したりフラスコを準備したり動物を訓練したり必要な装置, 時には加速器のような巨大な装置, をゼロから作ったり、倫理委員会に申請を出したり、クリーンルームを作ったり、しなければなりません。特に、研究はまだ誰も知らないことを明らかにすることを目指すので、実験のために使う装置をゼロから作ることは研究においては珍しいことではありません。これらの準備を機械がゼロから自律的に実行するのは相当な困難です。
+実験を実施するためには、まず実験のデザインをし、実験の手続きを書き下し、実験の計画を立てなければなりません。このためには、何をどうしたら仮説を検証したことになるのかという検証についての理解、そして既存の技術を駆使して具体的にそれを実現する方法を考える能力が必要になります。そして、これらを実際に実行可能なものとするため、実験の準備をしなければなりません。例えば薬品を購入したりフラスコを準備したり動物を訓練したり必要な装置, 時には加速器のような巨大な装置, をゼロから作ったり、倫理委員会に申請を出したり、クリーンルームを作ったり、しなければなりません。さらには、研究はまだ誰も知らないことを明らかにすることを目指すので、実験のために使う装置をゼロから作ることは研究においては珍しいことではありません。これらの準備を機械がゼロから自律的に実行するのは相当な困難です。
 
 実験の準備ができた後は、実験プロトコルに従って実験を実行します。これも機械が自律的に実施するのはとても難しいことです。なぜなら、一つの実験をするのにも、掴む、切る、運ぶ、混ぜる、移動する、注ぐ、分注する、洗う、蓋を開ける、などなどの無数の低レベルの操作を自在に組み合わせて実験を実行する必要があるからです。自律的に実験ができる機械には与えられた実験プロトコルに応じてこれらの操作を自在に生成できる能力が必要となります。
 
 % I recognize that the the way to verify a hypothesis is strikingly diverse, as it can significantly differ depending on the subject of research. For instance, if one wishes to study the behavior of rat, they may need to train the rat. On the other hand, if you want to test a theory of particle physics, you may have to construct and run a huge particle accelerator. In the field of history, the existence of historical records might serve as evidence, while in mathematics, the verification process revolves around the proofs themselves. Due to this high degree of flexibility, hypothesis verification can be the most challenging aspect to automate for realizing a ``general'' artificial researcher.
 
+\subsubsection{Automating Experimentation}
 
 このように、実験の計画だけでなく準備や実行まで機械に完全に自律的に実行させるとなると、相当困難であることがわかります。特に、どのような実験をすべきかは問いや仮説を立ててからでないとわかりませんから、問いの構築から自律的に研究をさせるとなると、あらゆる実験の可能性に対応できるような能力が要求されます。私はこれは研究が自律的に実行できる機械を作る上での最大の障壁の一つであると考えています。
 
-このように実験の自動化は非常に難しいタスクですが、人類はこれまで着実にこの難しいタスクを前に進めてきました。
+このように実験の自動化は非常に難しいタスクですが、人類はこれまで着実にこの難しいタスクを前に進めてきました。実験の計画の段階に関連するものとしては、例えば実験条件の探索の効率化と自動化は長い歴史を持っています。Wang et al. have summarized these studies that utilize AI to assist experiments by research planning, research guidance, and generating observational data through numerical simulations \cite{wang2023scientific}. 
 
-実験の自動化には様々な取り組みがある
-科学的データの観察の話も入れる？
+また、laboratory automation と呼ばれる実験の実行も含めた自動化の試みもあります。
+ 
+A notable example is pioneering research in genetics by Ross King, who fully automated the cycle of hypothesis generation, verification, and discovery of new hypotheses with Adam \cite{king2004functional}. Another example is A.I. Cooper, which enabled the use of the same experimental equipment as humans through autonomous robots \cite{burger2020mobile}. These examples of initiatives aim to autonomously drive the research cycle, including hypothesis generation, planning and execution of experiments, and generation of hypotheses based on experimental results. Such initiatives are referred to as the closed-loop automation of scientific discovery     \cite{burger2020mobile,king2004functional}. This represents an example of achieving extremely high autonomy in the quest for research automation. Furthermore, there are efforts to develop humanoid robots for experiments, capable of conducting multiple different experiments with a single robot \cite{yachie2017robotic}. This is deemed to be a foundational step towards potentially general research automation. 
 
-汎用的なロボットが必要だね
+In recent years, there have been studies attempting to automate the experimentation using language models \cite{boiko2023emergent,charness2023generation,qin2023gpt}.
 
-Experiments are generally considered a series of procedures to test a hypothesis, particularly referring to the process of data generation. I believe that the main elements in an experiment are the interventions to test a hypothesis and the generation of data to artificially create observations of phenomena. Verification is then done through the analysis of data obtained from these experiments.
+また、実験によって生成されたデータを解析して解釈するためには、それを読み取るだけの事前知識が必要です。なぜなら、何かを観測することは常に何らかの理論を背後に伴うからです（観測の理論負荷性）。したがって、機械学習モデルに科学データを理解するために必要な対称性や微分方程式や直観物理といった物理学的な事前知識を入れ込むことで、機械が科学データを解釈できるようにする研究があります（必ずしも検証のためだけではない）。
 
-The experiment can largely be divided into three phases: designing the verification plan, preparing to execute the verification plan, and actually carrying it out. Therefore, it seems that in order to create an AI that can conduct experiments, we must create an AI capable of performing all of these tasks.
+このように、さまざまな研究が実験の自動化を着実に推し進めてきました。一方で自律的に実験ができる機械の実現にはまだ多くの課題があるのも事実です。Coley et al. discuss in detail these challenges of automating experimental and computational validations, as well as the selection of experiments, while referencing studies on automated verification \cite{coley2020autonomousII}.特に、さまざまな研究課題に適応可能な汎用的な自動実験機械の実現には、人間のように低レベルの行動を自在に操れるロボットが必要であり、非常に実現が難しいです。この大きな課題が解決されるためにより多くの注目とリソースが注がれ、分野全体が進んでいくことを願っています。
+
+
+% Experiments are generally considered a series of procedures to test a hypothesis, particularly referring to the process of data generation. I believe that the main elements in an experiment are the interventions to test a hypothesis and the generation of data to artificially create observations of phenomena. Verification is then done through the analysis of data obtained from these experiments.
+
+% The experiment can largely be divided into three phases: designing the verification plan, preparing to execute the verification plan, and actually carrying it out. Therefore, it seems that in order to create an AI that can conduct experiments, we must create an AI capable of performing all of these tasks.
 
 % \subsubsection{Automating Experimentation}
-実験の自動化のレビューの話を書く、LAとか実験計画とか
+% 実験の自動化のレビューの話を書く、LAとか実験計画とか
 
 % \subsubsection{Understanding Verification}
-To become capable of designing verification plans, it seems necessary to have the ability to understand what verification is and the ability to engage in long-term planning. Additionally, preparing for verification, possessing a human-like body, and the capability to manipulate it freely will be required. Among these, the acquisition of intricate planning and flexible action has been the subject of research by many artificial intelligence researchers.
+% To become capable of designing verification plans, it seems necessary to have the ability to understand what verification is and the ability to engage in long-term planning. Additionally, preparing for verification, possessing a human-like body, and the capability to manipulate it freely will be required. Among these, the acquisition of intricate planning and flexible action has been the subject of research by many artificial intelligence researchers.
 
-On the other hand, the acquisition of the ability to understand verification seems to receive relatively little attention. There are indeed studies that focus on the importance of verification for reducing hallucinations and verifying the reliability of scientific claims, but these do not aim to determine what constitutes verification in scientific research. Therefore, I believe that considering how to make machines comprehend what can qualify as verification remains one of the challenges ahead.
+% On the other hand, the acquisition of the ability to understand verification seems to receive relatively little attention. There are indeed studies that focus on the importance of verification for reducing hallucinations and verifying the reliability of scientific claims, but these do not aim to determine what constitutes verification in scientific research. Therefore, I believe that considering how to make machines comprehend what can qualify as verification remains one of the challenges ahead.
 
 \subsubsection{Statistical Inference and Verification}
-In science, the validity of hypotheses is judged based on data generated from experiments using inductive reasoning. We have formalized inductive reasoning with concepts from probability theory and constructed methods to perform inductive reasoning through statistical inference. Inductive reasoning is a premise of science, and implementing it via statistical inference is a widely practiced approach. Therefore, when creating an AI capable of performing meaningful verification for humans, it would be sensible to take these as a given (this relates to the points mentioned earlier).
+In science, the validity of hypotheses is judged based on data generated from experiments using inductive reasoning. We have formalized inductive reasoning with concepts from probability theory and constructed methods to perform inductive reasoning through statistical inference. Inductive reasoning is a premise of science, and implementing it via statistical inference is a widely practiced approach. Therefore, when creating an AI capable of performing meaningful verification for humans, it would be sensible to take these as a given.
 
 On the other hand, there can be multiple interpretations of what it means for a hypothesis to be justified by statistical analysis \cite{otsuka2022thinking}. This implies that there are conflicting views on what methodology should be adopted to justify beliefs. As a result, there are multiple methodologies for statistical inference. Ideally, a machine capable of verification should understand ``why a certain inference is valid in justifying a hypothesis''  and be able to select or construct an appropriate methodology from these options. Otherwise, it might not truly understand what constitutes verification.
 
@@ -1072,7 +1079,12 @@ As we have introduced so far, there are several attempts to automate research th
 
 However, most automation studies target specific challenges in particular research fields. It seems that the goal of creating an AI capable of conducting any research is not receiving much attention. As explained in Chapter 2, in order to create such intelligence, it would be necessary to understand the high level concept of research, question construction, hypothesis formulation, and hypothesis verification, and to be able to execute them appropriately depending on the subject at hand.
 
+\subsubsection{Scientific Workflow}
+The workflow whose process is a research process, tasks are research tasks that receive and output scientific data is called \textit{scientific workflow} \cite{ludascher2009scientific}. By running scientific workflow systems, research process is automatically executed.  Amidst the flourishing of computational and data-driven sciences with the advancement of computers, these efforts seem to have been conceived to better manage in silico experiments \cite{liew2016scientific}. 
 
+Among such initiatives, just like in the case of laboratory automation, there are efforts that have achieved closed-loop automation, which completely autonomously carries out the cycle of hypothesis generation and verification \cite{gil2017towards}. Gil has presented how machine learning can be incorporated into this scientific workflow \cite{gil2022will}. She also presents a perspective on what kind of AI should be developed in order for it to become a good partner for researchers.
+
+Additionally, there are attempts to design workflows that are reusable beyond individual workflows, in other words, workflows with high generality \cite{hardisty2020canonical}.
 
 % どのような研究対象に対しても問いを立て、仮説を生成し、仮説を検証できるような人工知能を作るためには、これらを汎用的な方法で実行する必要があります。このように
 
