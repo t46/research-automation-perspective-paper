@@ -779,11 +779,11 @@ can ChatGPT generate scientific hypothesis? \cite{park2023can}
 \subsection{Hypothesis Verification}
 最後の要素は仮説の検証です。私たちは問いに対する予想の確からしさを検証によって確かめることで、ある仮説が真である・偽であるという信念を正当化します。したがって、知識を生み出すためには検証は不可欠です。
 
-検証がどのようなものになるかは当然ですが問いと仮説が何であるかに依存します。例えば、問いが ``Why-question'' であれば、検証は因果関係を明らかにできる方法ではないといけません。問いが物理的世界についての言及であれば検証は当然物理的世界との相互作用を必要とします。仮説が数学的証明で証明され得るものであれば、数学的証明が検証となるでしょう。検証ができる AI は、検証とは何かというハイレベルな理解を持ち、これらのいずれの状況でも、問いと仮説に基づいて、適切な検証法を自ら選択・構築し実行できることが期待されます。
+検証がどのようなものになるかは、当然ですが問いと仮説が何であるかに依存します。例えば、問いが ``Why-question'' であれば、検証は因果関係を明らかにできる方法ではないといけません。問いが物理的世界についての言及であれば検証は当然物理的世界との相互作用を必要とします。仮説が数学的証明で証明され得るものであれば、数学的証明が検証となるでしょう。検証ができる AI は、検証とは何かというハイレベルな理解を持ち、これらのいずれの状況でも、問いと仮説に基づいて、適切な検証法を自ら選択・構築し実行できることが期待されます。
 
-仮説の生成に比べると AI 自身に検証をさせるという話は多くはありません。科学における実験計画やシミュレーションなど検証の一部分のタスクを代替させる研究は以前から多くありますが、AI 自身に検証とは何かを理解させ、仮説を検証するためには何をすべきかゼロから考えさせるような取り組みは、まだ多くないと言って良いでしょう。確かに機械学習の研究では、科学的主張の妥当性を判断する研究や、予測が事実であるかを確認する研究は、検証に関連する研究ですが、いずれも人間が行う科学研究のような検証を構築して実行するものではありません。査読の自動化も論文で提案されている検証の妥当性の判断を求められるという意味で、検証の理解に関連する研究ですが、研究を生成するものではありません。
+仮説の生成に比べると AI 自身に検証をさせるという話は多くはありません。科学における実験計画やシミュレーションなど検証の一部分のタスクを代替させる研究は以前から多くありますが、AI 自身に検証とは何かを理解させ、仮説を検証するためには何をすべきかゼロから考えさせるような取り組みは、まだ多くないと言って良いでしょう。確かに機械学習の研究では、科学的主張の妥当性を判断する研究や、予測が事実であるかを確認する研究は、検証に関連する研究ですが、いずれも人間が行う科学研究のような検証を構築して実行するものではありません。査読の自動化も論文で提案されている検証の妥当性の判断を求められるという意味で、検証の理解に関連する研究ですが、検証を生成するものではありません。
 
-本セクションでは、自律的に研究ができる AI を作るために必要そうなことを考える思考の種を提供できるよう、検証について分析していきます。検証とは何か、すなわち正当化についてはすでにセクション 2 で話をしましたので、ここではそれに関する議論については割愛します。代わりに、このセクションでは人間のような検証をする際に重要であると思われる要素について議論します。特に、科学における検証である実験とその重要な要素である統計的分析について議論します。これによって、検証ができる AI は何ができなければならないのかについて少しだけ解像度を上げる手助けとなれば幸いです。
+本セクションでは、自律的に研究ができる AI を作るために必要そうなことを考える思考の種を提供できるよう、検証について分析していきます。検証とは何か、すなわち正当化とは何かについてはすでにセクション 2 で話をしましたので、ここではそれに関する議論については割愛します。代わりに、このセクションでは人間のような検証をする際に重要であると思われる要素について議論します。特に、科学における検証である実験とその重要な要素である統計的分析について議論します。これによって、検証ができる AI は何ができなければならないのかについて少しだけ解像度を上げる手助けとなれば幸いです。
 
 \textcolor{red}{因果とかの話する？}
 
@@ -794,7 +794,26 @@ can ChatGPT generate scientific hypothesis? \cite{park2023can}
 % I consider the notion of verification as an update of shared beliefs to be useful in comprehensively describing the process of verification across a wide range of research, from theoretical studies to humanities. However, it might be somewhat too abstract when aiming for the current purpose. To provide a foundation for further discussion, I would like to focus on verification in science, particularly on its core elements: experimentation and statistical analysis.
 
 \subsubsection{Experimentation}
-科学者で実験の重要性を否定する人はいないでしょう。実験とはある仮説をテストするための一連の手続きのことで、科学における検証そのものです。したがって、検証ができる AI は当然実験ができなければなりません。
+研究者で実験の重要性を否定する人はいないでしょう。実験とはある仮説をテストするための一連の手続きのことで、経験科学における検証そのものです。したがって、検証ができる AI は当然実験ができなければなりません。
+
+実験では観察が困難な現象や様々な条件の影響を正確に調べるために、統制された方法で人工的に自然現象を生成し、これ対して積極的に介入をすることで調べたい変数の関係や因果関係などの違いを人為的に作り出します \cite{radder2009philosophy}。これらを観測して実験データとして保存し、このデータを解析することで仮説が真であるか否かを判定します。
+(footnote) 必ずしも検証の時だけではなく、仮説を生成する際にも実験は行われます。また、実験で出てきた結果を受けて新しい問いや仮説を生成することが行われます。この時、データを生成するまでの過程を、あるいは必ずしも検証のためだけではなくデータ生成となんらかのデータ解析をすることを指して実験と呼んでいるように思われます。本論文では計画を立てて、準備をして、データを生成してそれを解析して検証結果を判断することを指して実験と呼びますが、それが必ずしも実際の実践を反映していない可能性がある点には注意してください。
+
+実験を実施するためには、まず実験のデザインをし、実験の手続きを書き下し、実験の計画を立てなければなりません。このためには、何をどうしたら仮説を検証したことになるのかという検証についての理解、そして既存の技術を駆使して具体的にそれを実現する方法を考える能力が必要になります。そして、これらを実際に実行可能なものとするため、実験の準備をしなければなりません。例えば薬品を購入したりフラスコを準備したり動物を訓練したり必要な装置, 時には加速器のような巨大な装置, をゼロから作ったり、倫理委員会に申請を出したり、クリーンルームを作ったり、しなければなりません。特に、研究はまだ誰も知らないことを明らかにすることを目指すので、実験のために使う装置をゼロから作ることは研究においては珍しいことではありません。これらの準備を機械がゼロから自律的に実行するのは相当な困難です。
+
+実験の準備ができた後は、実験プロトコルに従って実験を実行します。これも機械が自律的に実施するのはとても難しいことです。なぜなら、一つの実験をするのにも、掴む、切る、運ぶ、混ぜる、移動する、注ぐ、分注する、洗う、蓋を開ける、などなどの無数の低レベルの操作を自在に組み合わせて実験を実行する必要があるからです。自律的に実験ができる機械には与えられた実験プロトコルに応じてこれらの操作を自在に生成できる能力が必要となります。
+
+% I recognize that the the way to verify a hypothesis is strikingly diverse, as it can significantly differ depending on the subject of research. For instance, if one wishes to study the behavior of rat, they may need to train the rat. On the other hand, if you want to test a theory of particle physics, you may have to construct and run a huge particle accelerator. In the field of history, the existence of historical records might serve as evidence, while in mathematics, the verification process revolves around the proofs themselves. Due to this high degree of flexibility, hypothesis verification can be the most challenging aspect to automate for realizing a ``general'' artificial researcher.
+
+
+このように、実験の計画だけでなく準備や実行まで機械に完全に自律的に実行させるとなると、相当困難であることがわかります。特に、どのような実験をすべきかは問いや仮説を立ててからでないとわかりませんから、問いの構築から自律的に研究をさせるとなると、あらゆる実験の可能性に対応できるような能力が要求されます。私はこれは研究が自律的に実行できる機械を作る上での最大の障壁の一つであると考えています。
+
+このように実験の自動化は非常に難しいタスクですが、人類はこれまで着実にこの難しいタスクを前に進めてきました。
+
+実験の自動化には様々な取り組みがある
+科学的データの観察の話も入れる？
+
+汎用的なロボットが必要だね
 
 Experiments are generally considered a series of procedures to test a hypothesis, particularly referring to the process of data generation. I believe that the main elements in an experiment are the interventions to test a hypothesis and the generation of data to artificially create observations of phenomena. Verification is then done through the analysis of data obtained from these experiments.
 
