@@ -345,6 +345,7 @@ If machines would determine the novelty in a research survey like humans do, the
 % Moreover, they are known to confidently provide answers or fabricate falsehoods about topics they are ignorant of. Therefore, it seems essential to first accurately recognize what is unknown, either for oneself or the world at large, as told in sections of question construction. Upon facing an unknown subject, there's a need to reduce uncertainty and approach understanding. As mentioned in Chapter 2, humans attempt to understand uncertain subjects by gathering information from papers, experiments, or by reframing questions. While it may not be necessary to adopt the exact same approach, it seems essential to enable machines to autonomously adopt strategies to reduce uncertainties.
 
 \subsubsection{Deciding What Knowledge to Seek}
+\label{section-deciding-what-knowledge-to-seek}
 We do not always formulate questions for everything we don't know since not all unknowns are equally ``important'' or ``interesting'. Instead, we construct questions for things we wish to know the answers to. This means that we assess some ``value'' of questions using some criteria to determine if it is worth pursuing. For individual, this can be an unconscious internal process, but for research, this doesn't need to be so as long as it is some value judgment process.
 
 Knowledge in itself is value-neutral. The ``value'', ``significance'', or ``goodness'' of knowledge is determined by those who using it. The crucial point here is that the criteria for determining ``value'' are arbitrary. Therefore, if we want AI to pose questions that are meaningful to humanity, we should recognize what is ``good'' or ``significant'' questions and instill and make AI adhere to such values. 
@@ -690,7 +691,7 @@ As already mentioned, these are just a part of the value judgments that humans m
 何を元に仮説を生成するのか、仮説の空間がどのようなものであるか、仮説がどのように表現されるかは研究分野によってさまざまです。例えば仮説は論文から生成されるかもしれませんし、科学的データから生成されるかもしれませんし、事前に定められた探索空間から見つけられるかもしれません。また、仮説は複数の要素の組み合わせとして表現されるかもしれませんし、数式で表現される数理モデルかもしれませんし、テキストで表現されるかもしれませんし。たとえば化学では主に仮説を組み合わせ的に表現し、この chemical design space の中を探索することで機械による仮説の発見が試みられてきました \cite{coley2020autonomous}。仮説を方程式で表現するものとしては、科学的データから背後にある法則を記述するシンボリックな方程式を発見する研究が行われてきました \cite{kramer2023automated}。また、論文群から仮説をテキストとして生成・抽出する研究も多くあります \cite{kang2022augmenting,chan2018solvent,wang2023learning,xu2023exploring,yang2023large}。
 近年では、大規模言語モデルの台頭によって、論文の情報を直接的に与えずに、言語モデル自身の内部の知識のみから仮説生成をさせることを試みる取り組みも現れています \cite{park2023can}。
 
-このように、個々の仮説生成の具体的な内実は異なりますが、これらをある観点で同一視しようとするものもあります。まず、仮説空間を人間が与えて所与とすれば、there is a perspective that many scientific discoveries can be seen as search problems \cite{coley2020autonomous}.特に、科学における仮説空間は組み合わせ的に広大であることが往々にしてあります。したがって、仮説生成する AI にはこのような広大な探索空間を効率的に探索する能力が重要であると考えられています。また、Wang らは機械学習を仮説生成に応用した研究群を別の観点で整理しました。彼らは、have categorized and organized how AI is being used for scientific hypothesis generation from the perspective of using it for black box prediction, aiding in the exploration of hypothesis space, and finding solutions in a differentiable hypothesis space \cite{wang2023scientific}.
+このように、個々の仮説生成の具体的な内実は異なりますが、これらをある観点で同一視しようとするものもあります。まず、仮説空間を人間が与えて所与とすれば、there is a perspective that many scientific discoveries can be seen as search problems \cite{coley2020autonomous}.特に、科学における仮説空間は組み合わせ的に広大であることが往々にしてあります。したがって、仮説生成する AI にはこのような広大な探索空間を効率的に探索する能力が重要であると考えられており、active learning などによって効率的な探索を実現することが試みられています。また、Wang らは機械学習を仮説生成に応用した研究群を別の観点で整理しました。彼らは、have categorized and organized how AI is being used for scientific hypothesis generation from the perspective of using it for black box prediction, aiding in the exploration of hypothesis space, and finding solutions in a differentiable hypothesis space \cite{wang2023scientific}.
 
 このように、機械学習の仮説生成への応用は問いの構築や仮説の検証に比べて大きく進んでいます。ここで挙げた例はほんの一部であり、機械学習を仮説生成へ用いた研究はこの他にも膨大にあります。本論文では個々の研究について詳細に検討することはできませんが、ご関心がある方はそれぞれの分野のサーベイ論文を参照してください。
 
@@ -848,6 +849,7 @@ As already mentioned, these are just a part of the value judgments that humans m
 % I consider the notion of verification as an update of shared beliefs to be useful in comprehensively describing the process of verification across a wide range of research, from theoretical studies to humanities. However, it might be somewhat too abstract when aiming for the current purpose. To provide a foundation for further discussion, I would like to focus on verification in science, particularly on its core elements: experimentation and statistical analysis.
 
 \subsubsection{Experimentation}
+\label{section-experimentation}
 研究者で実験の重要性を否定する人はいないでしょう。実験とはある仮説をテストするための一連の手続きのことで、経験科学における検証そのものです。したがって、検証ができる AI は当然実験ができなければなりません。
 
 実験では観察が困難な現象や様々な条件の影響を正確に調べるために、統制された方法で人工的に自然現象を生成し、これ対して積極的に介入をすることで調べたい変数の関係や因果関係などの違いを人為的に作り出します \cite{radder2009philosophy}。これらを観測して実験データとして保存し、このデータを解析することで仮説が真であるか否かを判定します。
@@ -873,7 +875,7 @@ In recent years, there have been studies attempting to automate the experimentat
 
 また、実験によって生成されたデータを解析して解釈するためには、それを読み取るだけの事前知識が必要です。なぜなら、何かを観測することは常に何らかの理論を背後に伴うからです（観測の理論負荷性）。したがって、機械学習モデルに科学データを理解するために必要な対称性や微分方程式や直観物理といった物理学的な事前知識を入れ込むことで、機械が科学データを解釈できるようにする研究があります（必ずしも検証のためだけではない）。
 
-このように、さまざまな研究が実験の自動化を着実に推し進めてきました。一方で自律的に実験ができる機械の実現にはまだ多くの課題があるのも事実です。Coley et al. discuss in detail these challenges of automating experimental and computational validations, as well as the selection of experiments, while referencing studies on automated verification \cite{coley2020autonomousII}.特に、さまざまな研究課題に適応可能な汎用的な自動実験機械の実現には、人間のように低レベルの行動を自在に操れるロボットが必要であり、非常に実現が難しいです。この大きな課題が解決されるためにより多くの注目とリソースが注がれ、分野全体が進んでいくことを願っています。
+このように、さまざまな研究が実験の自動化を着実に推し進めてきました。一方で自律的に実験ができる機械の実現にはまだ多くの課題があるのも事実です。Coley et al. discuss in detail these challenges of automating experimental and computational validations, as well as the selection of experiments, while referencing studies on automated verification \cite{coley2020autonomousII}.特に、さまざまな研究課題に適応可能な汎用的な自動実験機械の実現には、人間のように低レベルの行動を自在に操れるロボットが必要であり、非常に実現が難しいです。そこまでいかなくても、実験の自動化を進めていくためには、ハードウェアなどの制約を取り払って自動化可能な研究を増やしていくことや、研究の自動化のためのコストを下げていくことなどの努力も重要です \cite{coley2020autonomousII}。
 
 
 % Experiments are generally considered a series of procedures to test a hypothesis, particularly referring to the process of data generation. I believe that the main elements in an experiment are the interventions to test a hypothesis and the generation of data to artificially create observations of phenomena. Verification is then done through the analysis of data obtained from these experiments.
@@ -889,13 +891,14 @@ In recent years, there have been studies attempting to automate the experimentat
 % On the other hand, the acquisition of the ability to understand verification seems to receive relatively little attention. There are indeed studies that focus on the importance of verification for reducing hallucinations and verifying the reliability of scientific claims, but these do not aim to determine what constitutes verification in scientific research. Therefore, I believe that considering how to make machines comprehend what can qualify as verification remains one of the challenges ahead.
 
 \subsubsection{Statistical Inference and Verification}
-Science can be seen as the activities to find the law of this world by inductive reasoning based on the observations. Scientists have formalized inductive reasoning with terms from probability theory and constructed methods to perform inductive reasoning as statistical inference. Specifically, we model the law of nature or hypothesis as probability distributions, and by inferring them from a finite sample sampled from that distribution, we attempt to say something about the hypothesis.
+Science can be seen as the activities to find the law of this world by inductive reasoning based on the observations. Scientists have formalized inductive reasoning with terms from probability theory and constructed methods to perform inductive reasoning as statistical inference. Specifically, we model the law of nature as probability distributions, and by inferring them from a finite sample sampled from that distribution, we attempt to say something about it.
 
-In science, the validity of hypotheses is judged by inductive reasoning based on data generated from experiments.
 
-Inductive reasoning is a premise of science, and implementing it via statistical inference is a widely practiced approach. Therefore, when creating an AI capable of performing meaningful verification for humans, it would be sensible to take these as a given.
+% In science, the validity of hypotheses is judged by inductive reasoning based on data generated from experiments.
 
-\textcolor{red}{後で書く。そもそもここで何を言いたいか？何を持って検証とするかは複数あると上で話したけどここでそれについて少しだけ詳しくみようみたいな話し方をする？じゃあそれを話して出てくる帰結は？一緒？}
+% Inductive reasoning is a premise of science, and implementing it via statistical inference is a widely practiced approach. Therefore, when creating an AI capable of performing meaningful verification for humans, it would be sensible to take these as a given.
+
+\textcolor{red}{後で書く。そもそもここで何を言いたいか？何を持って検証とするかは複数あると上で話したけどここでそれについて少しだけ詳しくみようみたいな話し方をする？じゃあそれを話して出てくる帰結は？一緒？主に統計的仮設検定の話を書こう。ネイマン・フィッシャー・ベイズ。もう少し自分の中でちゃんと整理してから書く。あんまり統計的推論とか確率解釈とかそういう可燃性の高い話題は避けたい}
 
 % On the other hand, there can be multiple interpretations of what it means for a hypothesis to be justified by statistical analysis \cite{otsuka2022thinking}. This implies that there are conflicting views on what methodology should be adopted to justify beliefs. As a result, there are multiple methodologies for statistical inference. Ideally, a machine capable of verification should understand ``why a certain inference is valid in justifying a hypothesis''  and be able to select or construct an appropriate methodology from these options. Otherwise, it might not truly understand what constitutes verification.
 
@@ -925,32 +928,32 @@ Inductive reasoning is a premise of science, and implementing it via statistical
 
 \subsection{Combining Questions, Hypotheses, and Verification}
 
-一度終わった研究を後から振り返った時にこの構成になっていることに言及する。やっている途中は必ずしもそんなに綺麗に進まない。
+研究の構成要素である問いの構築、仮説の生成、仮説の検証について説明しました。すでに終了した研究を振り返ると、実際にその研究の問いがあり、問い対する仮説があり、仮説に対する検証が見つけられます。この観点からすれば、研究とは、古典的に語られてきたように、問いの構築、仮説の生成、仮説の検証の連続からなる営みであるということもできます。
 
-研究の構成要素である問いの構築、仮説の生成、仮説の検証について説明しました。実際の研究は極めて複雑な試行錯誤的なプロセスであり、これらが最初に想定していた通りそれぞれ一回ずつしか行われないということは稀です。研究ができる AI を作るためには、そのような複雑な研究実践が可能でなければならないように思われます。そこで、本セクションでは、そのような AI を作るために考慮すべきであろう事項について検討していきます。また、問いの構築、仮説の生成、仮説の検証のいずれの自動化においても共通する課題についても議論します。
+一方で、実際の研究は極めて複雑な試行錯誤的なプロセスであり、問いの構築、仮説の生成、仮説の検証が一度の研究で最初に想定していた通りそれぞれ一回ずつしか行われないということは稀です。実際にはたとえば一つの仮説を立てるのにも無数の問いや仮説を生成していますし、そのすべてが必ずしも最終的な研究成果につながるわけではありません。問いの構築、仮説の生成、仮説の検証はむしろ不確実性を削減するための基本的な操作と見る方が適切であり、それらを複雑に組み合わせてより大きな研究課題の不確実性を削減していると見る方が実際の研究の営みにも沿っているでしょう。特に、問いの構築や仮説の生成といった発見的な作業の中ではこのような試行錯誤的な要素がより重要になってくると思われています \cite{yanai2020hypothesis}。
 
-Night Science
+I believe that all endeavors to transform the unknown into the known, to some extent, inevitably involve the construction of questions, the generation of hypotheses, and the verification of these hypotheses.
 
-- 仮説駆動型研究が新しい発見を妨げる可能性がある 
-\cite{yanai2020hypothesis}
+研究ができる AI を作るためには、問いの構築、仮説の生成、仮説の検証を自在に組み合わせて、このような複雑な研究実践ができなければならないように思われます。そこで、本セクションでは、これまであげてこなかったような、研究の特徴に注目しながら、そのような AI を作るために考慮すべきであろう事項について検討していきます。
 
-\subsubsection{Human Research Practice and Knowledge Production System}
-In actual research, while addressing the initial question posed, another question may arise and the focus may shift to that new question. Also, before reaching the final hypothesis that gets reported, several different hypotheses are tested repeatedly. Like this, the actual practice of research is complex.\footnote{
-For example, the concept of \textit{night science} as proposed by Yanai and Lercher symbolizes the such complex reality of research practice \cite{yanai2019night}.
-} When compared to this trial-and-error process, the framework I have proposed may seem overly simplified at first glance. However, I believe that the framework I proposed encompasses these human practices as well.
+% \subsubsection{Human Research Practice and Knowledge Production System}
+% In actual research, while addressing the initial question posed, another question may arise and the focus may shift to that new question. Also, before reaching the final hypothesis that gets reported, several different hypotheses are tested repeatedly. Like this, the actual practice of research is complex.\footnote{
+% For example, the concept of \textit{night science} as proposed by Yanai and Lercher symbolizes the such complex reality of research practice \cite{yanai2019night}.
+% } When compared to this trial-and-error process, the framework I have proposed may seem overly simplified at first glance. However, I believe that the framework I proposed encompasses these human practices as well.
 
-The framework I presented claims that in the process of generating knowledge, there is always a construction of questions about the process, the generation of hypotheses, and the verification of these hypotheses. I have not specified how these are done. Therefore, a question might have arisen while working on a different question, or it might have been directly derived to achieve a specific goal. Similarly, a hypothesis might have been developed after multiple comparisons with real data, or it could be something that came to mind while walking. What I'm arguing is that, regardless of the diverse methods employed, when an activity is termed research, there should always be a stage where questions related to the knowledge produced, the generation of hypotheses, and the verification of these hypotheses are addressed. This may indeed look like a linear process when abstracted, but given that it allows for trial-and-errors as its internal implementation, I believe it encapsulates the complex practices of human research.
 
-Furthermore, setting aside whether a strict methodology like that of research is required, I believe that all endeavors to transform the unknown into the known, to some extent, inevitably involve the construction of questions, the generation of hypotheses, and the verification of these hypotheses. In other words, I think this framework might be an embodiment of the very act of turning the unknown into the known. In this sense, this framework might be better understood as a fundamental unit in research.
+\subsubsection{Countless Question, Hypothesis, and Verification in Single Research Process}
 
-\subsubsection{Countless Question, Hypothesis, and Verification in Research Process}
+
+\textcolor{red}{問いや仮説や検証が組み合わされる小さな単位であり、それらは単線的なプロセスではないということを強調するポンチ絵を置く}
+
 We generate countless questions and hypotheses, including implicit ones, for the purpose of creating a single question or hypothesis, or for planning and preparing for single verification.
 
 For example, when questioning how an unresolved issue can be solved, we might ask why this problem hasn't been solved so far, or if there are any studies of similar challenges being addressed. In response, we might consult literature or recall our own memory, hypothesizing that ``This could be the reason it hasn't been solved,'' or that ``This could be useful in solving the current challenge.'' We repeat this process innumerably to eventually construct an answer to the original question. Similarly, when planning verification, we implicitly pose many questions and formulate numerous auxiliary hypotheses.
 
 To generate a plausible hypothesis, there must be sufficient grounds to believe it is valid. These grounds could be knowledge from our own memory, descriptions from newly researched literature, opinions from other researchers, or some belief, such as natural law should be simple. In addition, to examine the validity of the hypothesis, we might try simple tests. For example, we might create a toy model to represent the hypothesis and examine its behavior, or conduct preliminary experiments. In other words, each time a plausible hypothesis is generated, it undergoes a sort of verification, whether implicit or explicit, and to varying degrees of simplicity.
 
-In this way, to conduct research, we pose countless questions and hypotheses and conduct several simple  experiments to verify the plausibility of the hypothesis if necessary. This is because research is an endeavor facing the unknown, and this process contains a lot of uncertainties. By gradually reducing these uncertainties through trial and error, research progresses. This gradual reduction of uncertainty seems essential, especially when tackling difficult questions that no one in the world knows the answers to. Therefore, AI capable of conducting research should autonomously be able to generate numerous questions and hypotheses as needed and choose more plausible hypotheses through simple verification during the knowledge production process.
+In this way, to conduct research, we pose countless questions and hypotheses and conduct several simple  experiments to verify the plausibility of the hypothesis if necessary. In other words, we could say that research is a hierarchical composition of question construction, hypothesis generation, and hypothesis verification. This is because research is an endeavor facing the unknown, and this process contains a lot of uncertainties. By gradually reducing these uncertainties through trial and error, research progresses. This gradual reduction of uncertainty seems essential, especially when tackling difficult questions that no one in the world knows the answers to. Therefore, AI capable of conducting research should autonomously be able to generate numerous questions and hypotheses as needed and choose more plausible hypotheses through simple verification during the knowledge production process.
 
 % 私たちは、一つの問いや仮説を生成するために、あるいは検証の計画や準備をするために、暗黙的なものも含めると無数の問いや仮説を生成しています。
 
@@ -960,46 +963,86 @@ In this way, to conduct research, we pose countless questions and hypotheses and
 
 % このように、私たちは一つの問いを作り、それに答える一つの仮説を作り、それを一度検証するために、無数の問いと仮説を立て、必要とあれば仮説の確からしさを簡単に検証するいくつもの実験を行います。これは、研究が未知に立ち向かう営みであり、その過程にはいくつもの不確定な要素が存在するからです。それらの不確実性を一歩一歩試行錯誤的に削減していくことで、一つの研究が進んでいくように思われます。このような漸進的な不確実性の削減は、特に誰も答えを知らないような難しい問いに挑戦する際には不可欠であるように思われます。従って、研究ができる AI もこのように、必要に際して問いや仮説を生成し、簡易的な検証によってより確からしい仮説を選択するということを自律的に行えるようになる必要があるでしょう。
 
+\subsubsection{Countless Seemingly Unrelated Operations to Knowledge Production}
+研究は、一見すると知識生産に関係がないような無数の操作によって成り立っています。たとえば、セクション \label{section-experimentation} で述べたように、実験を実施するためには私たちはモノを購入したり何かを作ったりします。 Bruno Latour は一つの研究室で行われる作業を人類学的に観察することで、こうした日常的実践が一見するとその意味がわからないような操作たちによって形作られていることを描き出していますが \cite{latour1987science}、このような文献を参照するまでもなく日々の学術活動が多くの非知的な操作によって形作られていることは多くの研究者にとって疑いのないことであると思います。
+
+問いの構築や仮説の生成や仮説の検証は達成したい目的であり、知識生産過程における機能であって、その実装ではありません。これらの機能を実装するためには上述したような操作ができること、そしてそれらを適切に組み合わせて目標を達成するための作業をすることが不可欠となります。このような複数の異なる操作を適切に組み合わせることは、特定の研究課題に特化したとしてもなお難しい課題です \cite{coley2020autonomousII}。問いの生成から始めて研究の過程の全てを自律的に実行できるようなエージェントを仮に目指す場合、人間のように自在に行為を生成できるような能力を獲得することが不可欠です。
 
 \subsubsection{Discovering New Questions}
 Researchers often set out to solve one question, only to find themselves discovering an entirely unrelated question in the process. This new question, unrelated to the original question and even its underlying purpose, may lead them to pivot their research focus and potentially make significant scientific discoveries. Since research is full of uncertainty, it's not uncommon to be unable to foresee everything from the start. Thus, this discovery and shift of question is not rare.
 
-If an AI capable of conducting research were tasked with achieving a single objective, such serendipitous discoveries might not occur. This is because any new questions it finds, no matter how intriguing or scientifically important, may not be directly relevant to achieving its predefined goal. Therefore, to encourage an AI to uncover such unrelated questions, it might be necessary to set multiple objectives or a broader high-level goal that encompasses both sets of questions, like ``understanding nature.'' Additionally, to switch from the current question to a new one, the AI would need to evaluate which of the two questions holds more value.
+If an AI capable of conducting research were tasked with achieving a single objective, such serendipitous discoveries might not occur. This is because any new questions it finds, no matter how intriguing or scientifically important, may not be directly relevant to achieving its predefined goal. Therefore, to encourage an AI to uncover such unrelated questions, it might be necessary to set multiple objectives or a broader high-level goal that encompasses both original and newly found questions. 
+
+However, it is not sufficient to just have a common high-level goal.
+To switch from the current question to a new one, the AI would need to evaluate which of the two questions holds more value.したがって、セクション \ref{section-deciding-what-knowledge-to-seek} で述べたような問いの価値に関する意思決定は一つのある問いを問うべきかだけではなくこのような高次の目的を共通するものも含めた複数の問いの間の比較もできるものでなければならないように思われます。
 
 % 研究者は、ある問いを解くために別の問いを立てるだけではなく、その問いに答えようとする中で、最初の問いやその背後の目的とは全く関係ない別の問いを見つけることがあります。そして研究の途中でそちらの問いに取り組むことに切り替え、その結果大きな科学的発見を成し遂げることもあります。不確実性が高い研究という取り組みにおいては、最初から全てを見通せることは多くありません。したがって、このようなことが起こることは少なくありません。
 
 % もし 研究ができる AI にある一つの目的を達成することを目指させるとしたら、このようなことは起き得ないでしょう。なぜなら、そこで見つかった問いはどれだけ面白くてもどれだけ科学的に重要でも、その目的を達成するために必ずしも重要とは限らないからです。したがって、AI にこのような問いの発見をさせるためには、複数の目標を持たせる、あるいは両方の問いを包括するようなより大きな（例えば「自然を理解する」のような）大きな目標を持たせる必要があるように思われます。加えて、現在やっている問いに取り組むのをやめて新しい問いに取り組む意思決定をするためには、AI はこれらの異なる二つの問いのどちらが価値があるかを比較しなければならないように思われます。
 
 \subsubsection{Feedback from Verification Result}
-化学自動化論文の内容もここに追加する
+% 化学自動化論文の内容もここに追加する
+% how should new data acquired through experimental/computational validation be used to
+% update models pretrained on literature data?
 
 In research, it's not always common for the initial hypothesis to directly answer the question posed. Rather, the process typically involves revising the hypothesis based on the results of verification, followed by additional rounds of testing. This cycle of hypothesis revision and retesting is crucial in the journey toward finding answers to the posed questions, especially when seeking unknown answers, as mentioned earlier. Consequently, it seems necessary for an AI capable of conducting research to have the ability to revise its hypotheses based on the outcomes of these verifications.
-% 研究では最初に建てた仮説がそのまま問いの答えであるという場合は必ずしも多くはありません。検証の結果を踏まえて、仮説を修正し、再度新たな検証をし、というサイクルを繰り返すことで、問いの答えへと近づいていきます。前述したように、これは未知の答えを発見しようとする以上必要となってくる過程です。したがって、研究ができる AI もこのような検証結果を踏まえて仮説を修正できることが求められるように思われます。
 
-However, when the result for verification were negative, identifying the cause of the result is not as straightforward as one might think. This is because the verification relies on numerous implicit and explicit hypotheses and all of them can be the cause of the result \cite{sep-scientific-underdetermination}. The cause may be the proposed main hypothesis, a premise behind the hypothesis, an auxiliary hypothesis, an observation, an experimental instrument, or all of them. An AI that can conduct research must identify which of these possibilities is the cause. Once the candidates for the cause are determined, the AI has to generate a more plausible hypothesis based on the results of verification, as we have discussed so far.
+こうした検証結果からのフィードバックも考慮した closed-loop な科学的発見の自動化を目指す試みとしては、laboratory automation \cite{king2004functional} や scientific workflow \cite{gil2022will} に基づく研究などがあります。このような研究は検証結果から仮説を修正するという科学の根幹の営みを自動化していくという上で極めて大きな貢献をもたらしたと言って良いでしょう。
 
-In science, to identify the cause, it would be necessary to appropriately interpret the data generated by experiments. However, what one reads from the data can change depending on the individual's beliefs, prior knowledge, and what they expect to find. Therefore, these verification results may be reinterpreted multiple times, and with each reinterpretation, the hypothesis that needs to be revised may change. Ideally, AI capable of conducting research should be able to interpret verification results with these possibilities in mind.
+このような先進的な事例はあるものの、検証結果からのフィードバックを自律的に人間のようにできる機械の実現にはまだ多くの課題があるように思われます。例えば、検証結果から機械にフィードバックを出力させる場合、その検証結果を何に反映させるか、それを受けて何を修正すべきかは人間が事前に与えることがほとんどです。 In reality, when the result for verification were negative, identifying the cause of the result is not as straightforward as one might think. This is because the verification relies on numerous implicit and explicit hypotheses and all of them can be the cause of the result \cite{sep-scientific-underdetermination}. The cause may be the proposed main hypothesis, a premise behind the hypothesis, an auxiliary hypothesis, an observation, an experimental instrument, or all of them. An AI that can conduct research must identify which of these possibilities is the cause. Once the candidates for the cause are determined, the AI has to generate a more plausible hypothesis based on the results of verification, as we have discussed so far.
+
+また、In science, to identify the cause, it would be necessary to appropriately interpret the data generated by experiments. However, what one reads from the data can change depending on the individual's beliefs, prior knowledge, theory, and what they expect to find \cite{hanson1965patterns}. Therefore, these verification results may be reinterpreted multiple times, and with each reinterpretation, the hypothesis that needs to be revised may change. さらには、前のセクションで述べたように、人間は検証結果から全く異なる問いを生み出すような、斬新な気づきを得ることもあります。検証結果から自律的にフィードバックを生成する既存の機械も確かに検証結果を解釈はしていますが、このような複雑な検証結果の解釈は依然として実現できていません。Ideally, AI capable of conducting research should be able to interpret verification results with these possibilities in mind.
 % 科学であれば、原因を特定するためには、実験によって生成されたデータを適切に解釈する必要があるでしょう。しかし、データから何を読み取るかは、その人の持つ信念や事前知識やそこから何を期待するかによって変わり得ます。したがって、この検証結果は何度も再解釈される可能性があり、その度に修正すべきだと思われる仮説が違ってくるかもしれません。研究ができる AI は理想的にはこのような可能性も視野に入れて検証結果を解釈していくことができるようになることが望まれるでしょう。
 
 
-\subsection{Common Challenges}
+\subsection{Common Topics}
+これまで、研究において重要であると思われる要素である、問いの構築、仮説生成、仮説検証について議論し、その後でそれらを組み合わせた場合に関連する話題について議論をしました。このセクションでは、これらすべての機能に関連しうるような話題や、これまでのセクションでは触れられなかった話題について議論していきたいと思います。
 
-\subsubsection{Open-Endedness}
-One of the major challenges that can be a common issue for any process, as pointed out in prior research as well  \cite{coley2020autonomousII}, is how to execute these tasks in open-ended situations. For instance, in the automation of experiments, robots use experimental equipment selected, prepared, and set up by humans. However, humans do these tasks from scratch with their own hands. Humans do not use a given corpus of papers; instead, they search for and use them on their own. Candidates for hypotheses are not explicitly provided; humans begin by identifying potential hypotheses. Even when formulating questions that serve a particular goal, humans set that goal themselves. 
+\subsubsection{Language Models}
 
-In many cases in research automation, these elements are pre-determined by humans. How to let machines autonomously perform these tasks starting only with the same initial information given to humans is crucial in realizing an autonomous artificial researcher. Moreover, having this kind of freedom is essential to achieving a general artificial researcher as well. This is because if we impose constraints on AI to research only within specific research questions or hypothesis spaces defined by humans, it cannot become an AI capable of conducting arbitrary research. Therefore, a significant challenge is how to make AI acquire complex foundational skills and fundamental reasoning abilities to realize these capacities.
+知識発見の全ての過程に関与してる。
 
-\subsubsection{Generality}
-汎用性がなぜいるかなどの説明？上の定義はそもそもそういうモチベーションから始まってるので、ここでわざわざ書かなくても良い。
+\subsubsection{Incorporating Scientific Knowledge}
 
-特定の研究課題に特化すれば、問いの構築、仮説の生成、仮説の検証を実行できるような機械はすでに開発されています。これまでのセクションでこれらの概念の定義を改めて検討したのは、研究ができる AI とは特定の研究課題に特化した方法でこれらを実行するのではなく、どのような研究対象に対してもこれらを自律的に遂行できる AI であることが望まれるからです。このような汎用的な研究ができる AI をどのように実現するかというのが課題です？
+これまで自律的に研究する AI について議論してきましたが、人間においても完全なゼロから研究をするのはほぼ不可能です。人間も事前に研究したい分野の勉強をしてその分野の基本的な知識を獲得した上で、研究をします。したがって、AI も研究をする前にすでにこの世界に生み出されている基礎的な知識に関しては事前に獲得していることを想定するのが妥当でしょう。
 
-\subsubsection{Autonomy}
-As mentioned in the previous section, there are several attempts to automate the entire research process. A seminal early works are Adam \cite{king2004functional}, and Eve \cite{williams2015cheaper}. These are closed-loop scientific discovery systems that autonomously execute everything from hypothesis generation to research planning, based on logic AI and robotics. Furthermore, there is closed-loop automation in some research on automation using scientific workflows \cite{gil2017towards}. These are highly autonomous research automation. Recently, there has also been a movement to create autonomous agents based on language models to tackle scientific problems \cite{wang2023survey}.
+The group of studies that incorporate biases or scientific knowledge to handle scientific data on AI is called \textit{physics-informed machine learning} \cite{karniadakis2021physics}. The incorporated biases include the ability to handle partial differential equations (PDE), symmetry, and intuitive physics \cite{hao2022physics}. Karniadakis et al. \cite{karniadakis2021physics} and Hao et al. \cite{hao2022physics} systematically organize existing research in this field. 
 
-However, most of studies on research automation have targeted  only specific tasks within a sub-process of the entire research process. For example, symbolic regression focuses on automating hypothesis generation, while experiment automation pertains to data generation for hypothesis creation and testing.
+Efforts to impart scientific knowledge through pre-training are also common. In recent years, with the advancement of large-scale neural networks, there also have been efforts to inject scientific knowledge to models by pre-training with large corpus of scientific texts \cite{taylor2022galactica,beltagy2019scibert}, and with multimodal data \cite{singhal2023towards}.
 
-Furthermore, even in the case of closed-loop research automation,  full automation of all processes of science is yet to be realized \cite{zenil2023,coley2020autonomous,coley2020autonomousII}. One of the biggest issues is that the objectives, problems, and questions of research are given by humans \cite{coley2020autonomousII}. We discussed in Chapter 3 that there are not many studies that have attempted to automate the construction of questions. And while we pointed out in Chapter 2 that automating the construction of questions can lead to an infinite regress from the perspective of autonomy, specifying the high-level goals underlying the questions remains a significant challenge \cite{coley2020autonomousII}. Also, even after the construction of the question, there is the issue that humans are providing machines with a search space that is far more restricted than what humans themselves are given. For example, generating hypotheses from an open-ended hypothesis space has not yet been realized \cite{zenil2023,coley2020autonomousII}, and to put it in extreme terms, while humans might prepare experimental equipment from scratch, machines are given those as a given. 
+また、私たち人間は一度基礎を学習した後も研究と並行して勉強をすることで、自分の科学的知識をアップデートしています。事前学習や機能バイアスによる知識の埋め込みや、推論時の検索だけでなく、機械も同様に研究と並行して勉強をすることで継続的に自らの知識を更新していくことが重要でしょう。
+
+\subsubsection{Scientific Understanding}
+
+\subsubsection{Autonomy, Generality, and Open-Endedness}
+繰り返し述べてきたように、問いの生成や仮説の生成や仮説の検証を機械に行わせる試みはすでに存在しています。難しいのは、可能な限り人間が介入せずに自律的にこれらを機械に実行させることです。closed-loop research automation は非常に自律性の高い研究の自動化の試みですが、このような場合においても,  it is said that full automation of all processes of science is yet to be realized \cite{zenil2023,coley2020autonomous,coley2020autonomousII}. 
+
+One of the biggest issues is to let machine generate the objectives, problems, and questions of research by themselves \cite{coley2020autonomousII}. なぜなら、繰り返し述べてきたように、目的や問いまでも機械に自律的に生成させる場合、それに対応して機械は自律的に適切な仮説を生成したり検証したりしなければならないからです。したがって、機械はさまざまな場合に対応できる汎用的な方法で仮説生成や検証を実行なければなりません。
+
+このような状況では人間が事前に具体的な仮説生成の方法や仮説の候補や必要な情報を与えることができません。したがって、機械は人間が置かれているのと同じようなオープンエンドな環境から適切に情報を引き出して仮説生成や検証を実行しなければなりません。
+
+このような自律性の問題を鑑みて、機械にどの程度の自律性を求めるのか、どの程度の制約であれば機械の潜在能力を過剰に抑えつけることなく自律的な仮説生成や検証を行わせられるのかは、オープンクエスチョンです。
+
+% \subsubsection{Open-Endedness}
+% One of the major challenges that can be a common issue for any process, as pointed out in prior research as well  \cite{coley2020autonomousII}, is how to execute these tasks in open-ended situations. For instance, in the automation of experiments, robots use experimental equipment selected, prepared, and set up by humans. However, humans do these tasks from scratch with their own hands. Humans do not use a given corpus of papers; instead, they search for and use them on their own. Candidates for hypotheses are not explicitly provided; humans begin by identifying potential hypotheses. Even when formulating questions that serve a particular goal, humans set that goal themselves. 
+
+% In many cases in research automation, these elements are pre-determined by humans. How to let machines autonomously perform these tasks starting only with the same initial information given to humans is crucial in realizing an autonomous artificial researcher. Moreover, having this kind of freedom is essential to achieving a general artificial researcher as well. This is because if we impose constraints on AI to research only within specific research questions or hypothesis spaces defined by humans, it cannot become an AI capable of conducting arbitrary research. Therefore, a significant challenge is how to make AI acquire complex foundational skills and fundamental reasoning abilities to realize these capacities.
+
+% \subsubsection{Generality}
+% 汎用性がなぜいるかなどの説明？上の定義はそもそもそういうモチベーションから始まってるので、ここでわざわざ書かなくても良い。
+
+% 特定の研究課題に特化すれば、問いの構築、仮説の生成、仮説の検証を実行できるような機械はすでに開発されています。これまでのセクションでこれらの概念の定義を改めて検討したのは、研究ができる AI とは特定の研究課題に特化した方法でこれらを実行するのではなく、どのような研究対象に対してもこれらを自律的に遂行できる AI であることが望まれるからです。このような汎用的な研究ができる AI をどのように実現するかというのが課題です？
+
+% As we have introduced so far, there are several attempts to automate research through versatile approaches. For example, the automatic generation and discovery of hypotheses \cite{kang2022augmenting,chan2018solvent,wang2023learning,xu2023exploring} or questions \cite{lahat2023evaluating,liu2023creative,oppenlaender2023mapping,surita2020can} from research papers is an approach that can automate research across a wide range of academic fields, from the humanities to natural sciences. Additionally, efforts to create general-purpose robots  \cite{yachie2017robotic}, foundation or generalist models \cite{singhal2023towards,taylor2022galactica}, or to incorporate the inductive bias for understanding physics can be considered initiatives towards general-purpose system.
+
+% However, most automation studies target specific challenges in particular research fields. It seems that the goal of creating an AI capable of conducting any research is not receiving much attention. As explained in Chapter 2, in order to create such intelligence, it would be necessary to understand the high level concept of research, question construction, hypothesis formulation, and hypothesis verification, and to be able to execute them appropriately depending on the subject at hand.
+
+% \subsubsection{Autonomy}
+% As mentioned in the previous section, there are several attempts to automate the entire research process. A seminal early works are Adam \cite{king2004functional}, and Eve \cite{williams2015cheaper}. These are closed-loop scientific discovery systems that autonomously execute everything from hypothesis generation to research planning, based on logic AI and robotics. Furthermore, there is closed-loop automation in some research on automation using scientific workflows \cite{gil2017towards}. These are highly autonomous research automation. Recently, there has also been a movement to create autonomous agents based on language models to tackle scientific problems \cite{wang2023survey}.
+
+% However, most of studies on research automation have targeted  only specific tasks within a sub-process of the entire research process. For example, symbolic regression focuses on automating hypothesis generation, while experiment automation pertains to data generation for hypothesis creation and testing.
+
+% Furthermore, even in the case of closed-loop research automation,  full automation of all processes of science is yet to be realized \cite{zenil2023,coley2020autonomous,coley2020autonomousII}. One of the biggest issues is that the objectives, problems, and questions of research are given by humans \cite{coley2020autonomousII}. We discussed in Chapter 3 that there are not many studies that have attempted to automate the construction of questions. And while we pointed out in Chapter 2 that automating the construction of questions can lead to an infinite regress from the perspective of autonomy, specifying the high-level goals underlying the questions remains a significant challenge \cite{coley2020autonomousII}. Also, even after the construction of the question, there is the issue that humans are providing machines with a search space that is far more restricted than what humans themselves are given. For example, generating hypotheses from an open-ended hypothesis space has not yet been realized \cite{zenil2023,coley2020autonomousII}, and to put it in extreme terms, while humans might prepare experimental equipment from scratch, machines are given those as a given. 
 
 % To begin with, the realization of a fully autonomous artificial intelligence is still one of the major goals yet to be achieved, not just in research. Therefore, a lot more foundational research will likely be needed to accomplish this.
 
@@ -1011,17 +1054,15 @@ Furthermore, even in the case of closed-loop research automation,  full automati
 
 % , and in recent years, there are attempts to automate the entire process using language models.
 
-\subsubsection{Generality}
-As we have introduced so far, there are several attempts to automate research through versatile approaches. For example, the automatic generation and discovery of hypotheses \cite{kang2022augmenting,chan2018solvent,wang2023learning,xu2023exploring} or questions \cite{lahat2023evaluating,liu2023creative,oppenlaender2023mapping,surita2020can} from research papers is an approach that can automate research across a wide range of academic fields, from the humanities to natural sciences. Additionally, efforts to create general-purpose robots  \cite{yachie2017robotic}, foundation or generalist models \cite{singhal2023towards,taylor2022galactica}, or to incorporate the inductive bias for understanding physics can be considered initiatives towards general-purpose system.
+% \subsubsection{Generality}
 
-However, most automation studies target specific challenges in particular research fields. It seems that the goal of creating an AI capable of conducting any research is not receiving much attention. As explained in Chapter 2, in order to create such intelligence, it would be necessary to understand the high level concept of research, question construction, hypothesis formulation, and hypothesis verification, and to be able to execute them appropriately depending on the subject at hand.
 
-\subsubsection{Scientific Workflow}
-The workflow whose process is a research process, tasks are research tasks that receive and output scientific data is called \textit{scientific workflow} \cite{ludascher2009scientific}. By running scientific workflow systems, research process is automatically executed.  Amidst the flourishing of computational and data-driven sciences with the advancement of computers, these efforts seem to have been conceived to better manage in silico experiments \cite{liew2016scientific}. 
+% \subsubsection{Scientific Workflow}
+% The workflow whose process is a research process, tasks are research tasks that receive and output scientific data is called \textit{scientific workflow} \cite{ludascher2009scientific}. By running scientific workflow systems, research process is automatically executed.  Amidst the flourishing of computational and data-driven sciences with the advancement of computers, these efforts seem to have been conceived to better manage in silico experiments \cite{liew2016scientific}. 
 
-Among such initiatives, just like in the case of laboratory automation, there are efforts that have achieved closed-loop automation, which completely autonomously carries out the cycle of hypothesis generation and verification \cite{gil2017towards}. Gil has presented how machine learning can be incorporated into this scientific workflow \cite{gil2022will}. She also presents a perspective on what kind of AI should be developed in order for it to become a good partner for researchers.
+% Among such initiatives, just like in the case of laboratory automation, there are efforts that have achieved closed-loop automation, which completely autonomously carries out the cycle of hypothesis generation and verification \cite{gil2017towards}. Gil has presented how machine learning can be incorporated into this scientific workflow \cite{gil2022will}. She also presents a perspective on what kind of AI should be developed in order for it to become a good partner for researchers.
 
-Additionally, there are attempts to design workflows that are reusable beyond individual workflows, in other words, workflows with high generality \cite{hardisty2020canonical}.
+% Additionally, there are attempts to design workflows that are reusable beyond individual workflows, in other words, workflows with high generality \cite{hardisty2020canonical}.
 
 % どのような研究対象に対しても問いを立て、仮説を生成し、仮説を検証できるような人工知能を作るためには、これらを汎用的な方法で実行する必要があります。このように
 
