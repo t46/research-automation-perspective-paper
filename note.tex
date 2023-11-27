@@ -96,6 +96,26 @@ In this paper, I take the position that knowledge is JTB, and research is an end
 
 \section{Hypothesis Generation}
 
+\subsubsection{How humans generate hypotheses}
+One significant difference when comparing the hypothesis generation process of humans and the question-answering of machines is that the human hypothesis generation process is far more complex.
+
+
+It seems that in the process of generating a hypothesis to answer a single question, humans implicitly and explicitly generate dozens or even hundreds of questions and hypotheses. As a result, in order to answer the initial question, they end up answering many different questions. Moreover, in order to generate a hypothesis, they may also test other hypotheses.
+
+
+For example, Charles Darwin began with the question ``How does evolution occur?'' However, after reading Lyell's work and becoming convinced of the importance of selection in evolution as an analogy of artificial selection, he formulated and tackled the question ``How does selection (equivalent of artificial selection) occur in nature?'' Here we see a shift in the question. It was precisely because of this change in question that, upon reading Malthus's essay on population, he was able to realize that natural selection is brought about by competition between species, and thus he could fully answer the initial question, ``How does evolution occur?'' \cite{gribbin2022origin}
+
+On the other hand, it appears that we are not having our neural networks go through such a complex process of trial and error for hypothesis generation. In many cases, when a question is presented, neural networks predict answers through a single inference based on fixed parameters. This seems too simplistic compared to the human process of hypothesis generation, which often involves repeatedly generating and testing questions and hypotheses.
+
+% For humans, answering a question essentially means constructing the answer from known concepts. A question whose answer is unknown can be said to be one whose answer does not immediately connect with existing knowledge. Humans seem to somehow successfully link the unknown answer with their known knowledge. As these examples also illustrate, realizing the prediction of answers in cases where the answer is unknown to everyone in the world appear to be a challenge.
+% 人間の場合、ある問いに答えるとは、その問いの答えを既知の概念で構成することに他なりません。答えがを知らない問いというのは、その答えが既存の知識に直ちには結びつかない問いであると言えます。このような状況下で、なんとかして答えが未知の問いを既知の知識に結びつけるのが、人間が仮説生成をする際に行なっていることであるように思われます。
+
+% \subsubsection{Analyzing Question}
+\textcolor{red}{TODO: remove or modify}
+In difficult questions where the relationship to known knowledge is not immediately apparent, it seems that we first tend to analyze the question in detail. For example, let's say you have a question, ``Why are apples red?'' The first thing you would consider is what an apple is and what red means. You would also think about what it means for something to be red. Then, you would focus on the properties of apples and the color red and abstract them. you may also think about other red things besides apples. If you already know the reason why tomatoes are red before knowing why apples are red, you might consider that the reason for tomatoes being red could apply to apples as well. By conducting this kind of analysis, you can connect your understanding to existing similar knowledge and attempt to explain using those existing reasons. These ways of focusing on abstract structural similarities between specific concepts and inferring that what can be said about A, which has the same structure, can also be said about B is called \textit{analogical reasoning}. This has been considered to be important method in hypothesis generation \cite{thagard_1984}.
+
+I believe that the process of analyzing a question corresponds to the feature transformation that occurs via the intermediate layers in a neural network. In this sense, neural networks also analyze questions. The difference may lie in the fact that humans explicitly perform the analysis of the question and ultimately make inferences for answers based on formal similarities that are linked to symbolic known knowledge.
+
 \subsection{Generating Plausible Hypothesis}
 
 Hypothesis generation is sometimes considered an unanalyzable, emergent process or a result of genius.\footnote{

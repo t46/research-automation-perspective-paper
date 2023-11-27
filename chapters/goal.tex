@@ -200,6 +200,11 @@ In this section, I have discussed a provisional working definition of research. 
 The definition discussed here is merely a provisional one based on the naive intuition. By combining insights from philosophers, scientists, and all working researchers, we can engage in a deeper analysis of the definition of research, developing more fruitful and reliable guidelines for our goal.
 
 \section{Question, Hypothesis, and  Verification}
+\textcolor{red}{question, hypothesis, verification を並べて、
+context of discovery と context of verification だとどこがまとめられるか
+question answering だとどこがまとめられるか
+みたいなのをまとめた図はあってもいいかもしれない}
+
 In the previous section, I examined the conceptual definition of research and its implications. In this section, I will discuss the widely recognized essential elements in research: question construction, hypothesis generation, and hypothesis verification. Throughout this section, I aim to advance the discussion more concretely than in the previous section on what research is and what it could mean for machines to be capable of it.
 
 It goes without saying that the construction of questions, the generation of hypotheses, and the verification of hypotheses are widely accepted as indispensable elements in research. What I will discuss is how these can be characterized as activities, what roles they play in the production of knowledge, and what it could mean for artificial intelligence to perform these tasks. Additionally, at the end of this section, we aim to provide a foundation for discussion by briefly exploring how we combine these elements in conducting our research and what an AI capable of research must be able to do
@@ -317,7 +322,7 @@ To recognize that certain knowledge is unknown to you, it seems necessary to fir
 As previously mentioned, being unknown means that a proposition either does not exist or, even if it does, it is not accompanied by a justified belief. Therefore, it seems that in order to precisely determine unknowingness from academic papers, it seems to be necessary to judge whether each paper has been justified, that is, whether verification has been appropriately conducted. 
 }
 
-\textcolor{red}{ここに論文からの情報取得の自動化の話入れる？可能ならここではない論文のどこかで IR の枠組みの話してその流れで述べたい}
+\textcolor{red}{ここに論文からの情報取得の自動化の話入れる？可能ならここではない論文のどこかで IR の枠組みの話してその流れで述べたい。結局機械にとって未知のものじゃないと仮説生成がそのまま答えの生成になるのでは？}
 
 % It seems that in order to recognize that certain knowledge is unknown to you, you need to attempts to reference that knowledge and finds it unavailable to you. When prompted with a request for a specific type of knowledge and upon referencing your own knowledge base, if you judge that you do not possess that knowledge in your knowledge base, you recognize it as unknown to you. For example, ``why question'' is driven by the request of the knowledge of ``reason'' or the ``cause''.\footnote{
 % Such demands for knowledge would likely be triggered by various factors (for example, attention may be drawn to the causal relationship between the sky and its blueness because one tried to explain why the sky is blue but couldn't). Identifying the mechanism of what and how questions are prompted remains an open problem with no answer yet.
@@ -332,6 +337,12 @@ As previously mentioned, being unknown means that a proposition either does not 
 If machines would determine the novelty in a research survey like humans do, then it might not be a problem. However, there is a question as to whether we should consider something as unknown to us if a machine determines it to be unknown based solely on its own memory. Such judgment may sound reliable if the AI was pre-trained with all scholarly papers. However, as mentioned before, just because AI deems something unknown, it doesn't guarantee that it's unknown to humans. This issue is an open problem.
 
 % philosophy of literature survey \cite{schryen2015theory}
+% GPT-3 learn to quantify the uncertinty of its answer \cite{lin2022teaching}
+
+% One challenge in creating an intelligence capable of hypothesis generation, not just as a tool for humans, is the need to empower the machine itself to form plausible hypotheses for questions to which even the machine doesn't know the answer. Current machine learning models have been criticized for potentially not knowing what they don't know \footnote{
+% In our discussion with Wataru Kumagai, we were reminded once again of the importance of self-awareness in creating an AI capable of conducting research.
+% }. 
+% Moreover, they are known to confidently provide answers or fabricate falsehoods about topics they are ignorant of. Therefore, it seems essential to first accurately recognize what is unknown, either for oneself or the world at large, as told in sections of question construction. Upon facing an unknown subject, there's a need to reduce uncertainty and approach understanding. As mentioned in Chapter 2, humans attempt to understand uncertain subjects by gathering information from papers, experiments, or by reframing questions. While it may not be necessary to adopt the exact same approach, it seems essential to enable machines to autonomously adopt strategies to reduce uncertainties.
 
 \subsubsection{Deciding What Knowledge to Seek}
 We do not always formulate questions for everything we don't know since not all unknowns are equally ``important'' or ``interesting'. Instead, we construct questions for things we wish to know the answers to. This means that we assess some ``value'' of questions using some criteria to determine if it is worth pursuing. For individual, this can be an unconscious internal process, but for research, this doesn't need to be so as long as it is some value judgment process.
@@ -666,72 +677,99 @@ As already mentioned, these are just a part of the value judgments that humans m
 \subsection{Hypothesis Generation}
 二つ目の要素は仮説の生成です。研究とは問いを立てて、その問いに対する答えようとする営みです。研究者はこの問いに答える過程を仮説の生成と仮説の検証の二つに分離して行います。仮説の生成は質問に対する答えの予想であり、仮説の検証はそれが実際に確からしいかを調べる操作です。問いに答える過程をこのように二つの段階に分けるのは、リサーチクエスチョンは人類が誰もその答えを知らないようなものであり、そのため一度に答えを言い当てることは事実上困難であること、そして一個人の思考は必ずしも真理促進的ではないことなどが理由として考えられます。言い換えるなら、仮説生成と検証への分離は人間が極めて不確実性の高い対象の真実を明らかにするために開発した方法論であると言えます。
 
+仮説の生成は科学における人間の創造性が発揮される場所として認識されてきました。人間の創造性は分析できないとの考えから、問いの構築と合わせて仮説の生成は長らく分析が困難なものであると認識されてきました \cite{sep-scientific-discovery}。しかし、20世紀中頃からこの創造的な営みを特徴づけようという試みが生まれてきました。例えば、why question に対する仮説生成におけるアブダクションの重要性の指摘 \cite{hanson1965patterns,magnani2011abduction}、仮説生成における類推的推論の重要性の指摘 \cite{hesse1965models,gentner2002analogy}、科学的発見の探索としての解釈 \cite{langley1987scientific}、確率的サンプリングとしての定式化 \cite{dasgupta2017hypotheses} などがなされました。機械による仮説の生成も人工知能研究の登場以来の最大の関心事の一つであり、早くからその実現が試みられました。初期の例としては1900年代にはすでに仮説を生成する機械の開発が試みられ \cite{langley1987scientific,lindsay1993dendral}、2000年代半ばには自律的に科学的発見を行う機械が開発されました \cite{king2004functional}。
 
-問いの構築と仮説の生成は科学における人間の創造性が発揮される場所として認識されてきました。例えば。。。
+\subsubsection{Hypothesis Generation and Machine Learning}
 
-仮説の生成は既存の知識から未知の問いの答えを予測することです。これはすでに見たデータからまだ見ぬデータに対して予測をするという意味で、機械学習の定式化に還元されるということができます。特に、機械学習における質問応答タスクそのままであるということもできます。また、大きな分布シフトがあるような、言い換えるならばより複雑な分布を想定するような状況での機械学習の予測問題だと考えられます。
+仮説の生成は既存の知識から未知の問いの答えを予測することです。これはすでに見たデータからまだ見ぬデータに対して予測をするという意味で、機械学習の定式化に還元されるということができます。特に、問いに対する答えであるという点から、機械学習における質問応答タスクそのままであるということもできます。また、誰も答えを知らないような答えの予想であるという点から、大きな分布シフトがあるような状況での機械学習の予測問題だと捉えることもできます。
 
 % 機械学習モデルは予測です。検証を伴わない予測という意味で仮説生成と同じ。広義の意味ではこの定義に吸収される。フレームとしては質問応答だし、ood 予測。
 
-実際に、機械学習モデルは科学の仮説生成に広く使われています。例えば、タンパク質の立体構造の予測、新薬の予測、新物質の予測、などは機械による仮説の生成の例です。これらはドメインごとに具体的にやっていることは全然異なりうるため具体的な方法は異なりますが、それらが仮説を生み出しているという点で共通しています。
-。
+実際に、機械学習モデルは科学の仮説生成に広く使われています \cite{xu2021artificial,zhang2023artificial,wang2023scientific}。たとえば、新しいタンパク質や新薬候補や新物性の予測などの、機械学習モデルによる検証を伴わないあらゆる科学的発見は、機械の科学的仮説生成への応用例だと解釈することができます。各々の応用例における具体的な仮説生成の方法は通常全然異なるものですが、それらは知識生成の過程において仮説生成の機能を担っているという点では共通しています。
 
-仮説の空間がどのようなものであるか、仮説を生成することが具体的にどのように表現されるかは研究分野によってさまざまです。例えば仮説はテキストで表現されるかもしれませんし、数式で表現される数理モデルかもしれませんし、ある複数のパラメータの組み合わせかもしれません。例えば、仮説を数式で表現するものでは、科学的データから背後にある法則を記述するシンボリックな数式を発見する研究が行われてきました \cite{kramer2023automated}。
+何を元に仮説を生成するのか、仮説の空間がどのようなものであるか、仮説がどのように表現されるかは研究分野によってさまざまです。例えば仮説は論文から生成されるかもしれませんし、科学的データから生成されるかもしれませんし、事前に定められた探索空間から見つけられるかもしれません。また、仮説は複数の要素の組み合わせとして表現されるかもしれませんし、数式で表現される数理モデルかもしれませんし、テキストで表現されるかもしれませんし。たとえば化学では主に仮説を組み合わせ的に表現し、この chemical design space の中を探索することで機械による仮説の発見が試みられてきました \cite{coley2020autonomous}。仮説を方程式で表現するものとしては、科学的データから背後にある法則を記述するシンボリックな方程式を発見する研究が行われてきました \cite{kramer2023automated}。また、論文群から仮説をテキストとして生成・抽出する研究も多くあります \cite{kang2022augmenting,chan2018solvent,wang2023learning,xu2023exploring,yang2023large}。
+近年では、大規模言語モデルの台頭によって、論文の情報を直接的に与えずに、言語モデル自身の内部の知識のみから仮説生成をさせることを試みる取り組みも現れています \cite{park2023can}。
 
-このような詳細の違いはありますが、many scientific discoveries can be seen as search problems \cite{coley2020autonomous}. From this perspective, hypothesis generation can be thought of as an act of efficiently exploring a space and selecting a certain point within it. Especially since the exploration space in science can be vast, there have been attempts to develop AI that can efficiently explore this space.
+このように、個々の仮説生成の具体的な内実は異なりますが、これらをある観点で同一視しようとするものもあります。まず、仮説空間を人間が与えて所与とすれば、there is a perspective that many scientific discoveries can be seen as search problems \cite{coley2020autonomous}.特に、科学における仮説空間は組み合わせ的に広大であることが往々にしてあります。したがって、仮説生成する AI にはこのような広大な探索空間を効率的に探索する能力が重要であると考えられています。また、Wang らは機械学習を仮説生成に応用した研究群を別の観点で整理しました。彼らは、have categorized and organized how AI is being used for scientific hypothesis generation from the perspective of using it for black box prediction, aiding in the exploration of hypothesis space, and finding solutions in a differentiable hypothesis space \cite{wang2023scientific}.
 
-Wang et al. have categorized and organized how AI is being used for hypothesis generation in science from the perspective of using it for black box prediction, aiding in the exploration of hypothesis space, and finding solutions in a differentiable hypothesis space \cite{wang2023scientific}.
+このように、機械学習の仮説生成への応用は問いの構築や仮説の検証に比べて大きく進んでいます。ここで挙げた例はほんの一部であり、機械学習を仮説生成へ用いた研究はこの他にも膨大にあります。本論文では個々の研究について詳細に検討することはできませんが、ご関心がある方はそれぞれの分野のサーベイ論文を参照してください。
+
+このように機械学習を仮説生成へ応用した事例は膨大にあります。しかし、問いに応じて仮説生成ができる AI をどのようにして実現するかはオープンクエスチョンです。このような AI を実現するためには、上述したような仮説の表現や設計法を問いに合わせて適切に切り替えたり、仮説空間を自らゼロから設計したり \cite{coley2020autonomousII} などする必要もあるでしょう。このようなものをいかに実現していくかについて今後議論が深まっていくことが望まれます。
+
+\subsubsection{Things Seemingly Important in Hypothesis Generation?}
+問いに応じて仮説を自律的に生成できる AI の実現についての課題は、問いの生成や仮説の検証と比べると、すでに多くの注目を集めていると言っても良いでしょう。その結果、すでに多くの議論が蓄積されていると思われます。
+
+なぜならば、すでに述べたように仮説の生成はある問いに対する答えの予測であって、これはすでに機械学習で多くの研究者が取り組んでいる問題だからです。特に、問いに応じて仮説を生成できるAIとは汎用的な予測ができるAIのある特殊な場合であるため、このようなAIを実現する上での課題は、汎用人工知能を実現するための課題と大部分が重複するように思われます。例えば、より強い人工知能を作るためには、演繹などの系統的思考、分布外汎化、因果推論、効率的な探索、問題の部分問題への分割などが重要であろうと考えられていると思いますが、これらはより良い仮説生成をする上でも重要な要素であると考えられます。
+
+このセクションでは、問いに応じて自律的に仮説生成ができる AI の実現にとって重要だと思われる要素について少し検討しようと思いますが、上述の理由から、ここで議論する内容はすでに強いAIを実現する課題として議論されているものと大部分が重複しています。その意味で、ここで展開する議論は新規性に乏しいとは思いますので、すでになされている議論の繰り返しになるかもしれません。以下では、新規性があまりないであろうことを承知の上で、仮説の生成において重要であろうと思われる観点を２つ取り上げて、それがなぜ重要だと思われるのかについて、簡単に議論したいと思います。ただし、これらは重要だと考えられている要素のほんの一部であり、その全てを網羅できていないであろう点についてはご了承ください。
+
+まず、仮説生成の一つの重要な要素として、その問いの答えがまだ誰にも知られていないという点があります。人間にとって答えが未知な仮説を生成する機械にとっては、生成する仮説が必ずしもその機械にとって未知である必要はありません。しかし、その答えが人間だけではなく機械にとっても未知な場合は強いAIにとっても仮説生成はチャレンジングなタスクになるでしょう。このような場合、これまで人間がやってきたのと同様に、機械は自らが答えを知らない対象に接近する方法を自律的に構築して活用できなければいけないように思われます。これは定式化の上では単に分布外汎化になりますが、その答えが人類にも機械にも誰一人わかっている人がいないようなものであるという点で、特に難しい分布外汎化の問題であると考えられます。このような問題を解くためには、機械は人間がやってきたように何らかの方法で段階的に不確実性を削減することで答えに接近していく必要があるように思われます。このような不確実性の高い状況下での推論ができる AI をどのように実現できるかはオープンクエスチョンです。
+
+二つ目に、仮説生成における演繹の重要性について再度強調したいと思います。人間の仮説生成においては演繹、特に数学が非常に強力であったことは疑いがありません。なぜなら、演繹においては、前提が真である限り演繹で得られた結果はどれだけ直観に反していても真であることが保証されるからです。これによって、経験からは自然には出てこないような予測もすることができるようになります。経験からの推論を基本とするAIにとってこれは非常に強力なアドバンテージとなります。また、人間が仮説演繹法として行なってきたように、演繹によって直接は検証され得ない仮説の確からしさについて議論することができるようになります。演繹結果が棄却されれば仮説は偽であるとわかりますし、採択されてもその仮説が確からしいという信念を強めることにつながります。これは研究について経験的に知りうる可能範囲を押し広げる上で重要な要素でしょう。演繹/仮説演繹法の重要性についてはすでにに様々に議論されていますが、仮説生成においてはこのような利点があると考えられます。
+
+以上、２つの仮説の生成に関連しうる要素について議論しました。ここではこれらを二つの別々の要素として議論しましたが、これらのいずれにとっても、系統的思考（系統的汎化や構成的汎化）の獲得が重要であるように思われます。そのため、私はこのような AI の実現にとっては、多くの人が思っているのと同様に系統的思考の獲得が重要だと考えています。しかし、系統的思考の重要性についてはすでに多くの人が同意するところだと思われますし、すでに多くの優れた議論がなされているので \cite{goyal2022inductive}、ここでこれ以上は立ち入りません。
+
+% 多くの仮説生成が仮説空間の探索として定式化できるとしても、仮説空間は問いに依存します。したがって、AIに問いの構築から自律的に実行させる場合は、AIはそれに応じて自ら適切な仮説空間を自ら設計しなければなりません。そもそも仮説空間がどのようになっているか明示的にわからない場合も多く、人間はそこを明らかにするところから進める場合も少なくありません。さらには、すべての仮説生成が組み合わせ的に必ずしも表現できるわけでもなく、原理的にできたとしてもそのように定式化することが効率が悪いものも存在します。仮説が生成できる AI はこれらのさまざまな場合に対応できることが期待されるように思われます。
+
+% このように、機械に仮説生成を手伝わせる研究はすでに数多く存在します。しかしそれらは必ずしも自律的に仮説の生成の全過程を行わせる場合ではありません。特に、汎用的に仮説生成を行わせる取り組みはそこまで多くありません。
+
+% 自律的かつ汎用的に仮説生成を統一的に扱う枠組みとしては、科学的発見を探索とみなすものがあります。←これを否定するのではなく、これはそうで、その上でこの探索のこの要素も含めて自律的にやらせると予測の問題になるよねみたいな書き方する。
+
+% 前述したように、仮説の生成は答えの予測と同一視することができると思います。この意味で、より良い仮説生成ができる AI の実現は問いの生成や仮説の検証に比べてすでに多くの注目を集めています。したがって、それを実現するための課題についてもすでに多くの議論がなされています。（例えば分布外汎化や系統的推論や因果推論が重要であるなど指摘されています。）したがって、このセクションではこの論点についてこれ以上深掘りすることを避けます。この点については改めて議論できればと思います。人間のように汎用的に人間のような仮説を生成する AI を作ることまでまだ多くの課題があるのはそうだが、それはより強力な汎用モデルを作成する課題と重複するのではないかというのが懸念。そうであれば、特にここで強調する必要もなさそう。
+
+% （課題がないということではない。例えば、研究ではかなり多くの問いが ``Why-question'' であり因果の推論が重要であるが、機械学習のほとんどの枠組みは相関の学習であり、適切に因果を推論できる AI が必要である。とか、前述したように科学的発見の多くは探索問題として記述できるので、仮説空間が構成できた後にはどのようにして効率的な探索を行うかという問題がある、とか。あとは、人間は数学を活用することができたために経験を超えた仮説の生成が可能になったため、数学ないし形式的推論を獲得できることが必要とか、数理モデルとして表現することもできるようになったため、数学が活用ができることが大事とか。じゃあ、研究に特有の予測の性質とはなんだろうか？自分にとって未知なものに対する推論←OODの程度がすごい、whyquestionに特化してる←因果推論。より良い推論ができるようになるには、という話で、結局汎用人工知能を作りたいというかなり広い論点と被ってしまう、という注意を入れる
+% より良い人工知能を作りたい多くの人が関心がある論点。科学研究にユニークな点としては、探索空間が広大であることなどが知られてる。仮説空間を陽に定めない場合は、自分自身も知らないという状況がユニーク。これを解決するためにつような要素は結局みんなが必要だと思ってる要素だけど、みたいな話。仮説からの演繹の話はどこかで書く。おそらくこの仮説の生え成のところで書く？←仮説の確からしさを見る？その意味だと検証？？理論研究の位置付けにもよるけど、演繹はやっぱり仮説のところで扱うべきでは。数式でモデリングしてそこから演繹で予測を出す→仮説演繹法を高度に推し進めた。As one of the promising approaches for tacking unknowns, it seems crucial for AI to acquire systematic thinking to realize this, as humans developed systems like language and mathematics, allowing them to infer about subjects beyond their experience. Systematic thinking is not only important for out-of-distribution generalization but is also valued for interpretability, causal inference, logical reasoning, mathematical processing, and planning.）
+
+% Theoretical virtues \cite{schindler2022theoretical}
+
+% 人間にとっても機械にとっても未知なものについては少し違うかもしれない？
+
+% （人間が発展させてきた仮説生成の方法論は、自分も含めた人類全体にとって答えが未知であるような複雑な問いの答えをいかに探していくかという点が他の単なる予測とは異なる特徴だった。したがって、AI が AI 自身にとって未知なものを予測させることを目指すのであれば、それは単なる予測問題とは少し異なるかもしれない。しかし、機械に人間にとっての仮説を生成させることのみ要求するのであれば、より賢い機械が生まれた後では分布外汎化にすらならないかもしれません。）
+
+% しかし、そのような汎用的な仮説生成AIを作ることが、単により強力な汎用機械学習モデルを作成することとどれほど異なるのか私にはまだわかっていません。前述したように、仮説の生成は質問応答であり、機械学習の予測問題に還元されるように思われるからです。仮説生成という行為がそのような予測のうち具体的にどのような特徴を有しているものなのか私にはわかっていないといった方が正確かもしれません。
+
+% ここで述べたいのは、人間のように仮説を生成する人工知能を作る上で課題がないということではなく、現在あまり議論されていないがそれを実現する上で重要なその人工知能の実現にユニークな課題を私がまだうまく理解し定式化できていないということです。例えば問いの生成や仮説の検証は機械学習の分野の中ではあまり注目されていないタスクですが、研究をする人工知能を実現する上では重要な要素であるため、この論文で議論する価値があると考えています。一方より良い仮説を生成する機械はより良い予測ができる AI の実現という意味で、すでに多くの人が注目し多くの重要と思われる要素が議論されています。
 
 
-このような事例は膨大であり、網羅的に紹介することは私の能力を超えているので、ここではこのくらい簡単に触れる程度でとどめさせてください。これまで見てきたように、機械による仮説の生成の試みはすでにたくさんあり、それらは多くの成果を上げています。個別の研究分野における AI の仮説生成への応用はまだ多くの課題が残っているものと思われますが、個別の研究ドメインへの理解を欠く私の議論はここで終わらせます的な。
 
-\subsubsection{What Would be a General Hypothesis Generator?}
+% ランダムソートを並べるけど、すでに何度も語られている点がある
 
-多くの仮説生成が仮説空間の探索として定式化できるとしても、仮説空間は問いに依存します。したがって、AIに問いの構築から自律的に実行させる場合は、AIはそれに応じて自ら適切な仮説空間を自ら設計しなければなりません。そもそも仮説空間がどのようになっているか明示的にわからない場合も多く、人間はそこを明らかにするところから進める場合も少なくありません。さらには、すべての仮説生成が組み合わせ的に必ずしも表現できるわけでもなく、原理的にできたとしてもそのように定式化することが効率が悪いものも存在します。仮説が生成できる AI はこれらのさまざまな場合に対応できることが期待されるように思われます。
+% 課題がないということではない。例えば、研究ではかなり多くの問いが ``Why-question'' であり因果の推論が重要であるが、機械学習のほとんどの枠組みは相関の学習であり、適切に因果を推論できる AI が必要である。とか、前述したように科学的発見の多くは探索問題として記述できるので、仮説空間が構成できた後にはどのようにして効率的な探索を行うかという問題がある、とか。あとは、人間は数学を活用することができたために経験を超えた仮説の生成が可能になったため、数学ないし形式的推論を獲得できることが必要とか、数理モデルとして表現することもできるようになったため、数学が活用ができることが大事とか、
 
-しかし、そのような汎用的な仮説生成AIを作ることが、単により強力な汎用機械学習モデルを作成することとどれほど異なるのか私にはまだわかっていません。前述したように、仮説の生成は質問応答であり、機械学習の予測問題に還元されるように思われるからです。ただしここまで抽象化して議論するのも意味がないかもしれません。経験からの予測というならば私たち人間がしているほぼすべての活動が経験からの予測だと言えるからです。なので厳密には、私が仮説生成という行為がそのような予測活動のうち具体的にどのような特徴を有しているものなのかがわかっていないといった方が正確かもしれません。これは私の能力不足によるところです。是非多くのフィードバックをお待ちしています。
+% ただ、これらはより強い人工知能を作るために必要なものとしてすでに広く議論されているので、ここでは改めて取り上げない。
 
-ランダムソートを並べるけど、すでに何度も語られている点がある
 
-課題がないということではない。例えば、研究ではかなり多くの問いが ``Why-question'' であり因果の推論が重要であるが、機械学習のほとんどの枠組みは相関の学習であり、適切に因果を推論できる AI が必要である。とか、前述したように科学的発見の多くは探索問題として記述できるので、仮説空間が構成できた後にはどのようにして効率的な探索を行うかという問題がある、とか。あとは、人間は数学を活用することができたために経験を超えた仮説の生成が可能になったため、数学ないし形式的推論を獲得できることが必要とか、数理モデルとして表現することもできるようになったため、数学が活用ができることが大事とか、
+% 例えば、人間は仮説を生成するために類推的な推論を発展させてきましたが、類推的な推論もパターン認識の一種で、現在の機械学習の枠組みとその意味で大きく異なりません。発見するパターンの構造が簡単に見つけられないものであるという程度のものです。
 
-ただ、これらはより強い人工知能を作るために必要なものとしてすでに広く議論されているので、ここでは改めて取り上げない。
+% 個別の課題に最適なものを作るならもちろん別
 
-人間のように汎用的に人間のような仮説を生成する AI を作ることまでまだ多くの課題があるのはそうだが、それはより強力な汎用モデルを作成する課題と重複するのではないかというのが懸念。そうであれば、特にここで強調する必要もなさそう。
+% じゃあ、研究に特有の予測の性質とはなんだろうか？自分にとって未知なものに対する推論←OODの程度がすごい、whyquestionに特化してる←因果推論、探索空間が広域？\textcolor{red}{自分の、仮説生成と予測の違いがわからないという率直な気持ちを書いてFBを待つのがいい気がする。アナロジーの話とかもみんなわかってるけどそれでもみたいな感じ。仮説を数式で表現するとかは科学にユニーク？モデリング？みんな教えて！って感じのスタンスでいこう。}
 
-人間が発展させてきた仮説生成の方法論は、自分も含めた人類全体にとって答えが未知であるような複雑な問いの答えをいかに探していくかという点が他の単なる予測とは異なる特徴だった。したがって、AI が AI 自身にとって未知なものを予測させることを目指すのであれば、それは単なる予測問題とは少し異なるかもしれない。しかし、機械に人間にとっての仮説を生成させることのみ要求するのであれば、より賢い機械が生まれた後では分布外汎化にすらならないかもしれません。
+% 汎用的な仮説生成機械を作ろうとすると、より良い予測ができる汎用モデルを構築するという話に結局収斂してしまう。
 
-例えば、人間は仮説を生成するために類推的な推論を発展させてきましたが、類推的な推論もパターン認識の一種で、現在の機械学習の枠組みとその意味で大きく異なりません。発見するパターンの構造が簡単に見つけられないものであるという程度のものです。
+% 仮説の生成と仮説の検証の間に、演繹的推論がある・これが科学ではとても大きな役割を果たしていた。
 
-個別の課題に最適なものを作るならもちろん別
+% より良い推論ができるようになるには、という話で、結局汎用人工知能を作りたいというかなり広い論点と被ってしまう、という注意を入れる
+% より良い人工知能を作りたい多くの人が関心がある論点。科学研究にユニークな点としては、探索空間が広大であることなどが知られてる。仮説空間を陽に定めない場合は、自分自身も知らないという状況がユニーク。これを解決するためにつような要素は結局みんなが必要だと思ってる要素だけど、みたいな話。
 
-じゃあ、研究に特有の予測の性質とはなんだろうか？自分にとって未知なものに対する推論←OODの程度がすごい、whyquestionに特化してる←因果推論、探索空間が広域？\textcolor{red}{自分の、仮説生成と予測の違いがわからないという率直な気持ちを書いてFBを待つのがいい気がする。アナロジーの話とかもみんなわかってるけどそれでもみたいな感じ。仮説を数式で表現するとかは科学にユニーク？モデリング？みんな教えて！って感じのスタンスでいこう。}
-
-汎用的な仮説生成機械を作ろうとすると、より良い予測ができる汎用モデルを構築するという話に結局収斂してしまう。
-
-仮説の生成と仮説の検証の間に、演繹的推論がある・これが科学ではとても大きな役割を果たしていた。
-
-より良い推論ができるようになるには、という話で、結局汎用人工知能を作りたいというかなり広い論点と被ってしまう、という注意を入れる
-より良い人工知能を作りたい多くの人が関心がある論点。科学研究にユニークな点としては、探索空間が広大であることなどが知られてる。仮説空間を陽に定めない場合は、自分自身も知らないという状況がユニーク。これを解決するためにつような要素は結局みんなが必要だと思ってる要素だけど、みたいな話。
-
-仮説からの演繹の話はどこかで書く。おそらくこの仮説の生え成のところで書く？←仮説の確からしさを見る？その意味だと検証？？理論研究の位置付けにもよるけど、演繹はやっぱり仮説のところで扱うべきでは。数式d
+% 仮説からの演繹の話はどこかで書く。おそらくこの仮説の生え成のところで書く？←仮説の確からしさを見る？その意味だと検証？？理論研究の位置付けにもよるけど、演繹はやっぱり仮説のところで扱うべきでは。数式d
 
 % The second component is \textit{hypothesis generation}. Research is the endeavor to find answers to research questions. Here, as mentioned before, these questions are ones for which the answers are not known. Therefore, we generate hypotheses as candidate answers to these questions and find answers by validating them. Given that research is an endeavor to turn the unknown into the known, the generation of hypotheses, whether implicit or explicit, is an inevitable element in research.
 
 % \subsection{What Would be the Challenges for an AI to Generate Hypotheses?}
-\subsubsection{Challenges: Hypothesis Generation as Question Answering}
-In research, hypothesis generation is question-answering based on existing knowledge. That is to say, generating hypotheses is equal to predicting answers to questions from one's own knowledge base. I believe that, by design, machine learning models generate hypotheses (this is different from the case of question construction and hypothesis verification). This is because machine learning models make predictions based on data. Therefore, I consider the generation of hypotheses in itself not to be the challenge for creating an artificial researcher.
+% \subsubsection{Challenges: Hypothesis Generation as Question Answering}
+% In research, hypothesis generation is question-answering based on existing knowledge. That is to say, generating hypotheses is equal to predicting answers to questions from one's own knowledge base. I believe that, by design, machine learning models generate hypotheses (this is different from the case of question construction and hypothesis verification). This is because machine learning models make predictions based on data. Therefore, I consider the generation of hypotheses in itself not to be the challenge for creating an artificial researcher.
 
-However, the capacity for scientific hypothesis generation by machine learning models seems to remain limited. For exaxmple, there are still no examples where machines have generated hypotheses or theories that fundamentally change science as Newton or Einstein did\footnote{
-If humans define the hypothesis space in advance, machines can generate hypotheses that can solve longstanding problems in a field (e.g. AlphaFold \cite{jumper2021highly}).
-}. Therefore, it seems that there are still challenges to be solved in order to create AI that can generate hypotheses like humans.
+% However, the capacity for scientific hypothesis generation by machine learning models seems to remain limited. For exaxmple, there are still no examples where machines have generated hypotheses or theories that fundamentally change science as Newton or Einstein did\footnote{
+% If humans define the hypothesis space in advance, machines can generate hypotheses that can solve longstanding problems in a field (e.g. AlphaFold \cite{jumper2021highly}).
+% }. Therefore, it seems that there are still challenges to be solved in order to create AI that can generate hypotheses like humans.
 
-\subsubsection{Challenges: Generating Hypotheses for AI}
-The characteristic of hypothesis generation in research is that it involves question-answering that seeks to find answers that nobody in the world yet knows. Bearing this in mind, I believe that one of the significant challenges is to endow AI with the ability to generate reliable answers to questions that even it, including everyone else, does not yet know the answer to.
+% \subsubsection{Challenges: Generating Hypotheses for AI}
+% The characteristic of hypothesis generation in research is that it involves question-answering that seeks to find answers that nobody in the world yet knows. Bearing this in mind, I believe that one of the significant challenges is to endow AI with the ability to generate reliable answers to questions that even it, including everyone else, does not yet know the answer to.
 
-Even now, machine learning models are being used to generate scientific hypotheses, but it seems that they are referred to as hypotheses in the sense that their predictions are uncertain to humans, which may be unknown to us. This might be trivial for the machine. In other words, what is a hypothesis to humans may not be a hypothesis to the machine. 
+% Even now, machine learning models are being used to generate scientific hypotheses, but it seems that they are referred to as hypotheses in the sense that their predictions are uncertain to humans, which may be unknown to us. This might be trivial for the machine. In other words, what is a hypothesis to humans may not be a hypothesis to the machine. 
 
-Even if hypotheses for humans are successfully generated, the machine may not be able to generate hypotheses effectively for questions whose answers are unknown even to itself. Indeed, it is known that machine learning models can fail to predict accurately under naive distribution shifts \cite{shen2021towards}, and they are also known to fabricate facts about knowledge they do not possess \cite{maynez2020faithfulness}.
+% Even if hypotheses for humans are successfully generated, the machine may not be able to generate hypotheses effectively for questions whose answers are unknown even to itself. Indeed, it is known that machine learning models can fail to predict accurately under naive distribution shifts \cite{shen2021towards}, and they are also known to fabricate facts about knowledge they do not possess \cite{maynez2020faithfulness}.
 
 % Furthermore, the essence of human hypothesis generation seems to lie in how to generate plausible answers in situations where the answer is not known. On the other hand, machine learning models are known to just fabricate falsehoods when they do not know the answer \cite{maynez2020faithfulness}. In other words, they do not seem to have sufficiently acquired the methodology to reach an answer under circumstances where the answer is not known. Therefore, it seems important to determine how to generate good answers to questions that are unknown even to the machine itself.
 
@@ -749,30 +787,21 @@ Even if hypotheses for humans are successfully generated, the machine may not be
 
 % まとめると、    1. 人間のように複雑な仮説の生成をいかに可能にするか、2. 機械自身にとっても答えが未知であるときにいかに良い答えの生成を可能にするか、が課題であると私は思っています。これらの課題解決への糸口を掴むためには、人間がどのように仮説生成をしているかを見ていくのは有用であるように思われます。そこで、以下のセクションでは人間がどのように仮説生成をしているかを見ていきます。
 
-\subsubsection{How Do Humans Generate Hypotheses?}
+% \subsubsection{人間の仮説生成において重要であるように思われるもの（上のセクションとまとめてもいい）}
 
-In order to create an AI that can generate reliable answers to difficult questions whose answers are unknown to anyone, it seems prudent to look at how humans generate hypotheses. Therefore, I would like to briefly present my thoughts on how humans appear to generate hypotheses. 
-Note that the methods humans use to generate hypotheses are diverse, and the discussion here can by no means cover them all. I hope that what I present can be taken as a starting point for further exploration.
+% 数式でモデリングしてそこから演繹で予測を出す→仮説演繹法を高度に推し進めた
+
+% Theoretical virtues \cite{schindler2022theoretical}
+
+% \subsubsection{Generating Hypotheses for Which the Answers are Unknown to Both Humans and Machines}
+
+% \subsubsection{How Do Humans Generate Hypotheses?}
+
+% In order to create an AI that can generate reliable answers to difficult questions whose answers are unknown to anyone, it seems prudent to look at how humans generate hypotheses. Therefore, I would like to briefly present my thoughts on how humans appear to generate hypotheses. 
+% Note that the methods humans use to generate hypotheses are diverse, and the discussion here can by no means cover them all. I hope that what I present can be taken as a starting point for further exploration.
 
 % \subsubsection{The Complex Step-by-Step Hypothesis Generation Process}
-One significant difference when comparing the hypothesis generation process of humans and the question-answering of machines is that the human hypothesis generation process is far more complex.
 
-
-It seems that in the process of generating a hypothesis to answer a single question, humans implicitly and explicitly generate dozens or even hundreds of questions and hypotheses. As a result, in order to answer the initial question, they end up answering many different questions. Moreover, in order to generate a hypothesis, they may also test other hypotheses.
-
-
-For example, Charles Darwin began with the question ``How does evolution occur?'' However, after reading Lyell's work and becoming convinced of the importance of selection in evolution as an analogy of artificial selection, he formulated and tackled the question ``How does selection (equivalent of artificial selection) occur in nature?'' Here we see a shift in the question. It was precisely because of this change in question that, upon reading Malthus's essay on population, he was able to realize that natural selection is brought about by competition between species, and thus he could fully answer the initial question, ``How does evolution occur?'' \cite{gribbin2022origin}
-
-On the other hand, it appears that we are not having our neural networks go through such a complex process of trial and error for hypothesis generation. In many cases, when a question is presented, neural networks predict answers through a single inference based on fixed parameters. This seems too simplistic compared to the human process of hypothesis generation, which often involves repeatedly generating and testing questions and hypotheses.
-
-% For humans, answering a question essentially means constructing the answer from known concepts. A question whose answer is unknown can be said to be one whose answer does not immediately connect with existing knowledge. Humans seem to somehow successfully link the unknown answer with their known knowledge. As these examples also illustrate, realizing the prediction of answers in cases where the answer is unknown to everyone in the world appear to be a challenge.
-% 人間の場合、ある問いに答えるとは、その問いの答えを既知の概念で構成することに他なりません。答えがを知らない問いというのは、その答えが既存の知識に直ちには結びつかない問いであると言えます。このような状況下で、なんとかして答えが未知の問いを既知の知識に結びつけるのが、人間が仮説生成をする際に行なっていることであるように思われます。
-
-% \subsubsection{Analyzing Question}
-\textcolor{red}{TODO: remove or modify}
-In difficult questions where the relationship to known knowledge is not immediately apparent, it seems that we first tend to analyze the question in detail. For example, let's say you have a question, ``Why are apples red?'' The first thing you would consider is what an apple is and what red means. You would also think about what it means for something to be red. Then, you would focus on the properties of apples and the color red and abstract them. you may also think about other red things besides apples. If you already know the reason why tomatoes are red before knowing why apples are red, you might consider that the reason for tomatoes being red could apply to apples as well. By conducting this kind of analysis, you can connect your understanding to existing similar knowledge and attempt to explain using those existing reasons. These ways of focusing on abstract structural similarities between specific concepts and inferring that what can be said about A, which has the same structure, can also be said about B is called \textit{analogical reasoning}. This has been considered to be important method in hypothesis generation \cite{thagard_1984}.
-
-I believe that the process of analyzing a question corresponds to the feature transformation that occurs via the intermediate layers in a neural network. In this sense, neural networks also analyze questions. The difference may lie in the fact that humans explicitly perform the analysis of the question and ultimately make inferences for answers based on formal similarities that are linked to symbolic known knowledge.
 
 % hesse1965models,thagard_1984,gentner1993shift,holyoak1996mental,dunbar1997scientists
 
@@ -782,33 +811,24 @@ I believe that the process of analyzing a question corresponds to the feature tr
 
 % Hypothesis generation is the act of creating potential answers to a question, so naturally, it is essential to generate plausible hypotheses that are close to the actual answer. Therefore, let's start by referring to how humans generate hypotheses and then discuss how I can generate reliable hypotheses, drawing inspiration from human methods.
 
-\subsubsection{Types of Questions}
-There are various types of questions. For instance, a ``How'' question is posed when one wants to know a specific way to do something, while a ``Why'' question is asked when one is curious about the cause or mechanism of something. Among them, it would not be an exaggeration to say that the ``why'' question is of the highest interest to researchers. Researchers have developed methodologies for expressing queries about causality and for inductively inferring answers to those queries based on them, i.e.\textit{ causal inference} \cite{pearl2018book}.
+% \subsubsection{Types of Questions}
+% There are various types of questions. For instance, a ``How'' question is posed when one wants to know a specific way to do something, while a ``Why'' question is asked when one is curious about the cause or mechanism of something. Among them, it would not be an exaggeration to say that the ``why'' question is of the highest interest to researchers. Researchers have developed methodologies for expressing queries about causality and for inductively inferring answers to those queries based on them, i.e.\textit{ causal inference} \cite{pearl2018book}.
 
-An AI tasked with formulating questions autonomously is expected to be capable of posing questions, regardless of their question type, and to develop methodologies for answering them. The broader the class of questions that need to be addressed, the more general the methodology required becomes. How to realize such an AI remains an open question.
+% An AI tasked with formulating questions autonomously is expected to be capable of posing questions, regardless of their question type, and to develop methodologies for answering them. The broader the class of questions that need to be addressed, the more general the methodology required becomes. How to realize such an AI remains an open question.
 
-\subsubsection{Challenges}
-One challenge in creating an intelligence capable of hypothesis generation, not just as a tool for humans, is the need to empower the machine itself to form plausible hypotheses for questions to which even the machine doesn't know the answer. Current machine learning models have been criticized for potentially not knowing what they don't know \footnote{
-In our discussion with Wataru Kumagai, we were reminded once again of the importance of self-awareness in creating an AI capable of conducting research.
-}. 
-Moreover, they are known to confidently provide answers or fabricate falsehoods about topics they are ignorant of. Therefore, it seems essential to first accurately recognize what is unknown, either for oneself or the world at large, as told in sections of question construction. Upon facing an unknown subject, there's a need to reduce uncertainty and approach understanding. As mentioned in Chapter 2, humans attempt to understand uncertain subjects by gathering information from papers, experiments, or by reframing questions. While it may not be necessary to adopt the exact same approach, it seems essential to enable machines to autonomously adopt strategies to reduce uncertainties.
+% \subsubsection{Challenges}
+% One challenge in creating an intelligence capable of hypothesis generation, not just as a tool for humans, is the need to empower the machine itself to form plausible hypotheses for questions to which even the machine doesn't know the answer. Current machine learning models have been criticized for potentially not knowing what they don't know \footnote{
+% In our discussion with Wataru Kumagai, we were reminded once again of the importance of self-awareness in creating an AI capable of conducting research.
+% }. 
+% Moreover, they are known to confidently provide answers or fabricate falsehoods about topics they are ignorant of. Therefore, it seems essential to first accurately recognize what is unknown, either for oneself or the world at large, as told in sections of question construction. Upon facing an unknown subject, there's a need to reduce uncertainty and approach understanding. As mentioned in Chapter 2, humans attempt to understand uncertain subjects by gathering information from papers, experiments, or by reframing questions. While it may not be necessary to adopt the exact same approach, it seems essential to enable machines to autonomously adopt strategies to reduce uncertainties.
 
 % Outputs from machine learning models are essentially inferences tinged with uncertainty. From this perspective, one could posit that these models are already inherently generating hypotheses. Indeed, they are already employed for hypothesis generation in numerous scientific investigations.
 
 % However, while these hypotheses might be hypotheses in the sense that the answers are unknown to humans, they might be self-evident to the machine learning model. When we talk about AI generating hypotheses in the context of AI conducting research, the ultimate expectation is for the AI to provide plausible answers to what is unknown to AI itself. This remains an unresolved issue.
 
-As one of the promising approaches for tacking unknowns, it seems crucial for AI to acquire systematic thinking to realize this, as humans developed systems like language and mathematics, allowing them to infer about subjects beyond their experience. Systematic thinking is not only important for out-of-distribution generalization but is also valued for interpretability, causal inference, logical reasoning, mathematical processing, and planning.
+
 
 % \textcolor{red}{TODO}
-
-\subsubsection{Others}
-Theoretical virtues \cite{schindler2022theoretical}
-
-GPT-3 learn to quantify the uncertinty of its answer \cite{lin2022teaching}
-
-LLMs know that they know \cite{kadavath2022language}
- 
-can ChatGPT generate scientific hypothesis? \cite{park2023can}
 
 \subsection{Hypothesis Verification}
 最後の要素は仮説の検証です。私たちは問いに対する予想の確からしさを検証によって確かめることで、ある仮説が真である・偽であるという信念を正当化します。したがって、知識を生み出すためには検証は不可欠です。
@@ -1086,6 +1106,8 @@ Additionally, there are attempts to design workflows that are reusable beyond in
 \section{Ideas for Elucidating Challenges}
 
 言語モデルすごいし、言語モデルでやってくの考えたいよね。汎用的なのを言語モデルでやってみるならどんなになるだろう？→できるだけ汎用的な指示ということになるよね！みたいな
+
+言語モデルが研究ができるというのはどう調べるか←汎用的な指示というのが一つのテストとして使う？
 
 \subsection{Prototyping General and Autonomous Artificial Researcher}
 
