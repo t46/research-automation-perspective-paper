@@ -969,6 +969,8 @@ In this way, to conduct research, we pose countless questions and hypotheses and
 問いの構築や仮説の生成や仮説の検証は達成したい目的であり、知識生産過程における機能であって、その実装ではありません。これらの機能を実装するためには上述したような操作ができること、そしてそれらを適切に組み合わせて目標を達成するための作業をすることが不可欠となります。このような複数の異なる操作を適切に組み合わせることは、特定の研究課題に特化したとしてもなお難しい課題です \cite{coley2020autonomousII}。問いの生成から始めて研究の過程の全てを自律的に実行できるようなエージェントを仮に目指す場合、人間のように自在に行為を生成できるような能力を獲得することが不可欠です。
 
 \subsubsection{Discovering New Questions}
+\textcolor{red}{手法から問題を考えることがある}
+
 Researchers often set out to solve one question, only to find themselves discovering an entirely unrelated question in the process. This new question, unrelated to the original question and even its underlying purpose, may lead them to pivot their research focus and potentially make significant scientific discoveries. Since research is full of uncertainty, it's not uncommon to be unable to foresee everything from the start. Thus, this discovery and shift of question is not rare.
 
 If an AI capable of conducting research were tasked with achieving a single objective, such serendipitous discoveries might not occur. This is because any new questions it finds, no matter how intriguing or scientifically important, may not be directly relevant to achieving its predefined goal. Therefore, to encourage an AI to uncover such unrelated questions, it might be necessary to set multiple objectives or a broader high-level goal that encompasses both original and newly found questions. 
@@ -999,8 +1001,74 @@ In research, it's not always common for the initial hypothesis to directly answe
 これまで、研究において重要であると思われる要素である、問いの構築、仮説生成、仮説検証について議論し、その後でそれらを組み合わせた場合に関連する話題について議論をしました。このセクションでは、これらすべての機能に関連しうるような話題や、これまでのセクションでは触れられなかった話題について議論していきたいと思います。
 
 \subsubsection{Language Models}
+近年の言語モデルの急速な発展は数々の革新的な成果を生み出してきました \cite{zhao2023survey}。将来研究ができるエージェントが言語モデルの知見を活用しないことは考えられないでしょう。このセクションでは、言語モデルを使った科学的発見の試みについて議論します。
 
-知識発見の全ての過程に関与してる。
+言語モデルは 2017 年の Transformer の登場以降、大規模コーパスによって事前学習をする試みが一般的となりました。特に、多くの下流タスクに使えるモデルという基盤モデルという概念が導入されると \cite{bommasani2021opportunities}、このような基盤モデルの構築を目指す動きが加速しました。科学の分野においても、科学的テキストで事前学習をした科学的言語モデルを作成する試みや科学の基盤モデルを作ることを目指す動きが出てきました \cite{beltagy2019scibert,singh2022scirepeval,nadkarni2021scientific,cohan2020specter,gupta2022matscibert,taylor2022galactica,azerbayev2023llemma,xie2023darwin,luo2022biogpt,li2023llava}。 また、科学的データはテキストデータだけではなく複数のモダリティのデータが必要となるので、そのようなマルチモーダルなデータで事前学習した科学的汎用モデルを作る取り組みも現れました \cite{singhal2023towards,takeda2023foundation,nguyen2023climax}。
+
+2020 年の GPT-3, 2022 年の ChatGPT (GPT-3.5), 2023 年の GPT-4 が登場すると、これらのモデルがかなりの範囲の知的タスクかなりの精度でこなすことができることで大きな注目を集めました。それを受けて、GPTs の科学的理解を調べる研究や GPTs をそのまま用いて科学的タスクの遂行を試みる研究が増加しました \cite{bordt2023chatgpt,white2022large}。特に、これらの GPTs をつなぎ合わせてパイプラインや自律的エージェントを構成する取り組みが始まると、科学的タスクをこのようなエージェントに実施させる研究も現れました \cite{wang2023survey}。
+
+% それが科学的な基盤モデルを作る試みへとつながりました \cite{taylor2022galactica}。
+
+さまざまな分野の知識発見のあらゆる過程の自動化に大規模言語モデルを用いる様々な試みがあります。研究分野で言えば、化学 \cite{bran2023chemcrow,jablonka202314,white2022large,hatakeyama2023prompt,jablonka202314,guo2023can} や材料科学 \cite{jablonka202314,jablonka202314,xie2023large,kang2023chatmof,merchant2023scaling} などの自然科学への適用 \cite{ai4science2023impact,bran2023chemcrow,white2022large,hatakeyama2023prompt,jablonka202314,guo2023can,boiko2023emergent,charness2023generation,qin2023gpt,zheng2023large,qian2023can,wysocka2023large,lee2023benefits,nori2023capabilities,wang2023large,singhal2023large,yang2022gatortron,deng2023learning,merchant2023scaling}、数学や工学への応用 \cite{wu2023empirical,pursnani2023performance,zheng2023can,zhang2023automl}
+社会科学への応用 \cite{wang2023survey,bail2023can,ziems2023can,park2023generative,horton2023large} などがあります。また、全ての研究分野に共通するものとして、学術文書の処理を GPT に行わせる取り組みもあります \cite{alzaabi2023chatgpt}。 Some of them include paper processing \cite{elicit,scispace,van2023chatgpt}, paper search \cite{elicit,scispace}, paper writing \cite{transformer2022can}, abstract generation \cite{gao2023comparing}, literature review generation \cite{aydin2022openai}, and peer review \cite{wexin2023can,liu2023reviewergpt,robertson2023gpt4,hosseini2023fighting}. 
+
+特に、自動化する研究の過程としては、仮説の生成過程はもちろんこと、研究課題やリサーチクエスションの発見や生成 \cite{oppenlaender2023mapping,lahat2023evaluating} をさせるものから、実験も含めた研究の全過程に使用するような例まで登場しました \cite{boiko2023emergent,charness2023generation,qin2023gpt}。
+
+このような言語モデルの革新的な性能と急激な科学研究への広まりは、科学コミュニティに対して多くの議論を呼びました \cite{birhane2023science}。
+
+% 参考
+% 自律的エージェントを科学へ応用 \cite{wang2023survey}.
+
+% LLMs are used for scholarly document processing \cite{alzaabi2023chatgpt}, some of which include paper processing \cite{elicit,scispace,van2023chatgpt}, paper search \cite{elicit,scispace}, paper writing \cite{transformer2022can}, abstract generation \cite{gao2023comparing}, literature review generation \cite{aydin2022openai}, and peer review \cite{wexin2023can,liu2023reviewergpt,robertson2023gpt4,hosseini2023fighting}. 
+
+% 研究課題の発見 \cite{oppenlaender2023mapping}、リサーチクエスチョンの生成 \cite{lahat2023evaluating}
+
+% LLM の科学的知識の理解を調べる研究があります。コンピューター科学
+% \cite{bordt2023chatgpt} 化学 \cite{white2022large}
+
+% 社会科学への応用があります \cite{wang2023survey,bail2023can,ziems2023can,park2023generative,horton2023large,williams2023algorithmic}.
+
+% 科学の基盤モデルを作る試み \cite{taylor2022galactica}
+
+% molecular data,  protein language models,  DNA and RNA などの事前学習済みモデルを紹介してる \cite{ai4science2023impact}
+
+% generalist model \cite{tu2023towards}
+
+% 科学に 特化した言語モデル\cite{beltagy2019scibert,singh2022scirepeval,nadkarni2021scientific,cohan2020specter,gupta2022matscibert,taylor2022galactica,azerbayev2023llemma}. 
+
+% マルチモーダルな基盤モデル \cite{singhal2023towards,takeda2023foundation,nguyen2023climax}.
+
+% 科学的言語モデル（事前学習済みモデル） \cite{xie2023darwin,luo2022biogpt}
+
+% 科学実験 \cite{boiko2023emergent,charness2023generation,qin2023gpt}.
+
+% 化学 \cite{bran2023chemcrow,jablonka202314,white2022large,hatakeyama2023prompt,jablonka202314,guo2023can}
+
+% 材料科学 \cite{jablonka202314,jablonka202314,xie2023large,kang2023chatmof}
+
+% サーベイ \cite{wang2023survey}
+
+% molecular property prediction \cite{zheng2023large,qian2023can} (Physiology, Biophysics, Physical Chemistry, and Quantum Mechanics)
+
+% buisiness and management \cite{williams2023algorithmic}
+
+% biomedicine, medical science \cite{wysocka2023large,lee2023benefits,nori2023capabilities,wang2023large,singhal2023large,yang2022gatortron} (not factual base)
+
+% 地球科学 \cite{deng2023learning}
+
+% 数学 \cite{wu2023empirical}
+
+% アシスタント \cite{lubiana2023ten}
+
+% エンジニアリング \cite{pursnani2023performance}
+
+% 網羅的 by microsoft \cite{ai4science2023impact}
+
+% 機械学習 \cite{zheng2023can,zhang2023automl}
+
+% Instrut Tuning for Science \cite{horawalavithana2023scitune}
+
+% Science in the age of large language models \cite{birhane2023science}
 
 \subsubsection{Incorporating Scientific Knowledge}
 
@@ -1168,6 +1236,8 @@ As we've emphasized repeatedly, constructing questions from open-ended situation
 % \subsubsection{Research is Completed Entirely within a Computer}
 One of the biggest bottlenecks in realizing a fully general and autonomous artificial researcher is the necessity for complex actions in the preparation and execution of verification. Especially, developing a robot capable of acting freely in the physical world like humans is an extremely challenging task, and it carried difficulties beyond just AI research. Therefore, it seems reasonable to first consider research that is confined within a computer for prototyping purposes. Specifically, it means envisioning a world where AI can interact not in the physical realm but within the computer environment. Some computer science research falls under this category. Of course, realizing an AI that can freely operate within a computer is also a very challenging issue, but it seems more feasible than an agent freely operating in the physical world. The purpose of prototyping is to materialize the concept, even if it's rudimentary, and identify challenges. Therefore, it seems desirable for prototyping to first limit the target environment to within a computer and wait for the advancement of foundational research for the realization of free activity in the physical world.
 
+← 問いの生成のところで関係するかも（Distributed Science - The Scientific Process as Multi-Scale Active Inference）
+
 % \subsubsection{Verification is Limited to Humans'}
 % The issue that allowing machines to conduct research entirely autonomously could result in constructing knowledge systems meaningless to humans arises when we try to let AI construct even verification from scratch. This is necessary if we want to truly say an AI can verify on its own. On the other hand, many people probably have no interest in generating knowledge that is meaningless to humanity. In the first place, even if such a thing were realized, humans might not be able to evaluate whether the AI has truly constructed a meaningful knowledge system for them. Also, I don't think human researchers always understand or construct verification from first principles. Therefore, it might seem harsh to demand these of AI. So, it seems preferable to first ensure that AI understands and can always use the verification methods that humans use. Specifically, we aim to make sure AI can always proficiently use experiments, statistical hypothesis testing, proofs, etc. By doing so, I believe there's a possibility to realize an AI that conducts highly generalized, autonomous research that is meaningful to humans.
 
@@ -1189,7 +1259,7 @@ For open-ended operations within a computer space, ideally, the system should on
 % 言語モデルすごいし、言語モデルでやってくの考えたいよね。汎用的なのを言語モデルでやってみるならどんなになるだろう？→できるだけ汎用的な指示ということになるよね！みたいな。言語モデルが研究ができるというのはどう調べるか←汎用的な指示というのが一つのテストとして使う？
 
 \subsubsection{AI that Conducts Machine Learning Research}
-Providing a grand goal or limiting the action space can restrict the targeted research field. We believe it might be beneficial to aim for the realization of AI that can conduct machine learning research as prototyping. Firstly, some machine learning research can be fully completed on a computer, meeting the aforementioned constraints. Furthermore, machine learning technology is essential for the realization of research-capable AI and currently serves as a foundational technology in many research fields. Thus, if machine learning research can be fully automated, it will not only advance the study of automating other research areas but also accelerate the automation across many disciplines. This suggests that starting with the automation of machine learning research might be a good approach to speed up the development of research-capable AI. Moreover, in machine learning, there are already efforts underway, such as AutoML and MLOps, to automate parts of the machine learning research workflow. These achievements will likely further assist in creating AI that can conduct machine learning research.
+Providing a grand goal or limiting the action space can restrict the targeted research field. We believe it might be beneficial to aim for the realization of AI that can conduct machine learning research as prototyping. Firstly, some machine learning research can be fully completed on a computer, meeting the aforementioned constraints. Furthermore, machine learning technology is essential for the realization of research-capable AI and currently serves as a foundational technology in many research fields. Thus, if machine learning research can be fully automated, it will not only advance the study of automating other research areas but also accelerate the automation across many disciplines. This suggests that starting with the automation of machine learning research might be a good approach to speed up the development of research-capable AI. Moreover, in machine learning, there are already efforts underway, such as AutoML \cite{hutter2019automated,bischl2023hyperparameter,lindauer2020best,white2023neural} and MLOps \cite{kreuzberger2023machine}, to automate parts of the machine learning research workflow. Especially in recent years, there have been attempts to perform these tasks using language models \cite{vijay2023prompt,zheng2023can}. These achievements will likely further assist in creating AI that can conduct machine learning research.
 
 
 % We believe that automating machine learning research may be suitable to start with in terms of these decision axes. First, let's discuss bootstrapping. Many of the challenges to automating research will be how to get machines to acquire from experience what they are currently hardcoding and doing in the real world. Learning from experience is exactly what machine learning does, and in this sense, many of the challenges in realizing autonomous artificial researchers can be formulated as machine learning research challenges.
