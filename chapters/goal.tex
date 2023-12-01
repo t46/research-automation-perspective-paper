@@ -3,29 +3,31 @@
 
 To create an agent capable of conducting research autonomously, it is crucial to understand what research is in the first place. Therefore, in this section, I would like to discuss the characteristics of what is called research. Particularly, I will strive to discuss characteristics that can be found activities called research, regardless of differences in fields such as humanities, natural sciences, and mathematics.
 
-
-
-However, please note that my aim here is not to identify the universally acceptable ``true'' definition of research, which is beyond my ability. Rather, I will endeavor to describe various characteristics of research to  provide a starting point for engineers and researchers who aim for realizing research-capable AI. Therefore, the definition of research that I'm going to discuss in the following sections is merely an operational definition. I hope that further discussions among researchers will deepen towards a better definition of research.
+However, please note that my aim here is not to identify the universally acceptable definition of research, which is beyond my ability. Rather, I will endeavor to describe various characteristics of research to provide a starting point for engineers and researchers who aim for realizing research-capable AI. Therefore, the definition of research that I'm going to discuss in the following sections is merely a tentative and operational one. I hope that further discussions among researchers will deepen towards a better characterization of research.
 
 \subsection{Research as Knowledge Production}
 
-正当化の目的が真理促進的であることを書いたら、for society はいらない気がする？認識である以上主体は必要だというのは間違いない。全部書いてみて後で検討。
+% 正当化の目的が真理促進的であることを書いたら、for society はいらない気がする？認識である以上主体は必要だというのは間違いない。全部書いてみて後で検討。
 
-研究による成果には、偽であるが真であるように見える命題がある。なので、知識の生産というよりも、知識の候補を生み出しその確からしさについての確証を強めていくという方が適切かもしれない。偽であった時にも有用な情報。なので、知識を生み出すというよりも、知識を生み出すことを試みるとした方がいいかも。
+% 研究による成果には、偽であるが真であるように見える命題がある。なので、知識の生産というよりも、知識の候補を生み出しその確からしさについての確証を強めていくという方が適切かもしれない。偽であった時にも有用な情報。なので、知識を生み出すというよりも、知識を生み出すことを試みるとした方がいいかも。
 
-\textcolor{red}{
-知識を生み出すではなく、知識を生み出すことを目指す・試みる、とする。なぜなら命題は必ずしも真ではないし、偽であると適切に判定されることは有用な情報をもたらすから。そう考えると、「この世界の未知の真理を明らかにしようとすることが研究」という方が適切？？？？←知識の中に「真である」ということが含まれているのと、正当化に真理促進性を要求してるので、どちらでも変わらない気がする？知識を生み出そうとするだと生み出せなかった時が単に失敗という感じになってしまう？違うな。検証が命題Aを肯定すると、Aという知識が生まれるが、命題Aを否定すると、Aの否定という知識が生まれるというだけの話。なので問題なし。なので、「知識を生み出すことを試みる行為」でいい気がする。
-}
+% \textcolor{red}{
+% 知識を生み出すではなく、知識を生み出すことを目指す・試みる、とする。なぜなら命題は必ずしも真ではないし、偽であると適切に判定されることは有用な情報をもたらすから。そう考えると、「この世界の未知の真理を明らかにしようとすることが研究」という方が適切？？？？←知識の中に「真である」ということが含まれているのと、正当化に真理促進性を要求してるので、どちらでも変わらない気がする？知識を生み出そうとするだと生み出せなかった時が単に失敗という感じになってしまう？違うな。検証が命題Aを肯定すると、Aという知識が生まれるが、命題Aを否定すると、Aの否定という知識が生まれるというだけの話。なので問題なし。なので、「知識を生み出すことを試みる行為」でいい気がする。
+% }
 
 \textcolor{red}{
 既存の定義に触れる
 }
 
-A widely accepted definition of research would be that research is the attempt of generating new knowledge. It seems that research, regardless of the field, requires some novelty, and it feels reasonable to say that research is an act of creating knowledge based on past knowledge. Thus, I will tentatively adopt this definition as the working definition in this paper. 
+It seems infeasible to find a unified, all-encompassing definition of research or science \cite{chalmers2013thing,sep-scientific-method}, but there are various thoughts on what research is. For example, there is a view that ``we do research whenever we gather information to answer a question that solves a problem'' \cite{booth2003craft}, and it is also said that research (and development) ``comprise creative and systematic work undertaken in order to increase the stock of knowledge'' \cite{manual2015guidelines}. These characterizations each capture important aspects of research, and none of them are necessarily wrong, nor is any one of them absolutely right.
+% 研究や科学の統一的な全てを包括する定義というものはありえなさそうですが \cite{chalmers2013thing,sep-scientific-method}、研究とはなんであるかについてはさまざまな考えがあります。 例えば、``we do research whenever we gather information to answer a question that solves a problem'' \cite{booth2003craft} という考えもありますとし、research (and development) は ``comprise creative and
+% systematic work undertaken in order to increase the stock of knowledge'' 言われることもあります \cite{manual2015guidelines}。
 
-\textcolor{red}{
-In particular, I will consider that research is the production of new knowledge for society. I included ``for society'' because knowledge appears to be relative to society, as I will discuss later. 
-}
+Among such characterizations, a widely accepted definition of research would be that research is the attempt of generating new knowledge. It seems that research, regardless of the field, requires some novelty, and creating new knowledge based on past knowledge. Therefore, this characterization seems to be a good starting point for considering what research is, at least for the time being. In this paper, I will tentatively adopt this characterization as a working definition of research. In particular, I will consider that research is the attempts to produce new knowledge for certain society. I included ``for society'' because knowledge appears to be relative to society. I will explain this point in later sections. 
+
+% \textcolor{red}{
+% In particular, I will consider that research is the production of new knowledge for certain society. I included ``for society'' because knowledge appears to be relative to society, as I will discuss later. 
+% }
 
 % For instance, in physics, a new explanation for a phenomenon is produced, in mathematics, a new proof for a theorem is presented, and in engineering, a new design blueprint for creating something is generated, all as new knowledge.
 
@@ -42,10 +44,12 @@ In particular, I will consider that research is the production of new knowledge 
 
 % Of course I admit that science is the most rigorous and reliable framework for knowledge production. Because of its power and popularity, most of the existing analysis on research is about science. My discussion would also be centered around the discussion of science, though I try to present the view not limited to science. 
 
-\textcolor{red}{
-論文の目的をもっと先に明確に書くことで、こういうただし書き的なのを減らす。
-Please note again that this definition is provisional. By viewing research as the production of knowledge, we can indeed characterize the wide range of current human research activities comprehensively, which is why I adopted this definition. However, as we will see later, in attempting to create a comprehensive definition, it can result in aspects that seem counterintuitive to characterize certain research. It's possible that aiming for a definition that is not field-specific is not desirable (i.e., striving for the realization of an intelligence capable of such a task is not desirable), and it might be better to seek a definition with a more narrowed scope of application. I will revisit and discuss how research should be defined at the end of this section.
-}
+Please note again that this definition is provisional. What is important is to consider how research can be characterized, and the discussion here is just one example of that. I believe that finding a better characterization of research through further deepening discussions is crucial for realizing agents capable of conducting research. I hope that the discussion here can aid in such endeavors.
+
+% \textcolor{red}{
+% 論文の目的をもっと先に明確に書くことで、こういうただし書き的なのを減らす。
+% Please note again that this definition is provisional. By viewing research as the production of knowledge, we can indeed characterize the wide range of current human research activities comprehensively, which is why I adopted this definition. However, as we will see later, in attempting to create a comprehensive definition, it can result in aspects that seem counterintuitive to characterize certain research. It's possible that aiming for a definition that is not field-specific is not desirable (i.e., striving for the realization of an intelligence capable of such a task is not desirable), and it might be better to seek a definition with a more narrowed scope of application. I will revisit and discuss how research should be defined at the end of this section.
+% }
 
 \subsection{Knowledge Production as Belief Revision}
 \label{section-knowledge-production-as-belief-revision}
