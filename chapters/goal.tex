@@ -1,211 +1,141 @@
 \section{What Would Activities Called Research Be?}
 \label{section-what-is-research}
 
-To create an agent capable of conducting research autonomously, it is crucial to understand what research is in the first place. Therefore, in this section, I would like to discuss the characteristics of what is called research. Particularly, I will strive to discuss characteristics that can be found activities called research, regardless of differences in fields such as humanities, natural sciences, and mathematics.
+Understanding the fundamental nature of research is crucial for creating an agent capable of autonomous research. This section will therefore speculatively consider how the act of research can be characterized.
 
-Please note that my aim here is not to identify the universal and singular definition of research, which is beyond my ability. Rather, I will endeavor to explore characteristics of research so that it will provide a starting point for the discussion for realizing research-capable AI. Therefore, the definition of research that I'm going to discuss is merely a tentative and operational one. What matters is to consider how research can be characterized, and the discussion here is just one example of that. I believe that finding a better characterization of research through further deepening discussions is crucial for realizing agents capable of conducting research. I hope that the discussion here can aid in such endeavors.
+The aim of this section is not to establish a universal and singular definition of research, a task that exceeds the scope of this paper. Rather, it explores some characteristics of research to provide a provisional basis for discussions on the development of an artificial researcher. As such, the definition of research presented here should be regarded as tentative and operational, and the ensuing discussion is just one example of an endeavor to characterize research. 
 
-% I hope that further discussions among researchers will deepen towards a better characterization of research.
-
-% Please note again that this definition is provisional. What matters is to consider how research can be characterized, and the discussion here is just one example of that. I believe that finding a better characterization of research through further deepening discussions is crucial for realizing agents capable of conducting research. I hope that the discussion here can aid in such endeavors.
+Refining our understanding of research through in-depth discussions in the future is essential for the development of agents capable of conducting research. I hope that this discussion will make a meaningful contribution to these efforts.
 
 \subsection{Research as Knowledge Production}
 
-% 正当化の目的が真理促進的であることを書いたら、for society はいらない気がする？認識である以上主体は必要だというのは間違いない。全部書いてみて後で検討。
+While finding a unified, all-encompassing definition of research or science remains infeasible \cite{chalmers2013thing,sep-scientific-method}, various interpretations exist. For instance, one view posits that research occurs ``whenever we gather information to answer a question that solves a problem'' \cite{booth2003craft}, while another describes research (and development) as comprising ``creative and systematic work undertaken in order to increase the stock of knowledge'' \cite{manual2015guidelines}. Additionally, some perceive the science as ``processes that maximize the evidence for a generative model of the sensed and measured world'' \cite{balzandistributed}. These descriptions highlight different crucial aspects of research, with none being entirely incorrect or absolutely definitive.
 
-% 研究による成果には、偽であるが真であるように見える命題がある。なので、知識の生産というよりも、知識の候補を生み出しその確からしさについての確証を強めていくという方が適切かもしれない。偽であった時にも有用な情報。なので、知識を生み出すというよりも、知識を生み出すことを試みるとした方がいいかも。
+Among these, a broadly recognized definition can be that research is an endeavor to generate new knowledge. Since this characterization seems to align with our research practices, regardless of the field, this definition serves as a suitable starting point for our discussion. In this paper, I adopt this interpretation as a provisional working definition. Specifically, I will regard research as the attempts to produce new knowledge for certain society. The inclusion of ``for certain society'' acknowledges the societal relativity of knowledge, a point I will elaborate on in subsequent sections.
 
-% \textcolor{red}{
-% 知識を生み出すではなく、知識を生み出すことを目指す・試みる、とする。なぜなら命題は必ずしも真ではないし、偽であると適切に判定されることは有用な情報をもたらすから。そう考えると、「この世界の未知の真理を明らかにしようとすることが研究」という方が適切？？？？←知識の中に「真である」ということが含まれているのと、正当化に真理促進性を要求してるので、どちらでも変わらない気がする？知識を生み出そうとするだと生み出せなかった時が単に失敗という感じになってしまう？違うな。検証が命題Aを肯定すると、Aという知識が生まれるが、命題Aを否定すると、Aの否定という知識が生まれるというだけの話。なので問題なし。なので、「知識を生み出すことを試みる行為」でいい気がする。
-% }
-
-% \textcolor{red}{
-% 既存の定義に触れる
-% }
-It seems infeasible to find a unified, all-encompassing definition of research or science \cite{chalmers2013thing,sep-scientific-method}, but there are various thoughts on what research is. For example, there is a view that ``we do research whenever we gather information to answer a question that solves a problem'' \cite{booth2003craft}, and it is also said that research (and development) ``comprise creative and systematic work undertaken in order to increase the stock of knowledge'' \cite{manual2015guidelines}. Moreover, some present a perspective that scientific process can be viewed as ``Bayesian belief updating; i.e., processes that maximize the evidence for a generative model of the sensed and measured world'' \cite{balzandistributed}. These characterizations each capture important aspects of research, and none of them are necessarily wrong, nor is any one of them absolutely right.
-% 研究や科学の統一的な全てを包括する定義というものはありえなさそうですが \cite{chalmers2013thing,sep-scientific-method}、研究とはなんであるかについてはさまざまな考えがあります。 例えば、``we do research whenever we gather information to answer a question that solves a problem'' \cite{booth2003craft} という考えもありますとし、research (and development) は ``comprise creative and
-% systematic work undertaken in order to increase the stock of knowledge'' 言われることもあります \cite{manual2015guidelines}。
-
-Among such characterizations, a widely accepted definition of research would be that research is the attempt of generating new knowledge. It seems that research, regardless of the field, requires some novelty, and creating new knowledge based on past knowledge. Therefore, this characterization seems to be a good starting point for considering what research is, at least for the current purpose. In this paper, I will tentatively adopt this characterization as a working definition of research. In particular, I will consider that research is the attempts to produce new knowledge for certain society. I included ``for society'' because knowledge appears to be relative to society. I will explain this point in later sections. 
-
-% \textcolor{red}{
-% In particular, I will consider that research is the production of new knowledge for certain society. I included ``for society'' because knowledge appears to be relative to society, as I will discuss later. 
-% }
-
-% For instance, in physics, a new explanation for a phenomenon is produced, in mathematics, a new proof for a theorem is presented, and in engineering, a new design blueprint for creating something is generated, all as new knowledge.
-
-% \begin{figure}[htb]
-%     \centering
-%     \includegraphics[width=0.8\linewidth]{figs/reseach_definition.pdf}
-%     \caption{Definition of Research}
-%     \label{fig:definition}
-% \end{figure}
-
-% \subsubsection{Some Notes on Research and Science}
-
-% The reason why I deliberately use the word ``research'' instead of ``science'' is because I want to include fields like engineering, humanities and arts, which are not typically referred to as science, within the scope of automation in the long run. Science refers to a methodology for generating knowledge, and I believe that new knowledge is not necessarily produced only by scientific methods. I believe that so-called humanities and arts also share some commonality of producing new knowledge. Therefore, the definition of generating new knowledge can be said to encompass these fields as well.
-
-% Of course I admit that science is the most rigorous and reliable framework for knowledge production. Because of its power and popularity, most of the existing analysis on research is about science. My discussion would also be centered around the discussion of science, though I try to present the view not limited to science. 
-
-% \textcolor{red}{
-% 論文の目的をもっと先に明確に書くことで、こういうただし書き的なのを減らす。
-% Please note again that this definition is provisional. By viewing research as the production of knowledge, we can indeed characterize the wide range of current human research activities comprehensively, which is why I adopted this definition. However, as we will see later, in attempting to create a comprehensive definition, it can result in aspects that seem counterintuitive to characterize certain research. It's possible that aiming for a definition that is not field-specific is not desirable (i.e., striving for the realization of an intelligence capable of such a task is not desirable), and it might be better to seek a definition with a more narrowed scope of application. I will revisit and discuss how research should be defined at the end of this section.
-% }
 
 \subsection{Knowledge Production as Belief Revision}
 \label{section-knowledge-production-as-belief-revision}
-I have defined research as the endeavor to generate new knowledge. Then, what exactly is knowledge, and what does it mean to produce knowledge? I will explore this question in this section. 
+Having defined research as the endeavor to generate new knowledge, it becomes important to consider what ``knowledge'' itself entails, and what constitutes its production. This section aims to explore these concepts.
 
-Defining knowledge and knowledge production rigorously is a philosophical debate that has not yet been settled \cite{sep-epistemology}, and I won't delve into it deeply here. Instead, I would like to provide some primitive ideas that can serve as a starting point for further discussions.
+Defining knowledge and the process of knowledge production rigorously remains an unsettled philosophical debate \cite{sep-epistemology}. Given that providing a precise definition of knowledge is beyond the scope of this paper, an in-depth exploration of these debates will not be undertaken here. Instead, this section aims to present a basic and preliminary conception of what knowledge might entail so that it serves as a starting point  for further discussion.
+
+% I have defined research as the endeavor to generate new knowledge. Then, what exactly is knowledge, and what does it mean to produce knowledge? I will explore this question in this section. 
+
+% Defining knowledge and knowledge production rigorously is a philosophical debate that has not yet been settled \cite{sep-epistemology}, and I won't delve into it deeply here. Instead, I would like to provide some primitive ideas that can serve as a starting point for further discussions.
 
 \subsubsection{Knowledge as Belief}
-The question of what is the thing called knowledge has been a subject of debate for a long time in the field of \textit{epistemology}, which is one of the branches of philosophy. So, for now, I would like to refer to the discussion in this field as an example and see how research can be characterized.
+The concept of knowledge has long been a subject of debate within \textit{epistemology}, a branch of philosophy. This paper will reference the discourse in this field as an exemplar to explore how research might be characterized.
 
-In epistemology, knowledge had been classically considered to be \textit{justified true belief (JTB)} \cite{sep-epistemology}. The term ``true'' is difficult to define rigorously, but for the purpose of discussion, let's think of it as something being fact. ``Belief'' can be provisionally understood as someone's thought or conviction about something. And ``justified'' means that it is deemed reasonable to hold such a belief. What justification means has been discussed in epistemology as a central point of contention. Since the criticism that JTB is not appropriate as the definition of knowledge \cite{gettier1963justified}, how to modify or expand JTB to make it a suitable definition of knowledge seemingly has been a major discussion in epistemology \cite{sep-epistemology}. 
+Within epistemology, knowledge has traditionally been viewed as \textit{justified true belief (JTB)} \cite{sep-epistemology}. The term ``true'' is challenging to define rigorously; however, for the purposes of this discussion, it can be understood as something that corresponds with fact. ``Belief'' is tentatively defined as an individual's thought or conviction about a subject. ``Justified'' implies that it is reasonable to hold such a belief. The nature of justification has been a focal point of debate in epistemology, particularly following criticisms that JTB may not adequately define knowledge \cite{gettier1963justified}. Consequently, the refinement or expansion of the JTB has become a significant topic in epistemological discourse \cite{sep-epistemology}.
 
-While most philosophers don't appear to believe that these properties are sufficient to define knowledge, there seems to be some agreement that they may be necessary \cite{sep-epistemology}. Even in the epistemology discussion, rather than abandoning the JTB altogether, many discussions adopt JTB as a base. Therefore, let me tentatively assume that knowledge is JTB in this paper to offer a preliminary basis for discussion. In the following section, I will examine how research is perceived as an activity when adopting this definition. Examining the discrepancy and alignments between the consequences of this characterization and our expectations for a research-capable agent will provide seeds of thought for a better definition of research and hence what that agents should be able to do.
+Although many philosophers contend that the JTB properties alone are insufficient for defining knowledge, there is some consensus that they might be necessary components \cite{sep-epistemology}. In epistemological debates, rather than discarding JTB entirely, many theorists use it as a foundational concept. Hence, this paper will tentatively adopt JTB as a preliminary basis for discussion. 
+
+The subsequent sections will explore how research is conceptualized under this definition. Analyzing the congruences and discrepancies between the implications drawn from this characterization and our expectations of a research-capable agent will generate insights for refining the definition of research and hypothesizing the capabilities such agents should possess.
+
+
+% The question of what is the thing called knowledge has been a subject of debate for a long time in the field of \textit{epistemology}, which is one of the branches of philosophy. So, for now, I would like to refer to the discussion in this field as an example and see how research can be characterized.
+
+% In epistemology, knowledge had been classically considered to be \textit{justified true belief (JTB)} \cite{sep-epistemology}. The term ``true'' is difficult to define rigorously, but for the purpose of discussion, let's think of it as something being fact. ``Belief'' can be provisionally understood as someone's thought or conviction about something. And ``justified'' means that it is deemed reasonable to hold such a belief. What justification means has been discussed in epistemology as a central point of contention. Since the criticism that JTB is not appropriate as the definition of knowledge \cite{gettier1963justified}, how to modify or expand JTB to make it a suitable definition of knowledge seemingly has been a major discussion in epistemology \cite{sep-epistemology}. 
+
+% While most philosophers don't appear to believe that these properties are sufficient to define knowledge, there seems to be some agreement that they may be necessary \cite{sep-epistemology}. Even in the epistemology discussion, rather than abandoning the JTB altogether, many discussions adopt JTB as a base. Therefore, let me tentatively assume that knowledge is JTB in this paper to offer a preliminary basis for discussion. In the following section, I will examine how research is perceived as an activity when adopting this definition. Examining the discrepancy and alignments between the consequences of this characterization and our expectations for a research-capable agent will provide seeds of thought for a better definition of research and hence what that agents should be able to do.
 
 \subsubsection{Knowledge Production as Belief Update}
-The purpose of research can be said to be revealing the unknown truths of this world. Therefore, the justification in research is demanded to be such that it determines propositions as true if they are true, and false if they are false. Such justification is called truth-conducive. There are various discussions about what justification is, but it can be said that justification in research should be truth-conducive. Therefore, producing knowledge could be said to be constructing a new proposition that refers to this world and determining its truth or falsity through such justification. 
+The primary aim of research can be conceptualized as uncovering the unknown truths of the world. Consequently, the justification employed in research must be capable of accurately discerning the truth or falsity of propositions. This form of justification, known for its capacity to lead to truth, is termed ``truth-conducive.'' While there are varied debates on the nature of justification, it is widely accepted that justification in research should indeed be truth-conducive. Thus, knowledge production can be conceptualized as the construction of new propositions about the world and ascertaining their veracity through such justification.
 
-In the current definition, we regard knowledge as belief. Thus, the producing knowledge can be rephrased as holding the belief that a proposition is true and updating this belief through truth-conducive 
-justification. In short, the knowledge production is belief update in current definition.
+In the current framework, knowledge is equated with belief. Therefore, knowledge production can be reinterpreted as the process of adopting the belief that a particular proposition is true and subsequently revising this belief based on truth-conducive justification. Essentially, in this framework, knowledge production equates to the updating of beliefs.
 
-It might feel counterintuitive to think of research as an updating of beliefs, but considering that hypotheses and theories are continuously updated in research, inductive reasoning does not prove propositions as deduction does, and, as will be discussed later, knowledge depends on the subject, this characterization doesn't seem so far-fetched. 
+While it might initially seem counterintuitive to view research as a process of updating beliefs, this perspective gains plausibility when considering several factors. Research involves the continual revision of hypotheses and theories; inductive reasoning, unlike deduction, does not conclusively prove propositions; and, as will be discussed, knowledge is subjective to some extent. This characterization of research as belief aligns well with these aspects of research. Therefore, this characterization seems reasonably valid.
 
-% Furthermore, as I will discuss later, we justify the belief that a certain hypothesis is true or false in an extremely robust and sound way that would convinces everyone. Given such justification, it seems not so problematic to depict research through the subjective concept of belief in a substantial sense.
+% The purpose of research can be said to be revealing the unknown truths of this world. Therefore, the justification in research is demanded to be such that it determines propositions as true if they are true, and false if they are false. Such justification is called truth-conducive. There are various discussions about what justification is, but it can be said that justification in research should be truth-conducive. Therefore, producing knowledge could be said to be constructing a new proposition that refers to this world and determining its truth or falsity through such justification. 
 
+% In the current definition, we regard knowledge as belief. Thus, the producing knowledge can be rephrased as holding the belief that a proposition is true and updating this belief through truth-conducive 
+% justification. In short, the knowledge production is belief update in current definition.
 
-% 知るということは、私たちに対してこの世界とその真実があり、私たちがその真実を認識するということです。すなわち、知るという概念はあくまで私たちと世界との両方の存在を前提としている概念であり、その意味で知る主体に依存する概念です。知識の定義に信念という主観的な概念が出てくるのはこのためです。したがって、知識が信念であるとは直感に反するように思われるかもしれませんが、この意味で妥当であるように思われます。
-
-% 知識が信念であるというのは、知る/知っているという概念がそれを知る主体に依存する概念だからです。私たちの外側に世界があり、その中のある真実を私たちが認識するというのがこの定義の意味での知るという行為であり、それはあくまでも世界とそれを認識する主体との関係性を前提として成り立つ概念です。
-
-
-% It may feel counterintuitive to hear that knowledge is belief. However, there is a reason for this. It is because the concept of ``knowing'' depends on the subject.
-
-% It may feel counterintuitive to hear that knowledge is belief and research is the updating of belief. However, I think that perceiving the production of knowledge as the updating of beliefs is not so unreasonable. This is because, for example, the validation of a hypothesis by an experiment can be interpreted as a strengthening of the belief that the hypothesis is true. Specially in science, we become more convinced of its validity as a hypothesis survives repeated various verifications. This research practice appears to be well aligned with the view of research as a renewal of beliefs.
+% It might feel counterintuitive to think of research as an updating of beliefs, but considering that hypotheses and theories are continuously updated in research, inductive reasoning does not prove propositions as deduction does, and, as will be discussed later, knowledge depends on the subject, this characterization doesn't seem so far-fetched. 
 
 \subsection{To Know Depends on Knowing Subjects}
 
-% \subsubsection{知るということと主体の存在の関係}
-To know means we recognizing some truths or patterns of this world. In other words, the concept of knowing fundamentally presupposes the existence not only the known object but also the knowing subject. This is why the definition of knowledge involves the subjective concept of belief. Therefore, while the idea that knowledge is belief may seem counterintuitive, it appears valid in this sense. Particularly, since justification in research should be truth-conducive, the knowledge produced would be objective. In this sense, using belief, which is a subjective concept, to define research does not seem to be much of a problem.
+Fundamentally, the concept of knowing presupposes not only the existence of the object being known but also of the subject doing the knowing. This interplay explains why the definition of knowledge incorporates the subjective element of belief. Consequently, while the notion that knowledge is a form of belief might initially seem counterintuitive, it holds validity in this context. 
 
-Moreover, viewing research as the updating of beliefs does not seem too far removed from the practice of research itself. For example, the validation of a hypothesis by an experiment would strengthen our belief that the hypothesis is true or false. We become more convinced of its validity as a hypothesis survives repeated various verifications. This research practice appears to be well aligned with the view of research as a renewal of beliefs.
+Moreover, conceptualizing research as an updating of beliefs aligns closely with actual research practices. For instance, the experimental validation of a hypothesis reinforces our belief in its truth or falsity. Our confidence in a hypothesis increases as it withstands various rounds of verification. This process of iterative validation and belief reinforcement mirrors the concept of research as a continual renewal of beliefs.
 
+Finally, since the justification in research is expected to be truth-conducive, the knowledge thus produced would have an objective quality. Therefore, in conjunction with the discussion in the previous section, it seems that the use of the subjective concept of belief is not that problematic.
+
+% To know means we recognizing some truths or patterns of this world. In other words, the concept of knowing fundamentally presupposes the existence not only the known object but also the knowing subject. This is why the definition of knowledge involves the subjective concept of belief. Therefore, while the idea that knowledge is belief may seem counterintuitive, it appears valid in this sense. Particularly, since justification in research should be truth-conducive, the knowledge produced would be objective. In this sense, using belief, which is a subjective concept, to define research does not seem to be much of a problem.
+
+% Moreover, viewing research as the updating of beliefs does not seem too far removed from the practice of research itself. For example, the validation of a hypothesis by an experiment would strengthen our belief that the hypothesis is true or false. We become more convinced of its validity as a hypothesis survives repeated various verifications. This research practice appears to be well aligned with the view of research as a renewal of beliefs.
 
 \subsubsection{Knowledge for Humans}
-As mentioned earlier, research is an endeavor aimed at revealing the unknown truths of this world, and the knowledge generated there must be novel. Then, what does it mean for knowledge to be new or unknown?
+As previously discussed, research is a pursuit dedicated to uncovering the unknown truths of the world, necessitating that the knowledge it generates be novel. This raises the question: what constitutes new or unknown knowledge?
 
-In the current definition, knowledge is a justified belief about whether a certain hypothesis is true or false. Therefore, unknown knowledge could be a state where such a belief is not held at all, or even if it is held, it is not justified. In other words, under the current definition, the state of certain knowledge being unknown can be understood as a state of belief.
+Under the current definition, knowledge is a justified belief regarding the truth or falsity of a certain hypothesis. Thus, unknown knowledge could be a state where such a belief is either non-existent or, if it exists, lacks justification. In simpler terms, within this framework, the state of certain knowledge being unknown is essentially a state of belief.
 
-Since the concept of knowing depends on the knowing subject, naturally, the concept of the unknown is also subject-dependent. In research, it seems that so far, this ``subject'' has referred to humanity as a whole. Researchers do not consider knowledge unknown just because a single individual is unaware of it. It is only when none of us know it that we consider it truly unknown. This is why it seems that the knowledge we create through research is required to be knowledge for all of humanity. These are the reason why it seems better to include ``for society'' in the definition of research.
+Given that the concept of knowing is contingent on the knowing subject, the notion of the unknown is also inherently subject-dependent. In the realm of research, the term ``subject'' has seemingly encompassed humanity at large. Researchers do not deem knowledge as unknown simply because it eludes an individual; it is regarded as truly unknown only when it is beyond the collective understanding of humanity. Consequently, the knowledge produced through research is expected to contribute to the collective understanding of human society. This is the reason why the term ``for society'' is included in the definition of research.
 
+% As mentioned earlier, research is an endeavor aimed at revealing the unknown truths of this world, and the knowledge generated there must be novel. Then, what does it mean for knowledge to be new or unknown?
 
-% 前述したように、研究はこの世界の未知の真理を明らかにすることを目指す営みであり、そこで生み出される知識は新規である必要があります。それではある知識が新しい、あるいは未知であるとはどういう状態でしょうか。
+% In the current definition, knowledge is a justified belief about whether a certain hypothesis is true or false. Therefore, unknown knowledge could be a state where such a belief is not held at all, or even if it is held, it is not justified. In other words, under the current definition, the state of certain knowledge being unknown can be understood as a state of belief.
 
-% 知識がある仮説が真である/偽であるという正当化された信念でした。であるならば、未知の知識とは、そのような信念がそもそも抱かれていない、あるいは信念が抱かれていてもそれが正当化されていない、状態だということができるでしょう。
-
-% 知るという概念は知る主体に依存した概念でしたので、当然未知という概念も主体に依存した概念です。研究においては誰か一人の個人が知らないだけではその知識が未知であるとみなしません。我々の誰一人としてそれを知らない時に初めて未知であると考えます。すなわち、私たちが研究で生み出す知識は、人類全体の知識であることを要求されているように思われます。これが今回採用する定義に for society を加えた理由です。
-
-
-% No matter how rigorously you produce knowledge, if it is already known, it cannot be called research. Therefore, we have defined research as the process of producing ``new'' knowledge. In this section, I will briefly discuss what would it mean for knowledge to be unknown or novel.
-
-% It seems that something being unknown to someone can be described as a state where the person has attempted to know something, but the answer is not present in their mind. Therefore, it can be said that when knowledge born from research of a question is considered new, it refers to a situation where there has been no hypothesis that everyone believes to be sufficiently plausible for the question.\footnote{
-% While presenting a question that no one has posed ensures that the knowledge is new. Even in such cases, no one also yet knows which hypothesis is correct for that question. This is why I have mentioned only about the unkownness of hypotheses
-% }
-% In other words, once knowledge is considered as belief, being unknown seems to be interchangeable with having a low level of confidence, which sounds a bit counterintuitive. In this sense, it seems appropriate to say that research transforms a hypothesis with low confidence into one with higher confidence, rather than turning the unknown suddenly into the known.\footnote{
-% Here, saying ``there has been no hypothesis that everyone believes to be sufficiently plausible'' is merely to imply nuances that knowledge is belief and that a hypothesis is never fully proven to be true. You can just read it as ``there is no answer'' for simplicity.
-% }
-
-
-
-% As mentioned later, research can be described as the act of posing questions, proposing hypotheses in response to them, and then verifying those hypotheses to update beliefs on whether the hypotheses are correct. Therefore, it can be said that when knowledge born from research of a question is considered new, it refers to a situation where there has been no hypothesis that everyone believes to be sufficiently plausible for the question\footnote{
-% While presenting a question that no one has posed ensures that the knowledge is new. Even in such cases, no one also yet knows which hypothesis is correct for that question. This is why I have mentioned only about the unkownness of hypotheses
-% }. For example, we do not know how to create a general-purpose artificial intelligence, which can be said to mean that we do not have an answer (a hypothesis with high confidence) to the question, ``How do you create a general-purpose artificial intelligence?''.
-
-% I said in the paragraph above that ``research is the process of transforming the unknown into the known.'' However research can also be seen as the updating of beliefs, as I have explained. Therefore, the binary depiction of an object suddenly transitioning from the states of unknown to known does not seem appropriate. Rather, it seems more reasonable to consider that beliefs continuously change and I just call some group of belief states unknown and others known, for convenience.
-
-% I don't know precisely what it means to be unknown. This is a difficult problem, but let's consider it naively. 
-% I consider a knowledge to be unknown when for a question a subject lacks any hypothesis which he/she has a JTB that the hypothesis is true. For example, I do not have the answer to the question of ``How to realize an artif icial general intelligence.'' So the knowledge of ``the way to realize an artificial general ingelligence'' is unknown. \textcolor{red}{TODO: Add explanation}
-
-% In research, a single verification does not always immediately turn a hypothesis into true or false. Rather, hypotheses that withstand repeated verifications through various experiments by different researchers gradually come to be regarded as more plausible. Therefore, it seems to me appropriate to say that research transforms a hypothesis with low confidence into one with higher confidence, rather than turning the unknown suddenly into the known. In that sense, it seems somewhat justified to describe new knowledge as something for which there wasn't a highly confident hypothesis before.
-
-% The expression ``unknown'' could be more appropriately expressed as ``high degree of unknownness''. Because knowledge production is a continuous concept of belief updating, therefore, unknownness is also a continuous concept. In reality, there are multiple hypotheses with varying degrees of certainty concerning a particular question. The state of knowledge being unknown can be expressed as not having any hypothesis among these hypotheses with a particularly strong level of justified certainty.
-
-% First, research begins with a particular question. The state of not knowing the answer to this question is what I consider the state of being unknown. In other words, it can be thought of as a state where I don't know what the candidate hypotheses, which are the potential answers, are like, or a state where I know the candidate hypotheses but don't know their plausibility. These are states where I have not been able to find hypotheses or sets of hypotheses that can be assigned a particularly high degree of confidence from the set of potential answers to a given question. Therefore, provisionally and casually, it might be said that the state of ``not having highly confident beliefs (or a set of beliefs) for a particular question'' is unknown, and the state of having highly confident justified beliefs is known.
-
-% Of course, there are issues with this clarification. For example, it is unlikely that I can select a single highly confident hypothesis from the entire set of possible hypotheses. Also, rather than feeling equally confident about all possible hypotheses, it seems that I implicitly distinguish between hypotheses that seem relevant and those that do not. Furthermore, it is unclear to what extent I consider a state to be unknown based on the degree of confidence. However, these are highly challenging philosophical discussions, so I will refrain from delving further into them and, for now, would like to conclude with the vague and provisional definition above and move on to the next topic.
-
-% \subsection{Publicity of Knowledge}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% What I want to emphasize here is that research can be seen as linking or replacing the weak belief in the plausibility of newly conceived hypotheses with such extremely strong beliefs. For example, believing in the effectiveness of statistical methods is strongly related to believing in the effectiveness of inductive reasoning. Therefore, if the validity of a hypothesis is confirmed using statistical methods, we would believe it as highly reliable. Hence, considering research as the updating of beliefs can be reasonably felt, and I don't intend to argue that research is meaningless just because it is the belief revision.\footnote{
-% I naively assume that beliefs rooted directly in perception are more robust, and the notion that anchoring a belief on those foundations enhances its reliability. However, the question of how to justify beliefs is a complex problem with extensive discussions \cite{sep-epistemology} (my position seems to align somewhat with what is called \textit{empirical foundationalism}).Due to my limited philosophical knowledge and the ability to delve deeper into philosophical discussions, this paper will not further pursue these arguments.
-% }
-
-% It is said that we need to assume that ``under the same conditions, the same phenomenon will continue to hold'' (principle of uniformity of nature) \cite{sep-induction-problem}, which is an intuitive and natural assumption without which we could hardly even go about our daily lives.\footnote{
-% I understand that justifying the validity of inductive reasoning based on our experiences would be circular reasoning. The problem of what assumptions make us inductive reasoning consider rational is a challenging unanswered philosophical issue, which is beyond the scope of this paper. Thus, I will refrain from delving into the details here and leave it for future discussion.
-% } 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-% For instance, while most empirical scientific research verifies hypotheses through hypothesis testing, it seems that this is because results deemed plausible through statistics or inductive reasoning are thought to be plausible by virtually any human.
-
-% Since knowledge production is belief update, generating knowledge for humanity requires updating the beliefs of all, or at least certain number of, people.\footnote{
-% Even if the knowledge is not immediately understandable, it should be potentially understandable to a considerable number of people. This means that the generated knowledge is not only for the society at the time of its production but also for the broader humanity, including future human societies. For instance, it might be challenging for children to determine whether the research outcomes in physics qualify as knowledge. However, by studying physics extensively, they may eventually comprehend cutting-edge research in the future. 
-% }\footnote{
-% Because it's impossible for different individuals to have exactly the same belief, as long as a justification can update the beliefs of different individuals in a similar direction in some way, I think it sufficient to be regarded as updating shared beliefs.
-% } 
-
-% Therefore, I believe research is the act of not only changing an individual's belief but also changing multiple individuals' beliefs. 
-
-% Although I don't think it is possible for multiple people to hold exactly the same belief or for their beliefs to change in exactly the same direction, I at least need to use a way to change a collection of human beliefs in a similar direction.
-
-% In other words, this can be said to underscore the plausibility of the belief that ``a hypothesis is true'' with the extremely robust belief that ``inductive reasoning is valid.'' These robust beliefs seem to have been shaped through the process of evolution for the long time, being rooted in humans biologically. It seems that because science appeals to such fundamental beliefs inherent in humans as biological entities, its verification manages to convince many people.
-% are rooted in our biological structures and perceptions acquired through the processes of evolution and development, as briefly introduced in the preceding section. For instance, beliefs such as the validity of logical reasoning, the uniformity of nature, and the tendency to find something more credible with an increase in observations fall into this category of beliefs. 
-
-% And I believe that I achieve this by reducing hypotheses to strong convictions that everyone, regardless of individual differences, possesses as human beings. For example, assumptions underlying inductive reasoning, as I described earlier, will fall into this category. Another strong conviction humans believe in is that the more I observe an increasing number of results derived from a certain hypothesis, the more reliable and certain that hypothesis feels. Research need to be objective because it's required to generate knowledge for humanity, and I believe it is because I strive to reduce hypotheses to such strong convictions that it is called objective. 
+% Since the concept of knowing depends on the knowing subject, naturally, the concept of the unknown is also subject-dependent. In research, it seems that so far, this ``subject'' has referred to humanity as a whole. Researchers do not consider knowledge unknown just because a single individual is unaware of it. It is only when none of us know it that we consider it truly unknown. This is why it seems that the knowledge we create through research is required to be knowledge for all of humanity. These are the reason why it seems better to include ``for society'' in the definition of research.
 
 \subsubsection{Knowledge for Non-Humans}
-If the act of knowing is dependent on the subject, then it's theoretically possible to consider non-human knowledge and non-human research by assuming knowing subjects to be non-human. 
+If the act of knowing is subject-dependent, then theoretically, it is feasible to conceive of non-human knowledge and non-human research by considering non-human entities as knowing subjects.
 
-Although it might seem insignificant since most people desire AI that produces knowledge for humans, I believe the observation that what is unknown to a machine may differ from what is unknown to humans provides implications for what we should do to realize an AI capable of conducting research.
+While this speculation may seem peripheral, that the machines might have a different scope of the unknown compared to humans has some implications for realizing artificial researcher. This is because it suggests that merely replicating current research methodologies in the agents might not necessarily yield new knowledge for humans.
 
-When what is unknown differs between humans and machines, creating a machine that can research in the same way as humans may not necessarily produce new knowledge for humans. This is because some of the methods developed by humans are aimed at revealing truths unknown to themselves, and even if a machine can mimic these methods, it would only reveal truths that are unknown to the machine, which is not necessarily unknown to human.
+Current research methods are designed to uncover truths unknown to knowing subjects. Therefore, an agent mimicking these methods might only reveal truths unknown to itself, which may not align with human knowledge gaps. If we want AI to conduct research autonomously, we must find a way to ensure it understands what is unknown to humans, not just to itself, and guide it to discover knowledge that is truly unknown in the human context.
 
-Considering this, if the goal is to create AI that produces knowledge for humans, then AI should either be used as just a tool to assist human research, develop new methodologies that discover the unknown for humans through machines rather than merely mimicking human methods, or, if the AI is allowed to research autonomously, there might be a need to teach it what is unknown to humans. These are merely a list of possibilities, but it is hoped that there will be further discussion in the future about whether these could truly become issues.
+This is just a preliminary discussions, and it is hoped that further discussion will continue on how to realize them for developing research-capable AI.
+
+% Thus, to develop AI that contributes to human knowledge, we could use AI just as a tool to enhance human research or we should create some methods for AI to find unknowns relevant to humans.
+
+% Consequently, if the objective is to develop AI that contributes knowledge for humans, several approaches could be considered. AI might be utilized as just a tool to augment human research, or new methodologies could be developed that enable AI to uncover unknowns specifically relevant to humans, rather than merely emulating human techniques. Alternatively, if AI is to conduct research autonomously, it may be necessary to instruct it on the areas of ignorance specific to human understanding. 
+
+
+
+
+
+% If the act of knowing is dependent on the subject, then it's theoretically possible to consider non-human knowledge and non-human research by assuming knowing subjects to be non-human. 
+
+% Although it might seem insignificant since most people desire AI that produces knowledge for humans, I believe the observation that what is unknown to a machine may differ from what is unknown to humans provides implications for what we should do to realize an AI capable of conducting research.
+
+% When what is unknown differs between humans and machines, creating a machine that can research in the same way as humans may not necessarily produce new knowledge for humans. This is because some of the methods developed by humans are aimed at revealing truths unknown to themselves, and even if a machine can mimic these methods, it would only reveal truths that are unknown to the machine, which is not necessarily unknown to human.
+
+% Considering this, if the goal is to create AI that produces knowledge for humans, then AI should either be used as just a tool to assist human research, develop new methodologies that discover the unknown for humans through machines rather than merely mimicking human methods, or, if the AI is allowed to research autonomously, there might be a need to teach it what is unknown to humans. These are merely a list of possibilities, but it is hoped that there will be further discussion in the future about whether these could truly become issues.
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \subsubsection{Truth-Conducive Justification Developed by Non-Human Agents?}
 
-Even though beliefs are indeed subjective, in research, justification is expected to be conducive to truth, thus making justified knowledge objective. That is, whether a proposition is true or not determines whether that belief is justified, regardless of what we think.
+% While beliefs are inherently subjective, research demands that justification be truth-conducive, thereby lending an objective character to justified knowledge. In essence, the truth value of a proposition, independent of personal belief, determines the justification of that belief.
 
-I admit that we cannot ``prove'' that our empirical justification methods are strictly truth-conducive. However, considering the numerous discoveries we have made through them, it would be pointless to doubt the legitimacy of them. If AI can fully master and appropriately utilize these justifications developed by humans, it would be enough for them to uncover numerous unknown truths. Few researchers would likely doubt the importance of this.
+It must be acknowledged that we cannot definitively ``prove'' our empirical methods to be entirely truth-conducive. Yet, given the myriad discoveries achieved through these methods, questioning their legitimacy seems unfounded. If agents can thoroughly grasp and effectively apply these human-developed justifications, it is poised to uncover numerous unknown truths, a prospect few researchers would dispute.
 
-Then, what about when the agent itself constructs its own methods of justification? Is it possible for an agent to construct new truth-conducive justification methods on its own instead of just mastering human developed methods? Human beings, for example, have developed statistical hypothesis testing as a method for evaluating hypotheses, so can AI similarly develop its own unique methods for evaluating new hypotheses? Even if it were possible, how ``significant'' would those be?
+Then, what about when the agent constructs its own methods of justification? Is it possible for an agent to construct new truth-conducive justification methods on its own, instead of just mastering human-developed methods? Humans have devised tools like statistical hypothesis testing to evaluate hypotheses; can AI similarly innovate unique methodologies? Even if it were possible, how significant would those be?
 
-Our justification is based on several premises. This means that we make an interpretation of ``in what sense a justification is truth-conducive'' or ``what is justification'' in some sense, and depending on that interpretation, there actually exist multiple methods of justification even in the case of humans \cite{otsuka2022thinking}. Therefore, when allowing artificial agents to autonomously construct up to the method of justification, the agent is expected to make value judgments about ``in what sense a justification is truth-conducive'' and ``what is justification,'' conceiving and selecting the optimal method of justification. 
+Our justification methods are founded on various premises, implying diverse interpretations of ``what constitutes a truth-conducive justification'' or ``what justification entails.'' These interpretations lead to multiple methods of justification even among humans \cite{otsuka2022thinking}. Consequently, when allowing artificial agents to autonomously develop justification methods, these agents must navigate value judgments regarding the nature and effectiveness of justification, thereby conceiving and selecting optimal methodologies.
 
-% In the case of humans, who have bodies formed through interaction with nature in the process of evolution and development and a belief system based on these bodies, it seems that they have already acquired a value system useful for understanding nature. Whether machines, which do not possess such a value system, can construct such methods of justification is an open problem.
-% \footnote{
-% For example, validating a hypothesis through statistical hypothesis testing essentially means believing that the inductive reasoning, which is a premise of statistical hypothesis testing, is valid. Using inductive reasoning implies believing in its premises, such as the principle of uniformity of nature \cite{sep-induction-problem}. Of course, there is no guarantee that this principle always holds, but it is such a natural assumption that has been shaped by nature through evolution and development and doubting it would make living practically impossible.
-% }
-% \footnote{
-% I naively assume that beliefs rooted directly in perception are more robust, and the notion that anchoring a belief on those foundations enhances its reliability. However, the question of how to justify beliefs is a complex problem with extensive discussions \cite{sep-epistemology} (my position seems to align somewhat with what is called \textit{empirical foundationalism}).Due to my limited philosophical knowledge and the ability to delve deeper into philosophical discussions, this paper will not further pursue these arguments.
-% }
+This exploration extends beyond philosophical musings. Since the current justification methodologies have not been proved to be the optimal, the potential for superior methodologies exists. Machines, unfettered by human cognitive limitations, theoretically possess the capacity to discover such methods. Importantly, the efficacy of truth-conducive justification can be evaluated irrespective of who uses it. Thus, machines might autonomously construct methods of justification suitable for the production of novel knowledge that human methodologies could not easily find. The feasibility, realization, and significance of these possibilities remain open for exploration and debate.
 
-% \textcolor{red}{may remove the part of nature}
+% Even though beliefs are indeed subjective, in research, justification is expected to be conducive to truth, thus making justified knowledge objective. That is, whether a proposition is true or not determines whether that belief is justified, regardless of what we think.
 
+% I admit that we cannot ``prove'' that our empirical justification methods are strictly truth-conducive. However, considering the numerous discoveries we have made through them, it would be pointless to doubt the legitimacy of them. If AI can fully master and appropriately utilize these justifications developed by humans, it would be enough for them to uncover numerous unknown truths. Few researchers would likely doubt the importance of this.
 
-This is not merely a philosophical inquiry. This is because, as long as we do not understand what constitutes the most truth-conducive justification, there is a possibility that better methods of justification may exist. Moreover, machines, not bound by cognitive constraints like humans, theoretically have the potential to discover such justifications. Particularly, the quality of a truth-conducive justification can be determined regardless of whether it involves humans or machines. Therefore, in the sense that its quality can be determined without human judgment, there is a possibility that machines could autonomously construct it. If this were to happen, it might enable the production of knowledge that humans alone could not have achieved. However, whether these are realistic, how they can be realized, and how significant they actually are, remains an open question.
+% Then, what about when the agent itself constructs its own methods of justification? Is it possible for an agent to construct new truth-conducive justification methods on its own instead of just mastering human developed methods? Human beings, for example, have developed statistical hypothesis testing as a method for evaluating hypotheses, so can AI similarly develop its own unique methods for evaluating new hypotheses? Even if it were possible, how ``significant'' would those be?
+
+% Our justification is based on several premises. This means that we make an interpretation of ``in what sense a justification is truth-conducive'' or ``what is justification'' in some sense, and depending on that interpretation, there actually exist multiple methods of justification even in the case of humans \cite{otsuka2022thinking}. Therefore, when allowing artificial agents to autonomously construct up to the method of justification, the agent is expected to make value judgments about ``in what sense a justification is truth-conducive'' and ``what is justification,'' conceiving and selecting the optimal method of justification. 
+
+% This is not merely a philosophical inquiry. This is because, as long as we do not understand what constitutes the most truth-conducive justification, there is a possibility that better methods of justification may exist. Moreover, machines, not bound by cognitive constraints like humans, theoretically have the potential to discover such justifications. Particularly, the quality of a truth-conducive justification can be determined regardless of whether it involves humans or machines. Therefore, in the sense that its quality can be determined without human judgment, there is a possibility that machines could autonomously construct it. If this were to happen, it might enable the production of knowledge that humans alone could not have achieved. However, whether these are realistic, how they can be realized, and how significant they actually are, remains an open question.
 
 \subsection{Conclusion}
-In this section, I have discussed a provisional working definition of research. I started with the naive intuition that research is the endeavor to generate new knowledge for certain society. I then speculatively explored the ideas that knowledge is belief and the production of knowledge involves updating beliefs. Based on these discussions, I presented a conjectural discussion around the implications for non-human agents to conduct knowledge production.
+In this section, I have provided a provisional working definition of research. My initial premise was the intuitive belief that research is an endeavor aimed at generating new knowledge for a particular society. This discussion then ventured into speculative territory, examining the notions that knowledge is fundamentally a form of belief and that the production of knowledge entails the updating of beliefs. Building on these ideas, I presented a conjectural exploration of the insights for non-human agents in knowledge production.
 
-The definition discussed here is just a starting point. By combining insights from philosophers, scientists, and all working researchers, we can engage in a deeper analysis of the definition of research, developing more fruitful and reliable guidelines for our goal.
+It is important to note that the definition proposed here serves merely as a starting point. A more comprehensive and nuanced understanding of research can be cultivated through the collective insights of philosophers, scientists, and practitioners across various fields. This collaborative approach will enable us to delve deeper into the definition of research and develop more robust and effective guidelines to realize an artificial researcher.
+
+% In this section, I have discussed a provisional working definition of research. I started with the naive intuition that research is the endeavor to generate new knowledge for certain society. I then speculatively explored the ideas that knowledge is belief and the production of knowledge involves updating beliefs. Based on these discussions, I presented a conjectural discussion around the implications for non-human agents to conduct knowledge production.
+
+% The definition discussed here is just a starting point. By combining insights from philosophers, scientists, and all working researchers, we can engage in a deeper analysis of the definition of research, developing more fruitful and reliable guidelines for our goal.
 
 \section{Question, Hypothesis, and  Verification}
 \label{section-question-hypothesis-verification}
