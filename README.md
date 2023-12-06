@@ -10,7 +10,7 @@ The compiled PDF is [here](https://github.com/t46/research-automation-perspectiv
 @misc{t462023speculative,
 author = {t46},
 title = {{Speculative Exploration on the Concept of Artificial Agents Conducting Autonomous Research}},
-url = {https://github.com/t46/research-automation-perspective-paper/tree/ADD_COMMIT_HASH_HERE},
+url = {https://github.com/t46/research-automation-perspective-paper/tree/{ADD_COMMIT_HASH_HERE},
 year = {2023}
 }
 ```
