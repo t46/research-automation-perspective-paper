@@ -1,6 +1,6 @@
 # Speculative Exploration on the Concept of Artificial Agents Conducting Autonomous Research
 
-This paper speculatively explores the concept of artificial agents that conduct research autonomously. The content of the thesis is all described in `main.tex`. The files under `archive` are currently unused.
+This paper speculatively explores the concept of artificial agents that conduct research autonomously. The content of the paper is all in `main.tex`. The files under `archive` are currently unused.
 
 The compiled PDF is [here](https://github.com/t46/research-automation-perspective-paper/blob/gh-pages/main.pdf).
 
