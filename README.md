@@ -4,6 +4,8 @@ This paper speculatively explores the concept of artificial agents that conduct 
 
 The compiled PDF is [here](https://github.com/t46/research-automation-perspective-paper/blob/gh-pages/main.pdf).
 
+Arxiv: [https://arxiv.org/abs/2312.03497](https://arxiv.org/abs/2312.03497)
+
 ## Citation
 
 ```
